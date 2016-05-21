@@ -1,0 +1,131 @@
+\documentclass{amsart}
+\usepackage{amslatex,amsmath,amssymb,latexsym}
+
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{example}[theorem]{Example}
+\theoremstyle{remark} 
+\newtheorem{remark}[theorem]{Remark}
+\numberwithin{equation}{section}
+
+
+\newcommand{\cA}{\mathcal{A}}
+
+
+\title{Introduction to Cluster Algebras}
+
+\begin{document}
+\begin{abstract}
+  These are notes for a series of lectures presented at the ASIDE conference 2016.
+\end{abstract}
+\maketitle
+
+%%%%%%%%%%%%%%%%%%%%%%
+\section{Introduction}
+  <Write overview of cluster algebras and broad history.>
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Motivating Examples}
+  <Write brief lead-in.>
+  \begin{example}
+    Total positivity.
+  \end{example}
+
+  \begin{example}
+    $Gr_{2}(\CC^n)$
+  \end{example}
+
+  \begin{example}
+    Markov numbers. Ad hoc proofs of: integrality and positivity.
+  \end{example}
+
+  \begin{example}
+    <Include some example where $y$-variable mutations are natural.>
+  \end{example}
+
+  \begin{exercise}
+    Anything illuminating to ask participants to do?
+  \end{exercise}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{A Unifying Concept: Cluster Algebras}
+
+  \begin{definition}
+    Define cluster algebras with $x$-variable and $y$-variable mutations.
+  \end{definition}
+
+  \begin{example}
+    Type $A_2$.
+  \end{example}
+
+  \begin{exercise}
+    Compute all cluster variables and coefficient variables for cluster algebras associated to $B=\left[\begin{array}{cc} 0 & b\\ -c & 0\end{array}\right]$ with $b,c\in\ZZ_{>0}$ and $bc\le 3$.  Justify why attempting such a calculation is futile for $bc\ge4$.
+  \end{exercise}
+
+  \begin{exercise}
+    Prove the Laurent phenomenon for rank 2 cluster algebras.  <Include guiding hints and make the question more explicit.>
+  \end{exercise}
+
+%%%%%%%%%%%%%%%%%%%%%%%
+\section{Basic Results}
+
+  \begin{theorem}
+    Laurent phenomenon.
+  \end{theorem}
+
+  %Thus it is natural to seek a concrete understanding of these Laurent expansions of cluster variables.
+  %\begin{theorem}
+  %  Categorification?
+  %\end{theorem}
+
+  \begin{theorem}
+    Finite-type classification.
+  \end{theorem}
+
+  \begin{theorem}
+    Positivity.
+  \end{theorem}
+
+  %The proof builds on a concrete combinatorial construction of cluster variables in rank 2.
+  %\begin{theorem}
+  %  Combinatorial constructions in rank 2.
+  %\end{theorem}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Compatible Poisson Structures and Quantization}
+
+  \begin{definition}
+    Poisson algebra.
+  \end{definition}
+
+  \begin{definition}
+    Log-canonical Poisson brackets.
+  \end{definition}
+
+  \begin{definition}
+    Compatible Poisson structures on a cluster algebra.
+  \end{definition}
+
+  \begin{theorem}
+    A compatible Poisson structure exists if and only if the exchange matrix has full rank.  Moreover, the collection of all such Poisson structures is parametrized by an affine space of dimension ???.
+  \end{theorem}
+
+  \begin{definition}
+    Quantum cluster algebra.
+  \end{definition}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Applications to Integrable Systems}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{thebibliography}{99}
+
+\end{thebibliography}
+
+\end{document}
