@@ -1,5 +1,5 @@
 \documentclass{amsart}
-\usepackage{amslatex,amsmath,amssymb,latexsym}
+\usepackage{amsmath,amssymb,latexsym}
 
 
 \newtheorem{theorem}{Theorem}[section]
@@ -9,12 +9,15 @@
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{proposition}[theorem]{Proposition}
 \newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
 \theoremstyle{remark} 
 \newtheorem{remark}[theorem]{Remark}
 \numberwithin{equation}{section}
 
 
 \newcommand{\cA}{\mathcal{A}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\ZZ}{\mathbb{Z}}
 
 
 \title{Introduction to Cluster Algebras}
@@ -32,16 +35,17 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Motivating Examples}
   <Write brief lead-in.>
+
   \begin{example}
-    Total positivity.
+    Markov numbers. Ad hoc proofs of: integrality and positivity.
   \end{example}
 
   \begin{example}
     $Gr_{2}(\CC^n)$
   \end{example}
-
+  
   \begin{example}
-    Markov numbers. Ad hoc proofs of: integrality and positivity.
+    Total positivity in $SL_n$.  <Talk about double Bruhat cells?>
   \end{example}
 
   \begin{example}
@@ -57,6 +61,13 @@
 
   \begin{definition}
     Define cluster algebras with $x$-variable and $y$-variable mutations.
+
+    \begin{equation}\label{eq:matrix mutation}
+      b'_{ij}=\begin{cases}
+                 -b_{ij} & \text{if $i=k$ or $j=k$;}\\
+                 b_{ij}+[b_{ik}]_+b_{kj}+b_{ik}[-b_{kj}]_+ & \text{otherwise.}
+               \end{cases}
+    \end{equation}
   \end{definition}
 
   \begin{example}
@@ -125,7 +136,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{thebibliography}{99}
-
+  \bibitem[FZ02] S. Fomin and A. Zelevinsky, Cluster algebras I: Foundations
 \end{thebibliography}
 
 \end{document}
