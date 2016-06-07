@@ -1,5 +1,5 @@
 \documentclass{amsart}
-\usepackage{amsmath,amssymb,latexsym}
+\usepackage{amsmath,amssymb,latexsym,enumerate}
 
 
 \newtheorem{theorem}{Theorem}[section]
@@ -9,6 +9,7 @@
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{proposition}[theorem]{Proposition}
 \newtheorem{example}[theorem]{Example}
+\newtheorem{subexercise}{Exercise}[theorem]
 \newtheorem{exercise}[theorem]{Exercise}
 \theoremstyle{remark} 
 \newtheorem{remark}[theorem]{Remark}
@@ -44,7 +45,23 @@
   <Write brief lead-in.>
 
   \begin{example}
-    Markov numbers. Ad hoc proofs of: integrality and positivity.
+    A Markov triple is a tuple $(a,b,c)$ of positive integers satisfying the Markov equation $a^2+b^2+c^2=3abc$, an integer which appears as a term in a Markov triple is called a Markov number.  The Markov equation is an example of a Diophantine equation and two classical number theoretic problems are to determine the number of solutions and to determine a method for finding all such solutions.  We will solve both of these problems for the Markov equation.
+
+    To begin with we note that $(1,1,1)$ and $(1,1,2)$ are (up to reordering) the only Markov triples with repeated values.
+    \begin{subexercise}
+      Prove this claim.
+    \end{subexercise}
+    Rearranging the Markov equation we see that $c^2-3abc+a^2+b^2=0$ and so $c$ is a root of the quadratic $f(x)=x^2-3abx+a^2+b^2$.  But the other root $c'=3ab-c=\frac{a^2+b^2}{c}$ is a positive integer and so $(a,b,c')$ is again a Markov triple.  
+
+    Note that there was nothing special about $c$ in the calculation above so that, given any Markov triple $(a,b,c)$ we may perform three possible exchanges 
+    \[(a,b,3ab-c)\quad(a,3ac-b,c)\quad(3bc-a,b,c)\]
+    and obtain another Markov triple in each case.  The following exercises solve the above two classical problems of Diophantine equations.
+    \begin{subexercise}\mbox{}
+      \begin{enumerate}[\quad\upshape (a)]
+        \item Prove that there are infinitely many Markov triples by showing that there is no bound on how large the largest value can be.
+        \item Show that all Markov triples may be obtained from the Markov triple $(1,1,1)$ by a sequence of exchanges.
+      \end{enumerate}
+    \end{subexercise}
   \end{example}
 
   \begin{example}

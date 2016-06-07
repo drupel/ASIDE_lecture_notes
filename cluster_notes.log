@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  6 JUN 2016 20:59
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  7 JUN 2016 00:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -114,109 +114,114 @@ Package: latexsym 1998/08/17 v2.2e Standard LaTeX package (lasy symbols)
 LaTeX Font Info:    Overwriting symbol font `lasy' in version `bold'
 (Font)                  U/lasy/m/n --> U/lasy/b/n on input line 52.
 )
+(/usr/local/texlive/2015/texmf-dist/tex/latex/tools/enumerate.sty
+Package: enumerate 2014/10/28 v3.00 enumerate extensions (DPC)
+\@enLab=\toks25
+)
 \c@theorem=\count99
+\c@subexercise=\count100
 
 (./cluster_notes.aux)
 \openout1 = `cluster_notes.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Try loading font information for U+msa on input line 27.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Try loading font information for U+msa on input line 28.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 27.
+LaTeX Font Info:    Try loading font information for U+msb on input line 28.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for U+lasy on input line 27.
+LaTeX Font Info:    Try loading font information for U+lasy on input line 28.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
 
-LaTeX Warning: Citation `FZ02' on page 1 undefined on input line 35.
+LaTeX Warning: Citation `FZ02' on page 1 undefined on input line 36.
 
 
-LaTeX Warning: Citation `FZ99' on page 1 undefined on input line 35.
+LaTeX Warning: Citation `FZ99' on page 1 undefined on input line 36.
 
 
-LaTeX Warning: Citation `musiker-propp' on page 1 undefined on input line 35.
+LaTeX Warning: Citation `musiker-propp' on page 1 undefined on input line 36.
 
 
-LaTeX Warning: Citation `FG' on page 1 undefined on input line 35.
+LaTeX Warning: Citation `FG' on page 1 undefined on input line 36.
 
 
-LaTeX Warning: Citation `FST' on page 1 undefined on input line 35.
+LaTeX Warning: Citation `FST' on page 1 undefined on input line 36.
 
 
-LaTeX Warning: Citation `MSW' on page 1 undefined on input line 35.
+LaTeX Warning: Citation `MSW' on page 1 undefined on input line 36.
 
 
-LaTeX Warning: Citation `GLS' on page 1 undefined on input line 35.
+LaTeX Warning: Citation `GLS' on page 1 undefined on input line 36.
 
 
-LaTeX Warning: Citation `GSV' on page 1 undefined on input line 35.
+LaTeX Warning: Citation `GSV' on page 1 undefined on input line 36.
 
 
-LaTeX Warning: Citation `dFK' on page 1 undefined on input line 35.
+LaTeX Warning: Citation `dFK' on page 1 undefined on input line 36.
 
 
-LaTeX Warning: Citation `G' on page 1 undefined on input line 35.
+LaTeX Warning: Citation `G' on page 1 undefined on input line 36.
 
 
-LaTeX Warning: Citation `CC' on page 1 undefined on input line 35.
+LaTeX Warning: Citation `CC' on page 1 undefined on input line 36.
 
 
-LaTeX Warning: Citation `CK' on page 1 undefined on input line 35.
+LaTeX Warning: Citation `CK' on page 1 undefined on input line 36.
 
 
-LaTeX Warning: Citation `BMRRT' on page 1 undefined on input line 35.
+LaTeX Warning: Citation `BMRRT' on page 1 undefined on input line 36.
 
 
-LaTeX Warning: Citation `Rup1' on page 1 undefined on input line 35.
+LaTeX Warning: Citation `Rup1' on page 1 undefined on input line 36.
 
 
-LaTeX Warning: Citation `Q' on page 1 undefined on input line 35.
+LaTeX Warning: Citation `Q' on page 1 undefined on input line 36.
 
 
-LaTeX Warning: Citation `Rup2' on page 1 undefined on input line 35.
+LaTeX Warning: Citation `Rup2' on page 1 undefined on input line 36.
 
 
-LaTeX Warning: Citation `EF' on page 1 undefined on input line 35.
+LaTeX Warning: Citation `EF' on page 1 undefined on input line 36.
 
 
-LaTeX Warning: Citation `ABCGPT' on page 1 undefined on input line 35.
+LaTeX Warning: Citation `ABCGPT' on page 1 undefined on input line 36.
 
 
-LaTeX Warning: Citation `K' on page 1 undefined on input line 35.
+LaTeX Warning: Citation `K' on page 1 undefined on input line 36.
 
 
-LaTeX Warning: Citation `GLS2' on page 1 undefined on input line 35.
+LaTeX Warning: Citation `GLS2' on page 1 undefined on input line 36.
 
 
-LaTeX Warning: Citation `KQ' on page 1 undefined on input line 35.
+LaTeX Warning: Citation `KQ' on page 1 undefined on input line 36.
 
 
-LaTeX Warning: Citation `BR' on page 1 undefined on input line 35.
+LaTeX Warning: Citation `BR' on page 1 undefined on input line 36.
 
 
-LaTeX Warning: Citation `??' on page 1 undefined on input line 37.
+LaTeX Warning: Citation `??' on page 1 undefined on input line 38.
 
 [1{/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Overfull \hbox (39.26468pt too wide) in paragraph at lines 99--100
+Overfull \hbox (39.26468pt too wide) in paragraph at lines 116--117
 \OT1/cmr/bx/n/10 Definition 3.3. \OT1/cmr/m/it/10 Fix an am-bi-ent field $\OMS/
 cmsy/m/n/10 F \OT1/cmr/m/n/10 = \U/msb/m/n/10 C\OT1/cmr/m/n/10 (\OML/cmm/m/it/1
 0 x[]; [] ; x[]\OT1/cmr/m/n/10 )$ \OT1/cmr/m/it/10 and an ini-tial seed $\OT1/c
@@ -230,13 +235,13 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 1684 strings out of 493089
- 18682 string characters out of 6134842
- 78021 words of memory out of 5000000
- 5033 multiletter control sequences out of 15000+600000
+ 1710 strings out of 493089
+ 19094 string characters out of 6134842
+ 78040 words of memory out of 5000000
+ 5056 multiletter control sequences out of 15000+600000
  12619 words of font info for 50 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
- 34i,12n,32p,1116b,246s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 34i,12n,32p,1116b,278s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pf
 b></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pf
@@ -252,7 +257,7 @@ live/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texl
 ive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texliv
 e/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive
 /2015/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on cluster_notes.pdf (4 pages, 178197 bytes).
+Output written on cluster_notes.pdf (4 pages, 182122 bytes).
 PDF statistics:
  77 PDF objects out of 1000 (max. 8388607)
  55 compressed objects within 1 object stream
