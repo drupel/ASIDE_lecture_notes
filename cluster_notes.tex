@@ -18,7 +18,8 @@
 
 \newcommand{\cA}{\mathcal{A}}
 \newcommand{\cF}{\mathcal{F}}
-\newcommand{\x}{\textbf{x}}
+\newcommand{\x}{{\bf x}}
+\newcommand{\y}{{\bf y}}
 \newcommand{\CC}{\mathbb{C}}
 \newcommand{\ZZ}{\mathbb{Z}}
 
@@ -82,7 +83,8 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{A Unifying Concept: Cluster Algebras}\label{sec:cluster_algebras}
-	We define (skew-symmetric) cluster algebras at three successive levels of generality, differing from one another in the allowable types of coefficients.
+	%We define (skew-symmetric) cluster algebras at three successive levels of generality, differing from one another in the allowable types of coefficients. 
+	We define (skew-symmetric) cluster algebras of geometric type and $Y$-patterns, with a focus on the underlying dynamics of seed mutations.
 	
 	\subsection{Trivial coefficients}
 
@@ -153,7 +155,43 @@
 	\end{displaymath}
 	where the products are for $i$ from $1$ to $n$.
 	
-	\subsection{General coefficients}
+	\subsection{$Y$-patterns}
+	There is an alternate version of seeds and mutations, closely related to the previous, which itself arises in many applications.  
+	
+	\begin{definition}
+		A \emph{$Y$-seed} is a pair $(\y,B)$ consisting of an $n$-tuple $\y=(y_1,\ldots, y_n)$ of rational functions and an $n\times n$ skew symmetric matrix $B$.  For $k=1,\ldots, n$, the \emph{$Y$-seed mutation} $\mu_k$ is defined by
+		\begin{displaymath}
+			\mu_k((y_1,\ldots, y_n),B) = ((y_1',\ldots, y_n'),B')
+		\end{displaymath}
+		for $B'$ as defined in \eqref{eq:matrix mutation} and 
+		\begin{equation}\label{eq:y mutation}
+		% Warning: this seems to only agree with (2.3) in CA-IV in the skew-symmetric case
+		y_j' = \begin{cases}
+		y_k^{-1} & \text{if $j = k$;} \\
+		y_jy_k^{|-b_{jk}|_+}(1+y_k)^{b_{jk}} & \text{if $j \neq k$.} \\
+		\end{cases}
+		\end{equation}
+	\end{definition}
+	
+	In words, the $Y$-seed mutation $\mu_k$ has the following effects:
+	\begin{enumerate}
+	\item For each $j \neq k$, $y_j$ is multiplied by $(1+y_k)^{b_{jk}}$ if $b_{jk}>0$ and by $(1+y_k^{-1})^{b_{jk}}$ if $b_{jk}<0$,
+	\item $y_k$ is inverted,
+	\item $B$ is changed in the same way as for ordinary seed mutations.
+	\end{enumerate}
+	%The $Y$-dynamics also go by the name \emph{coefficient dynamics} because the tropicalisation of \cite{eq:y mutation} describes how the coefficients in a geometric type cluster algebra evolve.
+	
+	One connection between the two types of dynamics comes by way of a certain Laurent monomial change of variables.  Let $\tilde{B}$ be an $m \times n$, extended exchange matrix with $B$ its upper $n \times n$ part.  Given a seed $((x_1,\ldots, x_m),\tilde{B})$, define an associated $Y$-seed $((\hat{y}_1,\ldots, \hat{y}_n),B)$ by
+	\begin{displaymath}
+	\hat{y}_j = \prod_{i=1}^m x_i^{b_{ij}}
+	\end{displaymath}
+	
+	\begin{proposition}
+	Fix $k=1,\ldots, n$ and suppose $\mu_k(\x,\tilde{B}) = (\x',\tilde{B}')$.  Define $(y_1,\ldots, y_n)$ from $(\x,\tilde{B})$ and $(y_1',\ldots, y_n')$ from $(\x',\tilde{B}')$ as above.  Then 
+	\begin{displaymath}
+	\mu_k((\hat{y}_1,\ldots, \hat{y}_n), B) = ((\hat{y}_1',\ldots, \hat{y}_n'), B').
+	\end{displaymath}
+	\end{proposition}
 
   \begin{exercise}
     Compute all cluster variables and coefficient variables for cluster algebras associated to $B=\left[\begin{array}{cc} 0 & b\\ -c & 0\end{array}\right]$ with $b,c\in\ZZ_{>0}$ and $bc\le 3$.  Justify why attempting such a calculation is futile for $bc\ge4$.

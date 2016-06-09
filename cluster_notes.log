@@ -1,34 +1,36 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  7 JUN 2016 00:32
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=latex 2015.7.19)  8 JUN 2016 21:00
 entering extended mode
- restricted \write18 enabled.
- %&-line parsing enabled.
 **cluster_notes.tex
-(./cluster_notes.tex
-LaTeX2e <2015/01/01>
-Babel <3.9l> and hyphenation patterns for 79 languages loaded.
-(/usr/local/texlive/2015/texmf-dist/tex/latex/amscls/amsart.cls
-Document Class: amsart 2015/03/04 v2.20.2
+(C:\Users\Max\Documents\GitHub\ASIDE_lecture_notes\cluster_notes.tex
+LaTeX2e <2011/06/27>
+Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, arabic, armenian, assamese, basque, bengali
+, bokmal, bulgarian, catalan, coptic, croatian, czech, danish, dutch, esperanto, estonian, farsi, finnish, french, galic
+ian, german, german-x-2013-05-26, greek, gujarati, hindi, hungarian, icelandic, indonesian, interlingua, irish, italian,
+ kannada, kurmanji, latin, latvian, lithuanian, malayalam, marathi, mongolian, mongolianlmc, monogreek, ngerman, ngerman
+-x-2013-05-26, nynorsk, oriya, panjabi, pinyin, polish, portuguese, romanian, russian, sanskrit, serbian, slovak, sloven
+ian, spanish, swedish, swissgerman, tamil, telugu, turkish, turkmen, ukenglish, ukrainian, uppersorbian, usenglishmax, w
+elsh, loaded.
+("C:\Program Files\MiKTeX 2.9\tex\latex\amscls\amsart.cls"
+Document Class: amsart 2009/07/02 v2.20.1
 \linespacing=\dimen102
 \normalparindent=\dimen103
 \normaltopskip=\skip41
-(/usr/local/texlive/2015/texmf-dist/tex/latex/amsmath/amsmath.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsmath.sty"
 Package: amsmath 2013/01/14 v2.14 AMS math features
 \@mathmargin=\skip42
 
 For additional information on amsmath, use the `?' option.
-(/usr/local/texlive/2015/texmf-dist/tex/latex/amsmath/amstext.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amstext.sty"
 Package: amstext 2000/06/29 v2.01
-
-(/usr/local/texlive/2015/texmf-dist/tex/latex/amsmath/amsgen.sty
+ ("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsgen.sty"
 File: amsgen.sty 1999/11/30 v2.0
 \@emptytoks=\toks14
 \ex@=\dimen104
-))
-(/usr/local/texlive/2015/texmf-dist/tex/latex/amsmath/amsbsy.sty
+)) ("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsbsy.sty"
 Package: amsbsy 1999/11/29 v1.2d
 \pmbraise@=\dimen105
 )
-(/usr/local/texlive/2015/texmf-dist/tex/latex/amsmath/amsopn.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsopn.sty"
 Package: amsopn 1999/12/14 v2.01 operator names
 )
 \inf@bad=\count79
@@ -70,11 +72,9 @@ LaTeX Info: Redefining \[ on input line 2665.
 LaTeX Info: Redefining \] on input line 2666.
 )
 LaTeX Font Info:    Try loading font information for U+msa on input line 388.
-
-(/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsa.fd
+ ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-(/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+) ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\amsfonts.sty"
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 \symAMSa=\mathgroup4
 \symAMSb=\mathgroup5
@@ -105,162 +105,135 @@ LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 \thm@headsep=\skip50
 \dth@everypar=\toks24
 )
-(/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/amssymb.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\amssymb.sty"
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
-)
-(/usr/local/texlive/2015/texmf-dist/tex/latex/base/latexsym.sty
+) ("C:\Program Files\MiKTeX 2.9\tex\latex\base\latexsym.sty"
 Package: latexsym 1998/08/17 v2.2e Standard LaTeX package (lasy symbols)
 \symlasy=\mathgroup6
 LaTeX Font Info:    Overwriting symbol font `lasy' in version `bold'
-(Font)                  U/lasy/m/n --> U/lasy/b/n on input line 52.
-)
-(/usr/local/texlive/2015/texmf-dist/tex/latex/tools/enumerate.sty
-Package: enumerate 2014/10/28 v3.00 enumerate extensions (DPC)
+(Font)                  U/lasy/m/n --> U/lasy/b/n on input line 47.
+) ("C:\Program Files\MiKTeX 2.9\tex\latex\tools\enumerate.sty"
+Package: enumerate 1999/03/05 v3.00 enumerate extensions (DPC)
 \@enLab=\toks25
 )
 \c@theorem=\count99
 \c@subexercise=\count100
 
-(./cluster_notes.aux)
-\openout1 = `cluster_notes.aux'.
+(C:\Users\Max\Documents\GitHub\ASIDE_lecture_notes\cluster_notes.aux)
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Try loading font information for U+msa on input line 29.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Try loading font information for U+msa on input line 28.
-
-(/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsa.fd
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 28.
-
-(/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsb.fd
+LaTeX Font Info:    Try loading font information for U+msb on input line 29.
+ ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for U+lasy on input line 28.
+LaTeX Font Info:    Try loading font information for U+lasy on input line 29.
 
-(/usr/local/texlive/2015/texmf-dist/tex/latex/base/ulasy.fd
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\ulasy.fd"
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
 
-LaTeX Warning: Citation `FZ02' on page 1 undefined on input line 36.
+LaTeX Warning: Citation `FZ02' on page 1 undefined on input line 37.
 
 
-LaTeX Warning: Citation `FZ99' on page 1 undefined on input line 36.
+LaTeX Warning: Citation `FZ99' on page 1 undefined on input line 37.
 
 
-LaTeX Warning: Citation `musiker-propp' on page 1 undefined on input line 36.
+LaTeX Warning: Citation `musiker-propp' on page 1 undefined on input line 37.
 
 
-LaTeX Warning: Citation `FG' on page 1 undefined on input line 36.
+LaTeX Warning: Citation `FG' on page 1 undefined on input line 37.
 
 
-LaTeX Warning: Citation `FST' on page 1 undefined on input line 36.
+LaTeX Warning: Citation `FST' on page 1 undefined on input line 37.
 
 
-LaTeX Warning: Citation `MSW' on page 1 undefined on input line 36.
+LaTeX Warning: Citation `MSW' on page 1 undefined on input line 37.
 
 
-LaTeX Warning: Citation `GLS' on page 1 undefined on input line 36.
+LaTeX Warning: Citation `GLS' on page 1 undefined on input line 37.
 
 
-LaTeX Warning: Citation `GSV' on page 1 undefined on input line 36.
+LaTeX Warning: Citation `GSV' on page 1 undefined on input line 37.
 
 
-LaTeX Warning: Citation `dFK' on page 1 undefined on input line 36.
+LaTeX Warning: Citation `dFK' on page 1 undefined on input line 37.
 
 
-LaTeX Warning: Citation `G' on page 1 undefined on input line 36.
+LaTeX Warning: Citation `G' on page 1 undefined on input line 37.
 
 
-LaTeX Warning: Citation `CC' on page 1 undefined on input line 36.
+LaTeX Warning: Citation `CC' on page 1 undefined on input line 37.
 
 
-LaTeX Warning: Citation `CK' on page 1 undefined on input line 36.
+LaTeX Warning: Citation `CK' on page 1 undefined on input line 37.
 
 
-LaTeX Warning: Citation `BMRRT' on page 1 undefined on input line 36.
+LaTeX Warning: Citation `BMRRT' on page 1 undefined on input line 37.
 
 
-LaTeX Warning: Citation `Rup1' on page 1 undefined on input line 36.
+LaTeX Warning: Citation `Rup1' on page 1 undefined on input line 37.
 
 
-LaTeX Warning: Citation `Q' on page 1 undefined on input line 36.
+LaTeX Warning: Citation `Q' on page 1 undefined on input line 37.
 
 
-LaTeX Warning: Citation `Rup2' on page 1 undefined on input line 36.
+LaTeX Warning: Citation `Rup2' on page 1 undefined on input line 37.
 
 
-LaTeX Warning: Citation `EF' on page 1 undefined on input line 36.
+LaTeX Warning: Citation `EF' on page 1 undefined on input line 37.
 
 
-LaTeX Warning: Citation `ABCGPT' on page 1 undefined on input line 36.
+LaTeX Warning: Citation `ABCGPT' on page 1 undefined on input line 37.
 
 
-LaTeX Warning: Citation `K' on page 1 undefined on input line 36.
+LaTeX Warning: Citation `K' on page 1 undefined on input line 37.
 
 
-LaTeX Warning: Citation `GLS2' on page 1 undefined on input line 36.
+LaTeX Warning: Citation `GLS2' on page 1 undefined on input line 37.
 
 
-LaTeX Warning: Citation `KQ' on page 1 undefined on input line 36.
+LaTeX Warning: Citation `KQ' on page 1 undefined on input line 37.
 
 
-LaTeX Warning: Citation `BR' on page 1 undefined on input line 36.
+LaTeX Warning: Citation `BR' on page 1 undefined on input line 37.
 
 
-LaTeX Warning: Citation `??' on page 1 undefined on input line 38.
+LaTeX Warning: Citation `??' on page 1 undefined on input line 39.
 
-[1{/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Overfull \hbox (39.26468pt too wide) in paragraph at lines 116--117
-\OT1/cmr/bx/n/10 Definition 3.3. \OT1/cmr/m/it/10 Fix an am-bi-ent field $\OMS/
-cmsy/m/n/10 F \OT1/cmr/m/n/10 = \U/msb/m/n/10 C\OT1/cmr/m/n/10 (\OML/cmm/m/it/1
-0 x[]; [] ; x[]\OT1/cmr/m/n/10 )$ \OT1/cmr/m/it/10 and an ini-tial seed $\OT1/c
-mr/m/n/10 ((\OML/cmm/m/it/10 x[]; [] ; x[]\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 ; B
-\OT1/cmr/m/n/10 )$\OT1/cmr/m/it/10 .
+[1]
+Overfull \hbox (39.26468pt too wide) in paragraph at lines 118--119
+\OT1/cmr/bx/n/10 Definition 3.3. \OT1/cmr/m/it/10 Fix an am-bi-ent field $\OMS/cmsy/m/n/10 F \OT1/cmr/m/n/10 = \U/msb/m/
+n/10 C\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x[]; [] ; x[]\OT1/cmr/m/n/10 )$ \OT1/cmr/m/it/10 and an ini-tial seed $\OT1/cmr/
+m/n/10 ((\OML/cmm/m/it/10 x[]; [] ; x[]\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 ; B\OT1/cmr/m/n/10 )$\OT1/cmr/m/it/10 .
  []
 
-[2] [3] [4] (./cluster_notes.aux)
+[2] [3] [4] [5] (C:\Users\Max\Documents\GitHub\ASIDE_lecture_notes\cluster_notes.aux)
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 1710 strings out of 493089
- 19094 string characters out of 6134842
- 78040 words of memory out of 5000000
- 5056 multiletter control sequences out of 15000+600000
- 12619 words of font info for 50 fonts, out of 8000000 for 9000
- 1302 hyphenation exceptions out of 8191
- 34i,12n,32p,1116b,278s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
-></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pf
-b></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pf
-b></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
-></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb>
-</usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></
-usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></us
-r/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/
-local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/loc
-al/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/
-texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/tex
-live/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texl
-ive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texliv
-e/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive
-/2015/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on cluster_notes.pdf (4 pages, 182122 bytes).
-PDF statistics:
- 77 PDF objects out of 1000 (max. 8388607)
- 55 compressed objects within 1 object stream
- 0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1710 strings out of 493922
+ 19137 string characters out of 3147311
+ 72895 words of memory out of 3000000
+ 4866 multiletter control sequences out of 15000+200000
+ 11542 words of font info for 47 fonts, out of 3000000 for 9000
+ 1002 hyphenation exceptions out of 8191
+ 34i,12n,32p,1116b,278s stack positions out of 5000i,500n,10000p,200000b,50000s
 
+Output written on cluster_notes.dvi (5 pages, 19504 bytes).
