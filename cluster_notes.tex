@@ -69,8 +69,39 @@
     \end{subexercise}
   \end{example}
 
-  \begin{example}
-    $Gr_{2}(\CC^n)$
+  \begin{example} \label{example:Gr2n}
+		The \emph{Grassmannian} $Gr_{k}(\CC^n)$ is the set of $k$-dimensional linear subspaces of $\CC^n$.  A point in the Grassmannian can be described, albeit non-uniquely, as the row span of a full rank matrix $A \in \CC^{k \times n}$.  The maximal minors of $A$ are called \emph{Plucker coordinates}.
+		
+		Now, restrict to $k=2$ and let 
+		\begin{displaymath}
+			A = \left[ \begin{array}{cccc}
+			a_{11} & a_{12} & \ldots & a_{1n} \\
+			a_{21} & a_{22} & \ldots & a_{2n} \\
+			\end{array} \right].
+		\end{displaymath}
+		The Plucker coordinates look like $\Delta_{ij} = a_{1i}a_{2j} - a_{1j}a_{2i}$ for $1 \leq i < j \leq n$.  
+		
+		\begin{subexercise}
+			The $\Delta_{ij}$ satisfy the so-called \emph{Plucker relations}
+			\begin{displaymath}
+				\Delta_{ik}\Delta_{jl} = \Delta_{ij}\Delta_{kl} + \Delta_{il}\Delta_{jk}
+			\end{displaymath}
+			for $1 \leq i < j < k < l \leq n$.
+		\end{subexercise}
+		
+		Consider a regular $n$-gon with vertices labeled $1,2,\ldots, n$.  Let $T$ be a triangulation, i.e. a maximal collection of chords $\overline{ij}$ with $1 \leq i < j \leq n$ no two of which intersect in their interior.  Note $T$ always consists of $n-3$ diagonals together with the $n$ sides $\overline{12}, \overline{23}, \overline{34}, \ldots, \overline{1n}$.  Associated to $T$ is a corresponding collection of Plucker coordinates
+		\begin{displaymath}
+			\x_T := \{\Delta_{ij} : \overline{ij} \in T\}
+		\end{displaymath}
+		\begin{proposition}
+		Fix positive reals $x_{ij}$ for all $\overline{ij} \in T$.  Then there exists $A \in Gr_2(\CC^n)$ such that $\Delta_{ij}(A) = x_{ij}$ for all $\overline{ij} \in T$.  Moreover, each $\Delta_{ij}(A)$ with $\overline{ij} \notin T$ is uniquely determined by the $x_{ij}$ via a subtraction free rational expression.
+		\end{proposition}
+		
+		For instance, if $n=4$ and $T = \{\overline{13},\overline{12},\overline{23},\overline{34},\overline{14}\}$ then the Plucker relation implies
+		\begin{displaymath}
+		\Delta_{24}(A) = \frac{x_{12}x_{34} + x_{14}x_{23}}{x_{13}}.
+		\end{displaymath}
+		This formula can be thought of as a change of coordinate systems from the original one to one corresponding to $T' = (T \setminus \{\overline{13}\}) \cup \{\overline{24}\}$.  More generally, if $n>4$ then the rational expressions promised by the Proposition can be obtained by performing a sequence of such flips on various sub-quadrilaterals $i,j,k,l$ of the $n$-gon.
   \end{example}
   
   \begin{example}
@@ -111,6 +142,10 @@
     \end{equation}
 	\end{definition}
 		
+	\begin{lemma}
+	Seed mutations are involutions, i.e. $\mu_k(\mu_k(\x,B)) = (\x,B)$.
+	\end{lemma}
+	
 	In words, the mutation $\mu_k$ has the following effects:
 	\begin{enumerate}
 	\item $x_k$ changes to $x_k'$ satisfying $x_kx_k' = (\textrm{ binomial in the other } x_i$),
@@ -124,21 +159,83 @@
 	
 	
   \begin{example}
-    Type $A_2$.
+		Let $\x = (x_1,x_2)$ and
+		\begin{displaymath}
+			B = \left[ \begin{array}{cc}
+			0 & 1 \\
+			-1 & 0 \\
+			\end{array}
+			\right].
+		\end{displaymath}
+		Then $\mu_1(\x,B) = ((x_1',x_2), -B)$ where
+		\begin{displaymath}
+			x_1' = \frac{x_2+1}{x_1}.
+		\end{displaymath}
+		It is convenient to denote the new cluster variable $x_1'=x_3$.  Next $\mu_2((x_3,x_2),-B) = ((x_3,x_4),B)$ where
+		\begin{displaymath}
+			x_4 = \frac{x_3+1}{x_2} = \frac{\frac{x_2+1}{x_1}+1}{x_2} = \frac{x_1 + x_2 + 1}{x_1x_2}
+		\end{displaymath}
+		and  $\mu_2((x_3,x_4),B) = ((x_5,x_4),-B)$ where
+		\begin{displaymath}
+			x_5 = \frac{x_4+1}{x_3} = \frac{\frac{x_1 + x_2 + 1}{x_1x_2}+1}{\frac{x_2+1}{x_1}} = \frac{x_1+1}{x_2}.
+		\end{displaymath}
+		Remarkably, these are the only distinct cluster variables that arise.  Therefore
+		\begin{displaymath}
+			\cA(\x,B) = \CC\left[x_1,x_2,\frac{x_2+1}{x_1},\frac{x_1 + x_2 + 1}{x_1x_2},\frac{x_1+1}{x_2}\right] \subseteq \CC(x_1,x_2).
+		\end{displaymath}
   \end{example}
 	
 	\begin{theorem}
-	Laurent phenomenon (minimal generality)
+		For any initial seed $(\x,B)$ with $\x = (x_1,\ldots, x_n)$, the associated cluster algebra lies in the Laurent polynomial ring
+		\begin{displaymath}
+			\cA(\x,B) \subseteq \CC[x_1, x_1^{-1}, \ldots, x_n, x_n^{-1}].
+		\end{displaymath}
+		In particular, every cluster variable can be expressed as a Laurent polynomial in $x_1,\ldots, x_n$.
 	\end{theorem}
 	
 	\subsection{Geometric type}
 	Geometric type cluster algebras generalize the previous setting by allowing clusters to contain so-called frozen variables in addition to cluster variables.  The frozen variables do not mutate themselves, but they can take part in the exchange relations for cluster variables.  An \emph{extended cluster}, by convention, is typically written $\x = (x_1,\ldots, x_n, x_{n+1},\ldots x_m)$ where $x_1,\ldots, x_n$ are the cluster variable and $x_{n+1},\ldots, x_m$ are the frozen variables.  An \emph{extended exchange matrix} is an $m \times n$ integers matrix $\tilde{B}$ with the property that its top $n \times n$ part is skew-symmetric.
 	
 	\begin{definition}
-	Fix a seed $(\x, \tilde B)$ with $\x=(x_1,\ldots, x_m)$ an extended cluster and $\tilde{B}$ an extended exchange matrix.  For an integer $k = 1,2,\ldots, n$, the \emph{seed mutation} $\mu_k$ in direction $k$ produces a new seed $\mu_k(\x,\tilde{B}) = (\x',\tilde{B}')$ with $\x' = (x_1,\ldots, x_{k-1}, x_k', x_{k+1},\ldots, x_m)$.  The formulas for $x_k'$ and the entries $\tilde{b}'_{ij}$ of $B'$ are the same as in \eqref{eq:exchange relation} and \eqref{eq:matrix mutation}, where in the former that the products now range from $1$ to $m$ instead of from $1$ to $n$.
+	Fix a seed $(\x, \tilde B)$ with $\x=(x_1,\ldots, x_m)$ an extended cluster and $\tilde{B}$ an extended exchange matrix.  For an integer $k = 1,2,\ldots, n$, the \emph{seed mutation} $\mu_k$ in direction $k$ produces a new seed $\mu_k(\x,\tilde{B}) = (\x',\tilde{B}')$ with $\x' = (x_1,\ldots, x_{k-1}, x_k', x_{k+1},\ldots, x_m)$.  The formulas for $x_k'$ and the entries $\tilde{b}'_{ij}$ of $B'$ are the same as in \eqref{eq:exchange relation} and \eqref{eq:matrix mutation}, where in the former the products now range from $1$ to $m$ instead of from $1$ to $n$.
 	\end{definition}
 	
-	In this setting, the cluster algebra is the subalgebra of the ambient field generated by all cluster variables reachable from a given seed, together with the frozen variables which are constant across all seeds.
+	In this setting, the cluster algebra $\cA(\x, \tilde{B})$ is the subalgebra of the ambient field generated by all cluster variables reachable from a given seed, together with the frozen variables which are constant across all seeds.
+	
+	\begin{example}
+		Let $n=3$ and $m=9$.  Denote the cluster 
+		\begin{displaymath}
+			\x = (\Delta_{13},\Delta_{14},\Delta_{15}, \Delta_{12},\Delta_{23},\Delta_{34},\Delta_{45},\Delta_{56},\Delta_{16})
+		\end{displaymath}
+		where the last $m-n=6$ variables are frozen.  Let
+		\begin{displaymath}
+			\tilde{B} = \left[\begin{array}{ccc}
+			0 & 1 & 0 \\
+			-1 & 0 & 1 \\
+			0 & -1 & 0 \\
+			1 & 0 & 0 \\
+			-1 & 0 & 0 \\
+			1 & -1 & 0 \\
+			0 & 1 & -1 \\
+			0 & 0 & 1 \\
+			0 & 0 & -1 \\
+			\end{array}
+			\right].
+		\end{displaymath}
+		Let $\cA = \cA(\x,\tilde{B})$.  Interpret the initial variables as the indicated Plucker coordinates in $Gr_{2,6}$.
+		
+		\begin{subexercise} \ \newline
+			\begin{itemize}
+			\item The cluster variables of $\cA$ are precisely the $\Delta_{ij}$ with $1 \leq i < j \leq n$.
+			\item The clusters of $\cA$ are precisely the $x_T$ (see Example \ref{example:Gr2n}) for $T$ a triangulation of a hexagon. 
+			\end{itemize}
+		\end{subexercise}
+		For instance, the new cluster variable produced by applying $\mu_1$ to the initial seed is
+		\begin{displaymath}
+		\frac{\Delta_{12}\Delta_{34} + \Delta_{14}\Delta_{23}}{\Delta_{13}}
+		\end{displaymath}
+		which equals $\Delta_{24}$.
+	\end{example}
 	
 	There is an alternate formulation of cluster algebras of geometric type which focuses on the roles the frozen variables $x_{n+1},\ldots, x_m$ play in the exchange relations, rather than on the variables themselves.  Let $(\x, \tilde{B})$ be an extended seed.  For $k=1,\ldots, n$ let 
 	\begin{displaymath}
