@@ -70,7 +70,7 @@
   \end{example}
 
   \begin{example} \label{example:Gr2n}
-		The \emph{Grassmannian} $Gr_{k}(\CC^n)$ is the set of $k$-dimensional linear subspaces of $\CC^n$.  A point in the Grassmannian can be described, albeit non-uniquely, as the row span of a full rank matrix $A \in \CC^{k \times n}$.  The maximal minors of $A$ are called \emph{Plucker coordinates}.
+		The \emph{Grassmannian} $Gr_{k}(\CC^n)$ is the set of $k$-dimensional linear subspaces of $\CC^n$.  A point in the Grassmannian can be described, albeit non-uniquely, as the row span of a full rank matrix $A \in \CC^{k \times n}$.  The maximal minors of $A$ are called \emph{Pl\"ucker coordinates}.
 		
 		Now, restrict to $k=2$ and let 
 		\begin{displaymath}
@@ -79,17 +79,17 @@
 			a_{21} & a_{22} & \ldots & a_{2n} \\
 			\end{array} \right].
 		\end{displaymath}
-		The Plucker coordinates look like $\Delta_{ij} = a_{1i}a_{2j} - a_{1j}a_{2i}$ for $1 \leq i < j \leq n$.  
+		The Pl\"ucker coordinates are given by $\Delta_{ij} = a_{1i}a_{2j} - a_{1j}a_{2i}$ for $1 \leq i < j \leq n$.  
 		
 		\begin{subexercise}
-			The $\Delta_{ij}$ satisfy the so-called \emph{Plucker relations}
+			The $\Delta_{ij}$ satisfy the so-called \emph{Pl\"ucker relations}
 			\begin{displaymath}
 				\Delta_{ik}\Delta_{jl} = \Delta_{ij}\Delta_{kl} + \Delta_{il}\Delta_{jk}
 			\end{displaymath}
 			for $1 \leq i < j < k < l \leq n$.
 		\end{subexercise}
 		
-		Consider a regular $n$-gon with vertices labeled $1,2,\ldots, n$.  Let $T$ be a triangulation, i.e. a maximal collection of chords $\overline{ij}$ with $1 \leq i < j \leq n$ no two of which intersect in their interior.  Note $T$ always consists of $n-3$ diagonals together with the $n$ sides $\overline{12}, \overline{23}, \overline{34}, \ldots, \overline{1n}$.  Associated to $T$ is a corresponding collection of Plucker coordinates
+		Consider a regular $n$-gon with vertices labeled $1,2,\ldots, n$.  Let $T$ be a triangulation, i.e. a maximal collection of chords $\overline{ij}$ with $1 \leq i < j \leq n$, no two of which intersect in their interior.  Note that $T$ always consists of $n-3$ diagonals together with the $n$ sides $\overline{12}, \overline{23}, \overline{34}, \ldots, \overline{1n}$.  Associated to $T$ is a corresponding collection of Pl\"ucker coordinates
 		\begin{displaymath}
 			\x_T := \{\Delta_{ij} : \overline{ij} \in T\}
 		\end{displaymath}
@@ -97,11 +97,11 @@
 		Fix positive reals $x_{ij}$ for all $\overline{ij} \in T$.  Then there exists $A \in Gr_2(\CC^n)$ such that $\Delta_{ij}(A) = x_{ij}$ for all $\overline{ij} \in T$.  Moreover, each $\Delta_{ij}(A)$ with $\overline{ij} \notin T$ is uniquely determined by the $x_{ij}$ via a subtraction free rational expression.
 		\end{proposition}
 		
-		For instance, if $n=4$ and $T = \{\overline{13},\overline{12},\overline{23},\overline{34},\overline{14}\}$ then the Plucker relation implies
+		For instance, if $n=4$ and $T = \{\overline{13},\overline{12},\overline{23},\overline{34},\overline{14}\}$ then the Pl\"ucker relation implies
 		\begin{displaymath}
 		\Delta_{24}(A) = \frac{x_{12}x_{34} + x_{14}x_{23}}{x_{13}}.
 		\end{displaymath}
-		This formula can be thought of as a change of coordinate systems from the original one to one corresponding to $T' = (T \setminus \{\overline{13}\}) \cup \{\overline{24}\}$.  More generally, if $n>4$ then the rational expressions promised by the Proposition can be obtained by performing a sequence of such flips on various sub-quadrilaterals $i,j,k,l$ of the $n$-gon.
+		This formula can be thought of as a change of coordinate systems from the original one to one corresponding to $T' = (T \setminus \{\overline{13}\}) \cup \{\overline{24}\}$.  More generally, if $n>4$ then the rational expressions promised by the Proposition can be obtained by performing a sequence of such flips on various sub-quadrilaterals of the $n$-gon with vertices $i,j,k,l$.
   \end{example}
   
   \begin{example}
