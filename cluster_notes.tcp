@@ -6,7 +6,7 @@ Version=4
 MainFile=cluster_notes.tex
 UseBibTeX=0
 UseMakeIndex=0
-ActiveProfile=LaTeX ⇨ DVI ⇨ PDF
+ActiveProfile=LaTeX ⇨ PS ⇨ PDF
 ProjectLanguage=en
 ProjectDialect=US
 

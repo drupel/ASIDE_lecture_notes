@@ -1,5 +1,7 @@
 \documentclass{amsart}
 \usepackage{amsmath,amssymb,latexsym,enumerate}
+\usepackage{pstricks}
+\usepackage{pst-node}
 
 
 \newtheorem{theorem}{Theorem}[section]
@@ -374,8 +376,106 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Applications to Integrable Systems}\label{sec:integrable_systems}
+	\begin{definition}
+		A \emph{quiver} is a directed graph without loops (arrows from a vertex to itself) and without oriented $2$-cyclets.
+	\end{definition}
+	
+	A skew-symmetric $n\times n$ exchange matrix $B$ is often represented instead as a quiver $Q$ on vertex set $\{1,2,\ldots, n\}$.  More precisely, if $i,j$ are such that $b_{ij}>0$ then $Q$ has $b_{ij}$ arrows from $i$ to $j$ (and none from $j$ to $i$).  Matrix mutation on $B$ induces so-called quiver mutation on $Q$.
+	
+	\begin{definition}
+		Given some $k=1,2,\ldots, n$, the \emph{quiver mutation} $\mu_k$ gives rise to $Q' = \mu_k(Q)$ by applying the following steps to $Q$:
+		\begin{enumerate}
+		\item for each pair of vertices $i,j$ and arrows $i\to k$ and $k \to j$, add an arrow $i \to j$,
+		\item reverse all arrows $i \to k$ or $k \to i$,
+		\item erase in turn pairs of arrows $i \to j$ and $j \to i$ to eliminate any $2$-cycles.
+		\end{enumerate}
+	\end{definition}
+	
+	Given a quiver $Q$ and a sequence $k_1,k_2,\ldots, k_l$ of its vertices (possibly with repeats), one can consider the dynamical system obtained by repeated applications of the composite mutation $\mu_{k_l} \circ \cdots \circ \mu_{k_2} \circ \mu_{k_1}$ starting from an initial seed $(\x, Q)$ or $Y$-seed $(\y,Q)$.  In the special case when the final quiver after one application equals the initial one, i.e.
+	\begin{displaymath}
+		\mu_{k_l} \circ \cdots \circ \mu_{k_2} \circ \mu_{k_1}(Q) = Q,
+	\end{displaymath}
+	the system amounts to iterating a fixed birational transformation.  It is natural to investigate these mappings for properties such as periodicity and integrability.
 
-
+\subsection{Zamolodchikov periodicity}
+	Fix positive integers $r$ and $s$ and consider the quiver $Q$ on vertex set $\{1,\ldots, r \} \times \{1,\ldots, s\}$ as illustrated in the case $r=4$, $s=3$ by
+	
+	\begin{pspicture}(5,4)
+		\cnode(1,1){0.1}{v11}
+		\cnode(2,1){0.1}{v21}
+		\cnode(3,1){0.1}{v31}
+		\cnode(4,1){0.1}{v41}
+		\cnode(1,2){0.1}{v12}
+		\cnode(2,2){0.1}{v22}
+		\cnode(3,2){0.1}{v32}
+		\cnode(4,2){0.1}{v42}
+		\cnode(1,3){0.1}{v13}
+		\cnode(2,3){0.1}{v23}
+		\cnode(3,3){0.1}{v33}
+		\cnode(4,3){0.1}{v43}
+		\ncline{->}{v11}{v21}
+		\ncline{->}{v31}{v21}
+		\ncline{->}{v31}{v41}
+		\ncline{<-}{v12}{v22}
+		\ncline{<-}{v32}{v22}
+		\ncline{<-}{v32}{v42}
+		\ncline{->}{v13}{v23}
+		\ncline{->}{v33}{v23}
+		\ncline{->}{v33}{v43}
+		\ncline{<-}{v11}{v12}
+		\ncline{<-}{v13}{v12}
+		\ncline{->}{v21}{v22}
+		\ncline{->}{v23}{v22}
+		\ncline{<-}{v31}{v32}
+		\ncline{<-}{v33}{v32}
+		\ncline{->}{v41}{v42}
+		\ncline{->}{v43}{v42}
+	\end{pspicture}
+	
+	Let $\mu_{\textrm{even}}$ be the compound mutation given by applying each $\mu_{i,j}$ with $i+j$ even in turn.  As no arrows connect these even vertices, it follows that these mutations commute so the order does not matter.  Define $\mu_{\textrm{odd}}$ similarly as the compound mutation at all odd vertices.
+	
+	\begin{exercise}
+		Let $Y = (Y_{i,j})_{i=1,\ldots, r; j=1,\ldots, s}$.  Then $\mu_{\textrm{even}}(Y,Q) = (Y',-Q)$ where
+		\begin{displaymath}
+			Y_{i,j}' = \begin{cases}
+			Y_{i,j}^{-1} & \textrm{if $i+j$ even} \\
+			Y_{i,j}\frac{\displaystyle\prod_{|i-i'|=1}(1+Y_{i',j})}{\displaystyle\prod_{|j-j'|=1}(1+Y_{i,j'}^{-1})} & \textrm{if $i+j$ odd} \\
+			\end{cases}
+		\end{displaymath}
+		and $-Q$ denotes $Q$ with all its arrows reversed.
+	\end{exercise}
+	
+	Now begin with the $Y$-seed $(Y_0,Q)$ and let 
+	\begin{align*}
+	(Y_1,-Q) &= \mu_{\textrm{even}}(Y_0,Q) \\ 
+	(Y_2,Q) &= \mu_{\textrm{odd}}(Y_1,-Q) \\ 
+	(Y_3,-Q) &= \mu_{\textrm{even}}(Y_2,Q) \\ 
+	&\vdots
+	\end{align*}
+	where $Y_t = (Y_{ijt})_{i=1,\ldots, r; j=1,\ldots, s}$.  It follows from the above that
+	\begin{displaymath}
+		Y_{i,j,t+1} = \begin{cases}
+		Y_{i,j,t}^{-1} & \textrm{if $i+j+t$ even} \\
+		Y_{i,j,t}\frac{\displaystyle\prod_{|i-i'|=1}(1+Y_{i',j,t})}{\displaystyle\prod_{|j-j'|=1}(1+Y_{i,j',t}^{-1})} & \textrm{if $i+j+t$ odd} \\
+		\end{cases}
+	\end{displaymath}
+	It is convenient to consider only the $Y_{i,j,t}$ with $i+j+t$ odd, which satisfy their own recurrence
+	\begin{equation} \label{eq:YSystem}
+		Y_{i,j,t-1}Y_{i,j,t+1} = \frac{\displaystyle\prod_{|j-j'|=1}(1+Y_{i,j',t}^{-1})}{\displaystyle\prod_{|i-i'|=1}(1+Y_{i',j,t})}
+	\end{equation}
+	for all $i+j+t$ even.  This recurrence is called the type $A_r \times A_s$ $Y$-system, a special case of a family of systems conjectured by Zamolodchikov to be periodic.  The proof, in this case, is due to A. Volkov \cite{V}.
+	
+	\begin{theorem}
+		The $Y$-system \eqref{eq:YSystem} on variables $Y_{i,j,t}$ with $i+j+t$ odd, $i=1,\ldots, r$, and $j=1,\ldots, s$ has period $2(r+s+2)$ in the $t$-direction, that is
+		\begin{displaymath}
+			Y_{i,j,t+2(r+s+2)} = Y_{i,j,t}.
+		\end{displaymath}
+	\end{theorem}
+	
+	Returning to the $Y$-pattern point of view, the initial seed $(Y_0,Q)$ consists of the $Y_{i,j,0}$ for $i+j$ odd and the $Y_{i,j,1}^{-1}$ for $i+j$ even.  The seed $(Y_2,Q) = \mu_{\textrm{odd}}(\mu_{\textrm{even}}(Y_0,Q))$ consists of the $Y_{i,j,2}$ for $i+j$ odd and the $Y_{i,j,3}^{-1}$ for $i+j$ even.  The periodicity theorem, then, asserts that the rational map $\mu_{\textrm{odd}} \circ \mu_{\textrm{even}}$ has order $r+s+2$.
+	
+	\subsection{The pentagram map}
+	
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{thebibliography}{99}
   \bibitem[FZ02] S. Fomin and A. Zelevinsky, Cluster algebras I: Foundations
