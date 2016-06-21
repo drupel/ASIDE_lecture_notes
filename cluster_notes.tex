@@ -107,7 +107,21 @@
   \end{example}
   
   \begin{example}
-    An $n\times n$ matrix $M$ is called \emph{totally positive} if the determinant of every square submatrix (not necessarily consecutive?) is a positive real nnumber.  In particular, every entry of $M$ is positive and $M$ must be invertible.  To check that a given matrix $M$ is totally positive one must, a priori, check that all $n^???$ minors of $M$ are positive.  A natural question is whether this process can be made more efficient, i.e. is there a smaller number of minors one may compute and from this subset conclude that every minor is positive.
+    An $n\times n$ matrix $M$ is called \emph{totally positive} if the determinant of every square submatrix is a positive real number.  In particular, every entry of $M$ is positive and $M$ must be invertible.  Write $GL_n^{>0}\subset GL_n$ for the subset of totally positive matrices.  To check that a given matrix $M\in GL_n$ is totally positive one must, a priori, check that all ${2n\choose n}-1$ minors of $M$ are positive.  A natural question is whether this verification process can be made more efficient, i.e. is there a smaller collection of minors one may compute and from the positivity of this subset conclude that every minor is positive, i.e. conclude that $M\in GL_n^{>0}$?
+
+    We will call such a collection a \emph{total positivity criterion}.  For small $n$ such criteria can be easily found and easily verified.  For example, a matrix $M=\left[\begin{array}{cc} a & b\\ c & d\right]\in GL_2$ is totally positive if and only if $a,b,c,ad-bc>0$ if and only if $b,c,d,ad-bc>0$.  
+    \begin{exercise}
+      Find a minimal collection of minors whose positivity guarantees a matrix in $GL_3$ is totally positive (hint: any such total positivity criterion consists of 9 minors).
+    \end{exercise}
+
+    To describe a solution and easily identify total positivity criteria for all groups $GL_n$, it will be convenient to slightly generalize the notion of total positivity.  An $n\times n$ matrix $M$ is called \emph{totally nonnegative} if the determinant of every square submatrix is a nonnegative real number.  Write $GL_n^{\ge0}\subset GL_n$ for the subset of totally nonnegative matrices.  Again one may ask: what is a minimal collection of minors needed to check that a matrix is totally nonnegative?  Unfortunately, or perhaps fortunately, the total nonnegativity criteria are not uniformly described across all of $GL_n$.  The solution to this problem naturally leads one to study certain subvarieties of $GL_n$ called \emph{double Bruhat cells}, which we now describe.
+
+    Let $B_+,B_-\subset GL_n$ denote the subgroups of upper and lower triangular matrices respectively.  Identify the symmetric group $\Sigma_n$ with the subgroup of $GL_n$ consisting of permutation matrices, i.e. matrices having precisely one nonzero entry 1 in each row and column.  For example, identify the permutation $(12)\in\Sigma_2$ with the matrix $\left[\begin{array}{cc}0 & 1\\ 1 & 0\end{array}\right]$.  It is well known that $GL_n$ decomposes in two ways (actually many ways) as a union of \emph{Bruhat cells}:
+    \[GL_n=\bigsqcup_{w\in\Sigma_n}B_+w B_+=\bigsqcup_{w\in\Sigma_n}B_-w B_-.\]
+    To understand total nonnegativity criteria for $GL_n$, we will consider the \emph{double Bruhat cells} $G^{u,v}=B_+uB_+\cap B_-vB_-$.  It turns out that each double Bruhat cell admits its own total nonnegativity criteria, i.e. for each $u,v\in\Sigma_n$ there exists a minimal collection of minors whose positivity identifies the subset $G^{u,v}\cap GL_n^{\ge0}$ inside the double Bruhat cell $G^{u,v}$.
+
+
+
   \end{example}
 
   \begin{example}
