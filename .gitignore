@@ -5,9 +5,12 @@
 *.out
 *.dvi
 *.pdf
+*.ps
 *.synctex.gz
 *.tex.project.vim
 *.toc
+*.tcp
+*.tps
 *.bbl
 *.blg
 ._*
