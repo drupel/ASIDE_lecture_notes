@@ -29,6 +29,10 @@
 \newcommand{\CC}{{\mathbb{C}}}
 \newcommand{\ZZ}{{\mathbb{Z}}}
 
+\newcommand{\meet}[2]{#1 \cap #2}
+%\newcommand{\join}[2]{\overleftrightarrow{#1 #2}}
+\newcommand{\join}[2]{\langle #1, #2 \rangle}
+
 
 \title{Introduction to Cluster Algebras}
 
@@ -109,7 +113,7 @@
   \begin{example}
     An $n\times n$ matrix $M$ is called \emph{totally positive} if the determinant of every square submatrix is a positive real number.  In particular, every entry of $M$ is positive and $M$ must be invertible.  Write $GL_n^{>0}\subset GL_n$ for the subset of totally positive matrices.  To check that a given matrix $M\in GL_n$ is totally positive one must, a priori, check that all ${2n\choose n}-1$ minors of $M$ are positive.  A natural question is whether this verification process can be made more efficient, i.e. is there a smaller collection of minors one may compute and from the positivity of this subset conclude that every minor is positive, i.e. conclude that $M\in GL_n^{>0}$?
 
-    We will call such a collection a \emph{total positivity criterion}.  For small $n$ such criteria can be easily found and easily verified.  For example, a matrix $M=\left[\begin{array}{cc} a & b\\ c & d\right]\in GL_2$ is totally positive if and only if $a,b,c,ad-bc>0$ if and only if $b,c,d,ad-bc>0$.  
+    We will call such a collection a \emph{total positivity criterion}.  For small $n$ such criteria can be easily found and easily verified.  For example, a matrix $M=\left[\begin{array}{cc} a & b\\ c & d \end{array} \right]\in GL_2$ is totally positive if and only if $a,b,c,ad-bc>0$ if and only if $b,c,d,ad-bc>0$.  
     \begin{exercise}
       Find a minimal collection of minors whose positivity guarantees a matrix in $GL_3$ is totally positive (hint: any such total positivity criterion consists of 9 minors).
     \end{exercise}
@@ -450,12 +454,12 @@
 	
 	\begin{exercise}
 		Let $Y = (Y_{i,j})_{i=1,\ldots, r; j=1,\ldots, s}$.  Then $\mu_{\textrm{even}}(Y,Q) = (Y',-Q)$ where
-		\begin{displaymath}
+		\begin{equation} \label{eq:YSystemCases}
 			Y_{i,j}' = \begin{cases}
 			Y_{i,j}^{-1} & \textrm{if $i+j$ even} \\
 			Y_{i,j}\frac{\displaystyle\prod_{|i-i'|=1}(1+Y_{i',j})}{\displaystyle\prod_{|j-j'|=1}(1+Y_{i,j'}^{-1})} & \textrm{if $i+j$ odd} \\
 			\end{cases}
-		\end{displaymath}
+		\end{equation}
 		and $-Q$ denotes $Q$ with all its arrows reversed.
 	\end{exercise}
 	
@@ -488,11 +492,223 @@
 	
 	Returning to the $Y$-pattern point of view, the initial seed $(Y_0,Q)$ consists of the $Y_{i,j,0}$ for $i+j$ odd and the $Y_{i,j,1}^{-1}$ for $i+j$ even.  The seed $(Y_2,Q) = \mu_{\textrm{odd}}(\mu_{\textrm{even}}(Y_0,Q))$ consists of the $Y_{i,j,2}$ for $i+j$ odd and the $Y_{i,j,3}^{-1}$ for $i+j$ even.  The periodicity theorem, then, asserts that the rational map $\mu_{\textrm{odd}} \circ \mu_{\textrm{even}}$ has order $r+s+2$.
 	
-	\subsection{The pentagram map}
+	\subsection{The pentagram map} The pentagram map is a discrete dynamical system defined on the space of polygons in the projective plane.  Figure \ref{fig:pentagram} shows a polygon $A$ and the corresponding output $B=T(A)$, with $T$ being the notation for the pentagram map.  Each vertex of $B$ lies at the intersection of two consecutive ``shortest'' diagonals of $A$.
+	
+	\begin{figure} \label{fig:pentagram}
+	\begin{pspicture}(5,5)
+	\pspolygon[linewidth=2pt](1,2)(1,3)(2,4.5)(3,5)(4.5,4.5)(5,3.5)(4.5,2)(3.5,1)(2,1)
+  \pspolygon[linestyle=dashed](1,2)(2,4.5)(4.5,4.5)(4.5,2)(2,1)(1,3)(3,5)(5,3.5)(3.5,1)
+  \pspolygon[linewidth=2pt](1.22,2.55)(1.67,3.67)(2.5,4.5)(3.67,4.5)(4.5,3.87)(4.5,2.67)(3.97,1.79)(2.75,1.3)(1.62,1.75)
+	\uput[ul](2,4.5){$A$}
+	\uput[dr](1.67,3.67){$B=T(A)$}
+	\end{pspicture}
+	\caption{An application of the pentagram map}
+	\end{figure}
+	
+	The pentagram map was introduced by R. Schwartz \cite{S92} and extensively studied by V. Ovsienko, Schwartz and S. Tabachnikov \cite{OST10, OST13}.  In particular, they demonstrated that the pentagram map is a complete integrable system.  Another take on integrability was provided by F. Soloviev \cite{S13}.  In the same span of time, M. Glick \cite{G11} described the pentagram map as mutations in a $Y$-pattern, building on work of Schwartz \cite{S08} who had found a lift to the octahedron recurrence.  Finally, M. Gekhtman, M. Shapiro, Tabachnikov and A. Vainshtein \cite{GSTV12} gave a uniform treatment of integrability and ``clusterness'' of the pentagram map, and generalizations thereof, in terms of weighted networks on tori.  A similar framework is provided by the cluster integrable systems of A. Goncharov and R. Kenyon \cite{GK13}, albeit without any explicit mention of the pentagram map.
+	
+	The connection between the pentagram map and $Y$-patterns comes by way of certain geometrically defined coordinates on the space of polygons.  The \emph{cross ratio} of $4$ real numbers $x_1,x_2,x_3,x_4$ is 
+	\begin{displaymath}
+		\chi(x_1,x_2,x_3,x_4) = \frac{(x_1-x_2)(x_3-x_4)}{(x_1-x_3)(x_2-x_4)}.
+	\end{displaymath}
+	The cross ratio is invariant under projective transformations, that is 
+	\begin{displaymath}
+		\chi(f(x_1),f(x_2),f(x_3),f(x_4)) = \chi(x_1,x_2,x_3,x_4)
+	\end{displaymath}
+	for any fractional linear map $f(x) = (ax+b)/(cx+d)$.  For this reason, there is a well-defined notion in the plane of the cross ratio of 4 collinear points or of 4 concurrent lines.
+	
+	Given an $n$-gon $A$, label its sides and vertices consecutively with the integers $\{1,2,\ldots, 2n\}$.  Such a labeling induces a canonical labeling on $T(A)$ as is illustrated in Figure \ref{fig:labeling}.  Note that the parities of the vertex labels and of the edge labels are interchanged by $T$.
+	
+	\begin{figure} 
+%\psset{unit=1.5cm}
+\begin{pspicture}(6,4)
+	\rput(0,-0.5){
+  % Original Pentagon
+  \pspolygon[showpoints=true,linewidth=2pt](1,1)(4,1)(5,3)(3,4)(1,3)
+	\uput[l](1,2){$1$}
+  \uput[225](1,1){$2$}
+	\uput[d](2.5,1){$3$}
+  \uput[270](4,1){$4$}
+	\uput[dr](4.5,2){$5$}
+  \uput[0](5,3){$6$}
+	\uput[ur](4,3.5){$7$}
+  \uput[90](3,4){$8$}
+	\uput[ul](2,3.5){$9$}
+  \uput[l](1,3){$10$}
+  % New Pentagon
+  \pspolygon[linestyle=dashed](1,1)(5,3)(1,3)(4,1)(3,4)
+  \pspolygon[showpoints=true,linewidth=2pt](1.92,2.38)(2.71,1.86)(3.57,2.28)(3.33,3)(2.33,3)
+  \uput[l](1.92,2.38){$1$}
+	\uput[dl](2.31,2.12){$2$}
+	\uput[d](2.71,1.86){$3$}
+	\uput[dr](3.14,2.07){$4$}
+  \uput[330](3.57,2.28){$5$}
+	\uput[20](3.45,2.64){$6$}
+  \uput[ur](3.33,3){$7$}
+	\uput[u](2.83,3){$8$}
+  \uput[ul](2.33,3){$9$}
+	\uput[160](2.12,2.69){$10$}
+  
+  }
+\end{pspicture}
+%\psset{unit=1cm}
+\caption{Possible labelings of two polygons related by the pentagram map}
+\label{fig:labeling}
+\end{figure}
+
+\begin{definition}
+	The \emph{$y$-parameters} of a polygon $A$ are real numbers $y_1(A),\ldots, y_{2n}(A)$ defined by
+	\begin{align*}
+		y_i(A) = \begin{cases}
+		-\left(\chi(\join{i}{(i-4)}, i-1, i+1, \join{i}{(i+4)})\right)^{-1} & \textrm{ if $i$ is a vertex of $A$} \\
+		-\chi(\meet{i}{(i-4)}, i-1, i+1, \meet{i}{(i+4)}) & \textrm{ if $i$ is a side of $A$} \\
+		\end{cases}
+	\end{align*}
+	This definition is illustrated in Figure \ref{fig:defy}.
+\end{definition}
+
+\begin{figure}
+\psset{unit=.8cm}
+\begin{pspicture}(12,6)
+\rput(0,.5){
+\psline(1,1)(3,1)(5,2)(5,3)(4,4)
+\uput[d](1,1){$1$}
+\uput[d](2,1){$2$}
+\uput[d](3,1){$3$}
+\uput[dr](4,1.5){$4$}
+\uput[dr](5,2){$5$}
+\uput[r](5,2.5){$6$}
+\uput[r](5,3){$7$}
+\uput[ur](4.5,3.5){$8$}
+\uput[ur](4,4){$9$}
+\psline[linewidth=2pt](1,1)(5,2)
+\psline[linewidth=2pt](3,1)(5,2)
+\psline[linewidth=2pt](5,3)(5,2)
+\psline[linewidth=2pt](4,4)(5,2)
+}
+\rput(7,0){
+\psline(1,1)(3,1)(5,2)(5,3)(4,4)(2,5)
+\uput[ur](1,1){$1$}
+\uput[ur](2,1){$2$}
+\uput[u](3,1){$3$}
+\uput[ul](4,1.5){$4$}
+\uput[r](5,2){$5$}
+\uput[r](5,2.5){$6$}
+\uput[r](5,3){$7$}
+\uput[dl](4.5,3.5){$8$}
+\uput[dl](4,4){$9$}
+\uput[d](3,4.5){$10$}
+\uput[d](2,5){$11$}
+\psline(3,1)(5,1)(5,3.5)(4,4)
+\psdots[dotsize=2pt 3](5,1)(5,2)(5,3)(5,3.5)
+}
+\end{pspicture}
+\psset{unit=1cm}
+\caption{The cross ratios corresponding to the two types of $y$-parameters.  On the left, $-(y_5)^{-1}$ is the cross ratio of the lines $\join{5}{1}$, $4$, $6$, and $\join{5}{9}$.  On the right, $-y_6$ is the cross ratio of the points $\meet{6}{2}$, $5$, $7$, and $\meet{6}{10}$ .} 
+\label{fig:defy}
+\end{figure}
+	
+	\begin{proposition}
+		Let $A$ be an $n$-gon with $y$-parameters $y_i = y_i(A)$.  Let $B= T(A)$ and denote its $y$-parameters $y_i' = y_i(B)$.  Then
+		\begin{equation} \label{eq:T}
+			y_i' = \begin{cases}
+			y_i^{-1} & \textrm{if $i$ is a side of $B$} \\
+			y_i\frac{(1+y_{i-1})(1+y_{i+1})}{(1+y_{i-3}^{-1})(1+y_{i+3}^{-1})} & \textrm{if $i$ is a vertex of $B$}
+			\end{cases}
+		\end{equation}
+		In this equation, all indices are considered modulo $2n$.
+	\end{proposition}
+	
+	The formula \eqref{eq:T} bares a distinct resemblance to \eqref{eq:YSystemCases}, so it is plausible that the former can also be described by $Y$-pattern mutations for an appropriate quiver.  The desired quiver $Q_n$ has vertex set $\{1,2,\ldots,2n\}$ and arrows $j \to (j\pm1)$ and $j \leftarrow (j \pm 3)$ for each odd $j$, with vertices considered modulo $2n$.  The quiver $Q_8$ is in Figure \ref{fig:GlickQuiver}.  Similar to before, define compound mutations
+	\begin{align*}
+		\mu_{\textrm{odd}} &= \mu_{2n-1} \circ \cdots \circ \mu_3 \circ \mu_1 \\
+		\mu_{\textrm{even}} &= \mu_{2n} \circ \cdots \circ \mu_4 \circ \mu_2 
+	\end{align*}
+	
+	\begin{figure}
+\begin{pspicture}(-5,-5)(5,5)
+\SpecialCoor
+\cnode(2;22.5){.25}{v1}
+\rput(v1){1}
+\cnode(4;45){.25}{v2}
+\rput(v2){2}
+\cnode(2;67.5){.25}{v3}
+\rput(v3){3}
+\cnode(4;90){.25}{v4}
+\rput(v4){4}
+\cnode(2;112.5){.25}{v5}
+\rput(v5){5}
+\cnode(4;135){.25}{v6}
+\rput(v6){6}
+\cnode(2;157.5){.25}{v7}
+\rput(v7){7}
+\cnode(4;180){.25}{v8}
+\rput(v8){8}
+\cnode(2;202.5){.25}{v9}
+\rput(v9){9}
+\cnode(4;225){.25}{v10}
+\rput(v10){10}
+\cnode(2;247.5){.25}{v11}
+\rput(v11){11}
+\cnode(4;270){.25}{v12}
+\rput(v12){12}
+\cnode(2;292.5){.25}{v13}
+\rput(v13){13}
+\cnode(4;315){.25}{v14}
+\rput(v14){14}
+\cnode(2;337.5){.25}{v15}
+\rput(v15){15}
+\cnode(4;0){.25}{v16}
+\rput(v16){16}
+
+\psset{arrowsize=5pt}
+\psset{arrowinset=0}
+\ncline{->}{v1}{v16}   \ncline{->}{v1}{v2}
+\ncline{->}{v3}{v2}    \ncline{->}{v3}{v4} 
+\ncline{->}{v5}{v4}    \ncline{->}{v5}{v6}
+\ncline{->}{v7}{v6}    \ncline{->}{v7}{v8}
+\ncline{->}{v9}{v8}    \ncline{->}{v9}{v10}
+\ncline{->}{v11}{v10}  \ncline{->}{v11}{v12}
+\ncline{->}{v13}{v12}  \ncline{->}{v13}{v14}
+\ncline{->}{v15}{v14}  \ncline{->}{v15}{v16}
+\ncline{->}{v16}{v13} \ncline{->}{v16}{v3}
+\ncline{->}{v2}{v15} \ncline{->}{v2}{v5}
+\ncline{->}{v4}{v1} \ncline{->}{v4}{v7}
+\ncline{->}{v6}{v3} \ncline{->}{v6}{v9}
+\ncline{->}{v8}{v5} \ncline{->}{v8}{v11}
+\ncline{->}{v10}{v7} \ncline{->}{v10}{v13}
+\ncline{->}{v12}{v9} \ncline{->}{v12}{v15}
+\ncline{->}{v14}{v11} \ncline{->}{v14}{v1}
+
+\end{pspicture}
+\caption{The quiver related to the action of the pentagram map on octagons} \label{fig:GlickQuiver}
+\end{figure}
+
+\begin{theorem} \label{thm:pentagram}
+	Let $A$ be an $n$-gon with $y$-parameters $y_1,\ldots, y_{2n}$ and let $k$ be a positive integer.  Beginning from the $Y$-seed $((y_1,\ldots, y_{2n}), Q_n)$, apply $k$ compound mutations alternating between $\mu_{\textrm{even}}$ and $\mu_{\textrm{odd}}$.  The result will have the form $((y_1',\ldots, y_{2n}'), (-1)^kQ_n)$ where 
+	\begin{displaymath}
+	y_i' = y_i(T^k(A)). 
+	\end{displaymath}
+\end{theorem}
+
+\begin{remark}
+	It is natural to ask what values the $n$-tuple $(y_1(A),\ldots, y_{2n}(A))$ can take, and also, to what extend this data suffices to reconstruct $A$.  These questions are easier to answer once extending to a larger family of objects called twisted polygons.  In this setting, the $y_i$ satisfy a single relation $y_1\cdots y_{2n}=1$.  Moreover, the $y_i$ determine a twisted polygon uniquely up to projective equivalence and a one-parameter rescaling operation due to Schwartz \cite{S08}.  The $Y$-pattern dynamics described in Theorem \ref{thm:pentagram}, then, characterize the dynamics of the pentagram map on the space of twisted polygons modulo these equivalences.
+\end{remark}
+	
 	
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{thebibliography}{99}
-  \bibitem[FZ02] S. Fomin and A. Zelevinsky, Cluster algebras I: Foundations
+  \bibitem{FZ02} S. Fomin and A. Zelevinsky, Cluster algebras I: Foundations
+	\bibitem{GSTV12} M. Gekhtman, M. Shapiro, S. Tabachnikov, and A. Vainshtein, Higher pentagram maps, weighted directed
+ networks, and cluster dynamics, \textsl{Electron. Res. Announc. Math. Sci.} \textbf{19} (2012), 1--17.
+	\bibitem{G11} M. Glick, The pentagram map and Y-patterns, \textsl{Adv. Math.} \textbf{227} (2011), 1019--1045.
+	\bibitem{GK13} A. Goncharov and R. Kenyon, Dimers and cluster integrable systems, \textsl{Ann. Sci. \'Ec. Norm. Sup\'er.} \textbf{46} (2013) 747--813.
+	\bibitem{OST10} V. Ovsienko, R. Schwartz, and S. Tabachnikov, The pentagram map: a discrete integrable system, \textsl{Comm. Math. Phys.} \textbf{299} (2010), 409-446.
+	\bibitem{OST13} V. Ovsienko, R. Schwartz, and S. Tabachnikov, Liouville-Arnold integrability of the pentagram map on closed polygons, \textsl{Duke Math. J.} \textbf{162} (2013), 2149--2196.
+	\bibitem{S92} R. Schwartz, The pentagram map, \textsl{Experiment. Math.} \textbf{1} (1992), 71--81.
+	\bibitem{S08} R. Schwartz, Discrete monodromy, pentagrams, and the method of condensation, \textsl{J. Fixed Point Theory Appl
+.} \textbf{3} (2008), 379--409.
+	\bibitem{S13} F. Soloviev, Integrability of the Pentagram Map, \textsl{Duke Math. J.} \textbf{162} (2013), 2815--2853.
 \end{thebibliography}
 
 \end{document}
