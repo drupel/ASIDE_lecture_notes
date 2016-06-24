@@ -734,6 +734,105 @@
 	It is natural to ask what values the $n$-tuple $(y_1(A),\ldots, y_{2n}(A))$ can take, and also, to what extend this data suffices to reconstruct $A$.  These questions are easier to answer once extending to a larger family of objects called twisted polygons.  In this setting, the $y_i$ satisfy a single relation $y_1\cdots y_{2n}=1$.  Moreover, the $y_i$ determine a twisted polygon uniquely up to projective equivalence and a one-parameter rescaling operation due to Schwartz \cite{S08}.  The $Y$-pattern dynamics described in Theorem \ref{thm:pentagram}, then, characterize the dynamics of the pentagram map on the space of twisted polygons modulo these equivalences.
 \end{remark}
 	
+	We now give a somewhat informal presentation of integrability of the pentagram map from the cluster algebra perspective.  The first ingredient is a compatible Poisson structure.
+	
+	\begin{proposition}
+		Define a Poisson bracket by $\{y_i,y_j\} = b_{ij}y_iy_j$ where $B$ is the exchange matrix associated to the pentagram quiver $Q_n$.  Then this bracket is preserved by the pentagram map, i.e.
+		\begin{displaymath}
+			\{f,g\} = \{f\circ T, g \circ T\}
+		\end{displaymath}
+		for all functions $f$ and $g$.
+	\end{proposition}
+	
+	Some more work is needed to get at the conserved quantities.  The quiver $Q_n$ can be embedded on a torus in such a way that, when circling any vertex, the arrows alternate between incoming and outgoing.  The faces are all quadrilaterals and come in two types, $(i-2)\to (i-1) \to (i+2) \to (i+1) \to (i-2)$ for $i$ odd and $(i-2) \to (i+1) \to (i+2) \to (i-1) \to (i-2)$ for $i$ even.  Let $G = (V,E)$ be the dual graph with $V = \{1,2,\ldots, 2n\}$ where vertex $i$ corresponds to the face described in the previous sentence.  Coincidentally, $G$ is identical to $Q_n$ except without orientations, so $\overline{ij} \in E$ if and only if $i-j \equiv \pm 1, \pm 3 \pmod{2n}$.  Figure \ref{fig:torus} shows the graph $G$ on the torus in the case $n=4$, with the vertices $1,2,\ldots, 8$ appearing in order from left to right.
+	
+	\begin{figure}
+	\begin{pspicture}(-1,0)(10,2)
+\cnode(1,1){.08}{v1}
+\cnode*(2,1){.08}{v2}
+\cnode(3,1){.08}{v3}
+\cnode*(4,1){.08}{v4}
+\cnode(5,1){.08}{v5}
+\cnode*(6,1){.08}{v6}
+\cnode(7,1){.08}{v7}
+\cnode*(8,1){.08}{v8}
+\pnode(.5,1){w1}
+\pnode(8.5,1){e8}
+\pnode(0,1.5){n0}
+\pnode(1,1.5){n1}
+\pnode(2,1.5){n2}
+\pnode(3,1.5){n3}
+\pnode(4,1.5){n4}
+\pnode(5,1.5){n5}
+\pnode(6,1.5){n6}
+\pnode(7,1.5){n7}
+\pnode(8,1.16){n8}
+\pnode(9,.83){n9}
+\pnode(0,1.16){s0}
+\pnode(1,.83){s1}
+\pnode(2,.5){s2}
+\pnode(3,.5){s3}
+\pnode(4,.5){s4}
+\pnode(5,.5){s5}
+\pnode(6,.5){s6}
+\pnode(7,.5){s7}
+\pnode(8,.5){s8}
+\pnode(9,.5){s9}
+\pspolygon[linestyle=dashed](-1,1.5)(7,1.5)(10,.5)(2,.5)
+\ncline{w1}{v1}
+\ncline{v1}{v2}
+\ncline{v2}{v3}
+\ncline{v3}{v4}
+\ncline{v4}{v5}
+\ncline{v5}{v6}
+\ncline{v6}{v7}
+\ncline{v7}{v8}
+\ncline{v8}{e8}
+\ncline{v1}{n1}
+\ncline{v2}{n2}
+\ncline{v3}{n3}
+\ncline{v4}{n4}
+\ncline{v5}{n5}
+\ncline{v6}{n6}
+\ncline{v7}{n7}
+\ncline{v8}{n8}
+\ncline{v1}{s1}
+\ncline{v2}{s2}
+\ncline{v3}{s3}
+\ncline{v4}{s4}
+\ncline{v5}{s5}
+\ncline{v6}{s6}
+\ncline{v7}{s7}
+\ncline{v8}{s8}
+\ncline{s0}{n0}
+\ncline{s9}{n9}
+\end{pspicture}
+	\caption{A bipartite graph on the torus dual to the quiver $Q_4$.}
+	\label{fig:torus}
+	\end{figure}
+	
+	The \emph{corner invariants} $x_1,\ldots, x_{2n}$ of an $n$-gon $A$ are certain geometrically defined quantities similar in spirit to the $y$-parameters.  In fact there is a simple relation
+	\begin{displaymath}
+		y_i = \begin{cases}
+		-(x_ix_{i+1})^{-1} & \textrm{if $i$ is a vertex of $A$} \\
+		-x_ix_{i+1} & \textrm{if $i$ is a side of $A$} \\
+		\end{cases}
+	\end{displaymath}
+	which explains the relation $y_1y_2\cdots y_{2n}=1$.  Assign edge weights to $G$ as follows: each ``horizontal'' edge $\overline{i(i+1)}$ gets weight $1$ and each ``vertical edge'' $\overline{i(i+3)}$ gets weight $(-1)^ix_{i+2}$.  
+	
+	A \emph{perfect matching} of $G$ is a collection $M$ of its edges such that each $i \in V$ is an endpoint of exactly one $e \in M$.  The \emph{weight} of $M$, denoted $wt(M)$, is the product of the weights of its edges.  For instance, 
+	\begin{displaymath}
+		M = \{\overline{12}, \overline{36}, \overline{47}, \overline{58}\}
+	\end{displaymath}
+	is a perfect matching of $G_4$ and its weight is $x_5x_6x_7$.
+	
+	\begin{proposition}
+		The sum
+		\begin{displaymath}
+			\sum_M wt(M)
+		\end{displaymath}
+		over perfect matchings $M$ of $G_n$ is a conserved quantity of the pentagram map acting on $n$-gons.  Moreover, there is a refinement of the set of perfect matchings breaking this sum into pieces, each of which is itself conserved, and together providing a complete family of integrals for the pentagram map.
+	\end{proposition}
 	
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{thebibliography}{99}
