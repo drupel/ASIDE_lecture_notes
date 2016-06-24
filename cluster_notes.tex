@@ -20,7 +20,9 @@
 
 \newcommand{\cA}{{\mathcal{A}}}
 \newcommand{\cF}{{\mathcal{F}}}
+\newcommand{\cL}{{\mathcal{L}}}
 \newcommand{\cO}{{\mathcal{O}}}
+\newcommand{\cU}{{\mathcal{U}}}
 \newcommand{\bff}{{\bf f}}
 \newcommand{\x}{{\bf x}}
 \newcommand{\bx}{{\bf x}}
@@ -32,6 +34,8 @@
 \newcommand{\meet}[2]{#1 \cap #2}
 %\newcommand{\join}[2]{\overleftrightarrow{#1 #2}}
 \newcommand{\join}[2]{\langle #1, #2 \rangle}
+
+\newcommand{\erase}[1]{{}}
 
 
 \title{Introduction to Cluster Algebras}
@@ -100,7 +104,7 @@
 			\x_T := \{\Delta_{ij} : \overline{ij} \in T\}
 		\end{displaymath}
 		\begin{proposition}
-		Fix positive reals $x_{ij}$ for all $\overline{ij} \in T$.  Then there exists $A \in Gr_2(\CC^n)$ such that $\Delta_{ij}(A) = x_{ij}$ for all $\overline{ij} \in T$.  Moreover, each $\Delta_{ij}(A)$ with $\overline{ij} \notin T$ is uniquely determined by the $x_{ij}$ via a subtraction free rational expression.
+		Fix positive reals $x_{ij}$ for all $\overline{ij} \in T$.  Then there exists $A \in Gr_2(\CC^n)$ such that $\Delta_{ij}(A) = x_{ij}$ for all $\overline{ij} \in T$.  Moreover, each $\Delta_{ij}(A)$ with $\overline{ij} \notin T$ is uniquely determined by the $x_{ij}$ via a subtraction-free rational expression.
 		\end{proposition}
 		
 		For instance, if $n=4$ and $T = \{\overline{13},\overline{12},\overline{23},\overline{34},\overline{14}\}$ then the Pl\"ucker relation implies
@@ -108,9 +112,12 @@
 		\Delta_{24}(A) = \frac{x_{12}x_{34} + x_{14}x_{23}}{x_{13}}.
 		\end{displaymath}
 		This formula can be thought of as a change of coordinate systems from the original one to one corresponding to $T' = (T \setminus \{\overline{13}\}) \cup \{\overline{24}\}$.  More generally, if $n>4$ then the rational expressions promised by the Proposition can be obtained by performing a sequence of such flips on various sub-quadrilaterals of the $n$-gon with vertices $i,j,k,l$.
+    \begin{exercise}
+      The change of coordinate systems observed above can be understood more classically in terms of the Ptolemy relations for cyclic quadrilaterals.  Indeed, consider four distinct points labelled $1,2,3,4$ on a circle and let $x_{ij}$ denote the distance between vertices $i$ and $j$.  Prove that $x_{13}x_{24}=x_{12}x_{34}+x_{14}x_{23}$.
+    \end{exercise}
   \end{example}
   
-  \begin{example}
+  \begin{example}\label{example:total positivity}
     An $n\times n$ matrix $M$ is called \emph{totally positive} if the determinant of every square submatrix is a positive real number.  In particular, every entry of $M$ is positive and $M$ must be invertible.  Write $GL_n^{>0}\subset GL_n$ for the subset of totally positive matrices.  To check that a given matrix $M\in GL_n$ is totally positive one must, a priori, check that all ${2n\choose n}-1$ minors of $M$ are positive.  A natural question is whether this verification process can be made more efficient, i.e. is there a smaller collection of minors one may compute and from the positivity of this subset conclude that every minor is positive, i.e. conclude that $M\in GL_n^{>0}$?
 
     We will call such a collection a \emph{total positivity criterion}.  For small $n$ such criteria can be easily found and easily verified.  For example, a matrix $M=\left[\begin{array}{cc} a & b\\ c & d\end{array}\right]\in GL_2$ is totally positive if and only if $a,b,c,ad-bc>0$ if and only if $b,c,d,ad-bc>0$.
@@ -201,20 +208,29 @@
 		\end{displaymath}
 		Remarkably, these are the only distinct cluster variables that arise.  Therefore
 		\begin{displaymath}
-			\cA(\x,B) = \CC\left[x_1,x_2,\frac{x_2+1}{x_1},\frac{x_1 + x_2 + 1}{x_1x_2},\frac{x_1+1}{x_2}\right] \subseteq \CC(x_1,x_2).
+			\cA(\x,B) = \CC\left[x_1,x_2,\frac{x_2+1}{x_1},\frac{x_1 + x_2 + 1}{x_1x_2},\frac{x_1+1}{x_2}\right] \subseteq \CC[x_1^{\pm1},x_2^{\pm1}].
 		\end{displaymath}
+    In fact, any four elements of $\{x_1,x_2,\frac{x_2+1}{x_1},\frac{x_1 + x_2 + 1}{x_1x_2},\frac{x_1+1}{x_2}\}$ are sufficient to generate $\cA(\x,B)$.  This observation readily generalizes to cluster algebras associated to any $2\times 2$ exchange matrix and leads ultimately to the following important result.
   \end{example}
 	
-	\begin{theorem}
+	\begin{theorem}\label{th:Laurent phenomenon}
 		For any initial seed $(\x,B)$ with $\x = (x_1,\ldots, x_n)$, the associated cluster algebra lies in the Laurent polynomial ring
 		\begin{displaymath}
 			\cA(\x,B) \subseteq \CC[x_1, x_1^{-1}, \ldots, x_n, x_n^{-1}].
 		\end{displaymath}
 		In particular, every cluster variable can be expressed as a Laurent polynomial in $x_1,\ldots, x_n$.
 	\end{theorem}
+
+  \begin{exercise}
+    Compute all cluster variables and coefficient variables for cluster algebras associated to $B=\left[\begin{array}{cc} 0 & b\\ -c & 0\end{array}\right]$ with $b,c\in\ZZ_{>0}$ and $bc\le 3$.  Justify why attempting such a calculation is futile for $bc\ge4$.
+  \end{exercise}
+
+  \begin{exercise}
+    Prove the Laurent phenomenon for rank 2 cluster algebras.  <Include guiding hints and make the question more explicit.>
+  \end{exercise}
 	
 	\subsection{Geometric type}
-	Geometric type cluster algebras generalize the previous setting by allowing clusters to contain so-called frozen variables in addition to cluster variables.  The frozen variables do not mutate themselves, but they can take part in the exchange relations for cluster variables.  An \emph{extended cluster}, by convention, is typically written $\x = (x_1,\ldots, x_n, x_{n+1},\ldots x_m)$ where $x_1,\ldots, x_n$ are the cluster variable and $x_{n+1},\ldots, x_m$ are the frozen variables.  An \emph{extended exchange matrix} is an $m \times n$ integers matrix $\tilde{B}$ with the property that its top $n \times n$ part is skew-symmetric.
+	Geometric type cluster algebras generalize the previous setting by allowing clusters to contain so-called frozen variables in addition to cluster variables.  The frozen variables do not mutate themselves, but they can take part in the exchange relations for cluster variables.  An \emph{extended cluster}, by convention, is typically written $\x = (x_1,\ldots, x_n, x_{n+1},\ldots x_m)$ where $x_1,\ldots, x_n$ are the cluster variable and $x_{n+1},\ldots, x_m$ are the frozen variables.  An \emph{extended exchange matrix} is an $m \times n$ integer matrix $\tilde{B}$ with the property that its top $n \times n$ part is skew-symmetric.
 	
 	\begin{definition}
 	Fix a seed $(\x, \tilde B)$ with $\x=(x_1,\ldots, x_m)$ an extended cluster and $\tilde{B}$ an extended exchange matrix.  For an integer $k = 1,2,\ldots, n$, the \emph{seed mutation} $\mu_k$ in direction $k$ produces a new seed $\mu_k(\x,\tilde{B}) = (\x',\tilde{B}')$ with $\x' = (x_1,\ldots, x_{k-1}, x_k', x_{k+1},\ldots, x_m)$.  The formulas for $x_k'$ and the entries $\tilde{b}'_{ij}$ of $B'$ are the same as in \eqref{eq:exchange relation} and \eqref{eq:matrix mutation}, where in the former the products now range from $1$ to $m$ instead of from $1$ to $n$.
@@ -314,28 +330,51 @@
 	\end{displaymath}
 	\end{proposition}
 
-  \begin{exercise}
-    Compute all cluster variables and coefficient variables for cluster algebras associated to $B=\left[\begin{array}{cc} 0 & b\\ -c & 0\end{array}\right]$ with $b,c\in\ZZ_{>0}$ and $bc\le 3$.  Justify why attempting such a calculation is futile for $bc\ge4$.
-  \end{exercise}
-
-  \begin{exercise}
-    Prove the Laurent phenomenon for rank 2 cluster algebras.  <Include guiding hints and make the question more explicit.>
-  \end{exercise}
-
 %%%%%%%%%%%%%%%%%%%%%%%
 \section{Basic Results}\label{sec:basic_theorems}
-
-  \begin{theorem}
-    Laurent phenomenon.
-  \end{theorem}
+  As mentioned in the introduction cluster algebras have found applications in a surprising array of mathematical disciplines.  Much of their ubiquity comes from a number of remarkable theorems which we now explain.
 
   %Thus it is natural to seek a concrete understanding of these Laurent expansions of cluster variables.
   %\begin{theorem}
   %  Categorification?
   %\end{theorem}
 
+  As we have seen in Examples~\ref{example:Gr2n} and~\ref{example:total positivity}, cluster algebras have roots in classical Lie theory.  A large number of objects in this realm are classified by Dynkin diagrams and cluster algebras are no exception.  Given an extended exchange matrix $\tilde B$ with principal square submatrix $B=(b_{ij})$, write $A:=A_{\tilde B}=(a_{ij})$ for the \emph{Cartan companion} of $\tilde B$ given by $a_{ij}=\begin{cases}2 & \text{if $i=j$;}\\ -|b_{ij}| & \text{otherwise.}\end{cases}$.  Note that the Cartan companion only depends on the principal part of $\tilde B$.
   \begin{theorem}
-    Finite-type classification.
+    A cluster algebra $\cA(\x,\tilde B)$ has only finitely many cluster variables if and only if there exists an extended exchange matrix mutation equivalent to $\tilde B$ whose Cartan companion is a finite-type Cartan matrix.
+  \end{theorem}
+
+  One motivation for the discovery of the cluster algebra formalism was the desire to find a combinatorial construction of dual canonical basis elements for (quantum) algebraic groups.  The dual canonical basis of a semisimple algebraic group induces bases on the coordinate rings of any of its subvarieties.  As we saw in Example~\ref{example:total positivity} there appears to be some kind of cluster algebra structure on the double Bruhat cells of a semisimple algebraic group, which one can hope will shed some light on the dual canonical basis.  In most cases the double Bruhat cell does not actually admit a cluster algebra structure but does admit a closely related structure.
+
+  \begin{definition}
+    Let $(\x,\tilde B)$ denote an extended seed.  Define the \emph{upper cluster algebra} $\cU(\x,\tilde B)$ as the intersection of all Laurent rings associated to extended seeds mutation equivalent to $(\x,\tilde B)$.
+  \end{definition}
+
+  \begin{remark}
+    The Laurent phenomenon Theorem~\ref{th:Laurent phenomenon} guarantees the inclusion $\cA(\x,\tilde B)\subset\cU(\x,\tilde B)$, hence the name ``upper'' cluster algebra.
+  \end{remark}
+
+  \begin{theorem}
+    The coordinate ring of any double Bruhat cell is an upper cluster algebra.
+  \end{theorem}
+
+  In some special cases, the cluster algebra coincides with its upper cluster algebra.
+  \begin{definition}
+    An exchange matrix $B=(b_{ij})$ is called \emph{acyclic} if there exists a permutation $\sigma$ so that $b_{\sigma_i\sigma_j}\le 0$ for $i<j$.
+  \end{definition}
+  This terminology can be easily understood in the case of a skew-symmetric exchange matrix, it is acyclic exactly when its associated quiver has no oriented cycles.
+
+  \begin{theorem}
+    Let $\cA(\x,\tilde B)$ be a cluster algebra where $\tilde B$ has full rank and acyclic principal part.  Then $\cA(\x,\tilde B)=\cU(\x,\tilde B)$.
+  \end{theorem}
+
+  Acyclicity also guarantees the existence of easily identifiable bases of a cluster algebra.  These are best understood by identifying the cluster algebra with another related algebra, its lower bound.
+  \begin{definition}
+    Let $(\x,\tilde B)$ be an extended seed and write $x'_k$ for the variable obtained by mutation in direction $k$.  The lower bound of $\cA(\x,\tilde B)$ at $(\x,\tilde B)$ is the subalgebra $\cL(\x,\tilde B)=\CC[x_1,x'_1,\ldots,x_n,x'_n,x_{n+1},\ldots,x_m]$.
+  \end{definition}
+
+  \begin{theorem}
+    The cluster algebra $\cA(\x,\tilde B)$ coincides with its lower bound $\cL(\x,\tilde B)$ if and only if the principal part of $\tilde B$ is acyclic.
   \end{theorem}
 
   \begin{theorem}
