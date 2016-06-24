@@ -7,9 +7,10 @@
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{conjecture}[theorem]{Conjecture}
 \newtheorem{corollary}[theorem]{Corollary}
-\newtheorem{definition}[theorem]{Definition}
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{proposition}[theorem]{Proposition}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
 \newtheorem{example}[theorem]{Example}
 \newtheorem{subexercise}{Exercise}[theorem]
 \newtheorem{exercise}[theorem]{Exercise}
@@ -48,7 +49,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction}
-  Cluster algebras were introduced by Fomin and Zelevinsky \cite{FZ02} in 2002 as the culmination of their study of total positivity \cite{FZ99} and (dual) canonical bases.  The topic of cluster algebras quickly grew into its own as a subject deserving independent study mainly fueled by its close relationship to many areas of mathematics.  Here is a partial list of related topics: combinatorics \cite{musiker-propp}, hyperbolic geometry \cite{FG,FST,MSW}, Lie theory \cite{GLS}, Poisson geometry \cite{GSV}, integrable systems \cite{dFK,G}, representations of associative algebras \cite{CC,CK,BMRRT,Rup1,Q,Rup2}, mathematical physics \cite{EF,ABCGPT}, and quantum groups \cite{K,GLS2,KQ,BR}.
+  Cluster algebras were introduced by Fomin and Zelevinsky \cite{FZ02} in 2002 as the culmination of their study of total positivity \cite{FZ00} and (dual) canonical bases.  The topic of cluster algebras quickly grew into its own as a subject deserving independent study mainly fueled by its close relationship to many areas of mathematics.  Here is a partial list of related topics: combinatorics \cite{MP07}, hyperbolic geometry \cite{FG06,FST08,MSW13}, Lie theory \cite{GLS06}, Poisson geometry \cite{GSV03}, integrable systems \cite{dFK10,G11}, representations of associative algebras \cite{CC,CK,BMRRT,Rup1,Q,Rup2}, mathematical physics \cite{EF,ABCGPT}, and quantum groups \cite{K,GLS2,KQ,BR}.
 
   In these notes we will give an introduction to cluster algebras and a couple of the applications mentioned above.  These notes are far from exhaustive and the references above only touch on the vast literature.  Other overviews of cluster algebras can be found in the works \cite{??} which will also provide additional references.
 
@@ -520,7 +521,7 @@
 	\begin{equation} \label{eq:YSystem}
 		Y_{i,j,t-1}Y_{i,j,t+1} = \frac{\displaystyle\prod_{|j-j'|=1}(1+Y_{i,j',t}^{-1})}{\displaystyle\prod_{|i-i'|=1}(1+Y_{i',j,t})}
 	\end{equation}
-	for all $i+j+t$ even.  This recurrence is called the type $A_r \times A_s$ $Y$-system, a special case of a family of systems conjectured by Zamolodchikov to be periodic.  The proof, in this case, is due to A. Volkov \cite{V}.
+	for all $i+j+t$ even.  This recurrence is called the type $A_r \times A_s$ $Y$-system, a special case of a family of systems conjectured by Zamolodchikov to be periodic.  The proof, in this case, is due to A. Volkov \cite{V07}.
 	
 	\begin{theorem}
 		The $Y$-system \eqref{eq:YSystem} on variables $Y_{i,j,t}$ with $i+j+t$ odd, $i=1,\ldots, r$, and $j=1,\ldots, s$ has period $2(r+s+2)$ in the $t$-direction, that is
@@ -836,17 +837,26 @@
 	
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{thebibliography}{99}
-  \bibitem{FZ02} S. Fomin and A. Zelevinsky, Cluster algebras I: Foundations
+	\bibitem{dFK10} P. DiFrancesco and R. Kedem, $Q$-systems, heaps, paths and cluster positivity, \textsl{Comm. Math. Phys.} \textbf{293} (2010), 727--802.
+	\bibitem{FG06} V. Fock and A. Goncharov, Moduli spaces of local systems and higher Teichmüller theory, \textsl{Publ. Math. Inst. Hautes Études Sci.} \textbf{103} (2006), 1--211.
+	\bibitem{FST08} S. Fomin, M. Shapiro, and D. Thurston, Cluster algebras and triangulated surfaces. I. Cluster complexes, \textsl{Acta Math.} \textbf{201} (2008), 83--146.
+	\bibitem{FZ02} S. Fomin and A. Zelevinsky, Cluster algebras I: Foundations, \textsl{J. Amer. Math. Soc.} \textbf{15} (2002), 497--529.
+	\bibitem{FZ00} S. Fomin and A. Zelevinsky, Total positivity: tests and parametrizations, \textsl{Math. Intelligencer} \textbf{22} (2000), 23--33.
+	\bibitem{GLS06} C. Geiss, B Leclerc, and J. Schroer, Rigid modules over preprojective algebras, \textsl{Invent. Math} \textbf{165} (2006), 589--632.
+	\bibitem{GSV03} M. Gekhtman, M. Shapiro, and A. Vainshtein,  Cluster algebras and Poisson geometry, \textsl{Mosc. Math. J.} \textbf{3} (2003), 899--934.
 	\bibitem{GSTV12} M. Gekhtman, M. Shapiro, S. Tabachnikov, and A. Vainshtein, Higher pentagram maps, weighted directed
  networks, and cluster dynamics, \textsl{Electron. Res. Announc. Math. Sci.} \textbf{19} (2012), 1--17.
 	\bibitem{G11} M. Glick, The pentagram map and Y-patterns, \textsl{Adv. Math.} \textbf{227} (2011), 1019--1045.
-	\bibitem{GK13} A. Goncharov and R. Kenyon, Dimers and cluster integrable systems, \textsl{Ann. Sci. \'Ec. Norm. Sup\'er.} \textbf{46} (2013) 747--813.
+	\bibitem{GK13} A. Goncharov and R. Kenyon, Dimers and cluster integrable systems, \textsl{Ann. Sci. \'Ec. Norm. Sup\'er.} \textbf{46} (2013), 747--813.
+	\bibitem{MP07} G. Musiker and J. Propp, Combinatorial interpretations for rank-two cluster algebras of affine type, \textsl{ Electron. J. Combin.} \textbf{14} (2007), 23 pp.
+	\bibitem{MSW13} G. Muisker, R. Schiffler, and L. Williams, Bases for cluster algebras from surfaces, \textsl{Compos. Math} \textbf{149} (2013), 2891--2944.
 	\bibitem{OST10} V. Ovsienko, R. Schwartz, and S. Tabachnikov, The pentagram map: a discrete integrable system, \textsl{Comm. Math. Phys.} \textbf{299} (2010), 409-446.
 	\bibitem{OST13} V. Ovsienko, R. Schwartz, and S. Tabachnikov, Liouville-Arnold integrability of the pentagram map on closed polygons, \textsl{Duke Math. J.} \textbf{162} (2013), 2149--2196.
 	\bibitem{S92} R. Schwartz, The pentagram map, \textsl{Experiment. Math.} \textbf{1} (1992), 71--81.
 	\bibitem{S08} R. Schwartz, Discrete monodromy, pentagrams, and the method of condensation, \textsl{J. Fixed Point Theory Appl
 .} \textbf{3} (2008), 379--409.
 	\bibitem{S13} F. Soloviev, Integrability of the Pentagram Map, \textsl{Duke Math. J.} \textbf{162} (2013), 2815--2853.
+	\bibitem{V07} A. Volkov, On the periodicity conjecture for $Y$-systems, \textsl{Comm. Math. Phys.} \textbf{276} (2007), 509--517.
 \end{thebibliography}
 
 \end{document}
