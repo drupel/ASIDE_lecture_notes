@@ -50,7 +50,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction}
-  Cluster algebras were introduced by Fomin and Zelevinsky \cite{FZ02} in 2002 as the culmination of their study of total positivity \cite{FZ00} and (dual) canonical bases.  The topic of cluster algebras quickly grew into its own as a subject deserving independent study mainly fueled by its close relationship to many areas of mathematics.  Here is a partial list of related topics: combinatorics \cite{MP07}, hyperbolic geometry \cite{FG06,FST08,MSW13}, Lie theory \cite{GLS06}, Poisson geometry \cite{GSV03}, integrable systems \cite{dFK10,G11}, representations of associative algebras \cite{CC,CK,BMRRT,Rup1,Q,Rup2}, mathematical physics \cite{EF,ABCGPT}, and quantum groups \cite{K,GLS2,KQ,BR}.
+  Cluster algebras were introduced by Fomin and Zelevinsky \cite{FZ02} in 2002 as the culmination of their study of total positivity \cite{FZ99} and (dual) canonical bases.  The topic of cluster algebras quickly grew into its own as a subject deserving independent study mainly fueled by its close relationship to many areas of mathematics.  Here is a partial list of related topics: combinatorics \cite{MP07}, hyperbolic geometry \cite{FG06,FST08,MSW13}, Lie theory \cite{GLS06}, Poisson geometry \cite{GSV03}, integrable systems \cite{dFK10,G11}, representations of associative algebras \cite{CC06,CK06,BMRRT06,R11,Q12,R15}, mathematical physics \cite{EF12,ABCGPT14}, and quantum groups \cite{K12,GLS13,KQ14,BR15}.
 
   In these notes we will give an introduction to cluster algebras and a couple of the applications mentioned above.  These notes are far from exhaustive and the references above only touch on the vast literature.  Other overviews of cluster algebras can be found in the works \cite{??} which will also provide additional references.
 
@@ -381,10 +381,10 @@
   \end{example}
 
   The next result gives the positivity of the initial cluster Laurent expansions of all cluster variables.
-  \begin{theorem}\cite{LS13}
+  \begin{theorem}\cite{LS15}
     Let $\cA(\bx,\tilde B)$ be a cluster algebra.  Any cluster variable of $\cA(\bx,\tilde B)$ is an element of $\ZZ_{\ge0}[x_1^{\pm1},\ldots,x_m^{\pm1}]$.
   \end{theorem}
-  The proof builds on a concrete combinatorial construction of cluster variables in rank 2 \cite{LS11,LLZ12}.  To describe it we need more notation.
+  The proof builds on a concrete combinatorial construction of cluster variables in rank 2 \cite{LS13,LLZ14}.  To describe it we need more notation.
 
   For $k\in\ZZ\setminus\{1,2\}$, denote by $R_k$ the rectangle in $\ZZ^2$ with corner vertices $(0,0)$ and $d^{(k)}$ from Equation~\ref{eq:rank 2 denominators}.  Write $D_k$ for the maximal Dyck path in $R_k$ beginning at $(0,0)$, taking East and North steps to end at the upper right corner of $R_k$ while never passing above the main diagonal, and such that the area below $D_k$ inside $R_k$ is maximized.
   \begin{example}
@@ -405,7 +405,7 @@
       \draw[fill=black] (1.75,0.5) circle (1.1pt);
       \draw[fill=black] (2.0,0.5) circle (1.1pt);
       \draw[fill=black] (2.0,0.75) circle (1.1pt);
-    \end{tikzpicture}.
+    \end{tikzpicture}
     \end{center}
   \end{example}
   For edges $e,e'\in D_k$, write $e<e'$ if $e$ precedes $e'$ along $D_k$, in other words if $e$ is closer to $(0,0)$.  In this case write $ee'$ for the subpath of $D_k$ beginning with the edge $e$ and ending with the edge $e'$.  Write $(ee')_H$ and $(ee')_V$ for the sets of horizontal and vertical edges in the path $ee'$ respectively.  Let $H,V\subset D_k$ denote the sets of horizontal and vertical edges of $D_k$.
@@ -459,7 +459,7 @@
     \end{tikzpicture}
     \end{center}
   \end{example}
-  \begin{theorem}\cite{LLZ12}
+  \begin{theorem}\cite{LLZ14}
     For $k\in\ZZ\setminus\{1,2\}$, the cluster variable $x_k$ is given by
     \[x_k=\sum\limits_{(S_H,S_V)}x_1^{-d^{(k)}_1+b|S_V|}x_2^{-d^{(k)}_2+c|S_H|},\]
     where the sum ranges over all compatible collections of edges in the maximal Dyck path $D_k$.  In particular, each cluster variable is contained in $\ZZ_{\ge0}[x_1^{\pm1},x_2^{\pm1}]$.
@@ -961,24 +961,37 @@
 	
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{thebibliography}{99}
+  \bibitem{ABCGPT14} N. Arkani-Hameda, J. Bourjailyb, F. Cachazoc, A. Goncharovd, A. Postnikove, and J. Trnka, Scattering amplitudes and the positive Grassmannian, arXiv preprint: 1212.5605v2.
+  \bibitem{BR15} A. Berenstein and D. Rupel, Quantum cluster characters of Hall algebras, \textsl{Sel. Math. New Ser.} \textbf{21} (2015), no. 4, 1121--1176.
+  \bibitem{CC06} P. Caldero and F. Chapoton, Cluster algebras as Hall algebras of quiver representations, \textsl{Comment. Math. Helv.} \textbf{81} (2006), no. 3, 595--616.
+  \bibitem{CK06} P. Caldero and B. Keller, From triangulated categories to cluster algebras II, \textsl{Ann. Sci. \'Ecole Norm. Sup.} (4) \textbf{39} (2006), no. 6, 983--1009.
+  \bibitem{BMRRT06} A. Buan, R. Marsh, I. Reiten, M. Reineke, and G. Todorov, Tilting theory and cluster combinatorics, \textsl{Adv. Math.} \textbf{204} (2006), no. 2, 572–-618.
 	\bibitem{dFK10} P. DiFrancesco and R. Kedem, $Q$-systems, heaps, paths and cluster positivity, \textsl{Comm. Math. Phys.} \textbf{293} (2010), 727--802.
+  \bibitem{EF12} R. Eager and S. Franco, Colored BPS pyramid partition functions, quivers and cluster transformations, \textsl{J. High Energy Phys.} (2012), no. 9, 038.
 	\bibitem{FG06} V. Fock and A. Goncharov, Moduli spaces of local systems and higher Teichmüller theory, \textsl{Publ. Math. Inst. Hautes Études Sci.} \textbf{103} (2006), 1--211.
 	\bibitem{FST08} S. Fomin, M. Shapiro, and D. Thurston, Cluster algebras and triangulated surfaces. I. Cluster complexes, \textsl{Acta Math.} \textbf{201} (2008), 83--146.
 	\bibitem{FZ02} S. Fomin and A. Zelevinsky, Cluster algebras I: Foundations, \textsl{J. Amer. Math. Soc.} \textbf{15} (2002), 497--529.
-	\bibitem{FZ00} S. Fomin and A. Zelevinsky, Total positivity: tests and parametrizations, \textsl{Math. Intelligencer} \textbf{22} (2000), 23--33.
-	\bibitem{GLS06} C. Geiss, B Leclerc, and J. Schroer, Rigid modules over preprojective algebras, \textsl{Invent. Math} \textbf{165} (2006), 589--632.
+	\bibitem{FZ99} S. Fomin and A. Zelevinsky, Double Bruhat celles and total positivity, \textsl{J. Amer. Math. Soc.} \textbf{12} (1999), 335--380.
+	\bibitem{GLS06} C. Geiss, B. Leclerc, and J. Schroer, Rigid modules over preprojective algebras, \textsl{Invent. Math} \textbf{165} (2006), 589--632.
+  \bibitem{GLS13} C. Geiss, B. Leclerc, and J. Schr\"oer, Cluster structures on quantum coordinate rings, \textsl{Selecta Math. (N.S.)} \textbf{19} (2013), no. 2, 337--397.
 	\bibitem{GSV03} M. Gekhtman, M. Shapiro, and A. Vainshtein,  Cluster algebras and Poisson geometry, \textsl{Mosc. Math. J.} \textbf{3} (2003), 899--934.
-	\bibitem{GSTV12} M. Gekhtman, M. Shapiro, S. Tabachnikov, and A. Vainshtein, Higher pentagram maps, weighted directed
- networks, and cluster dynamics, \textsl{Electron. Res. Announc. Math. Sci.} \textbf{19} (2012), 1--17.
+	\bibitem{GSTV12} M. Gekhtman, M. Shapiro, S. Tabachnikov, and A. Vainshtein, Higher pentagram maps, weighted directed networks, and cluster dynamics, \textsl{Electron. Res. Announc. Math. Sci.} \textbf{19} (2012), 1--17.
 	\bibitem{G11} M. Glick, The pentagram map and Y-patterns, \textsl{Adv. Math.} \textbf{227} (2011), 1019--1045.
 	\bibitem{GK13} A. Goncharov and R. Kenyon, Dimers and cluster integrable systems, \textsl{Ann. Sci. \'Ec. Norm. Sup\'er.} \textbf{46} (2013), 747--813.
+  \bibitem{K12} Y. Kimura, Quantum unipotent subgroup and dual canonical basis, \textsl{Kyoto J. Math.} \textbf{52} (2012), no. 2, 277--331.
+  \bibitem{KQ14} Y. Kimura and F. Qin, Graded quiver varieties, quantum cluster algebras and dual canonical basis, \textsl{Adv. Math.} \textbf{262} (2014), 261--312.
+  \bibitem{LLZ14} K. Lee, L. Li, and A. Zelevinsky, Greedy elements in rank 2 cluster algebras, \textsl{Sel. Math. New Ser.} \textbf{20} (2014), 57--82.
+  \bibitem{LS13} K. Lee and R. Schiffler, A Combinatorial Formula for Rank 2 Cluster Variables, \textsl{J. Alg. Comb} \textbf{37} (2013), 67--85.
+  \bibitem{LS15} K. Lee and R. Schiffler, Positivity for cluster algebras, \textsl{Ann. Math.} \textbf{182} (2015), 73--125.
 	\bibitem{MP07} G. Musiker and J. Propp, Combinatorial interpretations for rank-two cluster algebras of affine type, \textsl{ Electron. J. Combin.} \textbf{14} (2007), 23 pp.
 	\bibitem{MSW13} G. Muisker, R. Schiffler, and L. Williams, Bases for cluster algebras from surfaces, \textsl{Compos. Math} \textbf{149} (2013), 2891--2944.
 	\bibitem{OST10} V. Ovsienko, R. Schwartz, and S. Tabachnikov, The pentagram map: a discrete integrable system, \textsl{Comm. Math. Phys.} \textbf{299} (2010), 409-446.
 	\bibitem{OST13} V. Ovsienko, R. Schwartz, and S. Tabachnikov, Liouville-Arnold integrability of the pentagram map on closed polygons, \textsl{Duke Math. J.} \textbf{162} (2013), 2149--2196.
+  \bibitem{Q12} F. Qin, Quantum cluster variables via Serre polynomials, \textsl{J. Reine Angew. Math.} \textbf{668} (2012), 149--190.
+  \bibitem{R11} D. Rupel, On a quantum analogue of the Caldero-Chapoton formula, \textsl{Int. Math. Res. Not.} (2011), no. 14, 3207--3236.
+  \bibitem{R15} D. Rupel, Quantum cluster characters for valued quivers, \textsl{Trans. Amer. Math. Soc.} \textbf{367} (2015), 7061--7102.
 	\bibitem{S92} R. Schwartz, The pentagram map, \textsl{Experiment. Math.} \textbf{1} (1992), 71--81.
-	\bibitem{S08} R. Schwartz, Discrete monodromy, pentagrams, and the method of condensation, \textsl{J. Fixed Point Theory Appl
-.} \textbf{3} (2008), 379--409.
+	\bibitem{S08} R. Schwartz, Discrete monodromy, pentagrams, and the method of condensation, \textsl{J. Fixed Point Theory Appl.} \textbf{3} (2008), 379--409.
 	\bibitem{S13} F. Soloviev, Integrability of the Pentagram Map, \textsl{Duke Math. J.} \textbf{162} (2013), 2815--2853.
 	\bibitem{V07} A. Volkov, On the periodicity conjecture for $Y$-systems, \textsl{Comm. Math. Phys.} \textbf{276} (2007), 509--517.
 \end{thebibliography}
