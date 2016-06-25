@@ -2,6 +2,7 @@
 \usepackage{amsmath,amssymb,latexsym,enumerate}
 \usepackage{pstricks}
 \usepackage{pst-node}
+\usepackage{tikz}
 
 
 \newtheorem{theorem}{Theorem}[section]
@@ -214,8 +215,15 @@
 		\begin{displaymath}
 			\cA(\x,B) = \CC\left[x_1,x_2,\frac{x_2+1}{x_1},\frac{x_1 + x_2 + 1}{x_1x_2},\frac{x_1+1}{x_2}\right] \subseteq \CC[x_1^{\pm1},x_2^{\pm1}].
 		\end{displaymath}
-    In fact, any four elements of $\{x_1,x_2,\frac{x_2+1}{x_1},\frac{x_1 + x_2 + 1}{x_1x_2},\frac{x_1+1}{x_2}\}$ are sufficient to generate $\cA(\x,B)$.  This observation readily generalizes to cluster algebras associated to any $2\times 2$ exchange matrix and leads ultimately to the following important result.
+    In fact, any four elements of $\{x_1,x_2,\frac{x_2+1}{x_1},\frac{x_1 + x_2 + 1}{x_1x_2},\frac{x_1+1}{x_2}\}$ are sufficient to generate $\cA(\x,B)$.  This observation readily generalizes to cluster algebras associated to any $2\times 2$ exchange matrix. %and leads ultimately to the following important result.
   \end{example}
+
+  \begin{exercise}\label{exercise:rank 2}\mbox{}
+    \begin{enumerate}
+      \item Compute all cluster variables and coefficient variables for cluster algebras associated to $B=\left[\begin{array}{cc} 0 & b\\ -c & 0\end{array}\right]$ with $b,c\in\ZZ_{>0}$ and $bc\le 3$.
+      \item Justify why attempting such a calculation is futile for $bc\ge4$.  Hint: consider the denominator vectors of the cluster variables.
+    \end{enumerate}
+  \end{exercise}
 	
 	\begin{theorem}\label{th:Laurent phenomenon}
 		For any initial seed $(\x,B)$ with $\x = (x_1,\ldots, x_n)$, the associated cluster algebra lies in the Laurent polynomial ring
@@ -224,13 +232,6 @@
 		\end{displaymath}
 		In particular, every cluster variable can be expressed as a Laurent polynomial in $x_1,\ldots, x_n$.
 	\end{theorem}
-
-  \begin{exercise}\label{exercise:rank 2}\mbox{}
-    \begin{enumerate}
-      \item Compute all cluster variables and coefficient variables for cluster algebras associated to $B=\left[\begin{array}{cc} 0 & b\\ -c & 0\end{array}\right]$ with $b,c\in\ZZ_{>0}$ and $bc\le 3$.
-      \item Justify why attempting such a calculation is futile for $bc\ge4$.  Hint: consider the denominator vectors of the cluster variables.
-    \end{enumerate}
-  \end{exercise}
 
   \begin{exercise}
     Prove the Laurent phenomenon for rank 2 cluster algebras.  Hint: start by showing that $x_4\in\ZZ[x_0,x_1,x_2,x_3]$ by considering the monomial $x_0x_3^b$.
@@ -361,11 +362,6 @@
 \section{Basic Results}\label{sec:basic_theorems}
   As mentioned in the introduction cluster algebras have found applications in a surprising array of mathematical disciplines.  Much of their ubiquity comes from a number of remarkable theorems which we now explain.
 
-  %Thus it is natural to seek a concrete understanding of these Laurent expansions of cluster variables.
-  %\begin{theorem}
-  %  Categorification?
-  %\end{theorem}
-
   As we have seen in Examples~\ref{example:Gr2n} and~\ref{example:total positivity}, cluster algebras have roots in classical Lie theory.  A large number of objects in this realm are classified by Dynkin diagrams and cluster algebras are no exception.  Given an extended exchange matrix $\tilde B$ with principal square submatrix $B=(b_{ij})$, write $A:=A_{\tilde B}=(a_{ij})$ for the \emph{Cartan companion} of $\tilde B$ given by $a_{ij}=\begin{cases}2 & \text{if $i=j$;}\\ -|b_{ij}| & \text{otherwise.}\end{cases}$.  Note that the Cartan companion only depends on the principal part of $\tilde B$.
   \begin{theorem}
     A cluster algebra $\cA(\x,\tilde B)$ has only finitely many cluster variables if and only if there exists an extended exchange matrix mutation equivalent to $\tilde B$ whose Cartan companion is a finite-type Cartan matrix.
@@ -383,6 +379,92 @@
     \end{equation}
     It is not hard to check that the vectors $d^{(k)}$ are exactly the positive roots in the root system associated the the Cartan matrix $A_B=\left[\begin{array}{cc} 2 & -b\\ -c & 2\end{array}\right]$, which is known to have only finitely many roots if and only if $bc\le3$.
   \end{example}
+
+  The next result gives the positivity of the initial cluster Laurent expansions of all cluster variables.
+  \begin{theorem}\cite{LS13}
+    Let $\cA(\bx,\tilde B)$ be a cluster algebra.  Any cluster variable of $\cA(\bx,\tilde B)$ is an element of $\ZZ_{\ge0}[x_1^{\pm1},\ldots,x_m^{\pm1}]$.
+  \end{theorem}
+  The proof builds on a concrete combinatorial construction of cluster variables in rank 2 \cite{LS11,LLZ12}.  To describe it we need more notation.
+
+  For $k\in\ZZ\setminus\{1,2\}$, denote by $R_k$ the rectangle in $\ZZ^2$ with corner vertices $(0,0)$ and $d^{(k)}$ from Equation~\ref{eq:rank 2 denominators}.  Write $D_k$ for the maximal Dyck path in $R_k$ beginning at $(0,0)$, taking East and North steps to end at the upper right corner of $R_k$ while never passing above the main diagonal, and such that the area below $D_k$ inside $R_k$ is maximized.
+  \begin{example}
+    For $b=c=3$, the maximal Dyck path $D_5$ is
+    \begin{center}
+    \begin{tikzpicture}
+      \draw[step=0.25cm,color=gray] (0,0) grid (2.0,0.75);
+      \draw[color=gray] (0,0) -- (2.0,0.75);
+      \draw[fill=black] (0.0,0.0) circle (1.1pt);
+      \draw[fill=black] (0.25,0.0) circle (1.1pt);
+      \draw[fill=black] (0.5,0.0) circle (1.1pt);
+      \draw[fill=black] (0.75,0.0) circle (1.1pt);
+      \draw[fill=black] (0.75,0.25) circle (1.1pt);
+      \draw[fill=black] (1.0,0.25) circle (1.1pt);
+      \draw[fill=black] (1.25,0.25) circle (1.1pt);
+      \draw[fill=black] (1.5,0.25) circle (1.1pt);
+      \draw[fill=black] (1.5,0.5) circle (1.1pt);
+      \draw[fill=black] (1.75,0.5) circle (1.1pt);
+      \draw[fill=black] (2.0,0.5) circle (1.1pt);
+      \draw[fill=black] (2.0,0.75) circle (1.1pt);
+    \end{tikzpicture}.
+    \end{center}
+  \end{example}
+  For edges $e,e'\in D_k$, write $e<e'$ if $e$ precedes $e'$ along $D_k$, in other words if $e$ is closer to $(0,0)$.  In this case write $ee'$ for the subpath of $D_k$ beginning with the edge $e$ and ending with the edge $e'$.  Write $(ee')_H$ and $(ee')_V$ for the sets of horizontal and vertical edges in the path $ee'$ respectively.  Let $H,V\subset D_k$ denote the sets of horizontal and vertical edges of $D_k$.
+
+  Call subsets $S_H\subset H$ and $S_V\subset V$ compatible if for each $h\in S_H$ and $v\in S_V$ with $h<v$, there exists $e\in hv$ so that one of the following holds:
+  \begin{itemize}
+    \item $e\ne v$ and $|(he)_V|=c|(he)_H\cap S_H|$;
+    \item $e\ne h$ and $|(ev)_H|=b|(ev)_V\cap S_V|$.
+  \end{itemize}
+  \begin{example}
+    For $b=c=3$, the picture below on the left shows a compatible collection of edges while the collection on the right is not compatible.
+    \begin{center}
+    \begin{tikzpicture}
+      \draw[step=0.25cm,color=gray] (0,0) grid (2.0,0.75);
+      \draw[color=gray] (0,0) -- (2.0,0.75);
+      \draw[fill=black] (0.0,0.0) circle (1.1pt);
+      \draw[fill=black] (0.25,0.0) circle (1.1pt);
+      \draw[very thick] (0.25,0.0) -- (0.5,0.0);
+      \draw[fill=black] (0.5,0.0) circle (1.1pt);
+      \draw[fill=black] (0.75,0.0) circle (1.1pt);
+      \draw[fill=black] (0.75,0.25) circle (1.1pt);
+      \draw[fill=black] (1.0,0.25) circle (1.1pt);
+      \draw[fill=black] (1.25,0.25) circle (1.1pt);
+      \draw[fill=black] (1.5,0.25) circle (1.1pt);
+      \draw[very thick] (1.5,0.25) -- (1.5,0.5);
+      \draw[fill=black] (1.5,0.5) circle (1.1pt);
+      \draw[fill=black] (1.75,0.5) circle (1.1pt);
+      \draw[fill=black] (2.0,0.5) circle (1.1pt);
+      \draw[very thick] (2.0,0.5) -- (2.0,0.75);
+      \draw[fill=black] (2.0,0.75) circle (1.1pt);
+    \end{tikzpicture}
+    \qquad
+    \begin{tikzpicture}
+      \draw[step=0.25cm,color=gray] (0,0) grid (2.0,0.75);
+      \draw[color=gray] (0,0) -- (2.0,0.75);
+      \draw[fill=black] (0.0,0.0) circle (1.1pt);
+      \draw[fill=black] (0.25,0.0) circle (1.1pt);
+      \draw[fill=black] (0.5,0.0) circle (1.1pt);
+      \draw[very thick] (0.5,0.0) -- (0.75,0.0);
+      \draw[fill=black] (0.75,0.0) circle (1.1pt);
+      \draw[fill=black] (0.75,0.25) circle (1.1pt);
+      \draw[fill=black] (1.0,0.25) circle (1.1pt);
+      \draw[fill=black] (1.25,0.25) circle (1.1pt);
+      \draw[fill=black] (1.5,0.25) circle (1.1pt);
+      \draw[very thick] (1.5,0.25) -- (1.5,0.5);
+      \draw[fill=black] (1.5,0.5) circle (1.1pt);
+      \draw[fill=black] (1.75,0.5) circle (1.1pt);
+      \draw[fill=black] (2.0,0.5) circle (1.1pt);
+      \draw[very thick] (2.0,0.5) -- (2.0,0.75);
+      \draw[fill=black] (2.0,0.75) circle (1.1pt);
+    \end{tikzpicture}
+    \end{center}
+  \end{example}
+  \begin{theorem}\cite{LLZ12}
+    For $k\in\ZZ\setminus\{1,2\}$, the cluster variable $x_k$ is given by
+    \[x_k=\sum\limits_{(S_H,S_V)}x_1^{-d^{(k)}_1+b|S_V|}x_2^{-d^{(k)}_2+c|S_H|},\]
+    where the sum ranges over all compatible collections of edges in the maximal Dyck path $D_k$.  In particular, each cluster variable is contained in $\ZZ_{\ge0}[x_1^{\pm1},x_2^{\pm1}]$.
+  \end{theorem}
+
 
 
 
@@ -428,15 +510,6 @@
     -contains non-prime cluster variables\\
     -does not equal its upper cluster algebra
   \end{example}
-
-  The next result gives the positivity of the initial cluster Laurent expansions of all cluster variables.
-  \begin{theorem}\cite{LS13}
-    Let $\cA(\bx,\tilde B)$ be a cluster algebra.  Any cluster variable of $\cA(\bx,\tilde B)$ is an element of $\ZZ_{\ge0}[x_1^{\pm1},\ldots,x_m^{\pm1}]$.
-  \end{theorem}
-  The proof builds on a concrete combinatorial construction of cluster variables in rank 2 \cite{LS11,LLZ12}.  
-  \begin{theorem}
-    Combinatorial constructions in rank 2.
-  \end{theorem}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Compatible Poisson Structures and Quantization}\label{sec:poisson_and_quantum}
