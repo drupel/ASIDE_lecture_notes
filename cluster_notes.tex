@@ -133,7 +133,6 @@
     To understand total nonnegativity criteria for $GL_n$, we will consider the \emph{double Bruhat cells} $G^{u,v}=B_+uB_+\cap B_-vB_-$.  It turns out that each double Bruhat cell admits its own total nonnegativity criteria, i.e. for each $u,v\in\Sigma_n$ there exists a minimal collection of minors whose positivity identifies the subset $G^{u,v}\cap GL_n^{\ge0}$ inside the double Bruhat cell $G^{u,v}$.
 
 
-
   \end{example}
 
   \begin{example}
@@ -190,7 +189,7 @@
 	\end{definition}
 	
 	
-  \begin{example}
+  \begin{example}\label{example:type A2}
 		Let $\x = (x_1,x_2)$ and
 		\begin{displaymath}
 			B = \left[ \begin{array}{cc}
@@ -226,12 +225,15 @@
 		In particular, every cluster variable can be expressed as a Laurent polynomial in $x_1,\ldots, x_n$.
 	\end{theorem}
 
-  \begin{exercise}
-    Compute all cluster variables and coefficient variables for cluster algebras associated to $B=\left[\begin{array}{cc} 0 & b\\ -c & 0\end{array}\right]$ with $b,c\in\ZZ_{>0}$ and $bc\le 3$.  Justify why attempting such a calculation is futile for $bc\ge4$.
+  \begin{exercise}\label{exercise:rank 2}\mbox{}
+    \begin{enumerate}
+      \item Compute all cluster variables and coefficient variables for cluster algebras associated to $B=\left[\begin{array}{cc} 0 & b\\ -c & 0\end{array}\right]$ with $b,c\in\ZZ_{>0}$ and $bc\le 3$.
+      \item Justify why attempting such a calculation is futile for $bc\ge4$.  Hint: consider the denominator vectors of the cluster variables.
+    \end{enumerate}
   \end{exercise}
 
   \begin{exercise}
-    Prove the Laurent phenomenon for rank 2 cluster algebras.  <Include guiding hints and make the question more explicit.>
+    Prove the Laurent phenomenon for rank 2 cluster algebras.  Hint: start by showing that $x_4\in\ZZ[x_0,x_1,x_2,x_3]$ by considering the monomial $x_0x_3^b$.
   \end{exercise}
 	
 	\subsection{Increased generality}
@@ -368,6 +370,21 @@
   \begin{theorem}
     A cluster algebra $\cA(\x,\tilde B)$ has only finitely many cluster variables if and only if there exists an extended exchange matrix mutation equivalent to $\tilde B$ whose Cartan companion is a finite-type Cartan matrix.
   \end{theorem}
+  \begin{example}
+    As we have seen in Exercise~\ref{exercise:rank 2} the cluster algebra associated to the exchange matrix $\left[\begin{array}{cc}0 & b\\ -c & 0\end{array}\right]$ has only finitely many cluster variables if and only if $bc\le3$.  To see this, denote the cluster variables by $x_k$, $k\in\ZZ$ as in Example~\ref{example:type A2}.  More precisely, the cluster variables are defined by the recursion
+    \[x_{k-1}x_{k+1}=\begin{cases}x_k^b+1 & \text{if $k$ is odd;}\\ x_k^c+1 & \text{if $k$ is even.}\end{cases}\]
+    Writing $x_k$, $k\in\ZZ\setminus\{1,2\}$ in its initial cluster Laurent expansion, i.e. as an element of $\ZZ[x_1^{\pm1},x_2^{\pm1}]$, the exponent $d^{(k)}=(d_1^{(k)},d_2^{(k)})$ of the monomial $x_1^{d^{(k)}_1}x_2^{d^{(k)}_2}$ appearing in the denominator of $x_k$ can easily be seen to be computed as follows.  Let $U_m(t)$ denote the Chebyshev polynomial defined recursively by 
+    \[U_{m+1}(t)=tU_m(t)-U_{m-1}(t)\qquad U_1(t)=1\qquad U_0(t)=0\]
+    and for $j\in\{1,2\}$ define 
+    \[u_{m,j}=\begin{cases}U_m(\sqrt{bc}) & \text{if $m$ is odd;}\\\sqrt{b/c}\,U_m(\sqrt{bc}) & \text{if $m$ is even and $j=1$;}\\\sqrt{c/b}\,U_m(\sqrt{bc}) & \text{if $m$ is even and $j=2$.}\\\end{cases}\]
+    Then the denominator vector of $x_k$ for $k\in\ZZ\setminus\{1,2\}$ is
+    \begin{equation}\label{eq:rank 2 denominators}
+      d^{(k)}=\begin{cases}(u_{k-2,1},u_{k-3,2}) & \text{if $k\ge3$;}\\(u_{-k,1},u_{-k+1,2}) & \text{if $k\le0$.}\end{cases}
+    \end{equation}
+    It is not hard to check that the vectors $d^{(k)}$ are exactly the positive roots in the root system associated the the Cartan matrix $A_B=\left[\begin{array}{cc} 2 & -b\\ -c & 2\end{array}\right]$, which is known to have only finitely many roots if and only if $bc\le3$.
+  \end{example}
+
+
 
   One motivation for the discovery of the cluster algebra formalism was the desire to find a combinatorial construction of dual canonical basis elements for (quantum) algebraic groups.  The dual canonical basis of a semisimple algebraic group induces bases on the coordinate rings of any of its subvarieties.  As we saw in Example~\ref{example:total positivity} there appears to be some kind of cluster algebra structure on the double Bruhat cells of a semisimple algebraic group, which one can hope will shed some light on the dual canonical basis.  In most cases the double Bruhat cell does not actually admit a cluster algebra structure but does admit a closely related structure.
 
@@ -402,14 +419,24 @@
     The cluster algebra $\cA(\x,\tilde B)$ coincides with its lower bound $\cL(\x,\tilde B)$ if and only if the principal part of $\tilde B$ is acyclic.
   \end{theorem}
 
-  \begin{theorem}
-    Positivity.
-  \end{theorem}
+  \begin{example}
+    Markov cluster algebra: where everything fails\\
+    -infinite type\\
+    -standard monomials are linearly dependent\\
+    -not finitely generated\\
+    -not Noetherian\\
+    -contains non-prime cluster variables\\
+    -does not equal its upper cluster algebra
+  \end{example}
 
-  %The proof builds on a concrete combinatorial construction of cluster variables in rank 2.
-  %\begin{theorem}
-  %  Combinatorial constructions in rank 2.
-  %\end{theorem}
+  The next result gives the positivity of the initial cluster Laurent expansions of all cluster variables.
+  \begin{theorem}\cite{LS13}
+    Let $\cA(\bx,\tilde B)$ be a cluster algebra.  Any cluster variable of $\cA(\bx,\tilde B)$ is an element of $\ZZ_{\ge0}[x_1^{\pm1},\ldots,x_m^{\pm1}]$.
+  \end{theorem}
+  The proof builds on a concrete combinatorial construction of cluster variables in rank 2 \cite{LS11,LLZ12}.  
+  \begin{theorem}
+    Combinatorial constructions in rank 2.
+  \end{theorem}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Compatible Poisson Structures and Quantization}\label{sec:poisson_and_quantum}
