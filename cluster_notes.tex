@@ -24,7 +24,10 @@
 \newcommand{\cF}{{\mathcal{F}}}
 \newcommand{\cL}{{\mathcal{L}}}
 \newcommand{\cO}{{\mathcal{O}}}
+\newcommand{\cT}{{\mathcal{T}}}
 \newcommand{\cU}{{\mathcal{U}}}
+\newcommand{\ba}{{\bf a}}
+\newcommand{\bb}{{\bf b}}
 \newcommand{\bff}{{\bf f}}
 \newcommand{\x}{{\bf x}}
 \newcommand{\bx}{{\bf x}}
@@ -462,14 +465,15 @@
       Find all other compatible collections for $D_5$ in the case $b=c=3$.
     \end{subexercise}
   \end{example}
-  \begin{theorem}\cite{LLZ14}
+  \begin{theorem}\label{th:rank 2 positivity}\cite{LLZ14}
     For $k\in\ZZ\setminus\{1,2\}$, the cluster variable $x_k$ is given by
     \[x_k=\sum\limits_{(S_H,S_V)}x_1^{-d^{(k)}_1+b|S_V|}x_2^{-d^{(k)}_2+c|S_H|},\]
     where the sum ranges over all compatible collections of edges in the maximal Dyck path $D_k$.  In particular, each cluster variable is contained in $\ZZ_{\ge0}[x_1^{\pm1},x_2^{\pm1}]$.
   \end{theorem}
 
-
-
+  \begin{remark}
+    The idea of obtaining positivity for arbitrary cluster algebras goes as follows: any sequence of mutations can be viewed as a collection of rank 2 mutation sequences, so iteratively applying Theorem~\ref{th:rank 2 positivity} will (after a considerable amount of work) lead to a proof of positivity in general.
+  \end{remark}
 
   One motivation for the discovery of the cluster algebra formalism was the desire to find a combinatorial construction of dual canonical basis elements for (quantum) algebraic groups.  The dual canonical basis of a semisimple algebraic group induces bases on the coordinate rings of any of its subvarieties.  As we saw in Example~\ref{example:total positivity} there appears to be some kind of cluster algebra structure on the double Bruhat cells of a semisimple algebraic group, which one can hope will shed some light on the dual canonical basis.  In most cases the double Bruhat cell does not actually admit a cluster algebra structure but does admit a closely related structure.
 
@@ -518,12 +522,13 @@
 \section{Compatible Poisson Structures and Quantization}\label{sec:poisson_and_quantum}
 
   \begin{definition}
-    A Poisson algebra $(A,\{\cdot,\cdot\})$ is an associative algebra $A$ equipped with an additional skew-symmetric binary operation (written as $\{x,y\}$ for $x,y\in A$) called the Poisson bracket for which the following holds:
+    A Poisson algebra $(A,\{\cdot,\cdot\})$ is an associative algebra $A$ equipped with an additional skew-symmetric bilinear operation (written as $\{x,y\}$ for $x,y\in A$) called the Poisson bracket for which the following holds:
     \begin{itemize}
       \item given any $x\in A$, the automorphism $\{x,\cdot\}:A\to A$, $y\mapsto\{x,y\}$ is a derivation with respect to both binary operations on $A$, i.e. for $x,y,z\in A$ we have
-      \begin{equation}
-        \{x,yz\}=\{x,y\}z+y\{x,z\}\quad\text{and}\quad\{x,\{y,z\}\}=\{\{x,y\},z\}+\{y,\{x,z\}\}.
-      \end{equation}
+      \begin{align*}
+        \tag{Leibnitz rule} \{x,yz\}=\{x,y\}z+y\{x,z\}\\
+        \tag{Jacobi identity}\{x,\{y,z\}\}=\{\{x,y\},z\}+\{y,\{x,z\}\}.
+      \end{align*}
     \end{itemize}
   \end{definition}
 
@@ -553,8 +558,23 @@
     A compatible Poisson structure exists if and only if the extended exchange matrix $\tilde B$ has full rank.  Moreover, the collection of all such Poisson structures is parametrized by an affine space of dimension $r(B)+{m\choose 2}$.
   \end{theorem}
 
-  Given a cluster algebra $\cA$ of full rank, any choice of compatible Poisson structure gives rise to a quantization of $\cA$ as follows.
+  Given a cluster algebra $\cA(\bx,\tilde B)$ of full rank, any choice of compatible Poisson structure gives rise to a quantization of $\cA(\bx,\tilde B)$ by the following procedure where $v$ denotes a formal variable:
+  \begin{itemize}
+    \item Each cluster should be replaced by a collection of quasi-commuting elements $\{X_1,\ldots,X_m\}$ satisfying $X_iX_j=v^{2\Lambda(\varepsilon_j,\varepsilon_i)}X_jX_i$ for a skew-symmetric bilinear form $\Lambda:\ZZ^m\times\ZZ^m\to\ZZ$.  That is, this \emph{quantum cluster} generates a \emph{quantum torus} $\cT=\ZZ[v^{\pm1}]\langle X_1^{\pm1},\ldots,X_m^{\pm1}\rangle$ with a $\ZZ[v^{\pm1}]$-basis 
+    \[\left\{X^\ba:=v^{\sum\limits_{i<j}a_ia_j\Lambda(\varepsilon_i,\varepsilon_j)}X_1^{a_1}\cdots X_m^{a_m}\Big|\ba=(a_1,\ldots,a_m)\in\ZZ^m\right\}.\]
+    \item Each quantum cluster obtained by mutation from this one should again generate a quantum torus, this forces a compatibility condition on the exchange matrix $\tilde B$ and the commutation matrix $\Lambda$ (by a slight abuse of notation we freely identify the bilinear form $\Lambda$ with a skew-symmetric matrix), that is 
+    \begin{equation}\label{eq:quantum compatibility}
+      \Lambda(\bb_k,\varepsilon_\ell)=0\quad\text{if $k\ne\ell$,}
+    \end{equation}
+    where $\bb_k$ denotes the $k^{th}$ column of $\tilde B$ thought of as an element of $\ZZ^m$.
+    \item The above conditions still leave a great deal of freedom.  To restrict further, notice that the quasi-commutation relation above can be rewritten as $v^{\Lambda(\varepsilon_i,\varepsilon_j)}X_iX_j=v^{\Lambda(\varepsilon_j,\varepsilon_i)}X_jX_i$, in particular this implies that $\cT$ admits an anti-automorphism $X\mapsto \overline{X}$ which fixes each $X_i$ and sends $v$ to $v^{-1}$ (recall that $\Lambda$ was assumed skew-symmetric).  Since each initial cluster variable was \emph{bar-invariant}, the same should be true of all cluster variables since a cluster algebra is independent of the choice of initial cluster.  This uniquely determines how to incorporate powers of $v$ into the exchange relations \eqref{eq:exchange relation}, more precisely the new variable obtained by mutation in direction $k$ must be
+    \[X_k'=X^{-\varepsilon_k+\sum\limits_{b_{ik}>0}b_{ik}\varepsilon_i}+X^{-\varepsilon_k-\sum\limits_{b_{ik}<0}b_{ik}\varepsilon_i}.\]
+  \end{itemize}
+  \begin{exercise}
+    Show that the compatibility condition \eqref{eq:quantum compatibility} is the same as the compatibility condition from Lemma~\ref{le:compatibility}.
+  \end{exercise}
 
+  This heuristic definition can be made precise as follows.
   \begin{definition}
     Quantum cluster algebra.
   \end{definition}
@@ -562,7 +582,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Applications to Integrable Systems}\label{sec:integrable_systems}
 	\begin{definition}
-		A \emph{quiver} is a directed graph without loops (arrows from a vertex to itself) and without oriented $2$-cyclets.
+		A \emph{quiver} is a directed graph without loops (arrows from a vertex to itself) and without oriented $2$-cycles.
 	\end{definition}
 	
 	A skew-symmetric $n\times n$ exchange matrix $B$ is often represented instead as a quiver $Q$ on vertex set $\{1,2,\ldots, n\}$.  More precisely, if $i,j$ are such that $b_{ij}>0$ then $Q$ has $b_{ij}$ arrows from $i$ to $j$ (and none from $j$ to $i$).  Matrix mutation on $B$ induces so-called quiver mutation on $Q$.
