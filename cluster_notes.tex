@@ -391,20 +391,20 @@
     For $b=c=3$, the maximal Dyck path $D_5$ is
     \begin{center}
     \begin{tikzpicture}
-      \draw[step=0.25cm,color=gray] (0,0) grid (2.0,0.75);
-      \draw[color=gray] (0,0) -- (2.0,0.75);
-      \draw[fill=black] (0.0,0.0) circle (1.1pt);
-      \draw[fill=black] (0.25,0.0) circle (1.1pt);
-      \draw[fill=black] (0.5,0.0) circle (1.1pt);
-      \draw[fill=black] (0.75,0.0) circle (1.1pt);
-      \draw[fill=black] (0.75,0.25) circle (1.1pt);
-      \draw[fill=black] (1.0,0.25) circle (1.1pt);
-      \draw[fill=black] (1.25,0.25) circle (1.1pt);
-      \draw[fill=black] (1.5,0.25) circle (1.1pt);
-      \draw[fill=black] (1.5,0.5) circle (1.1pt);
-      \draw[fill=black] (1.75,0.5) circle (1.1pt);
-      \draw[fill=black] (2.0,0.5) circle (1.1pt);
-      \draw[fill=black] (2.0,0.75) circle (1.1pt);
+      \draw[step=0.5cm,color=gray] (0,0) grid (4.0,1.5);
+      \draw[color=gray] (0,0) -- (4.0,1.5);
+      \draw[fill=black] (0.0,0.0) circle (2.2pt);
+      \draw[fill=black] (0.5,0.0) circle (2.2pt);
+      \draw[fill=black] (1.0,0.0) circle (2.2pt);
+      \draw[fill=black] (1.5,0.0) circle (2.2pt);
+      \draw[fill=black] (1.5,0.5) circle (2.2pt);
+      \draw[fill=black] (2.0,0.5) circle (2.2pt);
+      \draw[fill=black] (2.5,0.5) circle (2.2pt);
+      \draw[fill=black] (3.0,0.5) circle (2.2pt);
+      \draw[fill=black] (3.0,1.0) circle (2.2pt);
+      \draw[fill=black] (3.5,1.0) circle (2.2pt);
+      \draw[fill=black] (4.0,1.0) circle (2.2pt);
+      \draw[fill=black] (4.0,1.5) circle (2.2pt);
     \end{tikzpicture}
     \end{center}
   \end{example}
@@ -416,48 +416,51 @@
     \item $e\ne h$ and $|(ev)_H|=b|(ev)_V\cap S_V|$.
   \end{itemize}
   \begin{example}
-    For $b=c=3$, the picture below on the left shows a compatible collection of edges while the collection on the right is not compatible.
+    For $b=c=3$, the picture below on the left shows a compatible collection of edges of $D_5$ while the collection on the right is not compatible.
     \begin{center}
     \begin{tikzpicture}
-      \draw[step=0.25cm,color=gray] (0,0) grid (2.0,0.75);
-      \draw[color=gray] (0,0) -- (2.0,0.75);
-      \draw[fill=black] (0.0,0.0) circle (1.1pt);
-      \draw[fill=black] (0.25,0.0) circle (1.1pt);
-      \draw[very thick] (0.25,0.0) -- (0.5,0.0);
-      \draw[fill=black] (0.5,0.0) circle (1.1pt);
-      \draw[fill=black] (0.75,0.0) circle (1.1pt);
-      \draw[fill=black] (0.75,0.25) circle (1.1pt);
-      \draw[fill=black] (1.0,0.25) circle (1.1pt);
-      \draw[fill=black] (1.25,0.25) circle (1.1pt);
-      \draw[fill=black] (1.5,0.25) circle (1.1pt);
-      \draw[very thick] (1.5,0.25) -- (1.5,0.5);
-      \draw[fill=black] (1.5,0.5) circle (1.1pt);
-      \draw[fill=black] (1.75,0.5) circle (1.1pt);
-      \draw[fill=black] (2.0,0.5) circle (1.1pt);
-      \draw[very thick] (2.0,0.5) -- (2.0,0.75);
-      \draw[fill=black] (2.0,0.75) circle (1.1pt);
+      \draw[step=0.5cm,color=gray] (0,0) grid (4.0,1.5);
+      \draw[color=gray] (0,0) -- (4.0,1.5);
+      \draw[fill=black] (0.0,0.0) circle (2.2pt);
+      \draw[fill=black] (0.5,0.0) circle (2.2pt);
+      \draw[line width=2.5pt] (0.5,0.0) -- (1.0,0.0);
+      \draw[fill=black] (1.0,0.0) circle (2.2pt);
+      \draw[fill=black] (1.5,0.0) circle (2.2pt);
+      \draw[fill=black] (1.5,0.5) circle (2.2pt);
+      \draw[fill=black] (2.0,0.5) circle (2.2pt);
+      \draw[fill=black] (2.5,0.5) circle (2.2pt);
+      \draw[fill=black] (3.0,0.5) circle (2.2pt);
+      \draw[line width=2.5pt] (3.0,0.5) -- (3.0,1.0);
+      \draw[fill=black] (3.0,1.0) circle (2.2pt);
+      \draw[fill=black] (3.5,1.0) circle (2.2pt);
+      \draw[fill=black] (4.0,1.0) circle (2.2pt);
+      \draw[line width=2.5pt] (4.0,1.0) -- (4.0,1.5);
+      \draw[fill=black] (4.0,1.5) circle (2.2pt);
     \end{tikzpicture}
     \qquad
     \begin{tikzpicture}
-      \draw[step=0.25cm,color=gray] (0,0) grid (2.0,0.75);
-      \draw[color=gray] (0,0) -- (2.0,0.75);
-      \draw[fill=black] (0.0,0.0) circle (1.1pt);
-      \draw[fill=black] (0.25,0.0) circle (1.1pt);
-      \draw[fill=black] (0.5,0.0) circle (1.1pt);
-      \draw[very thick] (0.5,0.0) -- (0.75,0.0);
-      \draw[fill=black] (0.75,0.0) circle (1.1pt);
-      \draw[fill=black] (0.75,0.25) circle (1.1pt);
-      \draw[fill=black] (1.0,0.25) circle (1.1pt);
-      \draw[fill=black] (1.25,0.25) circle (1.1pt);
-      \draw[fill=black] (1.5,0.25) circle (1.1pt);
-      \draw[very thick] (1.5,0.25) -- (1.5,0.5);
-      \draw[fill=black] (1.5,0.5) circle (1.1pt);
-      \draw[fill=black] (1.75,0.5) circle (1.1pt);
-      \draw[fill=black] (2.0,0.5) circle (1.1pt);
-      \draw[very thick] (2.0,0.5) -- (2.0,0.75);
-      \draw[fill=black] (2.0,0.75) circle (1.1pt);
+      \draw[step=0.5cm,color=gray] (0,0) grid (4.0,1.5);
+      \draw[color=gray] (0,0) -- (4.0,1.5);
+      \draw[fill=black] (0.0,0.0) circle (2.2pt);
+      \draw[fill=black] (0.5,0.0) circle (2.2pt);
+      \draw[fill=black] (1.0,0.0) circle (2.2pt);
+      \draw[line width=2.5pt] (1.0,0.0) -- (1.5,0.0);
+      \draw[fill=black] (1.5,0.0) circle (2.2pt);
+      \draw[fill=black] (1.5,0.5) circle (2.2pt);
+      \draw[fill=black] (2.0,0.5) circle (2.2pt);
+      \draw[fill=black] (2.5,0.5) circle (2.2pt);
+      \draw[fill=black] (3.0,0.5) circle (2.2pt);
+      \draw[line width=2.5pt] (3.0,0.5) -- (3.0,1.0);
+      \draw[fill=black] (3.0,1.0) circle (2.2pt);
+      \draw[fill=black] (3.5,1.0) circle (2.2pt);
+      \draw[fill=black] (4.0,1.0) circle (2.2pt);
+      \draw[line width=2.5pt] (4.0,1.0) -- (4.0,1.5);
+      \draw[fill=black] (4.0,1.5) circle (2.2pt);
     \end{tikzpicture}
     \end{center}
+    \begin{subexercise}
+      Find all other compatible collections for $D_5$ in the case $b=c=3$.
+    \end{subexercise}
   \end{example}
   \begin{theorem}\cite{LLZ14}
     For $k\in\ZZ\setminus\{1,2\}$, the cluster variable $x_k$ is given by
