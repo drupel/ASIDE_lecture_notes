@@ -6,13 +6,16 @@
 
 
 \newtheorem{theorem}{Theorem}[section]
+\newtheorem{subtheorem}{Theorem}[theorem]
 \newtheorem{conjecture}[theorem]{Conjecture}
 \newtheorem{corollary}[theorem]{Corollary}
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{subproposition}{Proposition}[theorem]
 \theoremstyle{definition}
 \newtheorem{definition}[theorem]{Definition}
 \newtheorem{example}[theorem]{Example}
+\newtheorem{subexample}{Example}[theorem]
 \newtheorem{subexercise}{Exercise}[theorem]
 \newtheorem{exercise}[theorem]{Exercise}
 \theoremstyle{remark} 
@@ -53,17 +56,17 @@
 
 %%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction}
-  Cluster algebras were introduced by Fomin and Zelevinsky \cite{FZ02} in 2002 as the culmination of their study of total positivity \cite{FZ99} and (dual) canonical bases.  The topic of cluster algebras quickly grew into its own as a subject deserving independent study mainly fueled by its close relationship to many areas of mathematics.  Here is a partial list of related topics: combinatorics \cite{MP07}, hyperbolic geometry \cite{FG06,FST08,MSW13}, Lie theory \cite{GLS06}, Poisson geometry \cite{GSV03}, integrable systems \cite{dFK10,G11}, representations of associative algebras \cite{CC06,CK06,BMRRT06,R11,Q12,R15}, mathematical physics \cite{EF12,ABCGPT14}, and quantum groups \cite{K12,GLS13,KQ14,BR15}.
+  Cluster algebras were introduced by Fomin and Zelevinsky \cite{FZ02} in 2002 as the culmination of their study of total positivity \cite{FZ99} and (dual) canonical bases.  The topic of cluster algebras quickly grew into its own as a subject deserving independent study mainly fueled by its emergent close relationship to many areas of mathematics.  Here is a partial list of related topics: combinatorics \cite{MP07}, hyperbolic geometry \cite{FG06,FST08,MSW13}, Lie theory \cite{GLS06}, Poisson geometry \cite{GSV03}, integrable systems \cite{dFK10,G11}, representations of associative algebras \cite{CC06,CK06,BMRRT06,R11,Q12,R15}, mathematical physics \cite{EF12,ABCGPT14}, and quantum groups \cite{K12,GLS13,KQ14,BR15}.
 
-  In these notes we will give an introduction to cluster algebras and a couple of the applications mentioned above.  These notes are far from exhaustive and the references above only touch on the vast literature.  Other overviews of cluster algebras can be found in the works \cite{??} which will also provide additional references.
+  In these notes we will give an introduction to cluster algebras and a couple of the applications mentioned above.  These notes are far from exhaustive and the references above only touch on the vast literature.  Other overviews of cluster algebras can be found in the works \cite{K10,W13,GLS} which will also provide additional references.
 
   The paper is organized as follows.  Section~\ref{sec:motivation} gives several motivating examples from which we will abstract the definition of a cluster algebra.  %The reader will be guided towards providing ad-hoc proofs of some of the important theorems of cluster algebra theory in the exercises of that section.  
-	Section~\ref{sec:cluster_algebras} contains several variations on the definition of cluster algebras with increasing generality and also of $Y$-patterns.  In Section~\ref{sec:basic_theorems} we describe the foundational results in the theory of cluster algebras and sketch or otherwise indicate the ideas behind the proofs of these results. Section~\ref{sec:poisson_and_quantum} recalls the theory of Poisson structures compatible with a cluster algebra and describes how this naturally leads to a quantization of cluster algebras.  Finally we conlclude with applications of the cluster algebra machinery to problems involving integrable systems in Section~\ref{sec:integrable_systems}.
+	Section~\ref{sec:cluster_algebras} contains several variations on the definition of cluster algebras with increasing generality and also the definition of $Y$-patterns.  In Section~\ref{sec:basic_theorems} we describe the foundational results in the theory of cluster algebras and sketch or otherwise indicate the ideas behind the proofs of these results. Section~\ref{sec:poisson_and_quantum} recalls the theory of Poisson structures compatible with a cluster algebra and describes how this naturally leads to a quantization of cluster algebras.  Finally we conclude with applications of the cluster algebra machinery to problems involving integrable systems in Section~\ref{sec:integrable_systems}.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Motivating Examples}\label{sec:motivation}
-  Before defining cluster algebras, we describe a few settings in which they arise.
+  Before defining cluster algebras, we describe a few settings which may be seen as motivating their definition.  We however leave it to the astute reader to compare these examples with the definitions presented in Section~\ref{sec:cluster_algebras} and to see how they may be reinterpreted within the cluster algebra framework.
 
   \begin{example}
     A Markov triple is a tuple $(a,b,c)$ of positive integers satisfying the Markov equation $a^2+b^2+c^2=3abc$; an integer which appears as a term in a Markov triple is called a Markov number.  The Markov equation is an example of a Diophantine equation and two classical number theoretic problems are to determine the number of solutions and to determine a method for finding all such solutions.  We will solve both of these problems for the Markov equation.
@@ -72,10 +75,10 @@
     \begin{subexercise}
       Prove this claim.
     \end{subexercise}
-    Rearranging the Markov equation we see that $c^2-3abc+a^2+b^2=0$ and so $c$ is a root of the quadratic $f(x)=x^2-3abx+a^2+b^2$.  But the other root $c'=3ab-c=\frac{a^2+b^2}{c}$ is a positive integer and so $(a,b,c')$ is again a Markov triple.  
+    Rearranging the Markov equation we see that $c^2-3abc+a^2+b^2=0$ and so $c$ is a root of the quadratic $f(x)=x^2-(3ab)x+(a^2+b^2)$.  But notice that the other root $c'=3ab-c=\frac{a^2+b^2}{c}$ is a positive integer and so $(a,b,c')$ is again a Markov triple.  
 
     Note that there was nothing special about $c$ in the calculation above so that, given any Markov triple $(a,b,c)$ we may perform three possible exchanges 
-    \[(a,b,3ab-c)\quad(a,3ac-b,c)\quad(3bc-a,b,c)\]
+    \[\Big(a,b,\frac{a^2+b^2}{c}\Big)\quad\Big(a,\frac{a^2+c^2}{b},c\Big)\quad\Big(\frac{b^2+c^2}{a},b,c\Big)\]
     and obtain another Markov triple in each case.  The following exercises solve the above two classical problems of Diophantine equations.
     \begin{subexercise}\mbox{}
       \begin{enumerate}[\quad\upshape (a)]
@@ -107,37 +110,100 @@
 		
 		Consider a regular $n$-gon with vertices labeled $1,2,\ldots, n$.  Let $T$ be a triangulation, i.e. a maximal collection of chords $\overline{ij}$ with $1 \leq i < j \leq n$, no two of which intersect in their interior.  Note that $T$ always consists of $n-3$ diagonals together with the $n$ sides $\overline{12}, \overline{23}, \overline{34}, \ldots, \overline{1n}$.  Associated to $T$ is a corresponding collection of Pl\"ucker coordinates
 		\begin{displaymath}
-			\x_T := \{\Delta_{ij} : \overline{ij} \in T\}
+			\Delta_T := \{\Delta_{ij} : \overline{ij} \in T\}
 		\end{displaymath}
-		\begin{proposition}
+    \setcounter{subproposition}{1}
+		\begin{subproposition}
 		Fix positive reals $x_{ij}$ for all $\overline{ij} \in T$.  Then there exists $A \in Gr_2(\CC^n)$ such that $\Delta_{ij}(A) = x_{ij}$ for all $\overline{ij} \in T$.  Moreover, each $\Delta_{ij}(A)$ with $\overline{ij} \notin T$ is uniquely determined by the $x_{ij}$ via a subtraction-free rational expression.
-		\end{proposition}
+		\end{subproposition}
 		
 		For instance, if $n=4$ and $T = \{\overline{13},\overline{12},\overline{23},\overline{34},\overline{14}\}$ then the Pl\"ucker relation implies
 		\begin{displaymath}
 		\Delta_{24}(A) = \frac{x_{12}x_{34} + x_{14}x_{23}}{x_{13}}.
 		\end{displaymath}
 		This formula can be thought of as a change of coordinate systems from the original one to one corresponding to $T' = (T \setminus \{\overline{13}\}) \cup \{\overline{24}\}$.  More generally, if $n>4$ then the rational expressions promised by the Proposition can be obtained by performing a sequence of such flips on various sub-quadrilaterals of the $n$-gon with vertices $i,j,k,l$.
-    \begin{exercise}
+    \setcounter{subexercise}{2}
+    \begin{subexercise}
       The change of coordinate systems observed above can be understood more classically in terms of the Ptolemy relations for cyclic quadrilaterals.  Indeed, consider four distinct points labelled $1,2,3,4$ on a circle and let $x_{ij}$ denote the distance between vertices $i$ and $j$.  Prove that $x_{13}x_{24}=x_{12}x_{34}+x_{14}x_{23}$.
-    \end{exercise}
+    \end{subexercise}
   \end{example}
   
   \begin{example}\label{example:total positivity}
     An $n\times n$ matrix $M$ is called \emph{totally positive} if the determinant of every square submatrix is a positive real number.  In particular, every entry of $M$ is positive and $M$ must be invertible.  Write $GL_n^{>0}\subset GL_n$ for the subset of totally positive matrices.  To check that a given matrix $M\in GL_n$ is totally positive one must, a priori, check that all ${2n\choose n}-1$ minors of $M$ are positive.  A natural question is whether this verification process can be made more efficient, i.e. is there a smaller collection of minors one may compute and from the positivity of this subset conclude that every minor is positive, i.e. conclude that $M\in GL_n^{>0}$?
 
-    We will call such a collection a \emph{total positivity criterion}.  For small $n$ such criteria can be easily found and easily verified.  For example, a matrix $M=\left[\begin{array}{cc} a & b\\ c & d\end{array}\right]\in GL_2$ is totally positive if and only if $a,b,c,ad-bc>0$ if and only if $b,c,d,ad-bc>0$.
-    \begin{exercise}
+    We will call such a collection a \emph{total positivity criterion}.  For small $n$, such criteria can be easily found and easily verified.  For example, a matrix $M=\left[\begin{array}{cc} a & b\\ c & d\end{array}\right]\in GL_2$ is totally positive if and only if $a,b,c,ad-bc>0$ if and only if $b,c,d,ad-bc>0$.
+    \begin{subexercise}
       Find a minimal collection of minors whose positivity guarantees a matrix in $GL_3$ is totally positive (hint: any such total positivity criterion consists of 9 minors).
-    \end{exercise}
+    \end{subexercise}
 
-    To describe a solution and easily identify total positivity criteria for all groups $GL_n$, it will be convenient to slightly generalize the notion of total positivity.  An $n\times n$ matrix $M$ is called \emph{totally nonnegative} if the determinant of every square submatrix is a nonnegative real number.  Write $GL_n^{\ge0}\subset GL_n$ for the subset of totally nonnegative matrices.  Again one may ask: what is a minimal collection of minors needed to check that a matrix is totally nonnegative?  Unfortunately, or perhaps fortunately, the total nonnegativity criteria are not uniformly described across all of $GL_n$.  The solution to this problem naturally leads one to study certain subvarieties of $GL_n$ called \emph{double Bruhat cells}, which we now describe.
+    To describe a solution and easily identify total positivity criteria for all general linear groups $GL_n$, it will be convenient to slightly generalize the notion of total positivity.  An $n\times n$ matrix $M$ is called \emph{totally nonnegative} if the determinant of every square submatrix is a nonnegative real number.  Write $GL_n^{\ge0}\subset GL_n$ for the subset of totally nonnegative matrices.  Again one may ask: what is a minimal collection of minors needed to check that a matrix is totally nonnegative?  Unfortunately, or perhaps fortunately, the total nonnegativity criteria are not uniformly described across all of $GL_n$.  The solution to this problem naturally leads one to study certain subvarieties of $GL_n$ called \emph{double Bruhat cells}, which we now describe.
 
-    Let $B_+,B_-\subset GL_n$ denote the subgroups of upper and lower triangular matrices respectively.  Identify the symmetric group $\Sigma_n$ with the subgroup of $GL_n$ consisting of permutation matrices, i.e. matrices having precisely one nonzero entry 1 in each row and column.  For example, identify the permutation $(12)\in\Sigma_2$ with the matrix $\left[\begin{array}{cc}0 & 1\\ 1 & 0\end{array}\right]$.  It is well known that $GL_n$ decomposes in two ways (actually many ways) as a union of \emph{Bruhat cells}:
+    Let $B_+,B_-\subset GL_n$ denote the subgroups of upper and lower triangular matrices respectively.  Identify the symmetric group $\Sigma_n$ with the subgroup of $GL_n$ consisting of permutation matrices, i.e. matrices having precisely one nonzero entry 1 in each row and column.  For example, identify the permutation $(1,2)\in\Sigma_2$ with the matrix $\left[\begin{array}{cc}0 & 1\\ 1 & 0\end{array}\right]$.  
+
+    It is well known that $GL_n$ decomposes in two ways (actually many ways) as a union of \emph{Bruhat cells}:
     \[GL_n=\bigsqcup_{w\in\Sigma_n}B_+w B_+=\bigsqcup_{w\in\Sigma_n}B_-w B_-.\]
-    To understand total nonnegativity criteria for $GL_n$, we will consider the \emph{double Bruhat cells} $G^{u,v}=B_+uB_+\cap B_-vB_-$.  It turns out that each double Bruhat cell admits its own total nonnegativity criteria, i.e. for each $u,v\in\Sigma_n$ there exists a minimal collection of minors whose positivity identifies the subset $G^{u,v}\cap GL_n^{\ge0}$ inside the double Bruhat cell $G^{u,v}$.
+    To understand total nonnegativity criteria for $GL_n$, we will consider the \emph{double Bruhat cells} $GL_n^{u,v}=B_+uB_+\cap B_-vB_-$ for $u,v\in\Sigma_n$.  It turns out that each double Bruhat cell admits its own total positivity criteria, i.e. for each $u,v\in\Sigma_n$ there exists a minimal collection of minors whose positivity identifies the subset $GL_n^{u,v}\cap GL_n^{\ge0}$ inside the double Bruhat cell $GL_n^{u,v}$.
+    \begin{subexercise}
+      Find all double Bruhat cells in $GL_2$ and verify that they partition the space.
+    \end{subexercise}
 
+    Some of these total nonnegativity criteria in $GL_n^{u,v}$ can be conveniently described using double wiring diagrams.  Write $s_i=(i,i+1)\in\Sigma_n$ for the simple transposition interchanging $i$ and $i+1$.  A \emph{reduced word} for $w\in\Sigma_n$ is a minimal sequence $(i_1,\ldots,i_r)$ so that $w=s_{i_1}\cdots s_{i_r}$, where $\ell(w):=r$ is called the \emph{length} of $w$.  A reduced word $(i_1,\ldots,i_r)$ is naturally encoded in a \emph{wiring diagram}, i.e. a collection of $n$ strands with a crossing between the $i$-th and $i+1$-st strands each time $i$ appears in the reduced word, see Figure~\ref{fig:wiring diagram}.
+    \begin{figure}[h]
+    \begin{tikzpicture}
+      \draw (0,0) -- (0.5,0) -- (1.5,1) -- (2,1) -- (3,2) -- (3.5,2) -- (4.5,3) -- (5,3) -- (6,3) -- (6.5,3) -- (7.5,3) -- (8,3) -- (9,3) -- (9.5,3);
+      \draw (0,1) -- (0.5,1) -- (1.5,0) -- (2,0) -- (3,0) -- (3.5,0) -- (4.5,0) -- (5,0) -- (6,1) -- (6.5,1) -- (7.5,2) -- (8,2) -- (9,2) -- (9.5,2);
+      \draw (0,2) -- (0.5,2) -- (1.5,2) -- (2,2) -- (3,1) -- (3.5,1) -- (4.5,1) -- (5,1) -- (6,0) -- (6.5,0) -- (7.5,0) -- (8,0) -- (9,1) -- (9.5,1);
+      \draw (0,3) -- (0.5,3) -- (1.5,3) -- (2,3) -- (3,3) -- (3.5,3) -- (4.5,2) -- (5,2) -- (6,2) -- (6.5,2) -- (7.5,1) -- (8,1) -- (9,0) -- (9.5,0);
+    \end{tikzpicture}
+    \caption{A wiring diagram for the reduced word $(1,2,3,1,2,1)\in\Sigma_4$.}
+    \label{fig:wiring diagram}
+    \end{figure}
 
+    Given $(u,v)\in\Sigma_n^2$, a double reduced for $(u,v)$ is an arbitrary shuffle of a reduced word for $u$ and a reduced word for $v$, where terms in the reduced word for $v$ are taken from the set $\{-1,\ldots,-(n-1)\}$ for clarity.  For example, taking $u=(132),v=(13)\in\Sigma_3$, one double reduced word for $(u,v)$ is $(-1,2,-2,1,-1)$.  Given a double reduced word $(i_1,\ldots,i_r)$, build a double wiring diagram by superposing wiring diagrams associated to the reduced word for $u$ and the reduced word for $v$ with crossings ordered according to the double reduced word, see Figure~\ref{fig:double wiring diagram}.  
+    \begin{figure}[h]
+    \begin{tikzpicture}
+      %u
+      \draw (0,0) -- (2,0) -- (3,0) -- (5,0) -- (6,1) -- (8,1) -- (9,2) -- (11,2);
+      \draw (0,1) -- (2,1) -- (3,2) -- (5,2) -- (6,2) -- (8,2) -- (9,1) -- (11,1);
+      \draw (0,2) -- (2,2) -- (3,1) -- (5,1) -- (6,0) -- (8,0) -- (9,0) -- (11,0);
+      \draw (0,3) -- (2,3) -- (3,3) -- (5,3) -- (6,3) -- (8,3) -- (9,3) -- (11,3);
+      %v
+      \draw[color=red] (0,0.1) -- (0.5,0.1) -- (1.5,1.1) -- (3.5,1.1) -- (4.5,2.1) -- (6.5,2.1) -- (7.5,3.1) -- (9.5,3.1) -- (10.5,3.1) -- (11,3.1);
+      \draw[color=red] (0,1.1) -- (0.5,1.1) -- (1.5,0.1) -- (3.5,0.1) -- (4.5,0.1) -- (6.5,0.1) -- (7.5,0.1) -- (9.5,0.1) -- (10.5,1.1) -- (11,1.1);
+      \draw[color=red] (0,2.1) -- (0.5,2.1) -- (1.5,2.1) -- (3.5,2.1) -- (4.5,1.1) -- (6.5,1.1) -- (7.5,1.1) -- (9.5,1.1) -- (10.5,0.1) -- (11,0.1);
+      \draw[color=red] (0,3.1) -- (0.5,3.1) -- (1.5,3.1) -- (3.5,3.1) -- (4.5,3.1) -- (6.5,3.1) -- (7.5,2.1) -- (9.5,2.1) -- (10.5,2.1) -- (11,2.1);
+      \node[left] at (0,-0.1) {$\scriptsize 1$};
+      \node[left] at (0,0.9) {$\scriptsize 2$};
+      \node[left] at (0,1.9) {$\scriptsize 3$};
+      \node[left] at (0,2.9) {$\scriptsize 4$};
+      \node[left, color=red] at (0,0.2) {$\scriptsize 4$};
+      \node[left, color=red] at (0,1.2) {$\scriptsize 2$};
+      \node[left, color=red] at (0,2.2) {$\scriptsize 1$};
+      \node[left, color=red] at (0,3.2) {$\scriptsize 3$};
+      \node[right] at (11,-0.1) {$\scriptsize 3$};
+      \node[right] at (11,0.9) {$\scriptsize 2$};
+      \node[right] at (11,1.9) {$\scriptsize 1$};
+      \node[right] at (11,2.9) {$\scriptsize 4$};
+      \node[right, color=red] at (11,0.2) {$\scriptsize 1$};
+      \node[right, color=red] at (11,1.2) {$\scriptsize 2$};
+      \node[right, color=red] at (11,2.2) {$\scriptsize 3$};
+      \node[right, color=red] at (11,3.2) {$\scriptsize 4$};
+    \end{tikzpicture}\\
+    \[\Delta_{4,1},\Delta_{2,1},\Delta_{2,3},\Delta_{1,3},\Delta_{24,12},\Delta_{24,13},\Delta_{12,13},\Delta_{12,23},\Delta_{124,123},\Delta_{123,123},\Delta_{1234,1234}\]
+    \caption{A double wiring diagram for the double reduced word $(-1,2,-2,1,-3,2,-1)\in\Sigma_4$ and the collection of chamber minors determined by this double wiring diagram.}
+    \label{fig:double wiring diagram}
+    \end{figure}
+
+    In a double wiring diagram, we label the strands in $u$'s wiring diagram on the left by $1$ through $n$ starting from the bottom and label the strands in $v$'s wiring diagram similarly on the right.  In this way, each chamber of the double wiring diagram determines a minor with row set the labels of strands in $v$'s wiring diagram lying below the chamber and column set the labels of strands in $u$'s wiring diagram lying below the chamber.  Now we may describe a collection of total positivity criteria for $GL_n^{u,v}$.
+    \setcounter{subtheorem}{2}
+    \begin{subtheorem}\label{th:total positivity criteria}\cite{FZ99}
+      Each double wiring diagram for $(u,v)$ determines a total positivity criterion for $GL_n^{u,v}$, i.e. an element of $GL_n^{u,v}$ lies in $GL_n^{\ge0}$ if and only if all $n+\ell(u)+\ell(v)$ chamber minors determined by the double wiring diagram are positive.
+    \end{subtheorem}
+    The totally positive matrices are exactly the elements of $GL_n^{w_0,w_0}\cap GL_n^{\ge0}$, where $w_0=(n,n-1,\ldots,1)$ is the longest permutation.  Thus Theorem~\ref{th:total positivity criteria} provides many total positivity criteria for $GL_n$.
+    \setcounter{subexercise}{3}
+    \begin{subexercise}
+      Use double wiring diagrams to find a total positivity criteria for $GL_3$.
+    \end{subexercise}
   \end{example}
 
   %\begin{example}
@@ -1025,10 +1091,12 @@
 	\bibitem{FZ99} S. Fomin and A. Zelevinsky, Double Bruhat celles and total positivity, \textsl{J. Amer. Math. Soc.} \textbf{12} (1999), 335--380.
 	\bibitem{GLS06} C. Geiss, B. Leclerc, and J. Schroer, Rigid modules over preprojective algebras, \textsl{Invent. Math} \textbf{165} (2006), 589--632.
   \bibitem{GLS13} C. Geiss, B. Leclerc, and J. Schr\"oer, Cluster structures on quantum coordinate rings, \textsl{Selecta Math. (N.S.)} \textbf{19} (2013), no. 2, 337--397.
+  \bibitem{GLS} C. Geiss, B. Leclerc, and J. Schr\"oer,
 	\bibitem{GSV03} M. Gekhtman, M. Shapiro, and A. Vainshtein,  Cluster algebras and Poisson geometry, \textsl{Mosc. Math. J.} \textbf{3} (2003), 899--934.
 	\bibitem{GSTV12} M. Gekhtman, M. Shapiro, S. Tabachnikov, and A. Vainshtein, Higher pentagram maps, weighted directed networks, and cluster dynamics, \textsl{Electron. Res. Announc. Math. Sci.} \textbf{19} (2012), 1--17.
 	\bibitem{G11} M. Glick, The pentagram map and Y-patterns, \textsl{Adv. Math.} \textbf{227} (2011), 1019--1045.
 	\bibitem{GK13} A. Goncharov and R. Kenyon, Dimers and cluster integrable systems, \textsl{Ann. Sci. \'Ec. Norm. Sup\'er.} \textbf{46} (2013), 747--813.
+  \bibitem{K10} B. Keller, Categorification of acyclic cluster algebras: an introduction, arXiv preprint: 0801.3103v2.
   \bibitem{K12} Y. Kimura, Quantum unipotent subgroup and dual canonical basis, \textsl{Kyoto J. Math.} \textbf{52} (2012), no. 2, 277--331.
   \bibitem{KQ14} Y. Kimura and F. Qin, Graded quiver varieties, quantum cluster algebras and dual canonical basis, \textsl{Adv. Math.} \textbf{262} (2014), 261--312.
   \bibitem{LLZ14} K. Lee, L. Li, and A. Zelevinsky, Greedy elements in rank 2 cluster algebras, \textsl{Sel. Math. New Ser.} \textbf{20} (2014), 57--82.
@@ -1045,6 +1113,7 @@
 	\bibitem{S08} R. Schwartz, Discrete monodromy, pentagrams, and the method of condensation, \textsl{J. Fixed Point Theory Appl.} \textbf{3} (2008), 379--409.
 	\bibitem{S13} F. Soloviev, Integrability of the Pentagram Map, \textsl{Duke Math. J.} \textbf{162} (2013), 2815--2853.
 	\bibitem{V07} A. Volkov, On the periodicity conjecture for $Y$-systems, \textsl{Comm. Math. Phys.} \textbf{276} (2007), 509--517.
+  \bibitem{W13} L. Williams, Cluster algebras: an introduction, arXiv preprint: 1212.6263v3.
 \end{thebibliography}
 
 \end{document}
