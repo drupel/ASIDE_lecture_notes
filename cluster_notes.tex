@@ -57,15 +57,16 @@
 
   In these notes we will give an introduction to cluster algebras and a couple of the applications mentioned above.  These notes are far from exhaustive and the references above only touch on the vast literature.  Other overviews of cluster algebras can be found in the works \cite{??} which will also provide additional references.
 
-  The paper is organized as follows.  Section~\ref{sec:motivation} gives several motivating examples from which we will abstract the definition of a cluster algebra.  The reader will be guided towards providing ad-hoc proofs of some of the important theorems of cluster algebra theory in the exercises of that section.  Section~\ref{sec:cluster_algebras} contains several variations on the definition of cluster algebras with increasing general notions of coefficients culminating in cluster algebras defined over an arbitrary semifield.  In Section~\ref{sec:basic_theorems} we describe the foundational results in the theory of cluster algebras and sketch or otherwise indicate the ideas behind the proofs of these results. Section~\ref{sec:poisson_and_quantum} recalls the theory of Poisson structures compatible with a cluster algebra and describes how this naturally leads to a quantization of cluster algebras.  Finally we conlclude with applications of the cluster algebra machinery to problems involving integrable systems in Section~\ref{sec:integrable_systems}.
+  The paper is organized as follows.  Section~\ref{sec:motivation} gives several motivating examples from which we will abstract the definition of a cluster algebra.  %The reader will be guided towards providing ad-hoc proofs of some of the important theorems of cluster algebra theory in the exercises of that section.  
+	Section~\ref{sec:cluster_algebras} contains several variations on the definition of cluster algebras with increasing generality and also of $Y$-patterns.  In Section~\ref{sec:basic_theorems} we describe the foundational results in the theory of cluster algebras and sketch or otherwise indicate the ideas behind the proofs of these results. Section~\ref{sec:poisson_and_quantum} recalls the theory of Poisson structures compatible with a cluster algebra and describes how this naturally leads to a quantization of cluster algebras.  Finally we conlclude with applications of the cluster algebra machinery to problems involving integrable systems in Section~\ref{sec:integrable_systems}.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Motivating Examples}\label{sec:motivation}
-  <Write brief lead-in.>
+  Before defining cluster algebras, we describe a few settings in which they arise.
 
   \begin{example}
-    A Markov triple is a tuple $(a,b,c)$ of positive integers satisfying the Markov equation $a^2+b^2+c^2=3abc$, an integer which appears as a term in a Markov triple is called a Markov number.  The Markov equation is an example of a Diophantine equation and two classical number theoretic problems are to determine the number of solutions and to determine a method for finding all such solutions.  We will solve both of these problems for the Markov equation.
+    A Markov triple is a tuple $(a,b,c)$ of positive integers satisfying the Markov equation $a^2+b^2+c^2=3abc$; an integer which appears as a term in a Markov triple is called a Markov number.  The Markov equation is an example of a Diophantine equation and two classical number theoretic problems are to determine the number of solutions and to determine a method for finding all such solutions.  We will solve both of these problems for the Markov equation.
 
     To begin with we note that $(1,1,1)$ and $(1,1,2)$ are (up to reordering) the only Markov triples with repeated values.
     \begin{subexercise}
@@ -139,13 +140,13 @@
 
   \end{example}
 
-  \begin{example}
-    <Include some example where $y$-variable mutations are natural.>
-  \end{example}
+  %\begin{example}
+  %  <Include some example where $y$-variable mutations are natural.>
+  %\end{example}
 
-  \begin{exercise}
-    Anything illuminating to ask participants to do?
-  \end{exercise}
+  %\begin{exercise}
+  %  Anything illuminating to ask participants to do?
+  %\end{exercise}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{A Unifying Concept: Cluster Algebras}\label{sec:cluster_algebras}
@@ -173,6 +174,13 @@
     \end{equation}
 	\end{definition}
 		
+	In words, the mutation $\mu_k$ has the following effects:
+	\begin{enumerate}
+	\item $x_k$ changes to $x_k'$ satisfying $x_kx_k' = (\textrm{ binomial in the other } x_i$),
+	\item entries $b_{ij}$ of $B$ away from row and column $k$ increase (resp. decrease) by $b_{ik}b_{kj}$ if $b_{ik}$ and $b_{kj}$ are both positive (resp. negative),
+	\item row and column $k$ of $B$ are negated.
+	\end{enumerate}
+	
 	\begin{lemma} \label{lem:mutate}
 	Let $(\x,B)$ be a seed and $k=1,\ldots, n$.
 	\begin{enumerate}
@@ -181,12 +189,6 @@
 	\end{enumerate}
 	\end{lemma}
 	
-	In words, the mutation $\mu_k$ has the following effects:
-	\begin{enumerate}
-	\item $x_k$ changes to $x_k'$ satisfying $x_kx_k' = (\textrm{ binomial in the other } x_i$),
-	\item entries $b_{ij}$ of $B$ away from row and column $k$ increase (resp. decrease) by $b_{ik}b_{kj}$ if $b_{ik}$ and $b_{kj}$ are both positive (resp. negative),
-	\item row and column $k$ of $B$ are negated.
-	\end{enumerate}
 	
 	\begin{definition}
 		Fix an ambient field $\cF = \CC(x_1,\ldots, x_n)$ and an initial seed $((x_1,\ldots, x_n), B)$.  The entries of the clusters of all seeds reachable from this one by a sequence of mutations are called the \emph{cluster variable}.  The \emph{cluster algebra} associated with the initial seed is the subalgebra $\cA:=\cA(\bx,B)$ of $F$ generated by the set of all cluster variables.
@@ -220,13 +222,6 @@
 		\end{displaymath}
     In fact, any four elements of $\{x_1,x_2,\frac{x_2+1}{x_1},\frac{x_1 + x_2 + 1}{x_1x_2},\frac{x_1+1}{x_2}\}$ are sufficient to generate $\cA(\x,B)$.  This observation readily generalizes to cluster algebras associated to any $2\times 2$ exchange matrix. %and leads ultimately to the following important result.
   \end{example}
-
-  \begin{exercise}\label{exercise:rank 2}\mbox{}
-    \begin{enumerate}
-      \item Compute all cluster variables and coefficient variables for cluster algebras associated to $B=\left[\begin{array}{cc} 0 & b\\ -c & 0\end{array}\right]$ with $b,c\in\ZZ_{>0}$ and $bc\le 3$.
-      \item Justify why attempting such a calculation is futile for $bc\ge4$.  Hint: consider the denominator vectors of the cluster variables.
-    \end{enumerate}
-  \end{exercise}
 	
 	\begin{theorem}\label{th:Laurent phenomenon}
 		For any initial seed $(\x,B)$ with $\x = (x_1,\ldots, x_n)$, the associated cluster algebra lies in the Laurent polynomial ring
@@ -235,10 +230,6 @@
 		\end{displaymath}
 		In particular, every cluster variable can be expressed as a Laurent polynomial in $x_1,\ldots, x_n$.
 	\end{theorem}
-
-  \begin{exercise}
-    Prove the Laurent phenomenon for rank 2 cluster algebras.  Hint: start by showing that $x_4\in\ZZ[x_0,x_1,x_2,x_3]$ by considering the monomial $x_0x_3^b$.
-  \end{exercise}
 	
 	\subsection{Increased generality}
 	We generalize the previous definitions in two ways, first by allowing more general exchange matrices and then by allowing for certain coefficients in the exchange relations.
@@ -256,6 +247,18 @@
 	\begin{displaymath}
 		D = \left[ \begin{array}{cc} 	c & 0 \\	0 & b \\	\end{array}	\right]
 	\end{displaymath}
+	The \emph{rank} of a cluster algebra is the number $n$ of elements of each cluster, so the exchange matrices $B$ just described give rise to all possible rank $2$ cluster algebras.
+	
+	\begin{exercise}\label{exercise:rank 2}\mbox{}
+    \begin{enumerate}
+      \item Compute all cluster variables and coefficient variables for cluster algebras associated to $B=\left[\begin{array}{cc} 0 & b\\ -c & 0\end{array}\right]$ with $b,c\in\ZZ_{>0}$ and $bc\le 3$.
+      \item Justify why attempting such a calculation is futile for $bc\ge4$.  Hint: consider the denominator vectors of the cluster variables.
+    \end{enumerate}
+  \end{exercise}
+	
+	\begin{exercise}
+    Prove the Laurent phenomenon for rank 2 cluster algebras.  Hint: start by showing that $x_4\in\ZZ[x_0,x_1,x_2,x_3]$ by considering the monomial $x_0x_3^b$.
+  \end{exercise}
 	
 	The second generalization is to allow so-called frozen variables that never mutate, but which play a part in the exchange relations for the cluster variables. An \emph{extended cluster}, by convention, is typically written $\x = (x_1,\ldots, x_n, x_{n+1},\ldots x_m)$ where $x_1,\ldots, x_n$ are the cluster variable and $x_{n+1},\ldots, x_m$ are the frozen variables.  An \emph{extended exchange matrix} is an $m \times n$ integer matrix $\tilde{B}$ with the property that its top $n \times n$ part is skew-symmetrizable.
 	
@@ -267,7 +270,7 @@
 	Lemma \ref{lem:mutate} holds in this generalized setting.  Moreover, the skew-symmetrizing matrix $D$ is unchanged by mutation.
 	\end{lemma}
 	
-	Given a seed $(\x, \tilde{B})$ as above, the corresponding cluster algebra $\cA(\x, \tilde{B})$ is defined to be the subalgebra of $\CC(x_1,\ldots, x_m)$ generated by all cluster variables reachable from this seed together with the frozen variables (which appear in each seed).  Cluster algebras at this level of generality are refered to as cluster algebras of \emph{geometric type}.
+	Given a seed $(\x, \tilde{B})$ as above, the corresponding cluster algebra $\cA(\x, \tilde{B})$ is defined to be the subalgebra of $\CC(x_1,\ldots, x_m)$ generated by all cluster variables reachable from this seed together with the frozen variables (which appear in every seed).  Cluster algebras at this level of generality are referred to as cluster algebras of \emph{geometric type}.
 	
 	\begin{example}
 		Let $n=3$ and $m=9$.  Denote the cluster 
@@ -355,7 +358,7 @@
 	\end{displaymath}
 	
 	\begin{proposition}
-	Fix $k=1,\ldots, n$ and suppose $\mu_k(\x,\tilde{B}) = (\x',\tilde{B}')$.  Define $(y_1,\ldots, y_n)$ from $(\x,\tilde{B})$ and $(y_1',\ldots, y_n')$ from $(\x',\tilde{B}')$ as above.  Then 
+	Fix $k=1,\ldots, n$ and suppose $\mu_k(\x,\tilde{B}) = (\x',\tilde{B}')$.  Define $(\hat{y}_1,\ldots, \hat{y}_n)$ from $(\x,\tilde{B})$ and $(\hat{y}_1',\ldots, \hat{y}_n')$ from $(\x',\tilde{B}')$ as above.  Then 
 	\begin{displaymath}
 	\mu_k((\hat{y}_1,\ldots, \hat{y}_n), B) = ((\hat{y}_1',\ldots, \hat{y}_n'), B').
 	\end{displaymath}
@@ -972,7 +975,7 @@
 	\begin{displaymath}
 		M = \{\overline{12}, \overline{36}, \overline{47}, \overline{58}\}
 	\end{displaymath}
-	is a perfect matching of $G_4$ and its weight is $x_5x_6x_7$.
+	is a perfect matching of $G_4$ and its weight is $(1)(-x_5)(x_6)(-x_7) = x_5x_6x_7$.
 	
 	\begin{proposition}
 		The sum
@@ -981,6 +984,31 @@
 		\end{displaymath}
 		over perfect matchings $M$ of $G_n$ is a conserved quantity of the pentagram map acting on $n$-gons.  Moreover, there is a refinement of the set of perfect matchings breaking this sum into pieces, each of which is itself conserved, and together providing a complete family of integrals for the pentagram map.
 	\end{proposition}
+	
+	The decomposition mentioned above is based on a notion of homology for perfect matchings, which we do not describe here.  In the case of the graph $G_4$ pictured in Figure \ref{fig:torus}, there are $22$ perfect matchings which represent $8$ different homology classes.  Table \ref{table:integrals} gives the $8$ corresponding conserved quantities for the pentagram map.  The first $2$ are trivial but the remaining $6$ are (up to a sign) the original conserved quantities discovered by Schwartz \cite{S08} by different means.
+	
+	\begin{table}
+	\begin{tabular}{l|l|l}
+	Name & Representative matching & Formula \\
+	\hline
+	n.a.  & $\{\overline{12}, \overline{34}, \overline{56}, \overline{78}\}$ & $1$\\
+	n.a.  & $\{\overline{23}, \overline{45}, \overline{67}, \overline{18}\}$ & $1$\\
+	$O_1$ & $\{\overline{27}, \overline{34}, \overline{56}, \overline{18}\}$ 
+	& $-x_1-x_3-x_5-x_7+x_1x_2x_3+x_3x_4x_5+x_5x_6x_7+x_1x_7x_8$ \\
+	$E_1$ & $\{\overline{38}, \overline{12}, \overline{45}, \overline{67}\}$
+	& $x_2+x_4+x_6+x_8-x_2x_3x_4-x_4x_5x_6-x_6x_7x_8-x_1x_2x_8$ \\
+	$O_2$ & $\{\overline{27}, \overline{36}, \overline{45}, \overline{18}\}$
+	& $x_1x_5 + x_3x_7$\\
+	$E_2$ & $\{\overline{38}, \overline{47}, \overline{12}, \overline{56}\}$
+	& $x_2x_6 + x_4x_8$ \\
+	$O_4$ & $\{\overline{14}, \overline{36}, \overline{58}, \overline{27}\}$
+	& $x_1x_3x_5x_7$ \\
+	$E_4$ & $\{\overline{16}, \overline{38}, \overline{25}, \overline{47}\}$
+	& $x_2x_4x_6x_8$ \\
+	\end{tabular}
+	\caption{Conserved quantities for the pentagram map acting on twisted quadrilaterals.  The matching $M$ is such that $wt(M)$ is the first term appearing in the formula.}
+	\label{table:integrals}
+	\end{table}
 	
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{thebibliography}{99}
