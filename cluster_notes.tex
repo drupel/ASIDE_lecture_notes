@@ -42,11 +42,14 @@
 \newcommand{\meet}[2]{#1 \cap #2}
 %\newcommand{\join}[2]{\overleftrightarrow{#1 #2}}
 \newcommand{\join}[2]{\langle #1, #2 \rangle}
+\newcommand{\sgn}{\operatorname{sign}}
 
 \newcommand{\erase}[1]{{}}
 
 
 \title{Introduction to Cluster Algebras}
+\author{Max Glick}
+\author{Dylan Rupel}
 
 \begin{document}
 \begin{abstract}
@@ -68,7 +71,7 @@
 \section{Motivating Examples}\label{sec:motivation}
   Before defining cluster algebras, we describe a few settings which may be seen as motivating their definition.  We however leave it to the astute reader to compare these examples with the definitions presented in Section~\ref{sec:cluster_algebras} and to see how they may be reinterpreted within the cluster algebra framework.
 
-  \begin{example}
+  \begin{example}\label{example:Markov triples}
     A Markov triple is a tuple $(a,b,c)$ of positive integers satisfying the Markov equation $a^2+b^2+c^2=3abc$; an integer which appears as a term in a Markov triple is called a Markov number.  The Markov equation is an example of a Diophantine equation and two classical number theoretic problems are to determine the number of solutions and to determine a method for finding all such solutions.  We will solve both of these problems for the Markov equation.
 
     To begin with we note that $(1,1,1)$ and $(1,1,2)$ are (up to reordering) the only Markov triples with repeated values.
@@ -172,29 +175,29 @@
       \draw[color=red] (0,1.1) -- (0.5,1.1) -- (1.5,0.1) -- (3.5,0.1) -- (4.5,0.1) -- (6.5,0.1) -- (7.5,0.1) -- (9.5,0.1) -- (10.5,1.1) -- (11,1.1);
       \draw[color=red] (0,2.1) -- (0.5,2.1) -- (1.5,2.1) -- (3.5,2.1) -- (4.5,1.1) -- (6.5,1.1) -- (7.5,1.1) -- (9.5,1.1) -- (10.5,0.1) -- (11,0.1);
       \draw[color=red] (0,3.1) -- (0.5,3.1) -- (1.5,3.1) -- (3.5,3.1) -- (4.5,3.1) -- (6.5,3.1) -- (7.5,2.1) -- (9.5,2.1) -- (10.5,2.1) -- (11,2.1);
-      \node[left] at (0,-0.1) {$\scriptsize 1$};
+      \node[left] at (0,-0.1) {$\scriptsize 3$};
       \node[left] at (0,0.9) {$\scriptsize 2$};
-      \node[left] at (0,1.9) {$\scriptsize 3$};
+      \node[left] at (0,1.9) {$\scriptsize 1$};
       \node[left] at (0,2.9) {$\scriptsize 4$};
-      \node[left, color=red] at (0,0.2) {$\scriptsize 4$};
+      \node[left, color=red] at (0,0.2) {$\scriptsize 1$};
       \node[left, color=red] at (0,1.2) {$\scriptsize 2$};
-      \node[left, color=red] at (0,2.2) {$\scriptsize 1$};
-      \node[left, color=red] at (0,3.2) {$\scriptsize 3$};
-      \node[right] at (11,-0.1) {$\scriptsize 3$};
+      \node[left, color=red] at (0,2.2) {$\scriptsize 3$};
+      \node[left, color=red] at (0,3.2) {$\scriptsize 4$};
+      \node[right] at (11,-0.1) {$\scriptsize 1$};
       \node[right] at (11,0.9) {$\scriptsize 2$};
-      \node[right] at (11,1.9) {$\scriptsize 1$};
+      \node[right] at (11,1.9) {$\scriptsize 3$};
       \node[right] at (11,2.9) {$\scriptsize 4$};
-      \node[right, color=red] at (11,0.2) {$\scriptsize 1$};
+      \node[right, color=red] at (11,0.2) {$\scriptsize 3$};
       \node[right, color=red] at (11,1.2) {$\scriptsize 2$};
-      \node[right, color=red] at (11,2.2) {$\scriptsize 3$};
-      \node[right, color=red] at (11,3.2) {$\scriptsize 4$};
+      \node[right, color=red] at (11,2.2) {$\scriptsize 4$};
+      \node[right, color=red] at (11,3.2) {$\scriptsize 1$};
     \end{tikzpicture}\\
-    \[\Delta_{4,1},\Delta_{2,1},\Delta_{2,3},\Delta_{1,3},\Delta_{24,12},\Delta_{24,13},\Delta_{12,13},\Delta_{12,23},\Delta_{124,123},\Delta_{123,123},\Delta_{1234,1234}\]
+    \[\Delta_{1,3},\Delta_{2,3},\Delta_{2,1},\Delta_{3,1},\Delta_{12,23},\Delta_{12,13},\Delta_{23,13},\Delta_{23,12},\Delta_{123,123},\Delta_{234,123},\Delta_{1234,1234}\]
     \caption{A double wiring diagram for the double reduced word $(-1,2,-2,1,-3,2,-1)\in\Sigma_4$ and the collection of chamber minors determined by this double wiring diagram.}
     \label{fig:double wiring diagram}
     \end{figure}
 
-    In a double wiring diagram, we label the strands in $u$'s wiring diagram on the left by $1$ through $n$ starting from the bottom and label the strands in $v$'s wiring diagram similarly on the right.  In this way, each chamber of the double wiring diagram determines a minor with row set the labels of strands in $v$'s wiring diagram lying below the chamber and column set the labels of strands in $u$'s wiring diagram lying below the chamber.  Now we may describe a collection of total positivity criteria for $GL_n^{u,v}$.
+    In a double wiring diagram, we label the strands in $u$'s wiring diagram on the right by $1$ through $n$ starting from the bottom and label the strands in $v$'s wiring diagram similarly on the left.  In this way, each chamber of the double wiring diagram determines a minor with row set the labels of strands in $v$'s wiring diagram lying below the chamber and column set the labels of strands in $u$'s wiring diagram lying below the chamber.  Now we may describe a collection of total positivity criteria for $GL_n^{u,v}$.
     \setcounter{subtheorem}{2}
     \begin{subtheorem}\label{th:total positivity criteria}\cite{FZ99}
       Each double wiring diagram for $(u,v)$ determines a total positivity criterion for $GL_n^{u,v}$, i.e. an element of $GL_n^{u,v}$ lies in $GL_n^{\ge0}$ if and only if all $n+\ell(u)+\ell(v)$ chamber minors determined by the double wiring diagram are positive.
@@ -247,7 +250,8 @@
       \end{tikzpicture}
       \caption{Chamber minors associated to a simple transposition of opposite letters in a double reduced word.}
       \label{fig:wiring exchange relation}
-    \end{figure} 
+    \end{figure}
+
     Observe that under such an exchange we have the following relation:
     \begin{equation}\label{eq:short Plucker}
       \Delta_{I\cup\{i\},J\cup\{k\}}\Delta_{I\cup\{j\},J\cup\{\ell\}}=\Delta_{I,J}\Delta_{I\cup\{i,j\},J\cup\{k,\ell\}}+\Delta_{I\cup\{i\},J\cup\{\ell\}}\Delta_{I\cup\{j\},J\cup\{k\}}.
@@ -307,11 +311,9 @@
 	\end{enumerate}
 	\end{lemma}
 	
-	
 	\begin{definition}
 		Fix an ambient field $\cF = \CC(x_1,\ldots, x_n)$ and an initial seed $((x_1,\ldots, x_n), B)$.  The entries of the clusters of all seeds reachable from this one by a sequence of mutations are called the \emph{cluster variable}.  The \emph{cluster algebra} associated with the initial seed is the subalgebra $\cA:=\cA(\bx,B)$ of $F$ generated by the set of all cluster variables.
 	\end{definition}
-	
 	
   \begin{example}\label{example:type A2}
 		Let $\x = (x_1,x_2)$ and
@@ -374,7 +376,7 @@
     \end{enumerate}
   \end{exercise}
 	
-	\begin{exercise}
+	\begin{exercise}\label{exercise:rank 2 Laurent phenomenon}
     Prove the Laurent phenomenon for rank 2 cluster algebras.  Hint: start by showing that $x_4\in\ZZ[x_0,x_1,x_2,x_3]$ by considering the monomial $x_0x_3^b$.
   \end{exercise}
 	
@@ -486,22 +488,55 @@
 \section{Basic Results}\label{sec:basic_theorems}
   As mentioned in the introduction cluster algebras have found applications in a surprising array of mathematical disciplines.  Much of their ubiquity comes from a number of remarkable theorems which we now explain.
 
-  As we have seen in Examples~\ref{example:Gr2n} and~\ref{example:total positivity}, cluster algebras have roots in classical Lie theory.  A large number of objects in this realm are classified by Dynkin diagrams and cluster algebras are no exception.  Given an extended exchange matrix $\tilde B$ with principal square submatrix $B=(b_{ij})$, write $A:=A_{\tilde B}=(a_{ij})$ for the \emph{Cartan companion} of $\tilde B$ given by $a_{ij}=\begin{cases}2 & \text{if $i=j$;}\\ -|b_{ij}| & \text{otherwise.}\end{cases}$.  Note that the Cartan companion only depends on the principal part of $\tilde B$.
+  Recall the Laurent phenomenon from Theorem~\ref{th:Laurent phenomenon}.  This remarkable theorem is the prime reason for the connection between cluster algebras and many well-known classical recursions which, a priori produce rational numbers, but turn out to give integer values given certain integer inputs \cite{FZ02b}.  We will begin by explaining the solution to Exercise~\ref{exercise:rank 2 Laurent phenomenon}.  To begin we introduce a uniform notation for dealing with rank 2 cluster algebras.  In the rank 2 case, the matrix mutation of $B=\left[\begin{array}{cc}0 & b\\ -c & 0\end{array}\right]$  in either direction simply negates the matrix and thus the exchange relations \eqref{eq:exchange relation} are uniformly described for all seeds.  Indeed, denote the cluster variables by $x_k$, $k\in\ZZ$ as in Example~\ref{example:type A2}.  More precisely, the cluster variables may be defined by the simple recursion
+  \[x_{k-1}x_{k+1}=\begin{cases}x_k^b+1 & \text{if $k$ is odd;}\\ x_k^c+1 & \text{if $k$ is even.}\end{cases}\]
+  In this case it is easy to establish the Laurent phenomenon.
+  \begin{theorem}
+    For any $m\in\ZZ$, each $x_k$ is an element of the ring $\ZZ[x_{m-1},x_m,x_{m+1},x_{m+2}]$.
+  \end{theorem}
+  \begin{remark}
+    The ring $\ZZ[x_{m-1},x_m,x_{m+1},x_{m+2}]$ is called the lower bound of $\cA(\bx,B)$ at the cluster $\{x_m,x_{m+1}\}$.  We will give more details below where this result is a special case of Theorem~\ref{th:lower bounds}.
+  \end{remark}
+  \begin{proof}
+    Without loss of generality assume $m$ is odd, otherwise interchange $b$ and $c$ in the calculation below.  Then we may compute
+    \begin{align*}
+      x_{m-1}x_{m+2}^b
+      &=\frac{x_m^b+1}{x_{m+1}}x_{m+2}^b\\
+      &=\frac{x_m^bx_{m+2}^b-1}{x_{m+1}}+\frac{x_{m+2}^b+1}{x_{m+1}}\\
+      &=\frac{(x_{m+1}^c+1)^b-1}{x_{m+1}}+x_{m+3}.
+    \end{align*}
+    In particular, we see that $x_{m+3}\in\ZZ[x_{m-1},x_m,x_{m+1},x_{m+2}]$.  A similar calculation shows $x_{m-2}\in\ZZ[x_{m-1},x_m,x_{m+1},x_{m+2}]$ and a simple induction argument of ``shifting the viewing window'' establishes the result.
+  \end{proof}
+  With more work one may establish the following result which can be leveraged to prove the Laurent phenomenon in general.
+  \begin{theorem}
+    Assume $bc\ne0$.  For any $m\in\ZZ$, the cluster algebra $\cA(\bx,B)$ is equal to $\bigcap_{k\in\ZZ}\ZZ[x_k^{\pm1},x_{k+1}^{\pm1}]=\bigcap_{k=m-1}^{m+1}\ZZ[x_k^{\pm1},x_{k+1}^{\pm1}]$.
+  \end{theorem}
+  \begin{remark}
+    If one allows extended exchange matrices and imposes an additional coprimality assumption (see Definition~\ref{def:coprime}, then the condition $bc\ne0$ may be dropped.  The ring $\bigcap_{k=m-1}^{m+1}\ZZ[x_k^{\pm1},x_{k+1}^{\pm1}]$ is called the upper bound of $\cA(\bx,B)$ at the cluster $\{x_m.x_{m+1}\}$ and the ring $\bigcap_{k\in\ZZ}\ZZ[x_k^{\pm1},x_{k+1}^{\pm1}]$ is called the upper cluster algebra.  We will give more details below where this result can be seen as a special case of Thoerems~\ref{th:lower bounds} and~\ref{th:acyclic upper bounds}.
+  \end{remark}
+  The proof of this result is somewhat technical and seems unlikely to be very informative so we will omit the details.
+
+  As we have seen in Examples~\ref{example:Gr2n} and~\ref{example:total positivity}, cluster algebras have roots in classical Lie theory.  A large number of objects in this realm are classified by Dynkin diagrams and cluster algebras are no exception.  Given an extended exchange matrix $\tilde B$ with principal square submatrix $B=(b_{ij})$, write $A:=A_{\tilde B}=(a_{ij})$ for the \emph{Cartan companion} of $\tilde B$ given by 
+  \[a_{ij}=\begin{cases}2 & \text{if $i=j$;}\\ -|b_{ij}| & \text{otherwise.}\end{cases}\]
+  Note that the Cartan companion only depends on the principal part of $\tilde B$.
   \begin{theorem}
     A cluster algebra $\cA(\x,\tilde B)$ has only finitely many cluster variables if and only if there exists an extended exchange matrix mutation equivalent to $\tilde B$ whose Cartan companion is a finite-type Cartan matrix.
   \end{theorem}
   \begin{example}
-    As we have seen in Exercise~\ref{exercise:rank 2} the cluster algebra associated to the exchange matrix $\left[\begin{array}{cc}0 & b\\ -c & 0\end{array}\right]$ has only finitely many cluster variables if and only if $bc\le3$.  To see this, denote the cluster variables by $x_k$, $k\in\ZZ$ as in Example~\ref{example:type A2}.  More precisely, the cluster variables are defined by the recursion
-    \[x_{k-1}x_{k+1}=\begin{cases}x_k^b+1 & \text{if $k$ is odd;}\\ x_k^c+1 & \text{if $k$ is even.}\end{cases}\]
+    As we have seen in Exercise~\ref{exercise:rank 2} the cluster algebra associated to the exchange matrix $\left[\begin{array}{cc}0 & b\\ -c & 0\end{array}\right]$ has only finitely many cluster variables if and only if $bc\le3$.  
+
     Writing $x_k$, $k\in\ZZ\setminus\{1,2\}$ in its initial cluster Laurent expansion, i.e. as an element of $\ZZ[x_1^{\pm1},x_2^{\pm1}]$, the exponent $d^{(k)}=(d_1^{(k)},d_2^{(k)})$ of the monomial $x_1^{d^{(k)}_1}x_2^{d^{(k)}_2}$ appearing in the denominator of $x_k$ can easily be seen to be computed as follows.  Let $U_m(t)$ denote the Chebyshev polynomial defined recursively by 
     \[U_{m+1}(t)=tU_m(t)-U_{m-1}(t)\qquad U_1(t)=1\qquad U_0(t)=0\]
     and for $j\in\{1,2\}$ define 
     \[u_{m,j}=\begin{cases}U_m(\sqrt{bc}) & \text{if $m$ is odd;}\\\sqrt{b/c}\,U_m(\sqrt{bc}) & \text{if $m$ is even and $j=1$;}\\\sqrt{c/b}\,U_m(\sqrt{bc}) & \text{if $m$ is even and $j=2$.}\\\end{cases}\]
-    Then the denominator vector of $x_k$ for $k\in\ZZ\setminus\{1,2\}$ is
+    Note that each $u_{m,j}$ is a polynomial in $b$ and $c$.  Moreover, one may easily show that each $u_{m,j}$, $m\ge1$ is a positive integer when $bc\ge4$.  Then the denominator vector of $x_k$ for $k\in\ZZ\setminus\{1,2\}$ is
     \begin{equation}\label{eq:rank 2 denominators}
       d^{(k)}=\begin{cases}(u_{k-2,1},u_{k-3,2}) & \text{if $k\ge3$;}\\(u_{-k,1},u_{-k+1,2}) & \text{if $k\le0$.}\end{cases}
     \end{equation}
     It is not hard to check that the vectors $d^{(k)}$ are exactly the positive roots in the root system associated the the Cartan matrix $A_B=\left[\begin{array}{cc} 2 & -b\\ -c & 2\end{array}\right]$, which is known to have only finitely many roots if and only if $bc\le3$.
+    \begin{subexercise}
+      Prove that $U_n\big(2\cos(\theta)\big)=\frac{\sin(n\theta)}{\sin(\theta)}$ and use this to show that there are infinitely many $d^{(k)}$ if and only if $bc\ge4$
+    \end{subexercise}
   \end{example}
 
   The next result gives the positivity of the initial cluster Laurent expansions of all cluster variables.
@@ -593,70 +628,99 @@
   \end{theorem}
 
   \begin{remark}
-    The idea of obtaining positivity for arbitrary cluster algebras goes as follows: any sequence of mutations can be viewed as a collection of rank 2 mutation sequences, so iteratively applying Theorem~\ref{th:rank 2 positivity} will (after a considerable amount of work) lead to a proof of positivity in general.
+    The idea of obtaining positivity for arbitrary cluster algebras goes as follows (see \cite{LS15}): any sequence of mutations can be viewed as a collection of rank 2 mutation sequences, so iteratively applying Theorem~\ref{th:rank 2 positivity} will (after a considerable amount of work) lead to a proof of positivity in general.
   \end{remark}
 
   One motivation for the discovery of the cluster algebra formalism was the desire to find a combinatorial construction of dual canonical basis elements for (quantum) algebraic groups.  The dual canonical basis of a semisimple algebraic group induces bases on the coordinate rings of any of its subvarieties.  As we saw in Example~\ref{example:total positivity} there appears to be some kind of cluster algebra structure on the double Bruhat cells of a semisimple algebraic group, which one can hope will shed some light on the dual canonical basis.  In most cases the double Bruhat cell does not actually admit a cluster algebra structure but does admit a closely related structure.
 
   \begin{definition}
-    Let $(\x,\tilde B)$ denote an extended seed.  Define the \emph{upper cluster algebra} $\cU(\x,\tilde B)$ as the intersection of all Laurent rings associated to extended seeds mutation equivalent to $(\x,\tilde B)$.
+    Let $(\x,\tilde B)$ denote an extended seed.  Define the \emph{upper cluster algebra} $\overline{\cA}(\x,\tilde B)$ as the intersection of all Laurent rings associated to extended seeds mutation equivalent to $(\x,\tilde B)$.
   \end{definition}
 
   \begin{remark}
-    The Laurent phenomenon Theorem~\ref{th:Laurent phenomenon} guarantees the inclusion $\cA(\x,\tilde B)\subset\cU(\x,\tilde B)$, hence the name ``upper'' cluster algebra.
+    The upper cluster algebra is exactly the collection of all rational functions in $\{x_1,\ldots,x_m\}$ which are expressed as Laurent polynomials in terms of any cluster.  Thus the Laurent phenomenon Theorem~\ref{th:Laurent phenomenon} establishes the inclusion $\cA(\x,\tilde B)\subset\overline{\cA}(\x,\tilde B)$, hence the name ``upper'' cluster algebra.
   \end{remark}
 
-  \begin{theorem}
-    The coordinate ring of any double Bruhat cell is an upper cluster algebra.
+  \begin{theorem}\cite{BFZ05}
+    The coordinate ring of any double Bruhat cell is an upper cluster algebra such that each collection of chamber minors determines a cluster.
   \end{theorem}
 
-  In some special cases, the cluster algebra coincides with its upper cluster algebra.
+  In some special cases, the cluster algebra coincides with its upper cluster algebra.  First we describe a necessary intermediate concept.
+  \begin{definition}\label{def:coprime}
+    Let $(\bx,\tilde B)$ be an extended seed and denote by $P_k:=x_kx_k'$ the binomial on the right hand side of the exchange relation \eqref{eq:exchange relation}.  We say that $(\bx,\tilde B)$ is \emph{coprime} if the binomials $P_k$ are pairwise relatively prime.
+  \end{definition}
+  The \emph{upper bound} $\cU(\bx',\tilde B)$ for $\cA(\bx,\tilde B)$ at a seed $(\bx',\tilde B')$ mutation equivalent to $(\bx,\tilde B)$ is the intersection of the Laurent ring generated by variables in $\bx'$ with all Laurent rings associated to seeds which can be obtained from $(\bx',\tilde B')$ by a single mutation.
+  \begin{theorem}\cite{BFZ05}
+    If $(\bx,\tilde B)$ and $(\bx',\tilde B')$ are mutation equivalent coprime seeds, then their upper bounds $\cU(\bx,\tilde B)$ and $\cU(\bx',\tilde B)$ coincide.  In particular, if every seed mutation equivalent to an extended seed $(\bx,\tilde B)$ is coprime, then $\overline{\cA}(\bx,\tilde B)=\cU(\bx',\tilde B')$ for any seed mutation equivalent to $(\bx,\tilde B)$.
+  \end{theorem}
+
   \begin{definition}
     An exchange matrix $B=(b_{ij})$ is called \emph{acyclic} if there exists a permutation $\sigma$ so that $b_{\sigma_i\sigma_j}\le 0$ for $i<j$.
   \end{definition}
   This terminology can be easily understood in the case of a skew-symmetric exchange matrix, it is acyclic exactly when its associated quiver has no oriented cycles.
-
-  \begin{theorem}
-    Let $\cA(\x,\tilde B)$ be a cluster algebra where $\tilde B$ has full rank and acyclic principal part.  Then $\cA(\x,\tilde B)=\cU(\x,\tilde B)$.
+  \begin{theorem}\cite{BFZ05}\label{th:acyclic upper bounds}
+    Let $\cA(\x,\tilde B)$ be a cluster algebra where $\tilde B$ is coprime and has acyclic principal part.  Then the cluster algebra $\cA(\x,\tilde B)$ coincides with its upper bound $\cU(\x,\tilde B)$.
   \end{theorem}
 
   Acyclicity also guarantees the existence of easily identifiable bases of a cluster algebra.  These are best understood by identifying the cluster algebra with another related algebra, its lower bound.
   \begin{definition}
-    Let $(\x,\tilde B)$ be an extended seed and write $x'_k$ for the variable obtained by mutation in direction $k$.  The lower bound of $\cA(\x,\tilde B)$ at $(\x,\tilde B)$ is the subalgebra $\cL(\x,\tilde B)=\CC[x_1,x'_1,\ldots,x_n,x'_n,x_{n+1},\ldots,x_m]$.
+    Let $(\x,\tilde B)$ be an extended seed and write $x'_k$ for the variable obtained by mutation in direction $k$.  The \emph{lower bound} of $\cA(\x,\tilde B)$ at $(\x,\tilde B)$ is the subalgebra $\cL(\x,\tilde B)=\CC[x_1,x'_1,\ldots,x_n,x'_n,x_{n+1},\ldots,x_m]$.
   \end{definition}
 
-  \begin{theorem}
-    The cluster algebra $\cA(\x,\tilde B)$ coincides with its lower bound $\cL(\x,\tilde B)$ if and only if the principal part of $\tilde B$ is acyclic.
+  \begin{theorem}\cite{BFZ05}\label{th:lower bounds}
+    Let $\cA(\x,\tilde B)$ be a cluster algebra where $\tilde B$ is coprime and has acyclic principal part.  Then the cluster algebra $\cA(\x,\tilde B)$ coincides with its lower bound $\cL(\x,\tilde B)$.  Moreover, the collection of all monomials in $x_1,x'_1,\ldots,x_n,x'_n,x_{n+1},\ldots,x_m$ which do not contain both $x_k$ and $x_k'$ for any $k$ forms a basis of the cluster algebra $\cA(\bx,\tilde B)$.
   \end{theorem}
 
   \begin{example}
-    Markov cluster algebra: where everything fails\\
-    -infinite type\\
-    -standard monomials are linearly dependent\\
-    -not finitely generated\\
-    -not Noetherian\\
-    -contains non-prime cluster variables\\
-    -does not equal its upper cluster algebra
+    Acyclic cluster algebras are particularly nice but should not be taken as the general case, there exist cluster algebras where anything that can go wrong seems to go wrong.  The primary example of this is the \emph{Markov cluster algebra} with exchange matrix 
+    \[B=\left[\begin{array}{ccc} 0 & 2 & -2\\ -2 & 0 & 2\\ 2 & -2 & 0\end{array}\right].\]
+    
+    Comparing with Example~\ref{example:Markov triples} we see that the Markov cluster algebra has infinitely many cluster variables.  In this case, the following undesirable properties all hold:
+    \begin{itemize}
+      \item the standard monomials are linearly dependent;
+      \item the Markov cluster algebra is not finitely generated and not Noetherian;
+      \item the Markov cluster algebra (over $\CC$) contains non-prime cluster variables;
+      \item the Markov cluster algebra does not equal its upper cluster algebra.
+    \end{itemize}
   \end{example}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Compatible Poisson Structures and Quantization}\label{sec:poisson_and_quantum}
 
   \begin{definition}
-    A Poisson algebra $(A,\{\cdot,\cdot\})$ is an associative algebra $A$ equipped with an additional skew-symmetric bilinear operation (written as $\{x,y\}$ for $x,y\in A$) called the Poisson bracket for which the following holds:
+    A \emph{Poisson algebra} $(A,\{\cdot,\cdot\})$ is an associative algebra $A$ equipped with an additional skew-symmetric bilinear operation, called the Poisson bracket (written as $\{x,y\}$ for $x,y\in A$), for which the following holds:
     \begin{itemize}
       \item given any $x\in A$, the automorphism $\{x,\cdot\}:A\to A$, $y\mapsto\{x,y\}$ is a derivation with respect to both binary operations on $A$, i.e. for $x,y,z\in A$ we have
       \begin{align*}
-        \tag{Leibnitz rule} \{x,yz\}=\{x,y\}z+y\{x,z\}\\
-        \tag{Jacobi identity}\{x,\{y,z\}\}=\{\{x,y\},z\}+\{y,\{x,z\}\}.
+        \tag{Leibnitz rule} \{x,yz\}&=\{x,y\}z+y\{x,z\}\\
+        \tag{Jacobi identity}\{x,\{y,z\}\}&=\{\{x,y\},z\}+\{y,\{x,z\}\}.
       \end{align*}
     \end{itemize}
+    A ring homomorphism $\varphi:B\to A$ between Poisson algebras $(A,\{\cdot,\cdot\}_A)$ and $(B,\{\cdot,\cdot\}_B)$ is a \emph{Poisson morphism} if
+    \[\{\varphi(f),\varphi(g)\}_A=\varphi\big(\{f,g\}_B\big)\]
+    for all $f,g\in B$.
   \end{definition}
 
   \begin{example}
     A symplectic manifold $(M,\omega)$ is a smooth even-dimensional manifold $M^{2n}$ together with a non-degenerate 2-form $\omega\in H^2(M)$, i.e. $\omega^n\ne0$ is a volume form.  The symplectic structure $\omega$ provides a natural association of a vector field $\xi_f$ to a function $f\in\cO(M)$ via the contraction formula $\iota_{\xi_f}\omega=-df$.  The algebra of smooth functions on $M$ is then naturally a Poisson algebra via $\{f,g\}=\omega(\xi_f,\xi_g)$ for $f,g\in\cO(M)$.
   \end{example}
-  More generally, any smooth manifold together with a Poisson structure on its algebra of regular functions is called a Poisson manifold.
+  More generally, any smooth manifold together with a Poisson structure on its algebra of regular functions is called a \emph{Poisson manifold}.  A smooth map between Poisson manifolds is a Poisson morphism if it induces a Poisson morphism on their algebras of smooth functions.  
+  \begin{example}
+    The Lie group $SL_n$ is a Poisson manifold where the Poisson bracket on matrix entries is given by
+    \begin{equation}
+      \{x_{ij},x_{k\ell}\}=\frac{1}{2}\big(\sgn(k-i)+\sgn(\ell-j)\big)x_{i\ell}x_{kj}.
+    \end{equation}
+    In fact, $SL_n$ has the structure of a Poisson-Lie group, i.e. the multiplication map $SL_n\times SL_n\to SL_n$ is a Poisson morphism.
+  \end{example}
+
+  The existence of a Poisson structure on a manifold allows one to construct vector fields associated to functions in a similar manner to the symplectic case.
+  \begin{lemma}\label{le:Hamiltonian vector fields}
+    Let $(M,\{\cdot,\cdot\})$ be a Poisson manifold.  For any $h\in\cO(M)$, there exists a vector field $\xi_h$ on $M$ such that for any $f\in\cO(M)$ we have
+    \[\xi_h(f)=\{f,h\}=\langle df,\xi_h\rangle,\]
+    where $\langle\cdot,\cdot\rangle$ denotes the standard pairing between cotangent and tangent vectors over a point of $M$.
+  \end{lemma}
+  A vector field $\xi_h$ as in Lemma~\ref{le:Hamiltonian vector fields} is called a \emph{Hamiltonian vector field}.  
+
 
   \begin{definition}
     Let $A$ be a Poisson algebra.  A finite collection $\bff\{f_i\}\subset A$ is called log-canonical if there exists a matrix $\Omega$ so that $\{f_i,f_j\}=\Omega_{ij}f_if_j$ for $f_i,f_j\in\bff$.
@@ -1105,7 +1169,7 @@
 	
 	The decomposition mentioned above is based on a notion of homology for perfect matchings, which we do not describe here.  In the case of the graph $G_4$ pictured in Figure \ref{fig:torus}, there are $22$ perfect matchings which represent $8$ different homology classes.  Table \ref{table:integrals} gives the $8$ corresponding conserved quantities for the pentagram map.  The first $2$ are trivial but the remaining $6$ are (up to a sign) the original conserved quantities discovered by Schwartz \cite{S08} by different means.
 	
-	\begin{table}
+	\begin{table}[h]
 	\begin{tabular}{l|l|l}
 	Name & Representative matching & Formula \\
 	\hline
@@ -1131,6 +1195,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{thebibliography}{99}
   \bibitem{ABCGPT14} N. Arkani-Hameda, J. Bourjailyb, F. Cachazoc, A. Goncharovd, A. Postnikove, and J. Trnka, Scattering amplitudes and the positive Grassmannian, arXiv preprint: 1212.5605v2.
+  \bibitem{BFZ05} A. Berenstein, S. Fomin, and A. Zelevinsky, Cluster algebras III: upper bounds and double Bruhat cells, \textsl{J. London Math. Soc.} \textbf{14} (1976), 183–-187.
   \bibitem{BR15} A. Berenstein and D. Rupel, Quantum cluster characters of Hall algebras, \textsl{Sel. Math. New Ser.} \textbf{21} (2015), no. 4, 1121--1176.
   \bibitem{CC06} P. Caldero and F. Chapoton, Cluster algebras as Hall algebras of quiver representations, \textsl{Comment. Math. Helv.} \textbf{81} (2006), no. 3, 595--616.
   \bibitem{CK06} P. Caldero and B. Keller, From triangulated categories to cluster algebras II, \textsl{Ann. Sci. \'Ecole Norm. Sup.} (4) \textbf{39} (2006), no. 6, 983--1009.
@@ -1140,6 +1205,7 @@
 	\bibitem{FG06} V. Fock and A. Goncharov, Moduli spaces of local systems and higher Teichmüller theory, \textsl{Publ. Math. Inst. Hautes Études Sci.} \textbf{103} (2006), 1--211.
 	\bibitem{FST08} S. Fomin, M. Shapiro, and D. Thurston, Cluster algebras and triangulated surfaces. I. Cluster complexes, \textsl{Acta Math.} \textbf{201} (2008), 83--146.
 	\bibitem{FZ02} S. Fomin and A. Zelevinsky, Cluster algebras I: Foundations, \textsl{J. Amer. Math. Soc.} \textbf{15} (2002), 497--529.
+  \bibitem{FZ02b} S. Fomin and A. Zelevinsky, The Laurent phenomenon, \textsl{Adv. in Applied Math.} \textbf{28} (2002), 119-–144.
 	\bibitem{FZ99} S. Fomin and A. Zelevinsky, Double Bruhat celles and total positivity, \textsl{J. Amer. Math. Soc.} \textbf{12} (1999), 335--380.
 	\bibitem{GLS06} C. Geiss, B. Leclerc, and J. Schroer, Rigid modules over preprojective algebras, \textsl{Invent. Math} \textbf{165} (2006), 589--632.
   \bibitem{GLS13} C. Geiss, B. Leclerc, and J. Schr\"oer, Cluster structures on quantum coordinate rings, \textsl{Selecta Math. (N.S.)} \textbf{19} (2013), no. 2, 337--397.
