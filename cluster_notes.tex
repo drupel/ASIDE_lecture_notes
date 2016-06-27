@@ -527,7 +527,7 @@
   As we have seen in Examples~\ref{example:Gr2n} and~\ref{example:total positivity}, cluster algebras have roots in classical Lie theory.  A large number of objects in this realm are classified by Dynkin diagrams and cluster algebras are no exception.  Given an extended exchange matrix $\tilde B$ with principal square submatrix $B=(b_{ij})$, write $A:=A_{\tilde B}=(a_{ij})$ for the \emph{Cartan companion} of $\tilde B$ given by 
   \[a_{ij}=\begin{cases}2 & \text{if $i=j$;}\\ -|b_{ij}| & \text{otherwise.}\end{cases}\]
   Note that the Cartan companion only depends on the principal part of $\tilde B$.
-  \begin{theorem}
+  \begin{theorem}\cite{FZ03}
     A cluster algebra $\cA(\x,\tilde B)$ has only finitely many cluster variables if and only if there exists an extended exchange matrix mutation equivalent to $\tilde B$ whose Cartan companion is a finite-type Cartan matrix.
   \end{theorem}
   \begin{example}
@@ -543,9 +543,13 @@
     \end{equation}
     It is not hard to check that the vectors $d^{(k)}$ are exactly the positive roots in the root system associated the the Cartan matrix $A_B=\left[\begin{array}{cc} 2 & -b\\ -c & 2\end{array}\right]$, which is known to have only finitely many roots if and only if $bc\le3$.
     \begin{subexercise}
-      Prove that $U_n\big(2\cos(\theta)\big)=\frac{\sin(n\theta)}{\sin(\theta)}$ and use this to show that there are infinitely many $d^{(k)}$ if and only if $bc\ge4$
+      Prove that $U_n\big(2\cos(\theta)\big)=\frac{\sin(n\theta)}{\sin(\theta)}$ and use this to show that there are infinitely many $d^{(k)}$ if and only if $bc\ge4$.
     \end{subexercise}
   \end{example}
+  Thus we see a condition on an arbitrary extended exchange matrix $\tilde B$ which implies the corresponding cluster algebra has infinitely many cluster variables: if there exists an exchange matrix $\tilde B'=(b'_{ij})$ mutation equivalent to $\tilde B$ for which $b'_{ij}b'_{ji}\ge4$ for some $i,j$, then the cluster algebra $\cA(\bx,\tilde B)$ is not of finite-type.  It is quite remarkable that the opposite condition is enough to characterize finite-type cluster algebras.  Call an extended exchange matrix $\tilde B=(b_{ij})$ \emph{2-finite} if every matrix $\tilde B'=(b'_{ij})$ mutation equivalent to $\tilde B$ satisfies the rank 2 finite-type condition $b'_{ij}b'_{ji}\le3$ for all $i,j$.
+  \begin{theorem}\cite{FZ03}
+    A cluster algebra $\cA(\x,\tilde B)$ has only finitely many cluster variables if and only if $\tilde B$ is 2-finite.
+  \end{theorem}
 
   The next result gives the positivity of the initial cluster Laurent expansions of all cluster variables.
   \begin{theorem}\cite{LS15}
@@ -1221,6 +1225,7 @@
 	\bibitem{FG06} V. Fock and A. Goncharov, Moduli spaces of local systems and higher Teichmüller theory, \textsl{Publ. Math. Inst. Hautes Études Sci.} \textbf{103} (2006), 1--211.
 	\bibitem{FST08} S. Fomin, M. Shapiro, and D. Thurston, Cluster algebras and triangulated surfaces. I. Cluster complexes, \textsl{Acta Math.} \textbf{201} (2008), 83--146.
 	\bibitem{FZ02} S. Fomin and A. Zelevinsky, Cluster algebras I: Foundations, \textsl{J. Amer. Math. Soc.} \textbf{15} (2002), 497--529.
+  \bibitem{FZ03} S. Fomin and A. Zelevinsky, Cluster algebras II: Finite type classification, \textsl{Invent. Math.} \textbf{154} (2003), 63-–121.
   \bibitem{FZ02b} S. Fomin and A. Zelevinsky, The Laurent phenomenon, \textsl{Adv. in Applied Math.} \textbf{28} (2002), 119-–144.
 	\bibitem{FZ99} S. Fomin and A. Zelevinsky, Double Bruhat celles and total positivity, \textsl{J. Amer. Math. Soc.} \textbf{12} (1999), 335--380.
 	\bibitem{GLS06} C. Geiss, B. Leclerc, and J. Schroer, Rigid modules over preprojective algebras, \textsl{Invent. Math} \textbf{165} (2006), 589--632.
