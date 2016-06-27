@@ -141,11 +141,19 @@
 
     To describe a solution and easily identify total positivity criteria for all general linear groups $GL_n$, it will be convenient to slightly generalize the notion of total positivity.  An $n\times n$ matrix $M$ is called \emph{totally nonnegative} if the determinant of every square submatrix is a nonnegative real number.  Write $GL_n^{\ge0}\subset GL_n$ for the subset of totally nonnegative matrices.  Again one may ask: what is a minimal collection of minors needed to check that a matrix is totally nonnegative?  Unfortunately, or perhaps fortunately, the total nonnegativity criteria are not uniformly described across all of $GL_n$.  The solution to this problem naturally leads one to study certain subvarieties of $GL_n$ called \emph{double Bruhat cells}, which we now describe.
 
-    Let $B_+,B_-\subset GL_n$ denote the subgroups of upper and lower triangular matrices respectively.  Identify the symmetric group $\Sigma_n$ with the subgroup of $GL_n$ consisting of permutation matrices, i.e. matrices having precisely one nonzero entry 1 in each row and column.  For example, identify the permutation $(1,2)\in\Sigma_2$ with the matrix $\left[\begin{array}{cc}0 & 1\\ 1 & 0\end{array}\right]$.  
+    Let $B_+,B_-\subset GL_n$ denote the subgroups of upper and lower triangular matrices respectively.  Identify the symmetric group $\Sigma_n$ with the subgroup of $GL_n$ consisting of permutation matrices, i.e. matrices having precisely one nonzero entry 1 in each row and column.  For example, identify the permutation $(1,2)\in\Sigma_2$ (written in cycle notation) with the matrix $\left[\begin{array}{cc}0 & 1\\ 1 & 0\end{array}\right]$.  
 
     It is well known that $GL_n$ decomposes in two ways (actually many ways) as a union of \emph{Bruhat cells}:
     \[GL_n=\bigsqcup_{w\in\Sigma_n}B_+w B_+=\bigsqcup_{w\in\Sigma_n}B_-w B_-.\]
     To understand total nonnegativity criteria for $GL_n$, we will consider the \emph{double Bruhat cells} $GL_n^{u,v}=B_+uB_+\cap B_-vB_-$ for $u,v\in\Sigma_n$.  It turns out that each double Bruhat cell admits its own total positivity criteria, i.e. for each $u,v\in\Sigma_n$ there exists a minimal collection of minors whose positivity identifies the subset $GL_n^{u,v}\cap GL_n^{\ge0}$ inside the double Bruhat cell $GL_n^{u,v}$.
+
+    For $I,J\subset[1,n]$ with $|I|=|J|$, denote by $\Delta_{I,J}$ the function on $GL_n$ which returns the minor of a matrix on row set $I$ and column set $J$.
+    \setcounter{subexample}{1}
+    \begin{subexample}
+      Let $w_0=(1,n)(2,n-1)\cdots(\lfloor n/2\rfloor,\lceil n/2\rceil)$ denote the longest permutation in $\Sigma_n$.  The double Bruhat cell $GL_n^{w_0,w_0}$ is given as follows:
+      \[GL_n^{w_0,w_0}=\{M\in GL_n:\Delta_{[1,i],[n+1-i,n]}(M)\ne0,\Delta_{[n+1-i,n],[1,i]}(M)\ne0\text{ for all $i$}\}.\]
+    \end{subexample}
+    \setcounter{subexercise}{2}
     \begin{subexercise}
       Find all double Bruhat cells in $GL_2$ and verify that they partition the space.
     \end{subexercise}
@@ -198,12 +206,12 @@
     \end{figure}
 
     In a double wiring diagram, we label the strands in $u$'s wiring diagram on the right by $1$ through $n$ starting from the bottom and label the strands in $v$'s wiring diagram similarly on the left.  In this way, each chamber of the double wiring diagram determines a minor with row set the labels of strands in $v$'s wiring diagram lying below the chamber and column set the labels of strands in $u$'s wiring diagram lying below the chamber.  Now we may describe a collection of total positivity criteria for $GL_n^{u,v}$.
-    \setcounter{subtheorem}{2}
+    \setcounter{subtheorem}{3}
     \begin{subtheorem}\label{th:total positivity criteria}\cite{FZ99}
       Each double wiring diagram for $(u,v)$ determines a total positivity criterion for $GL_n^{u,v}$, i.e. an element of $GL_n^{u,v}$ lies in $GL_n^{\ge0}$ if and only if all $n+\ell(u)+\ell(v)$ chamber minors determined by the double wiring diagram are positive.
     \end{subtheorem}
-    The totally positive matrices are exactly the elements of $GL_n^{w_0,w_0}\cap GL_n^{\ge0}$, where $w_0=(n,n-1,\ldots,1)$ is the longest permutation.  Thus Theorem~\ref{th:total positivity criteria} provides many total positivity criteria for $GL_n$.
-    \setcounter{subexercise}{3}
+    The totally positive matrices are exactly the elements of $GL_n^{w_0,w_0}\cap GL_n^{\ge0}$.  Thus Theorem~\ref{th:total positivity criteria} provides many total positivity criteria for $GL_n$.
+    \setcounter{subexercise}{4}
     \begin{subexercise}
       Use double wiring diagrams to find a total positivity criteria for $GL_3$.
     \end{subexercise}
@@ -704,9 +712,11 @@
   \begin{example}
     A symplectic manifold $(M,\omega)$ is a smooth even-dimensional manifold $M^{2n}$ together with a non-degenerate 2-form $\omega\in H^2(M)$, i.e. $\omega^n\ne0$ is a volume form.  The symplectic structure $\omega$ provides a natural association of a vector field $\xi_f$ to a function $f\in\cO(M)$ via the contraction formula $\iota_{\xi_f}\omega=-df$.  The algebra of smooth functions on $M$ is then naturally a Poisson algebra via $\{f,g\}=\omega(\xi_f,\xi_g)$ for $f,g\in\cO(M)$.
   \end{example}
-  More generally, any smooth manifold together with a Poisson structure on its algebra of regular functions is called a \emph{Poisson manifold}.  A smooth map between Poisson manifolds is a Poisson morphism if it induces a Poisson morphism on their algebras of smooth functions.  
+  More generally, any smooth manifold together with a Poisson structure on its algebra of regular functions is called a \emph{Poisson manifold}.  A smooth map between Poisson manifolds is a \emph{Poisson morphism} if it induces a Poisson morphism on their algebras of smooth functions.  Given two Poisson manifolds $M$ and $N$, there is a natural Poisson structure on $M\times N$ given by
+  \[\{f,g\}(x,y)=\{f(\cdot,y),g(\cdot,y)\}_M(x)+\{f(x,\cdot),g(x,\cdot)\}_N(y)\]
+  for $f,g\in\cO(M\times N)$.
   \begin{example}
-    The Lie group $SL_n$ is a Poisson manifold where the Poisson bracket on matrix entries is given by
+    The special linear group $SL_n$ is a Poisson manifold where the Poisson bracket on matrix entries is given by
     \begin{equation}
       \{x_{ij},x_{k\ell}\}=\frac{1}{2}\big(\sgn(k-i)+\sgn(\ell-j)\big)x_{i\ell}x_{kj}.
     \end{equation}
@@ -719,8 +729,10 @@
     \[\xi_h(f)=\{f,h\}=\langle df,\xi_h\rangle,\]
     where $\langle\cdot,\cdot\rangle$ denotes the standard pairing between cotangent and tangent vectors over a point of $M$.
   \end{lemma}
-  A vector field $\xi_h$ as in Lemma~\ref{le:Hamiltonian vector fields} is called a \emph{Hamiltonian vector field}.  
-
+  The vector field $\xi_h$ from Lemma~\ref{le:Hamiltonian vector fields} is simply the vector field associated to the derivation $\{\cdot,h\}$ and is called a \emph{Hamiltonian vector field}.  Flowing along Hamiltonian vector fields defines an equivalence relation on a Poisson manifold as follows: $p\sim q$ if there exists a piecewise smooth curve connecting $p$ and $q$ where each smooth segment is the trajectory of a Hamiltonian vector field.  The equivalence class $M_p$ containing $p\in M$ is a connected submanifold of $M$ and by definition its tangent space $T_qM_p\subset T_qM$ is spanned by Hamiltonian tangent vectors.  Thus $M_p$ has a natural symplectic structure given by $\omega(\xi_f,\xi_g)=\{f,g\}$ and $M_p$ is called the \emph{symplectic leaf} of $M$ through $p$.
+  \begin{example}
+    The symplectic leaves of $SL_n$ have been explicitly computed (e.g. see \cite{KZ02} and references therein).  In particular, it is known that each double Bruhat cell in $SL_n$ is a (disjoint) union of symplectic leaves.  
+  \end{example}
 
   \begin{definition}
     Let $A$ be a Poisson algebra.  A finite collection $\bff\{f_i\}\subset A$ is called log-canonical if there exists a matrix $\Omega$ so that $\{f_i,f_j\}=\Omega_{ij}f_if_j$ for $f_i,f_j\in\bff$.
@@ -1217,6 +1229,7 @@
   \bibitem{K10} B. Keller, Categorification of acyclic cluster algebras: an introduction, arXiv preprint: 0801.3103v2.
   \bibitem{K12} Y. Kimura, Quantum unipotent subgroup and dual canonical basis, \textsl{Kyoto J. Math.} \textbf{52} (2012), no. 2, 277--331.
   \bibitem{KQ14} Y. Kimura and F. Qin, Graded quiver varieties, quantum cluster algebras and dual canonical basis, \textsl{Adv. Math.} \textbf{262} (2014), 261--312.
+  \bibitem{KZ02} M. Kogan and A. Zelevinsky, On symplectic leaves and integrable systems in standard complex semisimple Poisson-Lie groups, arXiv preprint: 0203069v1.
   \bibitem{LLZ14} K. Lee, L. Li, and A. Zelevinsky, Greedy elements in rank 2 cluster algebras, \textsl{Sel. Math. New Ser.} \textbf{20} (2014), 57--82.
   \bibitem{LS13} K. Lee and R. Schiffler, A Combinatorial Formula for Rank 2 Cluster Variables, \textsl{J. Alg. Comb} \textbf{37} (2013), 67--85.
   \bibitem{LS15} K. Lee and R. Schiffler, Positivity for cluster algebras, \textsl{Ann. Math.} \textbf{182} (2015), 73--125.
