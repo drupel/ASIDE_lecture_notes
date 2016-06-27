@@ -149,7 +149,7 @@
 
     For $I,J\subset[1,n]$ with $|I|=|J|$, denote by $\Delta_{I,J}$ the function on $GL_n$ which returns the minor of a matrix on row set $I$ and column set $J$.
     \setcounter{subexample}{1}
-    \begin{subexample}
+    \begin{subexample}\label{example:big cell}
       Let $w_0=(1,n)(2,n-1)\cdots(\lfloor n/2\rfloor,\lceil n/2\rceil)$ denote the longest permutation in $\Sigma_n$.  The double Bruhat cell $GL_n^{w_0,w_0}$ is given as follows:
       \[GL_n^{w_0,w_0}=\{M\in GL_n:\Delta_{[1,i],[n+1-i,n]}(M)\ne0,\Delta_{[n+1-i,n],[1,i]}(M)\ne0\text{ for all $i$}\}.\]
     \end{subexample}
@@ -649,8 +649,8 @@
     The upper cluster algebra is exactly the collection of all rational functions in $\{x_1,\ldots,x_m\}$ which are expressed as Laurent polynomials in terms of any cluster.  Thus the Laurent phenomenon Theorem~\ref{th:Laurent phenomenon} establishes the inclusion $\cA(\x,\tilde B)\subset\overline{\cA}(\x,\tilde B)$, hence the name ``upper'' cluster algebra.
   \end{remark}
 
-  \begin{theorem}\cite{BFZ05}
-    The coordinate ring of any double Bruhat cell is an upper cluster algebra such that each collection of chamber minors determines a cluster.
+  \begin{theorem}\label{th:dbc is uca}\cite{BFZ05}
+    The coordinate ring of any double Bruhat cell $GL_n^{u,v}$ is an upper cluster algebra such that each collection of chamber minors determines a cluster.
   \end{theorem}
 
   In some special cases, the cluster algebra coincides with its upper cluster algebra.  First we describe a necessary intermediate concept.
@@ -731,28 +731,37 @@
   \end{lemma}
   The vector field $\xi_h$ from Lemma~\ref{le:Hamiltonian vector fields} is simply the vector field associated to the derivation $\{\cdot,h\}$ and is called a \emph{Hamiltonian vector field}.  Flowing along Hamiltonian vector fields defines an equivalence relation on a Poisson manifold as follows: $p\sim q$ if there exists a piecewise smooth curve connecting $p$ and $q$ where each smooth segment is the trajectory of a Hamiltonian vector field.  The equivalence class $M_p$ containing $p\in M$ is a connected submanifold of $M$ and by definition its tangent space $T_qM_p\subset T_qM$ is spanned by Hamiltonian tangent vectors.  Thus $M_p$ has a natural symplectic structure given by $\omega(\xi_f,\xi_g)=\{f,g\}$ and $M_p$ is called the \emph{symplectic leaf} of $M$ through $p$.
   \begin{example}
-    The symplectic leaves of $SL_n$ have been explicitly computed (e.g. see \cite{KZ02} and references therein).  In particular, it is known that each double Bruhat cell in $SL_n$ is a (disjoint) union of symplectic leaves.  
+    The symplectic leaves of $GL_n$ have been explicitly computed (e.g. see \cite{KZ02} and references therein).  In particular, it is known that each double Bruhat cell in $GL_n$ is a (disjoint) union of symplectic leaves.  As an example (c.f. Example~\ref{example:big cell}) the following set is a symplectic leaf living in $GL_n^{w_0,w_0}$:
+    \[\{M\in GL_n:\Delta_{[1,i],[n+1-i]}(M)=\Delta_{[i+1,n],[1,n-i]}(M)\ne0\text{ for all $i$}\}.\]
   \end{example}
+  \begin{exercise}
+    Find a matrix $M$ so that the symplectic leaf above is the symplectic leaf of $GL_2$ through $M$.  Do the same for $GL_3$.
+  \end{exercise}
 
+  Now we turn to connections with cluster algebras.
   \begin{definition}
-    Let $A$ be a Poisson algebra.  A finite collection $\bff\{f_i\}\subset A$ is called log-canonical if there exists a matrix $\Omega$ so that $\{f_i,f_j\}=\Omega_{ij}f_if_j$ for $f_i,f_j\in\bff$.
+    Let $A$ be a Poisson algebra.  A finite collection $\bff=\{f_i\}\subset A$ is called log-canonical if there exists a matrix $\Omega$ so that $\{f_i,f_j\}=\Omega_{ij}f_if_j$ for $f_i,f_j\in\bff$.
   \end{definition}
   This terminology is motivated by the property $\{\log f_i,\log f_j\}=\Omega_{ij}$ for $f_i,f_j\in\bff$.
 
   \begin{definition}
-    Let $\cA$ be a cluster algebra.  A Poisson bracket $\{\cdot,\cdot\}$ on $\cA$ is compatible with the cluster algebra structure every cluster $\bx$ of $\cA$ is log-canonical with respect to $\{\cdot,\cdot\}$.
+    Let $\cA$ be a cluster algebra.  A Poisson bracket $\{\cdot,\cdot\}$ on $\cA$ is compatible with the cluster algebra structure if every cluster $\bx$ of $\cA$ is log-canonical with respect to $\{\cdot,\cdot\}$.
   \end{definition}
 
   \begin{lemma}
   \label{le:compatibility}
     Let $\cA(\bx,B)$ be a cluster algebra with compatible Poisson structure $\{\cdot,\cdot\}$.  Then writing $\Omega$ for the compatibility matrix, we have $B^T\Omega=[D\, \boldsymbol{0}]$ where $D$ is a diagonal matrix which skew-symmetrizes $B$.
   \end{lemma}
-  \begin{exercise}
+  \begin{subexercise}
     Prove Lemma~\ref{le:compatibility}. 
-  \end{exercise}
+  \end{subexercise}
 
-  \begin{theorem}
-    A compatible Poisson structure exists if and only if the extended exchange matrix $\tilde B$ has full rank.  Moreover, the collection of all such Poisson structures is parametrized by an affine space of dimension $r(B)+{m\choose 2}$.
+  \begin{theorem}\cite{GSV03}
+    A compatible Poisson structure exists if and only if the extended exchange matrix $\tilde B$ has full rank.  Moreover, the collection of all such Poisson structures is parametrized by an affine space of dimension $\rho(B)+{m\choose 2}$, where $\rho(B)$ denotes the number of connected components of $B$.
+  \end{theorem}
+
+  \begin{theorem}\cite{GSV10}
+    The cluster algebra structure on $GL_n^{u,v}$ from Theorem~\ref{th:dbc is uca} is compatible with the restriction of the Poisson structure from $GL_n$.
   \end{theorem}
 
   Given a cluster algebra $\cA(\bx,\tilde B)$ of full rank, any choice of compatible Poisson structure gives rise to a quantization of $\cA(\bx,\tilde B)$ by the following procedure where $v$ denotes a formal variable:
@@ -770,11 +779,6 @@
   \begin{exercise}
     Show that the compatibility condition \eqref{eq:quantum compatibility} is the same as the compatibility condition from Lemma~\ref{le:compatibility}.
   \end{exercise}
-
-  This heuristic definition can be made precise as follows.
-  \begin{definition}
-    Quantum cluster algebra.
-  \end{definition}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Applications to Integrable Systems}\label{sec:integrable_systems}
@@ -1223,6 +1227,7 @@
   \bibitem{GLS13} C. Geiss, B. Leclerc, and J. Schr\"oer, Cluster structures on quantum coordinate rings, \textsl{Selecta Math. (N.S.)} \textbf{19} (2013), no. 2, 337--397.
   \bibitem{GLS} C. Geiss, B. Leclerc, and J. Schr\"oer,
 	\bibitem{GSV03} M. Gekhtman, M. Shapiro, and A. Vainshtein,  Cluster algebras and Poisson geometry, \textsl{Mosc. Math. J.} \textbf{3} (2003), 899--934.
+  \bibitem{GSV10} M. Gekhtman, M. Shapiro, and A. Vainshtein,  Cluster algebras and Poisson geometry, Mathematical Surveys and Monographs, \mathbf{167}. American Mathematical Society, Providence, RI, 2010.
 	\bibitem{GSTV12} M. Gekhtman, M. Shapiro, S. Tabachnikov, and A. Vainshtein, Higher pentagram maps, weighted directed networks, and cluster dynamics, \textsl{Electron. Res. Announc. Math. Sci.} \textbf{19} (2012), 1--17.
 	\bibitem{G11} M. Glick, The pentagram map and Y-patterns, \textsl{Adv. Math.} \textbf{227} (2011), 1019--1045.
 	\bibitem{GK13} A. Goncharov and R. Kenyon, Dimers and cluster integrable systems, \textsl{Ann. Sci. \'Ec. Norm. Sup\'er.} \textbf{46} (2013), 747--813.
