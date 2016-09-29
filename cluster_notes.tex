@@ -303,9 +303,10 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{A Unifying Concept: Cluster Algebras}\label{sec:cluster_algebras}
 	%We define (skew-symmetric) cluster algebras at three successive levels of generality, differing from one another in the allowable types of coefficients. 
-	We define cluster algebras of geometric type and $Y$-patterns, with a focus on the underlying dynamics of seed mutations.
+	We now define cluster algebras of geometric type and $Y$-patterns, with a focus on the underlying dynamics of seed mutations. All definitions are due to S. Fomin and A. Zelevinsky and are drawn from \cite{FZ02} and \cite{FZ07}.
 	
 	\subsection{Basic definitions}
+	Each cluster algebra is defined recursively from some initial data called a seed.  A seed consists of a cluster, which was informally described at the beginning of Section \ref{sec:motivation}, together with some combinatorial data that encode the mutations that can be performed.
 
 	\begin{definition}
 		A \emph{seed} is a pair $(\x,B)$ where $\x = (x_1,\ldots, x_n)$ is an $n$-tuple of elements forming a transcendence basis of a rational function field and $B$ is a skew-symmetric integer $n \times n$ matrix.  The vector $\x$ is called the \emph{cluster} and the matrix $B$ is called the \emph{exchange matrix}.
@@ -366,13 +367,15 @@
 		\begin{displaymath}
 			x_5 = \frac{x_4+1}{x_3} = \frac{\frac{x_1 + x_2 + 1}{x_1x_2}+1}{\frac{x_2+1}{x_1}} = \frac{x_1+1}{x_2}.
 		\end{displaymath}
-		Remarkably, these are the only distinct cluster variables that arise.  Therefore
+		The mutation pattern seems clear, but remarkably the next variable $x_6 = (1+x_5)/x_4$ equals the first variable $x_1$.  In fact, the only distinct cluster variables that can be obtained are $x_1$ through $x_5$, so
 		\begin{displaymath}
 			\cA(\x,B) = \CC\left[x_1,x_2,\frac{x_2+1}{x_1},\frac{x_1 + x_2 + 1}{x_1x_2},\frac{x_1+1}{x_2}\right] \subseteq \CC[x_1^{\pm1},x_2^{\pm1}].
 		\end{displaymath}
-    In fact, any four elements of $\{x_1,x_2,\frac{x_2+1}{x_1},\frac{x_1 + x_2 + 1}{x_1x_2},\frac{x_1+1}{x_2}\}$ are sufficient to generate $\cA(\x,B)$.  This observation readily generalizes to cluster algebras associated to any $2\times 2$ exchange matrix. %and leads ultimately to the following important result.
+		Note the generating set is not minimal, in fact, any four of the given elements generate $\cA(\x,B)$.
+    %This observation readily generalizes to cluster algebras associated to any $2\times 2$ exchange matrix. %and leads ultimately to the following important result.
   \end{example}
 	
+	In the preceding example, there were only finitely many cluster variables.  As we will see, this is typically not the case.  However, a subtler feature does hold in general, namely that each of the cluster variables was a Laurent polynomial in the variables of the initial seed.  
 	\begin{theorem}\label{th:Laurent phenomenon}
 		For any initial seed $(\x,B)$ with $\x = (x_1,\ldots, x_n)$, the associated cluster algebra lies in the Laurent polynomial ring
 		\begin{displaymath}
@@ -380,6 +383,7 @@
 		\end{displaymath}
 		In particular, every cluster variable can be expressed as a Laurent polynomial in $x_1,\ldots, x_n$.
 	\end{theorem}
+	Section \ref{sec:basic_theorems} will go into more detail on this result, called the Laurent phenomenom, as well as several more main theorems on cluster algebras.
 	
 	\subsection{Increased generality}
 	We generalize the previous definitions in two ways, first by allowing more general exchange matrices and then by allowing for certain coefficients in the exchange relations.
@@ -399,17 +403,6 @@
 	\end{displaymath}
 	The \emph{rank} of a cluster algebra is the number $n$ of elements of each cluster, so the exchange matrices $B$ just described give rise to all possible rank $2$ cluster algebras.
 	
-	\begin{exercise}\label{exercise:rank 2}\mbox{}
-    \begin{enumerate}
-      \item Compute all cluster variables and coefficient variables for cluster algebras associated to $B=\left[\begin{array}{cc} 0 & b\\ -c & 0\end{array}\right]$ with $b,c\in\ZZ_{>0}$ and $bc\le 3$.
-      \item Justify why attempting such a calculation is futile for $bc\ge4$.  Hint: consider the denominator vectors of the cluster variables.
-    \end{enumerate}
-  \end{exercise}
-	
-	\begin{exercise}\label{exercise:rank 2 Laurent phenomenon}
-    Prove the Laurent phenomenon for rank 2 cluster algebras.  Hint: start by showing that $x_4\in\ZZ[x_0,x_1,x_2,x_3]$ by considering the monomial $x_0x_3^b$.
-  \end{exercise}
-	
 	The second generalization is to allow so-called frozen variables that never mutate, but which play a part in the exchange relations for the cluster variables. An \emph{extended cluster}, by convention, is typically written $\x = (x_1,\ldots, x_n, x_{n+1},\ldots x_m)$ where $x_1,\ldots, x_n$ are the cluster variable and $x_{n+1},\ldots, x_m$ are the frozen variables.  An \emph{extended exchange matrix} is an $m \times n$ integer matrix $\tilde{B}$ with the property that its top $n \times n$ part is skew-symmetrizable.
 	
 	\begin{definition}
@@ -420,7 +413,33 @@
 	Lemma \ref{lem:mutate} holds in this generalized setting.  Moreover, the skew-symmetrizing matrix $D$ is unchanged by mutation.
 	\end{lemma}
 	
-	Given a seed $(\x, \tilde{B})$ as above, the corresponding cluster algebra $\cA(\x, \tilde{B})$ is defined to be the subalgebra of $\CC(x_1,\ldots, x_m)$ generated by all cluster variables reachable from this seed together with the frozen variables (which appear in every seed).  Cluster algebras at this level of generality are referred to as cluster algebras of \emph{geometric type}.
+	Given a seed $(\x, \tilde{B})$ as above, the corresponding cluster algebra $\cA(\x, \tilde{B})$ is defined to be the subalgebra of $\CC(x_1,\ldots, x_m)$ generated by all cluster variables reachable from this seed together with the frozen variables (which appear in every seed).  Cluster algebras at this level of generality are referred to as cluster algebras of \emph{geometric type}.  In comparison, the earlier definition given was of \emph{skew-symmetric} cluster algebras with \emph{trivial coefficients}.
+	
+	\begin{example} \label{example:rank2}
+		Consider a rank $2$ cluster algebras with trivial coefficients (so $n=2$ and $m=0$).  The initial exchange matrix can be taken to be
+		\begin{displaymath}
+			B = \left[ \begin{array}{cc} 	0 & b \\	-c & 0 \\	\end{array}	\right].
+		\end{displaymath}
+		with $b,c$ positive integers.  Then $\mu_1(B) = \mu_2(B) = -B$ and $\mu_1(-B) = \mu_2(-B) = B$, so as in Example \ref{example:type A2} (the case $b=c=1$), the cluster variables can be identified as $\{x_i : i \in \mathbb{Z}\}$ (possibly with repeats) and the mutations as 
+		\begin{displaymath}
+		\ldots \stackrel{\mu_1}{\longleftrightarrow} ((x_1,x_0),-B) \stackrel{\mu_2}{\longleftrightarrow} ((x_1,x_2),B)) \stackrel{\mu_1}{\longleftrightarrow} ((x_3,x_2),-B)) \stackrel{\mu_2}{\longleftrightarrow} ((x_3,x_4),B)) \stackrel{\mu_1}{\longleftrightarrow} \ldots
+		\end{displaymath}
+		The exchange relations are
+		\begin{displaymath}
+		x_{k-1}x_{k+1}=\begin{cases}x_k^b+1 & \text{if $k$ is odd;}\\ x_k^c+1 & \text{if $k$ is even.}\end{cases}
+		\end{displaymath}
+		
+		\begin{subexercise}\label{exercise:rank 2}\mbox{}
+    \begin{enumerate}
+      \item Compute all cluster variables and coefficient variables for cluster algebras associated to $B=\left[\begin{array}{cc} 0 & b\\ -c & 0\end{array}\right]$ with $b,c\in\ZZ_{>0}$ and $bc\le 3$.
+      \item Justify why attempting such a calculation is futile for $bc\ge4$.  Hint: consider the denominator vectors of the cluster variables.
+    \end{enumerate}
+  \end{subexercise}
+	
+	\begin{subexercise}\label{exercise:rank 2 Laurent phenomenon}
+    Prove the Laurent phenomenon for rank 2 cluster algebras.  Hint: start by showing that $x_4\in\ZZ[x_0,x_1,x_2,x_3]$ by considering the monomial $x_0x_3^b$.
+  \end{subexercise}
+	\end{example}
 	
 	\begin{example}
 		Let $n=3$ and $m=9$.  Denote the cluster 
@@ -447,7 +466,7 @@
 		\begin{subexercise} \ \newline
 			\begin{itemize}
 			\item The cluster variables of $\cA$ are precisely the $\Delta_{ij}$ with $1 \leq i < j \leq n$.
-			\item The clusters of $\cA$ are precisely the $x_T$ (see Example \ref{example:Gr2n}) for $T$ a triangulation of a hexagon. 
+			\item The clusters of $\cA$ are precisely the $x_T$ (see Section \ref{sub:Gr2n}) for $T$ a triangulation of a hexagon. 
 			\end{itemize}
 		\end{subexercise}
 		For instance, the new cluster variable produced by applying $\mu_1$ to the initial seed is
@@ -480,7 +499,7 @@
 	There is an alternate version of seeds and mutations, closely related to the previous, which itself arises in many applications.  
 	
 	\begin{definition}
-		A \emph{$Y$-seed} is a pair $(\y,B)$ consisting of an $n$-tuple $\y=(y_1,\ldots, y_n)$ of rational functions and an $n\times n$ skew symmetric matrix $B$.  For $k=1,\ldots, n$, the \emph{$Y$-seed mutation} $\mu_k$ is defined by
+		A \emph{$Y$-seed} is a pair $(\y,B)$ consisting of an $n$-tuple $\y=(y_1,\ldots, y_n)$ and an $n\times n$ skew symmetric matrix $B$.  For $k=1,\ldots, n$, the \emph{$Y$-seed mutation} $\mu_k$ is defined by
 		\begin{displaymath}
 			\mu_k((y_1,\ldots, y_n),B) = ((y_1',\ldots, y_n'),B')
 		\end{displaymath}
@@ -500,9 +519,9 @@
 	\item $y_k$ is inverted,
 	\item $B$ is changed in the same way as for ordinary seed mutations.
 	\end{enumerate}
-	%The $Y$-dynamics also go by the name \emph{coefficient dynamics} because the tropicalisation of \cite{eq:y mutation} describes how the coefficients in a geometric type cluster algebra evolve.
+	The $Y$-dynamics also go by the name \emph{coefficient dynamics} because the coefficients in a geometric type cluster algebra evolve in this manner with respect to auxilliary addition $\oplus$ and ordinary multiplication of Laurent monomials.
 	
-	One connection between the two types of dynamics comes by way of a certain Laurent monomial change of variables.  Let $\tilde{B}$ be an $m \times n$, extended exchange matrix with $B$ its upper $n \times n$ part.  Given a seed $((x_1,\ldots, x_m),\tilde{B})$, define an associated $Y$-seed $((\hat{y}_1,\ldots, \hat{y}_n),B)$ by
+	Another connection between cluster algebra and $Y$-pattern dynamics comes by way of a certain Laurent monomial change of variables.  Let $\tilde{B}$ be an $m \times n$, extended exchange matrix with $B$ its upper $n \times n$ part.  Given a seed $((x_1,\ldots, x_m),\tilde{B})$, define an associated $Y$-seed $((\hat{y}_1,\ldots, \hat{y}_n),B)$ by
 	\begin{displaymath}
 	\hat{y}_j = \prod_{i=1}^m x_i^{b_{ij}}
 	\end{displaymath}
@@ -518,7 +537,7 @@
 \section{Basic Results}\label{sec:basic_theorems}
   As mentioned in the introduction cluster algebras have found applications in a surprising array of mathematical disciplines.  Much of their ubiquity comes from a number of remarkable theorems which we now explain.
 
-  Recall the Laurent phenomenon from Theorem~\ref{th:Laurent phenomenon}.  This remarkable theorem is the prime reason for the connection between cluster algebras and many well-known classical recursions which, a priori produce rational numbers, but turn out to give integer values given certain integer inputs \cite{FZ02b}.  We will begin by explaining the solution to Exercise~\ref{exercise:rank 2 Laurent phenomenon}.  To begin we introduce a uniform notation for dealing with rank 2 cluster algebras.  In the rank 2 case, the matrix mutation of $B=\left[\begin{array}{cc}0 & b\\ -c & 0\end{array}\right]$  in either direction simply negates the matrix and thus the exchange relations \eqref{eq:exchange relation} are uniformly described for all seeds.  Indeed, denote the cluster variables by $x_k$, $k\in\ZZ$ as in Example~\ref{example:type A2}.  More precisely, the cluster variables may be defined by the simple recursion
+  Recall the Laurent phenomenon from Theorem~\ref{th:Laurent phenomenon}.  This remarkable theorem is the prime reason for the connection between cluster algebras and many well-known classical recursions which, a priori produce rational numbers, but turn out to give integer values given certain integer inputs \cite{FZ02b}.  We will begin by explaining the solution to Exercise~\ref{exercise:rank 2 Laurent phenomenon}.  Consider the rank 2 cluster algebra with initial exchange matrix $B=\left[\begin{array}{cc}0 & b\\ -c & 0\end{array}\right]$  and cluster variables $x_k$, $k\in\ZZ$ as in Example~\ref{example:rank2}.  The cluster variables may be defined by the simple recursion
   \[x_{k-1}x_{k+1}=\begin{cases}x_k^b+1 & \text{if $k$ is odd;}\\ x_k^c+1 & \text{if $k$ is even.}\end{cases}\]
   In this case it is easy to establish the Laurent phenomenon.
   \begin{theorem}
@@ -546,7 +565,7 @@
   \end{remark}
   The proof of this result is somewhat technical and seems unlikely to be very informative so we will omit the details.
 
-  As we have seen in Examples~\ref{example:Gr2n} and~\ref{example:total positivity}, cluster algebras have roots in classical Lie theory.  A large number of objects in this realm are classified by Dynkin diagrams and cluster algebras are no exception.  Given an extended exchange matrix $\tilde B$ with principal square submatrix $B=(b_{ij})$, write $A:=A_{\tilde B}=(a_{ij})$ for the \emph{Cartan companion} of $\tilde B$ given by 
+  As we have seen in Sections~\ref{sub:Gr2n} and~\ref{sub:total positivity}, cluster algebras have roots in classical Lie theory.  A large number of objects in this realm are classified by Dynkin diagrams and cluster algebras are no exception.  Given an extended exchange matrix $\tilde B$ with principal square submatrix $B=(b_{ij})$, write $A:=A_{\tilde B}=(a_{ij})$ for the \emph{Cartan companion} of $\tilde B$ given by 
   \[a_{ij}=\begin{cases}2 & \text{if $i=j$;}\\ -|b_{ij}| & \text{otherwise.}\end{cases}\]
   Note that the Cartan companion only depends on the principal part of $\tilde B$.
   \begin{theorem}\cite{FZ03}
@@ -1249,6 +1268,7 @@
 	\bibitem{FZ02} S. Fomin and A. Zelevinsky, Cluster algebras I: Foundations, \textsl{J. Amer. Math. Soc.} \textbf{15} (2002), 497--529.
   \bibitem{FZ03} S. Fomin and A. Zelevinsky, Cluster algebras II: Finite type classification, \textsl{Invent. Math.} \textbf{154} (2003), 63-–121.
   \bibitem{FZ02b} S. Fomin and A. Zelevinsky, The Laurent phenomenon, \textsl{Adv. in Applied Math.} \textbf{28} (2002), 119-–144.
+	\bibitem{FZ07} S. Fomin and A. Zelevinsky, Cluster algebras IV: Coefficients, \textsl{Compos. Math.} \textbf{143} (2007), 112--164.
 	\bibitem{FZ99} S. Fomin and A. Zelevinsky, Double Bruhat celles and total positivity, \textsl{J. Amer. Math. Soc.} \textbf{12} (1999), 335--380.
 	\bibitem{GLS06} C. Geiss, B. Leclerc, and J. Schroer, Rigid modules over preprojective algebras, \textsl{Invent. Math} \textbf{165} (2006), 589--632.
   \bibitem{GLS13} C. Geiss, B. Leclerc, and J. Schr\"oer, Cluster structures on quantum coordinate rings, \textsl{Selecta Math. (N.S.)} \textbf{19} (2013), no. 2, 337--397.
