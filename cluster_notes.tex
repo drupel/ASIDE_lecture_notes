@@ -63,35 +63,47 @@
 
   In these notes we will give an introduction to cluster algebras and a couple of the applications mentioned above.  These notes are far from exhaustive and the references above only touch on the vast literature.  Other overviews of cluster algebras can be found in the works \cite{K10,W13,GLS} which will also provide additional references.
 
-  The paper is organized as follows.  Section~\ref{sec:motivation} gives several motivating examples from which we will abstract the definition of a cluster algebra.  %The reader will be guided towards providing ad-hoc proofs of some of the important theorems of cluster algebra theory in the exercises of that section.  
+  These lecture notes are organized as follows.  Section~\ref{sec:motivation} gives several motivating examples from which we will abstract the definition of a cluster algebra.  %The reader will be guided towards providing ad-hoc proofs of some of the important theorems of cluster algebra theory in the exercises of that section.  
 	Section~\ref{sec:cluster_algebras} contains several variations on the definition of cluster algebras with increasing generality and also the definition of $Y$-patterns.  In Section~\ref{sec:basic_theorems} we describe the foundational results in the theory of cluster algebras and sketch or otherwise indicate the ideas behind the proofs of these results. Section~\ref{sec:poisson_and_quantum} recalls the theory of Poisson structures compatible with a cluster algebra and describes how this naturally leads to a quantization of cluster algebras.  Finally we conclude with applications of the cluster algebra machinery to problems involving integrable systems in Section~\ref{sec:integrable_systems}.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Motivating Examples}\label{sec:motivation}
-  Before defining cluster algebras, we describe a few settings which may be seen as motivating their definition.  We however leave it to the astute reader to compare these examples with the definitions presented in Section~\ref{sec:cluster_algebras} and to see how they may be reinterpreted within the cluster algebra framework.
+	Cluster algebras are certain commutative rings possessing additional structure, including
+	\begin{itemize}
+		\item a distinguished collection of generators called \emph{cluster variables},
+		\item a collection of finite subsets of the set of all cluster variables called \emph{clusters},
+		\item a \emph{mutation} rule which, given a cluster and one of its variables $x$, produces another cluster by replacing $x$ with a different cluster variable $x'$, and
+		\item for each mutation as in the previous, an \emph{exchange relation}
+		\begin{displaymath}
+			xx' = F
+		\end{displaymath}
+		where $F$ is a binomial in the variables common to the initial and mutated clusters.
+	\end{itemize}
+	Before defining cluster algebras, we describe a few settings illustrating these various components.  We leave it to the astute reader to compare these examples with the definitions presented in Section~\ref{sec:cluster_algebras} and to see how they may be reinterpreted within the cluster algebra framework.
 
-  \begin{example}\label{example:Markov triples}
+	\subsection{Markov Triples} \label{sub:Markov triples}
+  %\begin{example}\label{example:Markov triples}
     A Markov triple is a tuple $(a,b,c)$ of positive integers satisfying the Markov equation $a^2+b^2+c^2=3abc$; an integer which appears as a term in a Markov triple is called a Markov number.  The Markov equation is an example of a Diophantine equation and two classical number theoretic problems are to determine the number of solutions and to determine a method for finding all such solutions.  We will solve both of these problems for the Markov equation.
-
-    To begin with we note that $(1,1,1)$ and $(1,1,2)$ are (up to reordering) the only Markov triples with repeated values.
-    \begin{subexercise}
-      Prove this claim.
-    \end{subexercise}
+    
+    \begin{exercise}
+      Prove that $(1,1,1)$ and $(1,1,2)$ are (up to reordering) the only Markov triples with repeated values.
+    \end{exercise}
     Rearranging the Markov equation we see that $c^2-3abc+a^2+b^2=0$ and so $c$ is a root of the quadratic $f(x)=x^2-(3ab)x+(a^2+b^2)$.  But notice that the other root $c'=3ab-c=\frac{a^2+b^2}{c}$ is a positive integer and so $(a,b,c')$ is again a Markov triple.  
 
     Note that there was nothing special about $c$ in the calculation above so that, given any Markov triple $(a,b,c)$ we may perform three possible exchanges 
     \[\Big(a,b,\frac{a^2+b^2}{c}\Big)\quad\Big(a,\frac{a^2+c^2}{b},c\Big)\quad\Big(\frac{b^2+c^2}{a},b,c\Big)\]
     and obtain another Markov triple in each case.  The following exercises solve the above two classical problems of Diophantine equations.
-    \begin{subexercise}\mbox{}
+    \begin{exercise}\mbox{}
       \begin{enumerate}[\quad\upshape (a)]
         \item Prove that there are infinitely many Markov triples by showing that there is no bound on how large the largest value can be.
         \item Show that all Markov triples may be obtained from the Markov triple $(1,1,1)$ by a sequence of exchanges.
       \end{enumerate}
-    \end{subexercise}
-  \end{example}
+    \end{exercise}
+  %\end{example}
 
-  \begin{example} \label{example:Gr2n}
+	\subsection{The Grassmannian $Gr_{2}(\CC^n)$} \label{sub:Gr2n}
+  %\begin{example} \label{example:Gr2n}
 		The \emph{Grassmannian} $Gr_{k}(\CC^n)$ is the set of $k$-dimensional linear subspaces of $\CC^n$.  A point in the Grassmannian can be described, albeit non-uniquely, as the row span of a full rank matrix $A \in \CC^{k \times n}$.  The maximal minors of $A$ are called \emph{Pl\"ucker coordinates}.
 		
 		Now, restrict to $k=2$ and let 
@@ -103,41 +115,51 @@
 		\end{displaymath}
 		The Pl\"ucker coordinates are given by $\Delta_{ij} = a_{1i}a_{2j} - a_{1j}a_{2i}$ for $1 \leq i < j \leq n$.  
 		
-		\begin{subexercise}
+		\begin{exercise}
 			The $\Delta_{ij}$ satisfy the so-called \emph{Pl\"ucker relations}
 			\begin{displaymath}
 				\Delta_{ik}\Delta_{jl} = \Delta_{ij}\Delta_{kl} + \Delta_{il}\Delta_{jk}
 			\end{displaymath}
 			for $1 \leq i < j < k < l \leq n$.
-		\end{subexercise}
+		\end{exercise}
 		
-		Consider a regular $n$-gon with vertices labeled $1,2,\ldots, n$.  Let $T$ be a triangulation, i.e. a maximal collection of chords $\overline{ij}$ with $1 \leq i < j \leq n$, no two of which intersect in their interior.  Note that $T$ always consists of $n-3$ diagonals together with the $n$ sides $\overline{12}, \overline{23}, \overline{34}, \ldots, \overline{1n}$.  Associated to $T$ is a corresponding collection of Pl\"ucker coordinates
+		Consider a regular $n$-gon with vertices labeled $1,2,\ldots, n$.  Let $T$ be a triangulation, i.e. a maximal collection of chords $\overline{ij}$ with $1 \leq i < j \leq n$ no two of which intersect in their interiors.  Note that $T$ always consists of $n-3$ diagonals together with the $n$ sides $\overline{12}, \overline{23}, \overline{34}, \ldots, \overline{1n}$.  Associate to $T$ the corresponding collection of Pl\"ucker coordinates
 		\begin{displaymath}
-			\Delta_T := \{\Delta_{ij} : \overline{ij} \in T\}
+			\Delta_T := \{\Delta_{ij} : \overline{ij} \in T\}.
 		\end{displaymath}
     \setcounter{subproposition}{1}
-		\begin{subproposition}
-		Fix positive reals $x_{ij}$ for all $\overline{ij} \in T$.  Then there exists $A \in Gr_2(\CC^n)$ such that $\Delta_{ij}(A) = x_{ij}$ for all $\overline{ij} \in T$.  Moreover, each $\Delta_{ij}(A)$ with $\overline{ij} \notin T$ is uniquely determined by the $x_{ij}$ via a subtraction-free rational expression.
-		\end{subproposition}
+		\begin{proposition} \label{prop:Gr2n}
+		Fix positive reals $x_{ij}$ for all $\overline{ij} \in T$.  Then there exists $A \in Gr_2(\CC^n)$ such that $\Delta_{ij}(A) = x_{ij}$ for all $\overline{ij} \in T$.  Moreover, each $\Delta_{ij}(A)$ with $\overline{ij} \notin T$ can be expressed as a subtraction free rational expression of the $x_{ij}$.
+		\end{proposition}
 		
-		For instance, if $n=4$ and $T = \{\overline{13},\overline{12},\overline{23},\overline{34},\overline{14}\}$ then the Pl\"ucker relation implies
+		For instance, let $n=4$ and $T = \{\overline{13},\overline{12},\overline{23},\overline{34},\overline{14}\}$.  A possible representing matrix is
 		\begin{displaymath}
-		\Delta_{24}(A) = \frac{x_{12}x_{34} + x_{14}x_{23}}{x_{13}}.
+			A = \left[\begin{array}{cccc}
+			1 & \frac{x_{23}}{x_{13}} & 0 & -\frac{x_{34}}{x_{13}} \\
+			0 & x_{12} & x_{13} & x_{14} \\
+			\end{array}\right].
 		\end{displaymath}
-		This formula can be thought of as a change of coordinate systems from the original one to one corresponding to $T' = (T \setminus \{\overline{13}\}) \cup \{\overline{24}\}$.  More generally, if $n>4$ then the rational expressions promised by the Proposition can be obtained by performing a sequence of such flips on various sub-quadrilaterals of the $n$-gon with vertices $i,j,k,l$.
+		There is one remaining Pl\"ucker coordinate, namely $\Delta_{24}$, and it can be computed from the given ones as
+		\begin{displaymath}
+		\Delta_{24}(A) = \frac{x_{12}x_{34} + x_{14}x_{23}}{x_{13}}
+		\end{displaymath}
+		which follows from a Pl\"ucker relation.	This formula can be thought of as a change of coordinates from $\Delta_T$ to $\Delta_{T'}$ where $T' = (T \setminus \{\overline{13}\}) \cup \{\overline{24}\}$.  
     \setcounter{subexercise}{2}
-    \begin{subexercise}
-      The change of coordinate systems observed above can be understood more classically in terms of the Ptolemy relations for cyclic quadrilaterals.  Indeed, consider four distinct points labelled $1,2,3,4$ on a circle and let $x_{ij}$ denote the distance between vertices $i$ and $j$.  Prove that $x_{13}x_{24}=x_{12}x_{34}+x_{14}x_{23}$.
-    \end{subexercise}
-  \end{example}
-  
-  \begin{example}\label{example:total positivity}
+    \begin{exercise}
+      The change of coordinate systems observed above can be understood more classically in terms of the Ptolemy relations for cyclic quadrilaterals.  Indeed, consider four distinct points labeled $1,2,3,4$ on a circle in cyclic order and let $x_{ij}$ denote the distance between vertices $i$ and $j$.  Prove that $x_{13}x_{24}=x_{12}x_{34}+x_{14}x_{23}$.
+    \end{exercise}
+		
+		More generally, if $T$ is a triangulation of an $n$-gon and $\overline{ik} \in T$ is a diagonal (as opposed to a side), then $\overline{ik}$ is part of two triangles of $T$.  Call the third vertices of these two triangles $j$ and $l$.  It follows that $T' = (T \setminus \{\overline{ik}\}) \cup \{\overline{jl}\}$ is a triangulation.  Performing a sequence of such quadrilateral flips and using a Pl\"ucker relation at each step makes it possible to compute the rational expressions promised in Proposition \ref{prop:Gr2n}.
+%  \end{example}
+ 
+	\subsection{Double Bruhat cells} \label{sub:total positivity}
+%  \begin{example}\label{example:total positivity}
     An $n\times n$ matrix $M$ is called \emph{totally positive} if the determinant of every square submatrix is a positive real number.  In particular, every entry of $M$ is positive and $M$ must be invertible.  Write $GL_n^{>0}\subset GL_n$ for the subset of totally positive matrices.  To check that a given matrix $M\in GL_n$ is totally positive one must, a priori, check that all ${2n\choose n}-1$ minors of $M$ are positive.  A natural question is whether this verification process can be made more efficient, i.e. is there a smaller collection of minors one may compute and from the positivity of this subset conclude that every minor is positive, i.e. conclude that $M\in GL_n^{>0}$?
 
     We will call such a collection a \emph{total positivity criterion}.  For small $n$, such criteria can be easily found and easily verified.  For example, a matrix $M=\left[\begin{array}{cc} a & b\\ c & d\end{array}\right]\in GL_2$ is totally positive if and only if $a,b,c,ad-bc>0$ if and only if $b,c,d,ad-bc>0$.
-    \begin{subexercise}
+    \begin{exercise}
       Find a minimal collection of minors whose positivity guarantees a matrix in $GL_3$ is totally positive (hint: any such total positivity criterion consists of 9 minors).
-    \end{subexercise}
+    \end{exercise}
 
     To describe a solution and easily identify total positivity criteria for all general linear groups $GL_n$, it will be convenient to slightly generalize the notion of total positivity.  An $n\times n$ matrix $M$ is called \emph{totally nonnegative} if the determinant of every square submatrix is a nonnegative real number.  Write $GL_n^{\ge0}\subset GL_n$ for the subset of totally nonnegative matrices.  Again one may ask: what is a minimal collection of minors needed to check that a matrix is totally nonnegative?  Unfortunately, or perhaps fortunately, the total nonnegativity criteria are not uniformly described across all of $GL_n$.  The solution to this problem naturally leads one to study certain subvarieties of $GL_n$ called \emph{double Bruhat cells}, which we now describe.
 
@@ -149,14 +171,14 @@
 
     For $I,J\subset[1,n]$ with $|I|=|J|$, denote by $\Delta_{I,J}$ the function on $GL_n$ which returns the minor of a matrix on row set $I$ and column set $J$.
     \setcounter{subexample}{1}
-    \begin{subexample}\label{example:big cell}
+    \begin{example}\label{example:big cell}
       Let $w_0=(1,n)(2,n-1)\cdots(\lfloor n/2\rfloor,\lceil n/2\rceil)$ denote the longest permutation in $\Sigma_n$.  The double Bruhat cell $GL_n^{w_0,w_0}$ is given as follows:
       \[GL_n^{w_0,w_0}=\{M\in GL_n:\Delta_{[1,i],[n+1-i,n]}(M)\ne0,\Delta_{[n+1-i,n],[1,i]}(M)\ne0\text{ for all $i$}\}.\]
-    \end{subexample}
+    \end{example}
     \setcounter{subexercise}{2}
-    \begin{subexercise}
+    \begin{exercise}
       Find all double Bruhat cells in $GL_2$ and verify that they partition the space.
-    \end{subexercise}
+    \end{exercise}
 
     Some of these total nonnegativity criteria in $GL_n^{u,v}$ can be conveniently described using double wiring diagrams.  Write $s_i=(i,i+1)\in\Sigma_n$ for the simple transposition interchanging $i$ and $i+1$.  A \emph{reduced word} for $w\in\Sigma_n$ is a minimal sequence $(i_1,\ldots,i_r)$ so that $w=s_{i_1}\cdots s_{i_r}$, where $\ell(w):=r$ is called the \emph{length} of $w$.  A reduced word $(i_1,\ldots,i_r)$ is naturally encoded in a \emph{wiring diagram}, i.e. a collection of $n$ strands with a crossing between the $i$-th and $i+1$-st strands each time $i$ appears in the reduced word, see Figure~\ref{fig:wiring diagram}.
     \begin{figure}[h]
@@ -207,14 +229,14 @@
 
     In a double wiring diagram, we label the strands in $u$'s wiring diagram on the right by $1$ through $n$ starting from the bottom and label the strands in $v$'s wiring diagram similarly on the left.  In this way, each chamber of the double wiring diagram determines a minor with row set the labels of strands in $v$'s wiring diagram lying below the chamber and column set the labels of strands in $u$'s wiring diagram lying below the chamber.  Now we may describe a collection of total positivity criteria for $GL_n^{u,v}$.
     \setcounter{subtheorem}{3}
-    \begin{subtheorem}\label{th:total positivity criteria}\cite{FZ99}
+    \begin{theorem}\label{th:total positivity criteria}\cite{FZ99}
       Each double wiring diagram for $(u,v)$ determines a total positivity criterion for $GL_n^{u,v}$, i.e. an element of $GL_n^{u,v}$ lies in $GL_n^{\ge0}$ if and only if all $n+\ell(u)+\ell(v)$ chamber minors determined by the double wiring diagram are positive.
-    \end{subtheorem}
+    \end{theorem}
     The totally positive matrices are exactly the elements of $GL_n^{w_0,w_0}\cap GL_n^{\ge0}$.  Thus Theorem~\ref{th:total positivity criteria} provides many total positivity criteria for $GL_n$.
     \setcounter{subexercise}{4}
-    \begin{subexercise}
+    \begin{exercise}
       Use double wiring diagrams to find a total positivity criteria for $GL_3$.
-    \end{subexercise}
+    \end{exercise}
     To finish the section and connect to the theory of cluster algebras to be presented in the next section we make the following observation.  Suppose a double reduced word for $(u,v)$ contains neighboring letters, one belonging to a reduced word for $u$ and one belonging to a reduced word for $v$.  In Figure~\ref{fig:wiring exchange relation} we show the local effect of interchanging these letters on a double wiring diagram. 
     \begin{figure}[h]
       \begin{tikzpicture}
@@ -265,10 +287,10 @@
       \Delta_{I\cup\{i\},J\cup\{k\}}\Delta_{I\cup\{j\},J\cup\{\ell\}}=\Delta_{I,J}\Delta_{I\cup\{i,j\},J\cup\{k,\ell\}}+\Delta_{I\cup\{i\},J\cup\{\ell\}}\Delta_{I\cup\{j\},J\cup\{k\}}.
     \end{equation}
     Moreover, observe that any two collections of chamber minors for double reduced words of $(u,v)$ can be obtained from each other by a sequence of these exchanges.
-    \begin{subexercise}
+    \begin{exercise}
       Prove equation \eqref{eq:short Plucker}.
-    \end{subexercise}
-  \end{example}
+    \end{exercise}
+  %\end{example}
 
   %\begin{example}
   %  <Include some example where $y$-variable mutations are natural.>
