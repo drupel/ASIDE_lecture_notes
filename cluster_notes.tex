@@ -37,6 +37,7 @@
 \newcommand{\y}{{\bf y}}
 \newcommand{\by}{{\bf y}}
 \newcommand{\CC}{{\mathbb{C}}}
+\newcommand{\PP}{{\mathbb{P}}}
 \newcommand{\ZZ}{{\mathbb{Z}}}
 
 \newcommand{\meet}[2]{#1 \cap #2}
@@ -64,19 +65,18 @@
   In these notes we will give an introduction to cluster algebras and a couple of the applications mentioned above.  These notes are far from exhaustive and the references above only touch on the vast literature.  Other overviews of cluster algebras can be found in the works \cite{K10,W13,GLS} which will also provide additional references.
 
   These lecture notes are organized as follows.  Section~\ref{sec:motivation} gives several motivating examples from which we will abstract the definition of a cluster algebra.  %The reader will be guided towards providing ad-hoc proofs of some of the important theorems of cluster algebra theory in the exercises of that section.  
-	Section~\ref{sec:cluster_algebras} contains several variations on the definition of cluster algebras with increasing generality and also the definition of $Y$-patterns.  In Section~\ref{sec:basic_theorems} we describe the foundational results in the theory of cluster algebras and sketch or otherwise indicate the ideas behind the proofs of these results. Section~\ref{sec:poisson_and_quantum} recalls the theory of Poisson structures compatible with a cluster algebra and describes how this naturally leads to a quantization of cluster algebras.  Finally we conclude with applications of the cluster algebra machinery to problems involving integrable systems in Section~\ref{sec:integrable_systems}.
+	Section~\ref{sec:cluster_algebras} contains several variations on the definition of cluster algebras with increasing generality and also the definition of $Y$-patterns.  In Section~\ref{sec:basic_theorems}, we describe the foundational results in the theory of cluster algebras and sketch, or otherwise indicate the ideas behind, the proofs of these results. Section~\ref{sec:poisson_and_quantum} recalls the theory of Poisson structures compatible with a cluster algebra and describes how this naturally leads to a quantization of cluster algebras.  Finally, we conclude with applications of the cluster algebra machinery to problems involving integrable systems in Section~\ref{sec:integrable_systems}.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Motivating Examples}\label{sec:motivation}
-	Cluster algebras are certain commutative rings possessing additional structure, including
+	Cluster algebras are certain commutative rings possessing additional structure, including:
 	\begin{itemize}
-		\item a distinguished collection of generators called \emph{cluster variables},
-		\item a collection of finite subsets of the set of all cluster variables called \emph{clusters},
-		\item a \emph{mutation} rule which, given a cluster and one of its variables $x$, produces another cluster by replacing $x$ with a different cluster variable $x'$, and
-		\item for each mutation as in the previous, an \emph{exchange relation}
+		\item a distinguished collection of generators called \emph{cluster variables};
+		\item a collection of finite subsets of the set of all cluster variables called \emph{clusters};
+		\item a \emph{mutation} rule which, given a cluster and one of its variables $x$, produces another cluster by replacing $x$ with a different cluster variable $x'$ related to $x$ by an \emph{exchange relation}
 		\begin{displaymath}
-			xx' = F
+			xx' = F,
 		\end{displaymath}
 		where $F$ is a binomial in the variables common to the initial and mutated clusters.
 	\end{itemize}
@@ -113,17 +113,16 @@
 			a_{21} & a_{22} & \ldots & a_{2n} \\
 			\end{array} \right].
 		\end{displaymath}
-		The Pl\"ucker coordinates are given by $\Delta_{ij} = a_{1i}a_{2j} - a_{1j}a_{2i}$ for $1 \leq i < j \leq n$.  
-		
+		The Pl\"ucker coordinates are given by $\Delta_{ij} = a_{1i}a_{2j} - a_{1j}a_{2i}$ for $1 \leq i < j \leq n$.  As the matrix $A$ is not uniquely determined by a point in $Gr_2(\CC^n)$, the Pl\"ucker coordinates are not truly functions on $Gr_2(\CC^n)$, but rather they are only well-defined functions up to simultaneous rescaling.  That is, the Pl\"ucker coordinates determine a closed embedding into the projective space $\PP^{{n\choose 2}-1}$.  A first step in establishing this claim is given by the following exercise.
 		\begin{exercise}
-			The $\Delta_{ij}$ satisfy the so-called \emph{Pl\"ucker relations}
-			\begin{displaymath}
+			Verify that the $\Delta_{ij}$ satisfy the so-called \emph{Pl\"ucker relations}
+			\begin{equation}\label{eq:short plucker special}
 				\Delta_{ik}\Delta_{jl} = \Delta_{ij}\Delta_{kl} + \Delta_{il}\Delta_{jk}
-			\end{displaymath}
+			\end{equation}
 			for $1 \leq i < j < k < l \leq n$.
 		\end{exercise}
 		
-		Consider a regular $n$-gon with vertices labeled $1,2,\ldots, n$.  Let $T$ be a triangulation, i.e. a maximal collection of chords $\overline{ij}$ with $1 \leq i < j \leq n$ no two of which intersect in their interiors.  Note that $T$ always consists of $n-3$ diagonals together with the $n$ sides $\overline{12}, \overline{23}, \overline{34}, \ldots, \overline{1n}$.  Associate to $T$ the corresponding collection of Pl\"ucker coordinates
+		Consider a regular $n$-gon with vertices labelled $1,2,\ldots, n$.  Let $T$ be a triangulation, i.e. a maximal collection of chords $\overline{ij}$ with $1 \leq i < j \leq n$, no two of which intersect in their interiors.  Note that $T$ always consists of $n-3$ diagonals together with the $n$ sides $\overline{12}, \overline{23}, \overline{34}, \ldots, \overline{1n}$.  Associate to $T$ the corresponding collection of Pl\"ucker coordinates
 		\begin{displaymath}
 			\Delta_T := \{\Delta_{ij} : \overline{ij} \in T\}.
 		\end{displaymath}
@@ -146,17 +145,17 @@
 		which follows from a Pl\"ucker relation.	This formula can be thought of as a change of coordinates from $\Delta_T$ to $\Delta_{T'}$ where $T' = (T \setminus \{\overline{13}\}) \cup \{\overline{24}\}$.  
     \setcounter{subexercise}{2}
     \begin{exercise}
-      The change of coordinate systems observed above can be understood more classically in terms of the Ptolemy relations for cyclic quadrilaterals.  Indeed, consider four distinct points labeled $1,2,3,4$ on a circle in cyclic order and let $x_{ij}$ denote the distance between vertices $i$ and $j$.  Prove that $x_{13}x_{24}=x_{12}x_{34}+x_{14}x_{23}$.
+      The change of coordinate systems observed above can be understood more classically in terms of the Ptolemy relations for cyclic quadrilaterals.  Indeed, consider four distinct points labelled $1,2,3,4$ on a circle in cyclic order and let $x_{ij}$ denote the distance between vertices $i$ and $j$.  Prove that $x_{13}x_{24}=x_{12}x_{34}+x_{14}x_{23}$.
     \end{exercise}
 		
-		More generally, if $T$ is a triangulation of an $n$-gon and $\overline{ik} \in T$ is a diagonal (as opposed to a side), then $\overline{ik}$ is part of two triangles of $T$.  Call the third vertices of these two triangles $j$ and $l$.  It follows that $T' = (T \setminus \{\overline{ik}\}) \cup \{\overline{jl}\}$ is a triangulation.  Performing a sequence of such quadrilateral flips and using a Pl\"ucker relation at each step makes it possible to compute the rational expressions promised in Proposition \ref{prop:Gr2n}.
+		More generally, if $T$ is a triangulation of an $n$-gon and $\overline{ik} \in T$ is a diagonal (as opposed to a side), then $\overline{ik}$ is part of two triangles of $T$.  Call the third vertices of these two triangles $j$ and $l$.  It follows that $T' = (T \setminus \{\overline{ik}\}) \cup \{\overline{jl}\}$ is a triangulation.  Performing a sequence of such quadrilateral flips and using a Pl\"ucker relation at each step makes it possible to iteratively compute all the rational expressions promised in Proposition \ref{prop:Gr2n}.
 %  \end{example}
  
 	\subsection{Double Bruhat cells} \label{sub:total positivity}
 %  \begin{example}\label{example:total positivity}
-    An $n\times n$ matrix $M$ is called \emph{totally positive} if the determinant of every square submatrix is a positive real number.  In particular, every entry of $M$ is positive and $M$ must be invertible.  Write $GL_n^{>0}\subset GL_n$ for the subset of totally positive matrices.  To check that a given matrix $M\in GL_n$ is totally positive one must, a priori, check that all ${2n\choose n}-1$ minors of $M$ are positive.  A natural question is whether this verification process can be made more efficient, i.e. is there a smaller collection of minors one may compute and from the positivity of this subset conclude that every minor is positive, i.e. conclude that $M\in GL_n^{>0}$?
+    An $n\times n$ matrix $M$ is called \emph{totally positive} if the determinant of every square submatrix is a positive real number.  In particular, every entry of $M$ is positive and $M$ must be invertible.  Write $GL_n^{>0}\subset GL_n$ for the subset of totally positive matrices.  To check that a given matrix $M\in GL_n$ is totally positive one must, a priori, check that all ${2n\choose n}-1$ minors of $M$ are positive.  A natural question is whether this verification process can be made more efficient.  More precisely, is there a smaller collection of minors one may compute and from the positivity of this subset conclude that every minor is positive, i.e. conclude that $M\in GL_n^{>0}$?  We will call such a collection a \emph{total positivity criterion} if it exists.  
 
-    We will call such a collection a \emph{total positivity criterion}.  For small $n$, such criteria can be easily found and easily verified.  For example, a matrix $M=\left[\begin{array}{cc} a & b\\ c & d\end{array}\right]\in GL_2$ is totally positive if and only if $a,b,c,ad-bc>0$ if and only if $b,c,d,ad-bc>0$.
+    For small $n$, such criteria can be easily found and easily verified.  For example, a matrix $M=\left[\begin{array}{cc} a & b\\ c & d\end{array}\right]\in GL_2$ is totally positive if and only if $a,b,c,ad-bc>0$ if and only if $b,c,d,ad-bc>0$.
     \begin{exercise}
       Find a minimal collection of minors whose positivity guarantees a matrix in $GL_3$ is totally positive (hint: any such total positivity criterion consists of 9 minors).
     \end{exercise}
@@ -167,9 +166,9 @@
 
     It is well known that $GL_n$ decomposes in two ways (actually many ways) as a union of \emph{Bruhat cells}:
     \[GL_n=\bigsqcup_{w\in\Sigma_n}B_+w B_+=\bigsqcup_{w\in\Sigma_n}B_-w B_-.\]
-    To understand total nonnegativity criteria for $GL_n$, we will consider the \emph{double Bruhat cells} $GL_n^{u,v}=B_+uB_+\cap B_-vB_-$ for $u,v\in\Sigma_n$.  It turns out that each double Bruhat cell admits its own total positivity criteria, i.e. for each $u,v\in\Sigma_n$ there exists a minimal collection of minors whose positivity identifies the subset $GL_n^{u,v}\cap GL_n^{\ge0}$ inside the double Bruhat cell $GL_n^{u,v}$.
+    To understand total nonnegativity criteria for $GL_n$, we will consider the \emph{double Bruhat cells} $GL_n^{u,v}=B_+uB_+\cap B_-vB_-$ for $u,v\in\Sigma_n$.  It turns out that each double Bruhat cell admits its own collection of total positivity criteria, i.e. for each $u,v\in\Sigma_n$ there exists a minimal collection of minors whose positivity identifies the subset $GL_n^{u,v}\cap GL_n^{\ge0}$ inside the double Bruhat cell $GL_n^{u,v}$.
 
-    For $I,J\subset[1,n]$ with $|I|=|J|$, denote by $\Delta_{I,J}$ the function on $GL_n$ which returns the minor of a matrix on row set $I$ and column set $J$.
+    For $I,J\subset[1,n]$ with $|I|=|J|$, denote by $\Delta_{I,J}$ the function on $GL_n$ which returns the determinant of the submatrix on row set $I$ and column set $J$.
     \setcounter{subexample}{1}
     \begin{example}\label{example:big cell}
       Let $w_0=(1,n)(2,n-1)\cdots(\lfloor n/2\rfloor,\lceil n/2\rceil)$ denote the longest permutation in $\Sigma_n$.  The double Bruhat cell $GL_n^{w_0,w_0}$ is given as follows:
@@ -177,11 +176,11 @@
     \end{example}
     \setcounter{subexercise}{2}
     \begin{exercise}
-      Find all double Bruhat cells in $GL_2$ and verify that they partition the space.
+      Find all 4 double Bruhat cells in $GL_2$ and verify that they partition the space.
     \end{exercise}
 
-    Some of these total nonnegativity criteria in $GL_n^{u,v}$ can be conveniently described using double wiring diagrams.  Write $s_i=(i,i+1)\in\Sigma_n$ for the simple transposition interchanging $i$ and $i+1$.  A \emph{reduced word} for $w\in\Sigma_n$ is a minimal sequence $(i_1,\ldots,i_r)$ so that $w=s_{i_1}\cdots s_{i_r}$, where $\ell(w):=r$ is called the \emph{length} of $w$.  A reduced word $(i_1,\ldots,i_r)$ is naturally encoded in a \emph{wiring diagram}, i.e. a collection of $n$ strands with a crossing between the $i$-th and $i+1$-st strands each time $i$ appears in the reduced word, see Figure~\ref{fig:wiring diagram}.
-    \begin{figure}[h]
+    Some of these total nonnegativity criteria in $GL_n^{u,v}$ can be conveniently described using double wiring diagrams.  Write $s_i=(i,i+1)\in\Sigma_n$ for the simple transposition interchanging $i$ and $i+1$.  A \emph{reduced word} for $w\in\Sigma_n$ is a minimal sequence $(i_1,\ldots,i_r)$ so that $w=s_{i_1}\cdots s_{i_r}$, where $\ell(w):=r$ is called the \emph{length} of $w$.  A reduced word $(i_1,\ldots,i_r)$ is naturally encoded in a \emph{wiring diagram}, i.e. a collection of $n$ strands with a crossing between the $i$-th and $(i+1)$-st strands each time $i$ appears in the reduced word, see Figure~\ref{fig:wiring diagram}.
+    \begin{figure}[ht]
     \begin{tikzpicture}
       \draw (0,0) -- (0.5,0) -- (1.5,1) -- (2,1) -- (3,2) -- (3.5,2) -- (4.5,3) -- (5,3) -- (6,3) -- (6.5,3) -- (7.5,3) -- (8,3) -- (9,3) -- (9.5,3);
       \draw (0,1) -- (0.5,1) -- (1.5,0) -- (2,0) -- (3,0) -- (3.5,0) -- (4.5,0) -- (5,0) -- (6,1) -- (6.5,1) -- (7.5,2) -- (8,2) -- (9,2) -- (9.5,2);
@@ -193,7 +192,7 @@
     \end{figure}
 
     Given $(u,v)\in\Sigma_n^2$, a double reduced for $(u,v)$ is an arbitrary shuffle of a reduced word for $u$ and a reduced word for $v$, where terms in the reduced word for $v$ are taken from the set $\{-1,\ldots,-(n-1)\}$ for clarity.  For example, taking $u=(132),v=(13)\in\Sigma_3$, one double reduced word for $(u,v)$ is $(-1,2,-2,1,-1)$.  Given a double reduced word $(i_1,\ldots,i_r)$, build a double wiring diagram by superposing wiring diagrams associated to the reduced word for $u$ and the reduced word for $v$ with crossings ordered according to the double reduced word, see Figure~\ref{fig:double wiring diagram}.  
-    \begin{figure}[h]
+    \begin{figure}[ht]
     \begin{tikzpicture}
       %u
       \draw (0,0) -- (2,0) -- (3,0) -- (5,0) -- (6,1) -- (8,1) -- (9,2) -- (11,2);
@@ -205,29 +204,29 @@
       \draw[color=red] (0,1.1) -- (0.5,1.1) -- (1.5,0.1) -- (3.5,0.1) -- (4.5,0.1) -- (6.5,0.1) -- (7.5,0.1) -- (9.5,0.1) -- (10.5,1.1) -- (11,1.1);
       \draw[color=red] (0,2.1) -- (0.5,2.1) -- (1.5,2.1) -- (3.5,2.1) -- (4.5,1.1) -- (6.5,1.1) -- (7.5,1.1) -- (9.5,1.1) -- (10.5,0.1) -- (11,0.1);
       \draw[color=red] (0,3.1) -- (0.5,3.1) -- (1.5,3.1) -- (3.5,3.1) -- (4.5,3.1) -- (6.5,3.1) -- (7.5,2.1) -- (9.5,2.1) -- (10.5,2.1) -- (11,2.1);
-      \node[left] at (0,-0.1) {$\scriptsize 3$};
-      \node[left] at (0,0.9) {$\scriptsize 2$};
-      \node[left] at (0,1.9) {$\scriptsize 1$};
-      \node[left] at (0,2.9) {$\scriptsize 4$};
-      \node[left, color=red] at (0,0.2) {$\scriptsize 1$};
-      \node[left, color=red] at (0,1.2) {$\scriptsize 2$};
-      \node[left, color=red] at (0,2.2) {$\scriptsize 3$};
-      \node[left, color=red] at (0,3.2) {$\scriptsize 4$};
-      \node[right] at (11,-0.1) {$\scriptsize 1$};
-      \node[right] at (11,0.9) {$\scriptsize 2$};
-      \node[right] at (11,1.9) {$\scriptsize 3$};
-      \node[right] at (11,2.9) {$\scriptsize 4$};
-      \node[right, color=red] at (11,0.2) {$\scriptsize 3$};
-      \node[right, color=red] at (11,1.2) {$\scriptsize 2$};
-      \node[right, color=red] at (11,2.2) {$\scriptsize 4$};
-      \node[right, color=red] at (11,3.2) {$\scriptsize 1$};
+      \node[left] at (0,-0.1) {$\scriptstyle 3$};
+      \node[left] at (0,0.9) {$\scriptstyle 2$};
+      \node[left] at (0,1.9) {$\scriptstyle 1$};
+      \node[left] at (0,2.9) {$\scriptstyle 4$};
+      \node[left, color=red] at (0,0.2) {$\scriptstyle 1$};
+      \node[left, color=red] at (0,1.2) {$\scriptstyle 2$};
+      \node[left, color=red] at (0,2.2) {$\scriptstyle 3$};
+      \node[left, color=red] at (0,3.2) {$\scriptstyle 4$};
+      \node[right] at (11,-0.1) {$\scriptstyle 1$};
+      \node[right] at (11,0.9) {$\scriptstyle 2$};
+      \node[right] at (11,1.9) {$\scriptstyle 3$};
+      \node[right] at (11,2.9) {$\scriptstyle 4$};
+      \node[right, color=red] at (11,0.2) {$\scriptstyle 3$};
+      \node[right, color=red] at (11,1.2) {$\scriptstyle 2$};
+      \node[right, color=red] at (11,2.2) {$\scriptstyle 4$};
+      \node[right, color=red] at (11,3.2) {$\scriptstyle 1$};
     \end{tikzpicture}\\
     \[\Delta_{1,3},\Delta_{2,3},\Delta_{2,1},\Delta_{3,1},\Delta_{12,23},\Delta_{12,13},\Delta_{23,13},\Delta_{23,12},\Delta_{123,123},\Delta_{234,123},\Delta_{1234,1234}\]
     \caption{A double wiring diagram for the double reduced word $(-1,2,-2,1,-3,2,-1)\in\Sigma_4$ and the collection of chamber minors determined by this double wiring diagram.}
     \label{fig:double wiring diagram}
     \end{figure}
 
-    In a double wiring diagram, we label the strands in $u$'s wiring diagram on the right by $1$ through $n$ starting from the bottom and label the strands in $v$'s wiring diagram similarly on the left.  In this way, each chamber of the double wiring diagram determines a minor with row set the labels of strands in $v$'s wiring diagram lying below the chamber and column set the labels of strands in $u$'s wiring diagram lying below the chamber.  Now we may describe a collection of total positivity criteria for $GL_n^{u,v}$.
+    In a double wiring diagram, we label the strands in $u$'s wiring diagram on the right by $1$ through $n$ starting from the bottom and label the strands in $v$'s wiring diagram similarly on the left.  In this way, each chamber of the double wiring diagram determines a minor with row set the labels of strands in $v$'s wiring diagram lying below the chamber and column set the labels of strands in $u$'s wiring diagram lying below the chamber, see Figure~\ref{fig:double wiring diagram}.  Now we may describe a collection of total positivity criteria for $GL_n^{u,v}$.
     \setcounter{subtheorem}{3}
     \begin{theorem}\label{th:total positivity criteria}\cite{FZ99}
       Each double wiring diagram for $(u,v)$ determines a total positivity criterion for $GL_n^{u,v}$, i.e. an element of $GL_n^{u,v}$ lies in $GL_n^{\ge0}$ if and only if all $n+\ell(u)+\ell(v)$ chamber minors determined by the double wiring diagram are positive.
@@ -237,52 +236,52 @@
     \begin{exercise}
       Use double wiring diagrams to find a total positivity criteria for $GL_3$.
     \end{exercise}
-    To finish the section and connect to the theory of cluster algebras to be presented in the next section we make the following observation.  Suppose a double reduced word for $(u,v)$ contains neighboring letters, one belonging to a reduced word for $u$ and one belonging to a reduced word for $v$.  In Figure~\ref{fig:wiring exchange relation} we show the local effect of interchanging these letters on a double wiring diagram. 
-    \begin{figure}[h]
-      \begin{tikzpicture}
-        \draw (0,0) -- (4,0) -- (6,2) -- (7,2);
-        \draw (0,2) -- (4,2) -- (6,0) -- (7,0);
-        \draw[color=red] (0,0.1) -- (1,0.1) -- (3,2.1) -- (7,2.1);
-        \draw[color=red] (0,2.1) -- (1,2.1) -- (3,0.1) -- (7,0.1);
-        \node[left] at (0,-0.1) {$\scriptsize k$};
-        \node[left] at (0,1.9) {$\scriptsize \ell$};
-        \node[left, color=red] at (0,0.2) {$\scriptsize j$};
-        \node[left, color=red] at (0,2.2) {$\scriptsize i$};
-        \node[right] at (7,-0.1) {$\scriptsize \ell$};
-        \node[right] at (7,1.9) {$\scriptsize k$};
-        \node[right, color=red] at (7,0.2) {$\scriptsize i$};
-        \node[right, color=red] at (7,2.2) {$\scriptsize j$};
-        \node at (3.5,2.5) {$\scriptsize\Delta_{I\cup\{i,j\},J\cup\{k,\ell\}}$};
-        \node at (6.5,1.1) {$\scriptsize\Delta_{I\cup\{i\},J\cup\{\ell\}}$};
-        \node at (3.5,1.05) {$\scriptsize\Delta_{I\cup\{i\},J\cup\{k\}}$};
-        \node at (0.5,1) {$\scriptsize\Delta_{I\cup\{j\},J\cup\{k\}}$};
-        \node at (3.5,-0.5) {$\scriptsize\Delta_{I,J}$};
-        \node at (3.5,-1) {};
-      \end{tikzpicture}\\
+    To finish the section and connect to the theory of cluster algebras to be presented in the next section we make the following observation.  Suppose a double reduced word for $(u,v)$ contains neighboring letters, one belonging to a reduced word for $u$ and one belonging to a reduced word for $v$.  In Figure~\ref{fig:wiring exchange relation}, we show the local effect on a double wiring diagram when these letters are interchanged. 
+    \begin{figure}[ht]
       \begin{tikzpicture}
         \draw (0,0) -- (1,0) -- (3,2) -- (7,2);
         \draw (0,2) -- (1,2) -- (3,0) -- (7,0);
         \draw[color=red] (0,0.1) -- (4,0.1) -- (6,2.1) -- (7,2.1);
         \draw[color=red] (0,2.1) -- (4,2.1) -- (6,0.1) -- (7,0.1);
-        \node[left] at (0,-0.1) {$\scriptsize k$};
-        \node[left] at (0,1.9) {$\scriptsize \ell$};
-        \node[left, color=red] at (0,0.2) {$\scriptsize j$};
-        \node[left, color=red] at (0,2.2) {$\scriptsize i$};
-        \node[right] at (7,-0.1) {$\scriptsize \ell$};
-        \node[right] at (7,1.9) {$\scriptsize k$};
-        \node[right, color=red] at (7,0.2) {$\scriptsize i$};
-        \node[right, color=red] at (7,2.2) {$\scriptsize j$};
-        \node at (3.5,2.5) {$\scriptsize\Delta_{I\cup\{i,j\},J\cup\{k,\ell\}}$};
-        \node at (6.5,1.1) {$\scriptsize\Delta_{I\cup\{i\},J\cup\{\ell\}}$};
-        \node at (3.5,1.05) {$\scriptsize\Delta_{I\cup\{j\},J\cup\{\ell\}}$};
-        \node at (0.5,1) {$\scriptsize\Delta_{I\cup\{j\},J\cup\{k\}}$};
-        \node at (3.5,-0.5) {$\scriptsize\Delta_{I,J}$};
+        \node[left] at (0,-0.1) {$\scriptstyle \ell$};
+        \node[left] at (0,1.9) {$\scriptstyle k$};
+        \node[left, color=red] at (0,0.2) {$\scriptstyle i$};
+        \node[left, color=red] at (0,2.2) {$\scriptstyle j$};
+        \node[right] at (7,-0.1) {$\scriptstyle k$};
+        \node[right] at (7,1.9) {$\scriptstyle \ell$};
+        \node[right, color=red] at (7,0.2) {$\scriptstyle j$};
+        \node[right, color=red] at (7,2.2) {$\scriptstyle i$};
+        \node at (3.5,2.5) {$\scriptstyle\Delta_{I\cup\{i,j\},J\cup\{k,\ell\}}$};
+        \node at (6.5,1.1) {$\scriptstyle\Delta_{I\cup\{j\},J\cup\{k\}}$};
+        \node at (3.5,1.05) {$\scriptstyle\Delta_{I\cup\{i\},J\cup\{k\}}$};
+        \node at (0.5,1) {$\scriptstyle\Delta_{I\cup\{i\},J\cup\{\ell\}}$};
+        \node at (3.5,-0.5) {$\scriptstyle\Delta_{I,J}$};
+      \end{tikzpicture}\\
+      \begin{tikzpicture}
+        \draw (0,0) -- (4,0) -- (6,2) -- (7,2);
+        \draw (0,2) -- (4,2) -- (6,0) -- (7,0);
+        \draw[color=red] (0,0.1) -- (1,0.1) -- (3,2.1) -- (7,2.1);
+        \draw[color=red] (0,2.1) -- (1,2.1) -- (3,0.1) -- (7,0.1);
+        \node[left] at (0,-0.1) {$\scriptstyle \ell$};
+        \node[left] at (0,1.9) {$\scriptstyle k$};
+        \node[left, color=red] at (0,0.2) {$\scriptstyle i$};
+        \node[left, color=red] at (0,2.2) {$\scriptstyle j$};
+        \node[right] at (7,-0.1) {$\scriptstyle k$};
+        \node[right] at (7,1.9) {$\scriptstyle \ell$};
+        \node[right, color=red] at (7,0.2) {$\scriptstyle j$};
+        \node[right, color=red] at (7,2.2) {$\scriptstyle i$};
+        \node at (3.5,2.5) {$\scriptstyle\Delta_{I\cup\{i,j\},J\cup\{k,\ell\}}$};
+        \node at (6.5,1.1) {$\scriptstyle\Delta_{I\cup\{j\},J\cup\{k\}}$};
+        \node at (3.5,1.05) {$\scriptstyle\Delta_{I\cup\{j\},J\cup\{\ell\}}$};
+        \node at (0.5,1) {$\scriptstyle\Delta_{I\cup\{i\},J\cup\{\ell\}}$};
+        \node at (3.5,-0.5) {$\scriptstyle\Delta_{I,J}$};
+        \node at (3.5,-1) {};
       \end{tikzpicture}
       \caption{Chamber minors associated to a simple transposition of opposite letters in a double reduced word.}
       \label{fig:wiring exchange relation}
     \end{figure}
 
-    Observe that under such an exchange we have the following relation:
+    Observe that under such an exchange we have the following exchange relation analgous to \eqref{eq:short plucker special}:
     \begin{equation}\label{eq:short Plucker}
       \Delta_{I\cup\{i\},J\cup\{k\}}\Delta_{I\cup\{j\},J\cup\{\ell\}}=\Delta_{I,J}\Delta_{I\cup\{i,j\},J\cup\{k,\ell\}}+\Delta_{I\cup\{i\},J\cup\{\ell\}}\Delta_{I\cup\{j\},J\cup\{k\}}.
     \end{equation}
@@ -534,7 +533,7 @@
 	\end{proposition}
 
 %%%%%%%%%%%%%%%%%%%%%%%
-\section{Basic Results}\label{sec:basic_theorems}
+\section{Foundational Results}\label{sec:basic_theorems}
   As mentioned in the introduction cluster algebras have found applications in a surprising array of mathematical disciplines.  Much of their ubiquity comes from a number of remarkable theorems which we now explain.
 
   Recall the Laurent phenomenon from Theorem~\ref{th:Laurent phenomenon}.  This remarkable theorem is the prime reason for the connection between cluster algebras and many well-known classical recursions which, a priori produce rational numbers, but turn out to give integer values given certain integer inputs \cite{FZ02b}.  We will begin by explaining the solution to Exercise~\ref{exercise:rank 2 Laurent phenomenon}.  Consider the rank 2 cluster algebra with initial exchange matrix $B=\left[\begin{array}{cc}0 & b\\ -c & 0\end{array}\right]$  and cluster variables $x_k$, $k\in\ZZ$ as in Example~\ref{example:rank2}.  The cluster variables may be defined by the simple recursion
@@ -684,7 +683,7 @@
     The idea of obtaining positivity for arbitrary cluster algebras goes as follows (see \cite{LS15}): any sequence of mutations can be viewed as a collection of rank 2 mutation sequences, so iteratively applying Theorem~\ref{th:rank 2 positivity} will (after a considerable amount of work) lead to a proof of positivity in general.
   \end{remark}
 
-  One motivation for the discovery of the cluster algebra formalism was the desire to find a combinatorial construction of dual canonical basis elements for (quantum) algebraic groups.  The dual canonical basis of a semisimple algebraic group induces bases on the coordinate rings of any of its subvarieties.  As we saw in Example~\ref{example:total positivity} there appears to be some kind of cluster algebra structure on the double Bruhat cells of a semisimple algebraic group, which one can hope will shed some light on the dual canonical basis.  In most cases the double Bruhat cell does not actually admit a cluster algebra structure but does admit a closely related structure.
+  One motivation for the discovery of the cluster algebra formalism was the desire to find a combinatorial construction of dual canonical basis elements for (quantum) algebraic groups.  The dual canonical basis of a semisimple algebraic group induces bases on the coordinate rings of any of its subvarieties.  As we saw in Example~\ref{sub:total positivity} there appears to be some kind of cluster algebra structure on the double Bruhat cells of a semisimple algebraic group, which one can hope will shed some light on the dual canonical basis.  In most cases the double Bruhat cell does not actually admit a cluster algebra structure but does admit a closely related structure.
 
   \begin{definition}
     Let $(\x,\tilde B)$ denote an extended seed.  Define the \emph{upper cluster algebra} $\overline{\cA}(\x,\tilde B)$ as the intersection of all Laurent rings associated to extended seeds mutation equivalent to $(\x,\tilde B)$.
@@ -728,7 +727,7 @@
     Acyclic cluster algebras are particularly nice but should not be taken as the general case, there exist cluster algebras where anything that can go wrong seems to go wrong.  The primary example of this is the \emph{Markov cluster algebra} with exchange matrix 
     \[B=\left[\begin{array}{ccc} 0 & 2 & -2\\ -2 & 0 & 2\\ 2 & -2 & 0\end{array}\right].\]
     
-    Comparing with Example~\ref{example:Markov triples} we see that the Markov cluster algebra has infinitely many cluster variables.  In this case, the following undesirable properties all hold:
+    Comparing with Example~\ref{sub:Markov triples} we see that the Markov cluster algebra has infinitely many cluster variables.  In this case, the following undesirable properties all hold:
     \begin{itemize}
       \item the standard monomials are linearly dependent;
       \item the Markov cluster algebra is not finitely generated and not Noetherian;
@@ -740,6 +739,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Compatible Poisson Structures and Quantization}\label{sec:poisson_and_quantum}
 
+  Many natural examples of cluster algebras carry the following additional structure. 
   \begin{definition}
     A \emph{Poisson algebra} $(A,\{\cdot,\cdot\})$ is an associative algebra $A$ equipped with an additional skew-symmetric bilinear operation, called the Poisson bracket (written as $\{x,y\}$ for $x,y\in A$), for which the following holds:
     \begin{itemize}
@@ -754,36 +754,7 @@
     for all $f,g\in B$.
   \end{definition}
 
-  \begin{example}
-    A symplectic manifold $(M,\omega)$ is a smooth even-dimensional manifold $M^{2n}$ together with a non-degenerate 2-form $\omega\in H^2(M)$, i.e. $\omega^n\ne0$ is a volume form.  The symplectic structure $\omega$ provides a natural association of a vector field $\xi_f$ to a function $f\in\cO(M)$ via the contraction formula $\iota_{\xi_f}\omega=-df$.  The algebra of smooth functions on $M$ is then naturally a Poisson algebra via $\{f,g\}=\omega(\xi_f,\xi_g)$ for $f,g\in\cO(M)$.
-  \end{example}
-  More generally, any smooth manifold together with a Poisson structure on its algebra of regular functions is called a \emph{Poisson manifold}.  A smooth map between Poisson manifolds is a \emph{Poisson morphism} if it induces a Poisson morphism on their algebras of smooth functions.  Given two Poisson manifolds $M$ and $N$, there is a natural Poisson structure on $M\times N$ given by
-  \[\{f,g\}(x,y)=\{f(\cdot,y),g(\cdot,y)\}_M(x)+\{f(x,\cdot),g(x,\cdot)\}_N(y)\]
-  for $f,g\in\cO(M\times N)$.
-  \begin{example}
-    The special linear group $SL_n$ is a Poisson manifold where the Poisson bracket on matrix entries is given by
-    \begin{equation}
-      \{x_{ij},x_{k\ell}\}=\frac{1}{2}\big(\sgn(k-i)+\sgn(\ell-j)\big)x_{i\ell}x_{kj}.
-    \end{equation}
-    In fact, $SL_n$ has the structure of a Poisson-Lie group, i.e. the multiplication map $SL_n\times SL_n\to SL_n$ is a Poisson morphism.
-  \end{example}
-
-  The existence of a Poisson structure on a manifold allows one to construct vector fields associated to functions in a similar manner to the symplectic case.
-  \begin{lemma}\label{le:Hamiltonian vector fields}
-    Let $(M,\{\cdot,\cdot\})$ be a Poisson manifold.  For any $h\in\cO(M)$, there exists a vector field $\xi_h$ on $M$ such that for any $f\in\cO(M)$ we have
-    \[\xi_h(f)=\{f,h\}=\langle df,\xi_h\rangle,\]
-    where $\langle\cdot,\cdot\rangle$ denotes the standard pairing between cotangent and tangent vectors over a point of $M$.
-  \end{lemma}
-  The vector field $\xi_h$ from Lemma~\ref{le:Hamiltonian vector fields} is simply the vector field associated to the derivation $\{\cdot,h\}$ and is called a \emph{Hamiltonian vector field}.  Flowing along Hamiltonian vector fields defines an equivalence relation on a Poisson manifold as follows: $p\sim q$ if there exists a piecewise smooth curve connecting $p$ and $q$ where each smooth segment is the trajectory of a Hamiltonian vector field.  The equivalence class $M_p$ containing $p\in M$ is a connected submanifold of $M$ and by definition its tangent space $T_qM_p\subset T_qM$ is spanned by Hamiltonian tangent vectors.  Thus $M_p$ has a natural symplectic structure given by $\omega(\xi_f,\xi_g)=\{f,g\}$ and $M_p$ is called the \emph{symplectic leaf} of $M$ through $p$.
-  \begin{example}
-    The symplectic leaves of $GL_n$ have been explicitly computed (e.g. see \cite{KZ02} and references therein).  In particular, it is known that each double Bruhat cell in $GL_n$ is a (disjoint) union of symplectic leaves.  As an example (c.f. Example~\ref{example:big cell}) the following set is a symplectic leaf living in $GL_n^{w_0,w_0}$:
-    \[\{M\in GL_n:\Delta_{[1,i],[n+1-i]}(M)=\Delta_{[i+1,n],[1,n-i]}(M)\ne0\text{ for all $i$}\}.\]
-  \end{example}
-  \begin{exercise}
-    Find a matrix $M$ so that the symplectic leaf above is the symplectic leaf of $GL_2$ through $M$.  Do the same for $GL_3$.
-  \end{exercise}
-
-  Now we turn to connections with cluster algebras.
+  In each such example the Poisson brackets of cluster variables takes an especially simple form.
   \begin{definition}
     Let $A$ be a Poisson algebra.  A finite collection $\bff=\{f_i\}\subset A$ is called log-canonical if there exists a matrix $\Omega$ so that $\{f_i,f_j\}=\Omega_{ij}f_if_j$ for $f_i,f_j\in\bff$.
   \end{definition}
@@ -804,6 +775,40 @@
   \begin{theorem}\cite{GSV03}
     A compatible Poisson structure exists if and only if the extended exchange matrix $\tilde B$ has full rank.  Moreover, the collection of all such Poisson structures is parametrized by an affine space of dimension $\rho(B)+{m\choose 2}$, where $\rho(B)$ denotes the number of connected components of $B$.
   \end{theorem}
+
+  \begin{example}
+    A symplectic manifold $(M,\omega)$ is a smooth even-dimensional manifold $M^{2n}$ together with a non-degenerate 2-form $\omega\in H^2(M)$, i.e. $\omega^n\ne0$ is a volume form.  The symplectic structure $\omega$ provides a natural association of a vector field $\xi_f$ to a function $f\in\cO(M)$ via the contraction formula $\iota_{\xi_f}\omega=-df$.  The algebra of smooth functions on the symplectic manifold $M$ is then naturally a Poisson algebra via $\{f,g\}=\omega(\xi_f,\xi_g)$ for $f,g\in\cO(M)$.
+  \end{example}
+  More generally, any smooth manifold together with a Poisson structure on its algebra of regular functions is called a \emph{Poisson manifold}.  A smooth map between Poisson manifolds is a \emph{Poisson morphism} if it induces a Poisson morphism on their algebras of smooth functions.  Given two Poisson manifolds $M$ and $N$, there is a natural Poisson structure on $M\times N$ given by
+  \[\{f,g\}(x,y)=\{f(\cdot,y),g(\cdot,y)\}_M(x)+\{f(x,\cdot),g(x,\cdot)\}_N(y)\]
+  for $f,g\in\cO(M\times N)$.
+  \begin{example}
+    The special linear group $SL_n$ is a Poisson manifold where the Poisson bracket on matrix entries is given by
+    \begin{equation}
+      \{x_{ij},x_{k\ell}\}=\frac{1}{2}\big(\sgn(k-i)+\sgn(\ell-j)\big)x_{i\ell}x_{kj}.
+    \end{equation}
+    In fact, $SL_n$ has the structure of a Poisson-Lie group, i.e. the multiplication map $SL_n\times SL_n\to SL_n$ is a Poisson morphism when $SL_n\times SL_n$ is given the product Poisson structure.
+  \end{example}
+
+  The existence of a Poisson structure on a manifold allows one to construct vector fields associated to functions in a similar manner to the symplectic case.
+  \begin{lemma}\label{le:Hamiltonian vector fields}
+    Let $(M,\{\cdot,\cdot\})$ be a Poisson manifold.  For any $h\in\cO(M)$, there exists a vector field $\xi_h$ on $M$ such that for any $f\in\cO(M)$ we have
+    \[\xi_h(f)=\{f,h\}=\langle df,\xi_h\rangle,\]
+    where $\langle\cdot,\cdot\rangle$ denotes the standard pairing between cotangent and tangent vectors over a point of $M$.
+  \end{lemma}
+  The vector field $\xi_h$ from Lemma~\ref{le:Hamiltonian vector fields} is simply the vector field canonically associated to the derivation $\{\cdot,h\}$ and is called a \emph{Hamiltonian vector field}.  Flowing along Hamiltonian vector fields defines an equivalence relation on a Poisson manifold as follows: 
+  \begin{quotation}
+    $p\sim q$ if there exists a piecewise smooth curve connecting $p$ and $q$ where each smooth segment is the trajectory of a Hamiltonian vector field.
+  \end{quotation}
+  The equivalence class $M_p$ containing $p\in M$ is a connected submanifold of $M$ and by definition its tangent space $T_qM_p\subset T_qM$ is spanned by Hamiltonian tangent vectors.  We may view $M_p$ as a symplectic manifold whose 2-form is given by $\omega(\xi_f,\xi_g)=\{f,g\}$ and thus $M_p$ is called the \emph{symplectic leaf} of $M$ through $p$.
+  \begin{example}
+    The symplectic leaves of $GL_n$ have been explicitly computed (e.g. see \cite{KZ02} and references therein).  In particular, it is known that each double Bruhat cell in $GL_n$ is a (disjoint) union of symplectic leaves.  As an example (c.f. Example~\ref{example:big cell}) the following set is a symplectic leaf living in $GL_n^{w_0,w_0}$:
+    \[\{M\in GL_n:\Delta_{[1,i],[n+1-i,n]}(M)=\Delta_{[i+1,n],[1,n-i]}(M)\ne0\text{ for all $i$}\}.\]
+  \end{example}
+  \begin{exercise}
+    Find a matrix $M\in GL_2$ so that the symplectic leaf above is the symplectic leaf of $GL_2$ through $M$.  Do the same for $GL_3$.
+  \end{exercise}
+
 
   \begin{theorem}\cite{GSV10}
     The cluster algebra structure on $GL_n^{u,v}$ from Theorem~\ref{th:dbc is uca} is compatible with the restriction of the Poisson structure from $GL_n$.
@@ -1230,7 +1235,7 @@
 	
 	The decomposition mentioned above is based on a notion of homology for perfect matchings, which we do not describe here.  In the case of the graph $G_4$ pictured in Figure \ref{fig:torus}, there are $22$ perfect matchings which represent $8$ different homology classes.  Table \ref{table:integrals} gives the $8$ corresponding conserved quantities for the pentagram map.  The first $2$ are trivial but the remaining $6$ are (up to a sign) the original conserved quantities discovered by Schwartz \cite{S08} by different means.
 	
-	\begin{table}[h]
+	\begin{table}[ht]
 	\begin{tabular}{l|l|l}
 	Name & Representative matching & Formula \\
 	\hline
