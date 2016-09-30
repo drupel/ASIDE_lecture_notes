@@ -773,7 +773,7 @@
     Prove Lemma~\ref{le:compatibility}. 
   \end{subexercise}
 
-  \begin{theorem}\cite{GSV03}
+  \begin{theorem}\cite{GSV03} \label{thm:Poisson}
     A compatible Poisson structure exists if and only if the extended exchange matrix $\tilde B$ has full rank.  Moreover, the collection of all such Poisson structures is parametrized by an affine space of dimension $\rho(B)+{m\choose 2}$, where $\rho(B)$ denotes the number of connected components of $B$.
   \end{theorem}
 
@@ -843,7 +843,7 @@
 		Given some $k=1,2,\ldots, n$, the \emph{quiver mutation} $\mu_k$ gives rise to $Q' = \mu_k(Q)$ by applying the following steps to $Q$:
 		\begin{enumerate}
 		\item for each pair of vertices $i,j$ and arrows $i\to k$ and $k \to j$, add an arrow $i \to j$,
-		\item reverse all arrows $i \to k$ or $k \to i$,
+		\item reverse all arrows $i \to k$ and $k \to j$,
 		\item erase in turn pairs of arrows $i \to j$ and $j \to i$ to eliminate any $2$-cycles.
 		\end{enumerate}
 	\end{definition}
@@ -852,7 +852,9 @@
 	\begin{displaymath}
 		\mu_{k_l} \circ \cdots \circ \mu_{k_2} \circ \mu_{k_1}(Q) = Q,
 	\end{displaymath}
-	the system amounts to iterating a fixed birational transformation.  It is natural to investigate these mappings for properties such as periodicity and integrability.
+	the system amounts to iterating a fixed birational transformation.  It is natural to investigate these mappings for properties such as periodicity and integrability.  We focus on two (families of) quivers, one giving rise to the $Y$-system of type $A \times A$ and the other corresponding to the pentagram map. Some of the many other systems that have been investigated from this point of view are $Q$-systems and $T$-systems, Somos sequences, and mutations in box products of quivers. 
+
+For the remainder of this section, all mutations are understood to be of $Y$-pattern type.
 
 \subsection{Zamolodchikov periodicity}
 	Fix positive integers $r$ and $s$ and consider the quiver $Q$ on vertex set $\{1,\ldots, r \} \times \{1,\ldots, s\}$ as illustrated in the case $r=4$, $s=3$ by
@@ -916,11 +918,11 @@
 		Y_{i,j,t}\frac{\displaystyle\prod_{|i-i'|=1}(1+Y_{i',j,t})}{\displaystyle\prod_{|j-j'|=1}(1+Y_{i,j',t}^{-1})} & \textrm{if $i+j+t$ odd} \\
 		\end{cases}
 	\end{displaymath}
-	It is convenient to consider only the $Y_{i,j,t}$ with $i+j+t$ odd, which satisfy their own recurrence
+	It is convenient to consider only the $Y_{i,j,t}$ with $i+j+t$ even, which satisfy their own recurrence
 	\begin{equation} \label{eq:YSystem}
-		Y_{i,j,t-1}Y_{i,j,t+1} = \frac{\displaystyle\prod_{|j-j'|=1}(1+Y_{i,j',t}^{-1})}{\displaystyle\prod_{|i-i'|=1}(1+Y_{i',j,t})}
+		Y_{i,j,t-1}Y_{i,j,t+1} = \frac{\displaystyle\prod_{|i-i'|=1}(1+Y_{i',j,t})}{\displaystyle\prod_{|j-j'|=1}(1+Y_{i,j',t}^{-1})}
 	\end{equation}
-	for all $i+j+t$ even.  This recurrence is called the type $A_r \times A_s$ $Y$-system, a special case of a family of systems conjectured by Zamolodchikov to be periodic.  The proof, in this case, is due to A. Volkov \cite{V07}.
+	for all $i+j+t$ odd.  This recurrence is called the type $A_r \times A_s$ $Y$-system, a special case of a family of systems conjectured by Zamolodchikov to be periodic.  The proof, in this case, is due to A. Volkov \cite{V07}.
 	
 	\begin{theorem}
 		The $Y$-system \eqref{eq:YSystem} on variables $Y_{i,j,t}$ with $i+j+t$ odd, $i=1,\ldots, r$, and $j=1,\ldots, s$ has period $2(r+s+2)$ in the $t$-direction, that is
@@ -929,7 +931,7 @@
 		\end{displaymath}
 	\end{theorem}
 	
-	Returning to the $Y$-pattern point of view, the initial seed $(Y_0,Q)$ consists of the $Y_{i,j,0}$ for $i+j$ odd and the $Y_{i,j,1}^{-1}$ for $i+j$ even.  The seed $(Y_2,Q) = \mu_{\textrm{odd}}(\mu_{\textrm{even}}(Y_0,Q))$ consists of the $Y_{i,j,2}$ for $i+j$ odd and the $Y_{i,j,3}^{-1}$ for $i+j$ even.  The periodicity theorem, then, asserts that the rational map $\mu_{\textrm{odd}} \circ \mu_{\textrm{even}}$ has order $r+s+2$.
+	Returning to the $Y$-pattern point of view, the initial seed $(Y_0,Q)$ consists of the $Y_{i,j,0}$ for $i+j$ even and the $Y_{i,j,-1}^{-1}$ for $i+j$ odd.  The seed $(Y_2,Q) = \mu_{\textrm{odd}}(\mu_{\textrm{even}}(Y_0,Q))$ consists of the $Y_{i,j,2}$ for $i+j$ even and the $Y_{i,j,1}^{-1}$ for $i+j$ odd.  The periodicity theorem, then, asserts that the rational map $\mu_{\textrm{odd}} \circ \mu_{\textrm{even}}$ has order $r+s+2$.
 	
 	\subsection{The pentagram map} The pentagram map is a discrete dynamical system defined on the space of polygons in the projective plane.  Figure \ref{fig:pentagram} shows a polygon $A$ and the corresponding output $B=T(A)$, with $T$ being the notation for the pentagram map.  Each vertex of $B$ lies at the intersection of two consecutive ``shortest'' diagonals of $A$.
 	
@@ -956,7 +958,7 @@
 	\end{displaymath}
 	for any fractional linear map $f(x) = (ax+b)/(cx+d)$.  For this reason, there is a well-defined notion in the plane of the cross ratio of 4 collinear points or of 4 concurrent lines.
 	
-	Given an $n$-gon $A$, label its sides and vertices consecutively with the integers $\{1,2,\ldots, 2n\}$.  Such a labeling induces a canonical labeling on $T(A)$ as is illustrated in Figure \ref{fig:labeling}.  Note that the parities of the vertex labels and of the edge labels are interchanged by $T$.
+	Given an $n$-gon $A$, label its sides and vertices consecutively with the integers $\{1,2,\ldots, 2n\}$.  Such a labeling induces a canonical labeling on $T(A)$ as is illustrated in Figure \ref{fig:labeling}.  Note that the parities of the vertex labels and of the edge labels are interchanged by $T$.  In what follows, let $\join{i}{j}$ denote the line between two points labeled $i$ and $j$ and let $\meet{k}{l}$ denote the point of intersection of two lines labeled $k$ and $l$.
 	
 	\begin{figure} 
 %\psset{unit=1.5cm}
@@ -1027,17 +1029,17 @@
 }
 \rput(7,0){
 \psline(1,1)(3,1)(5,2)(5,3)(4,4)(2,5)
-\uput[ur](1,1){$1$}
-\uput[ur](2,1){$2$}
-\uput[u](3,1){$3$}
-\uput[ul](4,1.5){$4$}
+\uput[d](1,1){$1$}
+\uput[d](2,1){$2$}
+\uput[d](3,1){$3$}
+\uput[345](4,1.5){$4$}
 \uput[r](5,2){$5$}
 \uput[r](5,2.5){$6$}
 \uput[r](5,3){$7$}
 \uput[dl](4.5,3.5){$8$}
-\uput[dl](4,4){$9$}
-\uput[d](3,4.5){$10$}
-\uput[d](2,5){$11$}
+\uput[u](4,4){$9$}
+\uput[u](3,4.5){$10$}
+\uput[u](2,5){$11$}
 \psline(3,1)(5,1)(5,3.5)(4,4)
 \psdots[dotsize=2pt 3](5,1)(5,2)(5,3)(5,3.5)
 }
@@ -1058,7 +1060,7 @@
 		In this equation, all indices are considered modulo $2n$.
 	\end{proposition}
 	
-	The formula \eqref{eq:T} bares a distinct resemblance to \eqref{eq:YSystemCases}, so it is plausible that the former can also be described by $Y$-pattern mutations for an appropriate quiver.  The desired quiver $Q_n$ has vertex set $\{1,2,\ldots,2n\}$ and arrows $j \to (j\pm1)$ and $j \leftarrow (j \pm 3)$ for each odd $j$, with vertices considered modulo $2n$.  The quiver $Q_8$ is in Figure \ref{fig:GlickQuiver}.  Similar to before, define compound mutations
+	The formula \eqref{eq:T} bares a distinct resemblance to \eqref{eq:YSystemCases}, so it is plausible that it can also be described by $Y$-pattern mutations for an appropriate quiver.  The desired quiver $Q_n$ has vertex set $\{1,2,\ldots,2n\}$ and arrows $j \to (j\pm1)$ and $j \leftarrow (j \pm 3)$ for each odd $j$, with vertices considered modulo $2n$.  The quiver $Q_8$ is in Figure \ref{fig:GlickQuiver}.  Similar to before, define compound mutations
 	\begin{align*}
 		\mu_{\textrm{odd}} &= \mu_{2n-1} \circ \cdots \circ \mu_3 \circ \mu_1 \\
 		\mu_{\textrm{even}} &= \mu_{2n} \circ \cdots \circ \mu_4 \circ \mu_2 
@@ -1131,20 +1133,99 @@
 \end{theorem}
 
 \begin{remark}
-	It is natural to ask what values the $n$-tuple $(y_1(A),\ldots, y_{2n}(A))$ can take, and also, to what extend this data suffices to reconstruct $A$.  These questions are easier to answer once extending to a larger family of objects called twisted polygons.  In this setting, the $y_i$ satisfy a single relation $y_1\cdots y_{2n}=1$.  Moreover, the $y_i$ determine a twisted polygon uniquely up to projective equivalence and a one-parameter rescaling operation due to Schwartz \cite{S08}.  The $Y$-pattern dynamics described in Theorem \ref{thm:pentagram}, then, characterize the dynamics of the pentagram map on the space of twisted polygons modulo these equivalences.
+	It is natural to ask what values the $n$-tuple $(y_1(A),\ldots, y_{2n}(A))$ can take, and also, to what extent this data suffices to reconstruct $A$.  These questions are easier to answer once extending to a larger family of objects called twisted polygons.  In this setting, the $y_i$ satisfy a single relation $y_1\cdots y_{2n}=1$.  Moreover, the $y_i$ determine a twisted polygon uniquely up to projective equivalence and a one-parameter rescaling operation due to Schwartz \cite{S08}.  The $Y$-pattern dynamics described in Theorem \ref{thm:pentagram}, then, characterize the dynamics of the pentagram map on the space of twisted polygons modulo these equivalences.
 \end{remark}
 	
-	We now give a somewhat informal presentation of integrability of the pentagram map from the cluster algebra perspective.  The first ingredient is a compatible Poisson structure.
+	We now give a somewhat informal presentation of integrability of the pentagram map from the cluster algebra perspective.  The first ingredient is a compatible Poisson structure, which can be obtained directly from the $Y$-pattern analogue of Theorem \ref{thm:Poisson}.
 	
-	\begin{proposition}
+	\begin{proposition}[\cite{OST10, GSTV12}]
 		Define a Poisson bracket by $\{y_i,y_j\} = b_{ij}y_iy_j$ where $B$ is the exchange matrix associated to the pentagram quiver $Q_n$.  Then this bracket is preserved by the pentagram map, i.e.
 		\begin{displaymath}
 			\{f,g\} = \{f\circ T, g \circ T\}
 		\end{displaymath}
-		for all functions $f$ and $g$.
+		for all functions $f$ and $g$ of the $y$-parameters.
 	\end{proposition}
 	
-	Some more work is needed to get at the conserved quantities.  The quiver $Q_n$ can be embedded on a torus in such a way that, when circling any vertex, the arrows alternate between incoming and outgoing.  The faces are all quadrilaterals and come in two types, $(i-2)\to (i-1) \to (i+2) \to (i+1) \to (i-2)$ for $i$ odd and $(i-2) \to (i+1) \to (i+2) \to (i-1) \to (i-2)$ for $i$ even.  Let $G = (V,E)$ be the dual graph with $V = \{1,2,\ldots, 2n\}$ where vertex $i$ corresponds to the face described in the previous sentence.  Coincidentally, $G$ is identical to $Q_n$ except without orientations, so $\overline{ij} \in E$ if and only if $i-j \equiv \pm 1, \pm 3 \pmod{2n}$.  Figure \ref{fig:torus} shows the graph $G$ on the torus in the case $n=4$, with the vertices $1,2,\ldots, 8$ appearing in order from left to right.
+	Some more work is needed to get at the conserved quantities.  We follow the approach of \cite{GK13}.  The quiver $Q_n$ can be lifted to an infinite doubly periodic quiver in the plane as in Figure \ref{fig:quiverLift}.  This lift represents an embedding of $Q_n$ on a torus.  Let $G = (V,E)$ be the dual graph on the torus with $V = \{1,2,\ldots, 2n\}$ where $i \in V$ corresponds to the face of the quiver with vertices $i \pm 2, i \pm 1$.  Coincidentally, $G$ is identical to $Q_n$ except without orientations, so $\overline{ij} \in E$ if and only if $i-j \equiv \pm 1, \pm 3 \pmod{2n}$.  Figure \ref{fig:torus} shows the graph $G$ on the torus in the case $n=4$, with the vertices $1,2,\ldots, 8$ appearing in order from left to right.
+	
+	\begin{figure}
+	\begin{pspicture}(0,.5)(10,3)
+	\rput(1,1){\rnode{v1}{$1$}}
+	\rput(2,1){\rnode{v2}{$2$}}
+	\rput(3,1){\rnode{v3}{$3$}}
+	\rput(4,1){\rnode{v4}{$4$}}
+	\rput(5,1){\rnode{v5}{$5$}}
+	\rput(6,1){\rnode{v6}{$6$}}
+	\rput(7,1){\rnode{v7}{$7$}}
+	\rput(8,1){\rnode{v8}{$8$}}
+	\rput(9,1){\rnode{v9}{$1$}}
+	\rput(1,2){\rnode{w1}{$4$}}
+	\rput(2,2){\rnode{w2}{$5$}}
+	\rput(3,2){\rnode{w3}{$6$}}
+	\rput(4,2){\rnode{w4}{$7$}}
+	\rput(5,2){\rnode{w5}{$8$}}
+	\rput(6,2){\rnode{w6}{$1$}}
+	\rput(7,2){\rnode{w7}{$2$}}
+	\rput(8,2){\rnode{w8}{$3$}}
+	\rput(9,2){\rnode{w9}{$4$}}
+	\rput(1,3){\rnode{x1}{$7$}}
+	\rput(2,3){\rnode{x2}{$8$}}
+	\rput(3,3){\rnode{x3}{$1$}}
+	\rput(4,3){\rnode{x4}{$2$}}
+	\rput(5,3){\rnode{x5}{$3$}}
+	\rput(6,3){\rnode{x6}{$4$}}
+	\rput(7,3){\rnode{x7}{$5$}}
+	\rput(8,3){\rnode{x8}{$6$}}
+	\rput(9,3){\rnode{x9}{$7$}}
+	\ncline{->}{v1}{v2}
+	\ncline{->}{v3}{v2}
+	\ncline{->}{v3}{v4}
+	\ncline{->}{v5}{v4}
+	\ncline{->}{v5}{v6}
+	\ncline{->}{v7}{v6}
+	\ncline{->}{v7}{v8}
+	\ncline{->}{v9}{v8}
+	\ncline{<-}{w1}{w2}
+	\ncline{<-}{w3}{w2}
+	\ncline{<-}{w3}{w4}
+	\ncline{<-}{w5}{w4}
+	\ncline{<-}{w5}{w6}
+	\ncline{<-}{w7}{w6}
+	\ncline{<-}{w7}{w8}
+	\ncline{<-}{w9}{w8}
+	\ncline{->}{x1}{x2}
+	\ncline{->}{x3}{x2}
+	\ncline{->}{x3}{x4}
+	\ncline{->}{x5}{x4}
+	\ncline{->}{x5}{x6}
+	\ncline{->}{x7}{x6}
+	\ncline{->}{x7}{x8}
+	\ncline{->}{x9}{x8}
+	\ncline{<-}{w1}{w2}
+	\ncline{->}{w1}{v1}
+	\ncline{<-}{w2}{v2}
+	\ncline{->}{w3}{v3}
+	\ncline{<-}{w4}{v4}
+	\ncline{->}{w5}{v5}
+	\ncline{<-}{w6}{v6}
+	\ncline{->}{w7}{v7}
+	\ncline{<-}{w8}{v8}
+	\ncline{->}{w9}{v9}
+	\ncline{->}{w1}{x1}
+	\ncline{<-}{w2}{x2}
+	\ncline{->}{w3}{x3}
+	\ncline{<-}{w4}{x4}
+	\ncline{->}{w5}{x5}
+	\ncline{<-}{w6}{x6}
+	\ncline{->}{w7}{x7}
+	\ncline{<-}{w8}{x8}
+	\ncline{->}{w9}{x9}
+	
+	
+\end{pspicture}
+	\caption{A lift of $Q_4$ to a doubly periodic quiver in the plane.}
+	\label{fig:quiverLift}
+	\end{figure}
 	
 	\begin{figure}
 	\begin{pspicture}(-1,0)(10,2)
@@ -1211,30 +1292,29 @@
 	\label{fig:torus}
 	\end{figure}
 	
-	The \emph{corner invariants} $x_1,\ldots, x_{2n}$ of an $n$-gon $A$ are certain geometrically defined quantities similar in spirit to the $y$-parameters.  In fact there is a simple relation
+	Assign edge weights to $G$ as follows: each ``horizontal'' edge $\overline{i(i+1)}$ gets weight $1$ and each ``vertical edge'' $\overline{(i-2)(i+1)}$ gets weight $(-1)^ix_i$.  The $x_i$ represent the \emph{corner invariants} \cite{S08} of a polygon, certain coordinates related to the $y$-parameters by
 	\begin{displaymath}
 		y_i = \begin{cases}
 		-(x_ix_{i+1})^{-1} & \textrm{if $i$ is a vertex of $A$} \\
 		-x_ix_{i+1} & \textrm{if $i$ is a side of $A$} \\
 		\end{cases}
 	\end{displaymath}
-	which explains the relation $y_1y_2\cdots y_{2n}=1$.  Assign edge weights to $G$ as follows: each ``horizontal'' edge $\overline{i(i+1)}$ gets weight $1$ and each ``vertical edge'' $\overline{i(i+3)}$ gets weight $(-1)^ix_{i+2}$.  
+	
 	
 	A \emph{perfect matching} of $G$ is a collection $M$ of its edges such that each $i \in V$ is an endpoint of exactly one $e \in M$.  The \emph{weight} of $M$, denoted $wt(M)$, is the product of the weights of its edges.  For instance, 
 	\begin{displaymath}
 		M = \{\overline{12}, \overline{36}, \overline{47}, \overline{58}\}
 	\end{displaymath}
-	is a perfect matching of $G_4$ and its weight is $(1)(-x_5)(x_6)(-x_7) = x_5x_6x_7$.
+	is a perfect matching of $G_4$ and its weight is $(1)(-x_5)(x_6)(-x_7) = x_5x_6x_7$.  Finally, there is a notion of homology class of a perfect matching, which we do not describe here.
 	
 	\begin{proposition}
-		The sum
+		For any homology class, the sum
 		\begin{displaymath}
 			\sum_M wt(M)
 		\end{displaymath}
-		over perfect matchings $M$ of $G_n$ is a conserved quantity of the pentagram map acting on $n$-gons.  Moreover, there is a refinement of the set of perfect matchings breaking this sum into pieces, each of which is itself conserved, and together providing a complete family of integrals for the pentagram map.
-	\end{proposition}
+		over perfect matchings $M$ of $G_n$ of that class is a conserved quantity of the pentagram map acting on $n$-gons.	\end{proposition}
 	
-	The decomposition mentioned above is based on a notion of homology for perfect matchings, which we do not describe here.  In the case of the graph $G_4$ pictured in Figure \ref{fig:torus}, there are $22$ perfect matchings which represent $8$ different homology classes.  Table \ref{table:integrals} gives the $8$ corresponding conserved quantities for the pentagram map.  The first $2$ are trivial but the remaining $6$ are (up to a sign) the original conserved quantities discovered by Schwartz \cite{S08} by different means.
+	In the case of the graph $G_4$ pictured in Figure \ref{fig:torus}, there are $22$ perfect matchings which represent $8$ different homology classes.  Table \ref{table:integrals} gives the $8$ corresponding conserved quantities for the pentagram map.  The first $2$ are trivial but the remaining $6$ are (up to a sign) the original conserved quantities discovered by Schwartz \cite{S08} by different means.
 	
 	\begin{table}[ht]
 	\begin{tabular}{l|l|l}
