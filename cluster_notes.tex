@@ -84,14 +84,14 @@
 
 	\subsection{Markov Triples} \label{sub:Markov triples}
   %\begin{example}\label{example:Markov triples}
-    A Markov triple is a tuple $(a,b,c)$ of positive integers satisfying the Markov equation $a^2+b^2+c^2=3abc$; an integer which appears as a term in a Markov triple is called a Markov number.  The Markov equation is an example of a Diophantine equation and two classical number theoretic problems are to determine the number of solutions and to determine a method for finding all such solutions.  We will solve both of these problems for the Markov equation.
+    A \emph{Markov triple} is a tuple $(a,b,c)$ of positive integers satisfying the \emph{Markov equation} $a^2+b^2+c^2=3abc$; an integer which appears as a term in a Markov triple is called a \emph{Markov number}.  The Markov equation is an example of a Diophantine equation and two classical number theoretic problems are to determine the number of solutions and to determine a method for finding all such solutions.  We will solve both of these problems for the Markov equation.
     
     \begin{exercise}
       Prove that $(1,1,1)$ and $(1,1,2)$ are (up to reordering) the only Markov triples with repeated values.
     \end{exercise}
-    Rearranging the Markov equation we see that $c^2-3abc+a^2+b^2=0$ and so $c$ is a root of the quadratic $f(x)=x^2-(3ab)x+(a^2+b^2)$.  But notice that the other root $c'=3ab-c=\frac{a^2+b^2}{c}$ is a positive integer and so $(a,b,c')$ is again a Markov triple.  
+    Rearranging the Markov equation we see that $c^2-3abc+a^2+b^2=0$ and so $c$ is a root of the quadratic $f(x)=x^2-(3ab)x+(a^2+b^2)$.  But notice that the other root $c'=\frac{a^2+b^2}{c}=3ab-c$ is a positive integer and so $(a,b,c')$ is again a Markov triple.  
 
-    Note that there was nothing special about $c$ in the calculation above so that, given any Markov triple $(a,b,c)$ we may perform three possible exchanges 
+    Note that there was nothing special about $c$ in the calculation above.  Thus given any Markov triple $(a,b,c)$, we may perform three possible exchanges 
     \[\Big(a,b,\frac{a^2+b^2}{c}\Big)\quad\Big(a,\frac{a^2+c^2}{b},c\Big)\quad\Big(\frac{b^2+c^2}{a},b,c\Big)\]
     and obtain another Markov triple in each case.  The following exercises solve the above two classical problems of Diophantine equations.
     \begin{exercise}\mbox{}
@@ -113,7 +113,7 @@
 			a_{21} & a_{22} & \ldots & a_{2n} \\
 			\end{array} \right].
 		\end{displaymath}
-		The Pl\"ucker coordinates are given by $\Delta_{ij} = a_{1i}a_{2j} - a_{1j}a_{2i}$ for $1 \leq i < j \leq n$.  As the matrix $A$ is not uniquely determined by a point in $Gr_2(\CC^n)$, the Pl\"ucker coordinates are not truly functions on $Gr_2(\CC^n)$, but rather they are only well-defined functions up to simultaneous rescaling.  That is, the Pl\"ucker coordinates determine a closed embedding into the projective space $\PP^{{n\choose 2}-1}$.  A first step in establishing this claim is given by the following exercise.
+		The Pl\"ucker coordinates are given by $\Delta_{ij} = a_{1i}a_{2j} - a_{1j}a_{2i}$ for $1 \leq i < j \leq n$.  As the matrix $A$ is not uniquely determined by a point in $Gr_2(\CC^n)$, the Pl\"ucker coordinates are not truly functions on $Gr_2(\CC^n)$, but rather they are only well-defined functions up to simultaneous rescaling.  That is, the Pl\"ucker coordinates determine a closed embedding into the projective space $\PP^{{n\choose 2}-1}$.  The following exercise shows that the image of the Plu\"cker embedding lies inside a closed subset of projective space.
 		\begin{exercise}
 			Verify that the $\Delta_{ij}$ satisfy the so-called \emph{Pl\"ucker relations}
 			\begin{equation}\label{eq:short plucker special}
@@ -148,7 +148,7 @@
       The change of coordinate systems observed above can be understood more classically in terms of the Ptolemy relations for cyclic quadrilaterals.  Indeed, consider four distinct points labelled $1,2,3,4$ on a circle in cyclic order and let $x_{ij}$ denote the distance between vertices $i$ and $j$.  Prove that $x_{13}x_{24}=x_{12}x_{34}+x_{14}x_{23}$.
     \end{exercise}
 		
-		More generally, if $T$ is a triangulation of an $n$-gon and $\overline{ik} \in T$ is a diagonal (as opposed to a side), then $\overline{ik}$ is part of two triangles of $T$.  Call the third vertices of these two triangles $j$ and $l$.  It follows that $T' = (T \setminus \{\overline{ik}\}) \cup \{\overline{jl}\}$ is a triangulation.  Performing a sequence of such quadrilateral flips and using a Pl\"ucker relation at each step makes it possible to iteratively compute all the rational expressions promised in Proposition \ref{prop:Gr2n}.
+		More generally, if $T$ is a triangulation of an $n$-gon and $\overline{ik} \in T$ is a diagonal (as opposed to a side), then $\overline{ik}$ is part of two triangles of $T$.  Call the third vertices of these two triangles $j$ and $l$.  It follows that $T' = (T \setminus \{\overline{ik}\}) \cup \{\overline{jl}\}$ is again a triangulation, moreover it is well-known that any two triangulations may be related by a sequence of these flips of diagonals \cite{H91}.  Performing a sequence of such quadrilateral flips and using a Pl\"ucker relation at each step makes it possible to iteratively compute all the rational expressions promised in Proposition \ref{prop:Gr2n}.
 %  \end{example}
  
 	\subsection{Double Bruhat cells} \label{sub:total positivity}
@@ -156,7 +156,7 @@
     An $n\times n$ matrix $M$ is called \emph{totally positive} if the determinant of every square submatrix is a positive real number.  In particular, every entry of $M$ is positive and $M$ must be invertible.  Write $GL_n^{>0}\subset GL_n$ for the subset of totally positive matrices.  To check that a given matrix $M\in GL_n$ is totally positive one must, a priori, check that all ${2n\choose n}-1$ minors of $M$ are positive.  A natural question is whether this verification process can be made more efficient.  More precisely, is there a smaller collection of minors one may compute and from the positivity of this subset conclude that every minor is positive, i.e. conclude that $M\in GL_n^{>0}$?  We will call such a collection a \emph{total positivity criterion} if it exists.  
 
     For small $n$, such criteria can be easily found and easily verified.  For example, a matrix $M=\left[\begin{array}{cc} a & b\\ c & d\end{array}\right]\in GL_2$ is totally positive if and only if $a,b,c,ad-bc>0$ if and only if $b,c,d,ad-bc>0$.
-    \begin{exercise}
+    \begin{exercise}\label{exer:gl3 positivity}
       Find a minimal collection of minors whose positivity guarantees a matrix in $GL_3$ is totally positive (hint: any such total positivity criterion consists of 9 minors).
     \end{exercise}
 
@@ -166,19 +166,19 @@
 
     It is well known that $GL_n$ decomposes in two ways (actually many ways) as a union of \emph{Bruhat cells}:
     \[GL_n=\bigsqcup_{w\in\Sigma_n}B_+w B_+=\bigsqcup_{w\in\Sigma_n}B_-w B_-.\]
-    To understand total nonnegativity criteria for $GL_n$, we will consider the \emph{double Bruhat cells} $GL_n^{u,v}=B_+uB_+\cap B_-vB_-$ for $u,v\in\Sigma_n$.  It turns out that each double Bruhat cell admits its own collection of total positivity criteria, i.e. for each $u,v\in\Sigma_n$ there exists a minimal collection of minors whose positivity identifies the subset $GL_n^{u,v}\cap GL_n^{\ge0}$ inside the double Bruhat cell $GL_n^{u,v}$.
-
+    To understand total nonnegativity criteria for $GL_n$, we will consider the \emph{double Bruhat cells} $GL_n^{u,v}=B_+uB_+\cap B_-vB_-$ for $u,v\in\Sigma_n$.  
+    \setcounter{subexercise}{2}
+    \begin{exercise}
+      Find all 4 double Bruhat cells in $GL_2$ and verify that they partition the space.  If you are brave, find all double Bruhat cells in $GL_3$ and verify that they partition the space.
+    \end{exercise}
     For $I,J\subset[1,n]$ with $|I|=|J|$, denote by $\Delta_{I,J}$ the function on $GL_n$ which returns the determinant of the submatrix on row set $I$ and column set $J$.
     \setcounter{subexample}{1}
     \begin{example}\label{example:big cell}
       Let $w_0=(1,n)(2,n-1)\cdots(\lfloor n/2\rfloor,\lceil n/2\rceil)$ denote the longest permutation in $\Sigma_n$.  The double Bruhat cell $GL_n^{w_0,w_0}$ is given as follows:
       \[GL_n^{w_0,w_0}=\{M\in GL_n:\Delta_{[1,i],[n+1-i,n]}(M)\ne0,\Delta_{[n+1-i,n],[1,i]}(M)\ne0\text{ for all $i$}\}.\]
     \end{example}
-    \setcounter{subexercise}{2}
-    \begin{exercise}
-      Find all 4 double Bruhat cells in $GL_2$ and verify that they partition the space.
-    \end{exercise}
 
+    It turns out that each double Bruhat cell admits its own collection of total positivity criteria, i.e. for each $u,v\in\Sigma_n$ there exists a minimal collection of minors whose positivity identifies the subset $GL_n^{u,v}\cap GL_n^{\ge0}$ inside the double Bruhat cell $GL_n^{u,v}$.
     Some of these total nonnegativity criteria in $GL_n^{u,v}$ can be conveniently described using double wiring diagrams.  Write $s_i=(i,i+1)\in\Sigma_n$ for the simple transposition interchanging $i$ and $i+1$.  A \emph{reduced word} for $w\in\Sigma_n$ is a minimal sequence $(i_1,\ldots,i_r)$ so that $w=s_{i_1}\cdots s_{i_r}$, where $\ell(w):=r$ is called the \emph{length} of $w$.  A reduced word $(i_1,\ldots,i_r)$ is naturally encoded in a \emph{wiring diagram}, i.e. a collection of $n$ strands with a crossing between the $i$-th and $(i+1)$-st strands each time $i$ appears in the reduced word, see Figure~\ref{fig:wiring diagram}.
     \begin{figure}[ht]
     \begin{tikzpicture}
@@ -226,7 +226,7 @@
     \label{fig:double wiring diagram}
     \end{figure}
 
-    In a double wiring diagram, we label the strands in $u$'s wiring diagram on the right by $1$ through $n$ starting from the bottom and label the strands in $v$'s wiring diagram similarly on the left.  In this way, each chamber of the double wiring diagram determines a minor with row set the labels of strands in $v$'s wiring diagram lying below the chamber and column set the labels of strands in $u$'s wiring diagram lying below the chamber, see Figure~\ref{fig:double wiring diagram}.  Now we may describe a collection of total positivity criteria for $GL_n^{u,v}$.
+    In a double wiring diagram, we label the strands in $u$'s wiring diagram on the right by $1$ through $n$ starting from the bottom and label the strands in $v$'s wiring diagram similarly on the left.  In this way, each chamber of the double wiring diagram determines a minor with row set given by the labels of strands in $v$'s wiring diagram lying below the chamber and column set given by the labels of strands in $u$'s wiring diagram lying below the chamber, see Figure~\ref{fig:double wiring diagram}.  Now we may describe a collection of total positivity criteria for $GL_n^{u,v}$.
     \setcounter{subtheorem}{3}
     \begin{theorem}\label{th:total positivity criteria}\cite{FZ99}
       Each double wiring diagram for $(u,v)$ determines a total positivity criterion for $GL_n^{u,v}$, i.e. an element of $GL_n^{u,v}$ lies in $GL_n^{\ge0}$ if and only if all $n+\ell(u)+\ell(v)$ chamber minors determined by the double wiring diagram are positive.
@@ -234,7 +234,7 @@
     The totally positive matrices are exactly the elements of $GL_n^{w_0,w_0}\cap GL_n^{\ge0}$.  Thus Theorem~\ref{th:total positivity criteria} provides many total positivity criteria for $GL_n$.
     \setcounter{subexercise}{4}
     \begin{exercise}
-      Use double wiring diagrams to find a total positivity criteria for $GL_3$.
+      Use double wiring diagrams to find a total positivity criterion for $GL_3$.  Does the total positivity criterion you found in Exercise~\ref{exer:gl3 positivity} come from a double wiring diagram?
     \end{exercise}
     To finish the section and connect to the theory of cluster algebras to be presented in the next section we make the following observation.  Suppose a double reduced word for $(u,v)$ contains neighboring letters, one belonging to a reduced word for $u$ and one belonging to a reduced word for $v$.  In Figure~\ref{fig:wiring exchange relation}, we show the local effect on a double wiring diagram when these letters are interchanged. 
     \begin{figure}[ht]
@@ -744,7 +744,7 @@
   \begin{definition}
     A \emph{Poisson algebra} $(A,\{\cdot,\cdot\})$ is an associative algebra $A$ equipped with an additional skew-symmetric bilinear operation, called the Poisson bracket (written as $\{x,y\}$ for $x,y\in A$), for which the following holds:
     \begin{itemize}
-      \item given any $x\in A$, the automorphism $\{x,\cdot\}:A\to A$, $y\mapsto\{x,y\}$ is a derivation with respect to both binary operations on $A$, i.e. for $x,y,z\in A$ we have
+      \item given any $x\in A$, the endomorphism $\{x,\cdot\}:A\to A$, $y\mapsto\{x,y\}$ is a derivation with respect to both binary operations on $A$, i.e. for $x,y,z\in A$ we have
       \begin{align*}
         \tag{Leibnitz rule} \{x,yz\}&=\{x,y\}z+y\{x,z\}\\
         \tag{Jacobi identity}\{x,\{y,z\}\}&=\{\{x,y\},z\}+\{y,\{x,z\}\}.
@@ -754,25 +754,25 @@
 
   In each such example the Poisson brackets of cluster variables take an especially simple form.  
   \begin{definition}
-    Let $\cA$ be a cluster algebra.  A Poisson bracket $\{\cdot,\cdot\}$ on $\cA$ is compatible with the cluster algebra structure if every cluster $\bx$ of $\cA$ is \emph{log-canonical} with respect to $\{\cdot,\cdot\}$, that is $\{x_i,x_j\}=\Omega_{ij}x_ix_j$ for some skew-symmetric matrix $\Omega_\bx$ and all $i,j$.
+    Let $\cA$ be a cluster algebra.  A Poisson bracket $\{\cdot,\cdot\}$ on $\cA$ is compatible with the cluster algebra structure if every cluster $\bx$ of $\cA$ is \emph{log-canonical} with respect to $\{\cdot,\cdot\}$, that is there exists a skew-symmetric matrix $\Omega_\bx=(\Omega_{ij})$ so that $\{x_i,x_j\}=\Omega_{ij}x_ix_j$ for all $i,j$.
   \end{definition}
 
   The existence of a compatible Poisson structure is quite restrictive and requires a particular relationship between the matrix $\Omega_\bx$ and the exchange matrix of a seed with cluster $\bx$. 
   \begin{lemma}
   \label{le:compatibility}
-    Let $\cA(\bx,B)$ be a cluster algebra with compatible Poisson structure $\{\cdot,\cdot\}$.  Then writing $\Omega_\bx$ for the matrix of Poisson bracket coefficients, we have $B^T\Omega_\bx=[D\, \boldsymbol{0}]$, where $D$ is a diagonal matrix which skew-symmetrizes $B$.
+    Let $\cA(\bx,\tilde B)$ be a cluster algebra with compatible Poisson structure $\{\cdot,\cdot\}$.  Then writing $\Omega_\bx$ for the matrix of Poisson bracket coefficients, we have $\tilde B^T\Omega_\bx=[D\, \boldsymbol{0}]$, where $D$ is a diagonal matrix which skew-symmetrizes $\tilde B$.
   \end{lemma}
   \begin{subexercise}
-    Prove Lemma~\ref{le:compatibility}. 
+    Prove Lemma~\ref{le:compatibility} using the condition that each neighboring cluster to $\bf$ should also be log-canonical.
   \end{subexercise}
   
   In fact, these conditions can only hold in the following situation, in which case all possible compatible Poisson structures can be easily understood. 
   \begin{theorem}\cite{GSV03} \label{thm:Poisson}
-    A compatible Poisson structure exists if and only if the extended exchange matrix $\tilde B$ has full rank.  Moreover, the collection of all such Poisson structures is parametrized by an affine space of dimension $\rho(B)+{m\choose 2}$, where $\rho(B)$ denotes the number of connected components of $B$.
+    A compatible Poisson structure exists if and only if the extended exchange matrix $\tilde B$ has full rank.  Moreover, the collection of all such Poisson structures is parametrized by an affine space of dimension $\rho(B)+{m\choose 2}$, where $\rho(B)$ denotes the number of connected components of the principal submatrix $B$ of $\tilde B$.
   \end{theorem}
   The primary motivating example for compatible Poisson structures comes in the form of the double Bruhat cells of Section~\ref{sub:total positivity}.  To introduce the relevant Poisson structure and place the double Bruhat cells in the proper context we need to introduce more notation.
 
-  A smooth manifold $M$ together with a Poisson structure on its algebra of $\cO(M)$ regular functions is called a \emph{Poisson manifold}.  The best understood examples of such structures comes from the theory of symplectic geometry.
+  A smooth manifold $M$ together with a Poisson structure on its algebra $\cO(M)$ of regular functions is called a \emph{Poisson manifold}.  The best understood examples of such structures comes from the theory of symplectic geometry.
   \begin{example}
     A symplectic manifold $(M,\omega)$ is a smooth even-dimensional manifold $M^{2n}$ together with a non-degenerate 2-form $\omega\in H^2(M)$, i.e. $\omega^n\ne0$ is a volume form.  The symplectic structure $\omega$ provides a natural association of a vector field $\xi_f$ to a function $f\in\cO(M)$ via the contraction formula $\iota_{\xi_f}\omega=-df$.  The algebra of smooth functions on the symplectic manifold $M$ is then naturally a Poisson algebra via $\{f,g\}=\omega(\xi_f,\xi_g)$ for $f,g\in\cO(M)$.
   \end{example}  
@@ -805,17 +805,15 @@
   \end{quotation}
   The equivalence class $M_p$ containing $p\in M$ is a connected submanifold of $M$ and by definition its tangent space $T_qM_p\subset T_qM$ is spanned by Hamiltonian tangent vectors.  We may view $M_p$ as a symplectic manifold whose 2-form is given by $\omega(\xi_f,\xi_g)=\{f,g\}$ and thus $M_p$ is called the \emph{symplectic leaf} of $M$ through $p$.
   \begin{example}
-    The symplectic leaves of $GL_n$ have been explicitly computed (e.g. see \cite{KZ02} and references therein).  In particular, it is known that each double Bruhat cell in $GL_n$ is foliated by symplectic leaves of $GL_n$ and forms an orbit under the action of a torus.  As an example (c.f. Example~\ref{example:big cell}) the following set is a symplectic leaf living in $GL_n^{w_0,w_0}$:
+    The symplectic leaves of $GL_n$ have been explicitly computed (e.g. see \cite{KZ02} and references therein).  In particular, it is known that each double Bruhat cell in $GL_n$ is foliated by symplectic leaves of $GL_n$.  As an example (c.f. Example~\ref{example:big cell}) the following set is a symplectic leaf living in $GL_n^{w_0,w_0}$:
     \[\{M\in GL_n:\Delta_{[1,i],[n+1-i,n]}(M)=\Delta_{[i+1,n],[1,n-i]}(M)\ne0\text{ for all $i$}\}.\]
   \end{example}
   \begin{exercise}
     Find a matrix $M\in GL_2$ so that the symplectic leaf above is the symplectic leaf of $GL_2$ through $M$.  Do the same for $GL_3$.
   \end{exercise}
 
-  A final reason to care about Poisson structures on a cluster algebra is that they provide a canonical quantization of the cluster algebra structure.
-  \begin{theorem}\cite{berenstein-zelevinsky}
-    
-  \end{theorem}
+  A final reason to care about Poisson structures on a cluster algebra is that they provide a canonical quantization of the cluster algebra structure.  Rather than giving precise definitions, we indicate here the intuition motivating the definition and refer the reader to \cite{BZ05} for more details.
+
   Given a cluster algebra $\cA(\bx,\tilde B)$ of full rank, any choice of compatible Poisson structure gives rise to a canonical quantization of $\cA(\bx,\tilde B)$ by the following procedure where $v$ denotes a formal variable:
   \begin{itemize}
     \item Each cluster should be replaced by a collection of quasi-commuting elements $\{X_1,\ldots,X_m\}$ satisfying $X_iX_j=v^{2\Lambda(\varepsilon_j,\varepsilon_i)}X_jX_i$ for a skew-symmetric bilinear form $\Lambda:\ZZ^m\times\ZZ^m\to\ZZ$.  That is, this \emph{quantum cluster} generates a \emph{quantum torus} $\cT=\ZZ[v^{\pm1}]\langle X_1^{\pm1},\ldots,X_m^{\pm1}\rangle$ with a $\ZZ[v^{\pm1}]$-basis 
@@ -1343,6 +1341,7 @@ For the remainder of this section, all mutations are understood to be of $Y$-pat
   \bibitem{ABCGPT14} N. Arkani-Hameda, J. Bourjailyb, F. Cachazoc, A. Goncharovd, A. Postnikove, and J. Trnka, Scattering amplitudes and the positive Grassmannian, arXiv preprint: 1212.5605v2.
   \bibitem{BFZ05} A. Berenstein, S. Fomin, and A. Zelevinsky, Cluster algebras III: upper bounds and double Bruhat cells, \textsl{J. London Math. Soc.} \textbf{14} (1976), 183–-187.
   \bibitem{BR15} A. Berenstein and D. Rupel, Quantum cluster characters of Hall algebras, \textsl{Sel. Math. New Ser.} \textbf{21} (2015), no. 4, 1121--1176.
+  \bibitem{BZ05} A. Berenstein and A. Zelevinsky, Quantum cluster algebras. \textsl{Adv. Math.} \textbf{195} (2005), no. 2, 405--455.
   \bibitem{CC06} P. Caldero and F. Chapoton, Cluster algebras as Hall algebras of quiver representations, \textsl{Comment. Math. Helv.} \textbf{81} (2006), no. 3, 595--616.
   \bibitem{CK06} P. Caldero and B. Keller, From triangulated categories to cluster algebras II, \textsl{Ann. Sci. \'Ecole Norm. Sup.} (4) \textbf{39} (2006), no. 6, 983--1009.
   \bibitem{BMRRT06} A. Buan, R. Marsh, I. Reiten, M. Reineke, and G. Todorov, Tilting theory and cluster combinatorics, \textsl{Adv. Math.} \textbf{204} (2006), no. 2, 572–-618.
@@ -1365,6 +1364,7 @@ For the remainder of this section, all mutations are understood to be of $Y$-pat
 	\bibitem{GSTV12} M. Gekhtman, M. Shapiro, S. Tabachnikov, and A. Vainshtein, Higher pentagram maps, weighted directed networks, and cluster dynamics, \textsl{Electron. Res. Announc. Math. Sci.} \textbf{19} (2012), 1--17.
 	\bibitem{G11} M. Glick, The pentagram map and Y-patterns, \textsl{Adv. Math.} \textbf{227} (2011), 1019--1045.
 	\bibitem{GK13} A. Goncharov and R. Kenyon, Dimers and cluster integrable systems, \textsl{Ann. Sci. \'Ec. Norm. Sup\'er.} \textbf{46} (2013), 747--813.
+	\bibitem{H91} A. Hatcher, On triangulations of surfaces, \textsl{Topology Appl.} \textbf{40} (1991), 189--194.
 	\bibitem{H07} A. Hone, Sigma function solution of the initial value problem for Somos 5 sequences, \textsl{Trans. Amer. Math. Soc.} \textbf{359} (2007), no. 10, 5019--5034.
   \bibitem{K10} B. Keller, Categorification of acyclic cluster algebras: an introduction, arXiv preprint: 0801.3103v2.
   \bibitem{K12} Y. Kimura, Quantum unipotent subgroup and dual canonical basis, \textsl{Kyoto J. Math.} \textbf{52} (2012), no. 2, 277--331.
