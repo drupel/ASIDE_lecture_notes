@@ -289,7 +289,11 @@
     \begin{exercise}
       Prove equation \eqref{eq:short Plucker}.
     \end{exercise}
-  %\end{example}
+		
+		\begin{exercise}
+		Another local transformation of a double wiring diagram is given by braid moves, either within $u$ or within $v$.  As an example, suppose a doubled word for $u,v$ begins $1,2,1$ (i.e, $u$ begins $1,2,1$ and these all occur before the first letter of $v$ in the doubled word).  Consider the double wiring diagrams both for this word and the one obtained by replacing the first three letters with $2,1,2$.  Show that the two corresponding collections of chamber minors differ in one element.  Find and prove an exchange relation that describes this transformation.
+		\end{exercise}
+	  %\end{example}
 
   %\begin{example}
   %  <Include some example where $y$-variable mutations are natural.>
@@ -722,7 +726,7 @@
   \begin{definition}
     An exchange matrix $B=(b_{ij})$ is called \emph{acyclic} if there exists a permutation $\sigma$ so that $b_{\sigma_i\sigma_j}\le 0$ for $i<j$.
   \end{definition}
-  This terminology can be easily understood in the case of a skew-symmetric exchange matrix, it is acyclic exactly when its associated quiver has no oriented cycles.
+  This terminology can be easily understood in the case of a skew-symmetric exchange matrix; the matrix is acyclic exactly when its associated quiver (see Section \ref{sec:integrable_systems}) has no oriented cycles.
   \begin{theorem}\cite{BFZ05}\label{th:acyclic upper bounds}
     Let $\cA(\x,\tilde B)$ be a cluster algebra where $\tilde B$ is coprime and has acyclic principal part.  Then the cluster algebra $\cA(\x,\tilde B)$ coincides with its upper bound $\cU(\x,\tilde B)$.
   \end{theorem}
@@ -764,7 +768,7 @@
     \end{itemize}
   \end{definition}
 
-  In each such example the Poisson brackets of cluster variables take an especially simple form.  
+  In the case of cluster algebras, the Poisson brackets take an especially simple form when applied to cluster variables.  
   \begin{definition}
     Let $\cA$ be a cluster algebra.  A Poisson bracket $\{\cdot,\cdot\}$ on $\cA$ is compatible with the cluster algebra structure if every cluster $\bx$ of $\cA$ is \emph{log-canonical} with respect to $\{\cdot,\cdot\}$, that is there exists a skew-symmetric matrix $\Omega_\bx=(\Omega_{ij})$ so that $\{x_i,x_j\}=\Omega_{ij}x_ix_j$ for all $i,j$.
   \end{definition}
@@ -772,10 +776,10 @@
   The existence of a compatible Poisson structure is quite restrictive and requires a particular relationship between the matrix $\Omega_\bx$ and the exchange matrix of a seed with cluster $\bx$. 
   \begin{lemma}
   \label{le:compatibility}
-    Let $\cA(\bx,\tilde B)$ be a cluster algebra with compatible Poisson structure $\{\cdot,\cdot\}$.  Then writing $\Omega_\bx$ for the matrix of Poisson bracket coefficients, we have $\tilde B^T\Omega_\bx=[D\, \boldsymbol{0}]$, where $D$ is a diagonal matrix which skew-symmetrizes $\tilde B$.
+    Let $\cA(\bx,\tilde B)$ be a cluster algebra, where $\tilde B$ is $(m+n)\times n$, with compatible Poisson structure $\{\cdot,\cdot\}$.  Then writing $\Omega_\bx$ for the $(m+n) \times (m+n)$ matrix of Poisson bracket coefficients, we have $\tilde B^T\Omega_\bx=[D\, \boldsymbol{0}]$, where $D$ is a diagonal matrix which skew-symmetrizes $B$.
   \end{lemma}
   \begin{subexercise}
-    Prove Lemma~\ref{le:compatibility} using the condition that each neighboring cluster to $\bf$ should also be log-canonical.
+    Prove Lemma~\ref{le:compatibility} using the condition that each neighboring cluster to $\bx$ should also be log-canonical.
   \end{subexercise}
   
   In fact, these conditions can only hold in the following situation, in which case all possible compatible Poisson structures can be easily understood. 
@@ -786,7 +790,7 @@
 
   A smooth manifold $M$ together with a Poisson structure on its algebra $\cO(M)$ of regular functions is called a \emph{Poisson manifold}.  The best understood examples of such structures comes from the theory of symplectic geometry.
   \begin{example}
-    A symplectic manifold $(M,\omega)$ is a smooth even-dimensional manifold $M^{2n}$ together with a non-degenerate 2-form $\omega\in H^2(M)$, i.e. $\omega^n\ne0$ is a volume form.  The symplectic structure $\omega$ provides a natural association of a vector field $\xi_f$ to a function $f\in\cO(M)$ via the contraction formula $\iota_{\xi_f}\omega=-df$.  The algebra of smooth functions on the symplectic manifold $M$ is then naturally a Poisson algebra via $\{f,g\}=\omega(\xi_f,\xi_g)$ for $f,g\in\cO(M)$.
+    A symplectic manifold $(M,\omega)$ is a smooth even-dimensional manifold $M^{2n}$ together with a 2-form $\omega\in H^2(M)$ that is non-degenerate, i.e. $\omega^n\ne0$ is a volume form.  The symplectic structure $\omega$ provides a natural association of a vector field $\xi_f$ to a function $f\in\cO(M)$ via the contraction formula $\iota_{\xi_f}\omega=-df$.  The algebra of smooth functions on the symplectic manifold $M$ is then naturally a Poisson algebra via $\{f,g\}=\omega(\xi_f,\xi_g)$ for $f,g\in\cO(M)$.
   \end{example}  
   A smooth map $\varphi:M\to N$ between Poisson manifolds is a \emph{Poisson morphism} if it induces a Poisson morphism $\varphi^*:\cO(N)\to\cO(M)$ on their algebras of smooth functions, i.e. $\{\varphi^*(f),\varphi^*(g)\}_M=\varphi^*\big(\{f,g\}_N\big)$ for all $f,g\in \cO(N)$.  Given two Poisson manifolds $M$ and $N$, there is a natural Poisson structure on $M\times N$ given by
   \[\{f,g\}(x,y)=\{f(\cdot,y),g(\cdot,y)\}_M(x)+\{f(x,\cdot),g(x,\cdot)\}_N(y)\]
@@ -830,7 +834,7 @@
   \begin{itemize}
     \item Each cluster should be replaced by a collection of quasi-commuting elements $\{X_1,\ldots,X_m\}$ satisfying $X_iX_j=v^{2\Lambda(\varepsilon_j,\varepsilon_i)}X_jX_i$ for a skew-symmetric bilinear form $\Lambda:\ZZ^m\times\ZZ^m\to\ZZ$.  That is, this \emph{quantum cluster} generates a \emph{quantum torus} $\cT=\ZZ[v^{\pm1}]\langle X_1^{\pm1},\ldots,X_m^{\pm1}\rangle$ with a $\ZZ[v^{\pm1}]$-basis 
     \[\left\{X^\ba:=v^{\sum\limits_{i<j}a_ia_j\Lambda(\varepsilon_i,\varepsilon_j)}X_1^{a_1}\cdots X_m^{a_m}\Big|\ba=(a_1,\ldots,a_m)\in\ZZ^m\right\}.\]
-    \item Each quantum cluster obtained by mutation from this one should again generate a quantum torus, this forces a compatibility condition on the exchange matrix $\tilde B$ and the commutation matrix $\Lambda$ (by a slight abuse of notation we freely identify the bilinear form $\Lambda$ with a skew-symmetric matrix), that is 
+    \item Each quantum cluster obtained by mutation from this one should again generate a quantum torus.  This forces a compatibility condition on the exchange matrix $\tilde B$ and the commutation matrix $\Lambda$ (by a slight abuse of notation we freely identify the bilinear form $\Lambda$ with a skew-symmetric matrix), that is 
     \begin{equation}\label{eq:quantum compatibility}
       \Lambda(\bb_k,\varepsilon_\ell)=0\quad\text{if $k\ne\ell$,}
     \end{equation}
