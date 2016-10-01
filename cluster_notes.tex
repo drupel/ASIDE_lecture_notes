@@ -534,11 +534,12 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%
 \section{Foundational Results}\label{sec:basic_theorems}
-  As mentioned in the introduction cluster algebras have found applications in a surprising array of mathematical disciplines.  Much of their ubiquity comes from a number of remarkable theorems which we now explain.
+  As mentioned in the introduction cluster algebras have found applications in a surprising array of mathematical disciplines.  Much of their ubiquity comes from a number of remarkable theorems which we now explain.  
 
-  Recall the Laurent phenomenon from Theorem~\ref{th:Laurent phenomenon}.  This remarkable theorem is the prime reason for the connection between cluster algebras and many well-known classical recursions which, a priori produce rational numbers, but turn out to give integer values given certain integer inputs \cite{FZ02b}.  We will begin by explaining the solution to Exercise~\ref{exercise:rank 2 Laurent phenomenon}.  Consider the rank 2 cluster algebra with initial exchange matrix $B=\left[\begin{array}{cc}0 & b\\ -c & 0\end{array}\right]$  and cluster variables $x_k$, $k\in\ZZ$ as in Example~\ref{example:rank2}.  The cluster variables may be defined by the simple recursion
+  The first of these results is the aforementioned Laurent phenomenon (Theorem \ref{th:Laurent phenomenon}).  The Laurent property originates from the study of several classical recurrences that seem as though they should produce rational numbers, but turn out to give only integers under certain initial conditions \cite{FZ02b}.  As with several of the results in this section, we give a complete proof in the case of rank 2 cluster algebras.
+	
+	Recalling Example~\ref{example:rank2}, consider the rank 2 cluster algebra with initial exchange matrix $B=\left[\begin{array}{cc}0 & b\\ -c & 0\end{array}\right]$  and cluster variables $x_k$, $k\in\ZZ$ which satisfy the recursion
   \[x_{k-1}x_{k+1}=\begin{cases}x_k^b+1 & \text{if $k$ is odd;}\\ x_k^c+1 & \text{if $k$ is even.}\end{cases}\]
-  In this case it is easy to establish the Laurent phenomenon.
   \begin{theorem}
     For any $m\in\ZZ$, each $x_k$ is an element of the ring $\ZZ[x_{m-1},x_m,x_{m+1},x_{m+2}]$.
   \end{theorem}
@@ -546,7 +547,7 @@
     The ring $\ZZ[x_{m-1},x_m,x_{m+1},x_{m+2}]$ is called the lower bound of $\cA(\bx,B)$ at the cluster $\{x_m,x_{m+1}\}$.  We will give more details below where this result is a special case of Theorem~\ref{th:lower bounds}.
   \end{remark}
   \begin{proof}
-    Without loss of generality assume $m$ is odd, otherwise interchange $b$ and $c$ in the calculation below.  Then we may compute
+		Assume without loss of generality that $m$ is odd (otherwise interchange $b$ and $c$ in the calculation below).  Then we may compute
     \begin{align*}
       x_{m-1}x_{m+2}^b
       &=\frac{x_m^b+1}{x_{m+1}}x_{m+2}^b\\
@@ -555,41 +556,52 @@
     \end{align*}
     In particular, we see that $x_{m+3}\in\ZZ[x_{m-1},x_m,x_{m+1},x_{m+2}]$.  A similar calculation shows $x_{m-2}\in\ZZ[x_{m-1},x_m,x_{m+1},x_{m+2}]$ and a simple induction argument of ``shifting the viewing window'' establishes the result.
   \end{proof}
-  With more work one may establish the following result which can be leveraged to prove the Laurent phenomenon in general.
+	Having shown $x_k$ to be a polynomial in $x_{m-1},x_m,x_{m+1},x_{m+2}$, each of which is directly seen to be a Laurent polynomial in $x_m, x_{m+1}$, the rank 2 Laurent phenomenon follows.  As such, the above is a solution to Exercise \ref{exercise:rank 2 Laurent phenomenon}. With more work one may establish the following result which can be leveraged to prove the Laurent phenomenon in general.
   \begin{theorem}
     Assume $bc\ne0$.  For any $m\in\ZZ$, the cluster algebra $\cA(\bx,B)$ is equal to $\bigcap_{k\in\ZZ}\ZZ[x_k^{\pm1},x_{k+1}^{\pm1}]=\bigcap_{k=m-1}^{m+1}\ZZ[x_k^{\pm1},x_{k+1}^{\pm1}]$.
   \end{theorem}
   \begin{remark}
-    If one allows extended exchange matrices and imposes an additional coprimality assumption (see Definition~\ref{def:coprime}, then the condition $bc\ne0$ may be dropped.  The ring $\bigcap_{k=m-1}^{m+1}\ZZ[x_k^{\pm1},x_{k+1}^{\pm1}]$ is called the upper bound of $\cA(\bx,B)$ at the cluster $\{x_m.x_{m+1}\}$ and the ring $\bigcap_{k\in\ZZ}\ZZ[x_k^{\pm1},x_{k+1}^{\pm1}]$ is called the upper cluster algebra.  We will give more details below where this result can be seen as a special case of Thoerems~\ref{th:lower bounds} and~\ref{th:acyclic upper bounds}.
+    If one allows extended exchange matrices and imposes an additional coprimality assumption (see Definition~\ref{def:coprime}), then the condition $bc\ne0$ may be dropped.  The ring $\bigcap_{k=m-1}^{m+1}\ZZ[x_k^{\pm1},x_{k+1}^{\pm1}]$ is called the upper bound of $\cA(\bx,B)$ at the cluster $\{x_m.x_{m+1}\}$ and the ring $\bigcap_{k\in\ZZ}\ZZ[x_k^{\pm1},x_{k+1}^{\pm1}]$ is called the upper cluster algebra.  We will give more details below at which point this result will be a special case of Thoerems~\ref{th:lower bounds} and~\ref{th:acyclic upper bounds}.
   \end{remark}
   The proof of this result is somewhat technical and seems unlikely to be very informative so we will omit the details.
 
-
-  As we have seen in Sections~\ref{sub:Gr2n} and~\ref{sub:total positivity}, cluster algebras have roots in classical Lie theory.  A large number of objects in this realm are classified by Dynkin diagrams and cluster algebras are no exception.  Given an extended exchange matrix $\tilde B$ with principal square submatrix $B=(b_{ij})$, write $A:=A_{\tilde B}=(a_{ij})$ for the \emph{Cartan companion} of $\tilde B$ given by 
+	The next result is the classification of cluster algebras of \emph{finite type}, i.e. those that have only finitely many cluster variables.  As we have seen in Sections~\ref{sub:Gr2n} and~\ref{sub:total positivity}, cluster algebras have roots in classical Lie theory.  A large number of objects in this realm are classified by Dynkin diagrams and finite type cluster algebras are no exception.  Given an extended exchange matrix $\tilde B$ with principal square submatrix $B=(b_{ij})$, write $A:=A_{\tilde B}=(a_{ij})$ for the \emph{Cartan companion} of $\tilde B$ given by 
   \[a_{ij}=\begin{cases}2 & \text{if $i=j$;}\\ -|b_{ij}| & \text{otherwise.}\end{cases}\]
   Note that the Cartan companion only depends on the principal part of $\tilde B$.
   \begin{theorem}\cite{FZ03}
-    A cluster algebra $\cA(\x,\tilde B)$ has only finitely many cluster variables if and only if there exists an extended exchange matrix mutation equivalent to $\tilde B$ whose Cartan companion is a finite-type Cartan matrix.
+    A cluster algebra $\cA(\x,\tilde B)$ is of finite type if and only if there exists an extended exchange matrix mutation equivalent to $\tilde B$ whose Cartan companion is a finite-type Cartan matrix.
   \end{theorem}
   \begin{example}
-    As we have seen in Exercise~\ref{exercise:rank 2} the cluster algebra associated to the exchange matrix $\left[\begin{array}{cc}0 & b\\ -c & 0\end{array}\right]$ has only finitely many cluster variables if and only if $bc\le3$.  
-
-    Writing $x_k$, $k\in\ZZ\setminus\{1,2\}$ in its initial cluster Laurent expansion, i.e. as an element of $\ZZ[x_1^{\pm1},x_2^{\pm1}]$, the exponent $d^{(k)}=(d_1^{(k)},d_2^{(k)})$ of the monomial $x_1^{d^{(k)}_1}x_2^{d^{(k)}_2}$ appearing in the denominator of $x_k$ can easily be seen to be computed as follows.  Let $U_m(t)$ denote the Chebyshev polynomial defined recursively by 
+		The irreducible finite type $2 \times 2$ Cartan matrices are
+		\begin{align*}
+		&A_2 : \left[\begin{array}{cc} 2 & -1\\ -1 & 2\end{array}\right] \\
+		&B_2 : \left[\begin{array}{cc} 2 & -2\\ -1 & 2\end{array}\right] (\textrm{ or equivalently its transpose}) \\
+		&G_2 : \left[\begin{array}{cc} 2 & -3\\ -1 & 2\end{array}\right] (\textrm{ or equivalently its transpose})
+		\end{align*}
+		or put another way, they are the matrices $\left[\begin{array}{cc} 2 & -b\\ -c & 2\end{array}\right]$ with $bc \leq 3$.  This is precisely the Cartan counterpart $A_B$ of the exchange matrix $B=\left[\begin{array}{cc} 0 & b\\ -c & 0\end{array}\right]$.  Therefore, the rank 2 cluster algebra with this exchange matrix, or any cluster algebra obtained from it by adding coefficients, has finite type if and only if $bc \leq 3$.  This was the content of Exercise \ref{exercise:rank 2}.
+		\end{example}
+		
+		We now provide an outline to the solution of Exercise \ref{exercise:rank 2}.  Let $B=\left[\begin{array}{cc} 0 & b\\ -c & 0\end{array}\right]$ and let $x_k, k \in \mathbb{Z}$ be the cluster variables of this cluster algebra.  We need some more notation.  For $k \neq 1,2$, let $d^{(k)}=(d_1^{(k)},d_2^{(k)})$ denote the exponents of the monomial $x_1^{d^{(k)}_1}x_2^{d^{(k)}_2}$ appearing in the denominator of $x_k$ when expressed as a Laurent polynomial in $x_1, x_2$.  Let $U_m(t)$ denote the Chebyshev polynomial defined recursively by 
     \[U_{m+1}(t)=tU_m(t)-U_{m-1}(t)\qquad U_1(t)=1\qquad U_0(t)=0\]
     and for $j\in\{1,2\}$ define 
     \[u_{m,j}=\begin{cases}U_m(\sqrt{bc}) & \text{if $m$ is odd;}\\\sqrt{b/c}\,U_m(\sqrt{bc}) & \text{if $m$ is even and $j=1$;}\\\sqrt{c/b}\,U_m(\sqrt{bc}) & \text{if $m$ is even and $j=2$.}\\\end{cases}\]
-    Note that each $u_{m,j}$ is a polynomial in $b$ and $c$.  Moreover, one may easily show that each $u_{m,j}$, $m\ge1$ is a positive integer when $bc\ge4$.  Then the denominator vector of $x_k$ for $k\in\ZZ\setminus\{1,2\}$ is
+    Note that $U_m(t)$ is an odd (resp. even) function when $m$ is even (resp. odd), so each $u_{m,j}$ is a polynomial in $b$ and $c$.  Moreover, one may easily show that each $u_{m,j}$, $m\ge1$ is a positive integer when $bc\ge4$.  
+	
+		The rank 2 finite type classification now boils down to verifying the following:
+		\begin{itemize}
+		\item The denominator vector of $x_k$ for $k\in\ZZ\setminus\{1,2\}$ is
     \begin{equation}\label{eq:rank 2 denominators}
       d^{(k)}=\begin{cases}(u_{k-2,1},u_{k-3,2}) & \text{if $k\ge3$;}\\(u_{-k,1},u_{-k+1,2}) & \text{if $k\le0$.}\end{cases}
     \end{equation}
-    It is not hard to check that the vectors $d^{(k)}$ are exactly the positive roots in the root system associated the the Cartan matrix $A_B=\left[\begin{array}{cc} 2 & -b\\ -c & 2\end{array}\right]$, which is known to have only finitely many roots if and only if $bc\le3$.
-    \begin{subexercise}
-      Prove that $U_n\big(2\cos(\theta)\big)=\frac{\sin(n\theta)}{\sin(\theta)}$ and use this to show that there are infinitely many $d^{(k)}$ if and only if $bc\ge4$.
-    \end{subexercise}
-  \end{example}
-  Thus we see a condition on an arbitrary extended exchange matrix $\tilde B$ which implies the corresponding cluster algebra has infinitely many cluster variables: if there exists an exchange matrix $\tilde B'=(b'_{ij})$ mutation equivalent to $\tilde B$ for which $b'_{ij}b'_{ji}\ge4$ for some $i,j$, then the cluster algebra $\cA(\bx,\tilde B)$ is not of finite-type.  It is quite remarkable that the opposite condition is enough to characterize finite-type cluster algebras.  Call an extended exchange matrix $\tilde B=(b_{ij})$ \emph{2-finite} if every matrix $\tilde B'=(b'_{ij})$ mutation equivalent to $\tilde B$ satisfies the rank 2 finite-type condition $b'_{ij}b'_{ji}\le3$ for all $i,j$.
+    \item $U_n\big(2\cos(\theta)\big)=\frac{\sin(n\theta)}{\sin(\theta)}$ from which it follows that there are infinitely many $d^{(k)}$ if and only if $bc\ge4$.  In particular, there are infnitely many cluster variables if $bc \geq 4$.
+		\item By explicit calculation, there are only finitely many cluster variables in each case where $bc \leq 3$.
+    \end{itemize}
+ 
+%It is not hard to check that the vectors $d^{(k)}$ are exactly the positive roots in the root system associated the the Cartan matrix $A_B=\left[\begin{array}{cc} 2 & -b\\ -c & 2\end{array}\right]$, which is known to have only finitely many roots if and only if $bc\le3$.
+    
+  More generally, if $\tilde{B}$ is any $(n+m) \times n$ extended exchange matrix and $|b_{ij}b_{ji}| \geq 4$ for some $i,j=1,\ldots, n$, then mutating at $i$ and $j$ alone will produce infinitely many cluster variables.  Call an extended exchange matrix $\tilde B=(b_{ij})$ \emph{2-finite} if every matrix $\tilde B'=(b'_{ij})$ mutation equivalent to $\tilde B$ satisfies the condition $|b'_{ij}b'_{ji}|\le3$ for all $i,j$.  By the above reasoning, 2-finiteness is a neccessary condition for a cluster algebra to be of finite type.  It is quite remarkable that it is sufficient as well.
   \begin{theorem}\cite{FZ03}
-    A cluster algebra $\cA(\x,\tilde B)$ has only finitely many cluster variables if and only if $\tilde B$ is 2-finite.
+    A cluster algebra $\cA(\x,\tilde B)$ is of finite type if and only if $\tilde B$ is 2-finite.
   \end{theorem}
 
   The next result gives the positivity of the initial cluster Laurent expansions of all cluster variables.
