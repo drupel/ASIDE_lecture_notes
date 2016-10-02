@@ -552,7 +552,7 @@
     For any $m\in\ZZ$, each $x_k$ is an element of the ring $\ZZ[x_{m-1},x_m,x_{m+1},x_{m+2}]$.
   \end{theorem}
   \begin{remark}
-    The ring $\ZZ[x_{m-1},x_m,x_{m+1},x_{m+2}]$ is called the lower bound of $\cA(\bx,B)$ at the cluster $\{x_m,x_{m+1}\}$.  We will give more details below where this result is a special case of Theorem~\ref{th:lower bounds}.
+    The ring $\ZZ[x_{m-1},x_m,x_{m+1},x_{m+2}]$ is called the \emph{lower bound} of $\cA(\bx,B)$ at the cluster $\{x_m,x_{m+1}\}$.  We will give more details below and see that this result is a special case of Theorem~\ref{th:lower bounds}.
   \end{remark}
   \begin{proof}
 		Assume without loss of generality that $m$ is odd (otherwise interchange $b$ and $c$ in the calculation below).  Then we may compute
@@ -566,34 +566,34 @@
   \end{proof}
 	Having shown $x_k$ to be a polynomial in $x_{m-1},x_m,x_{m+1},x_{m+2}$, each of which is directly seen to be a Laurent polynomial in $x_m, x_{m+1}$, the rank 2 Laurent phenomenon follows.  As such, the above is a solution to Exercise \ref{exercise:rank 2 Laurent phenomenon}. With more work one may establish the following result which can be leveraged to prove the Laurent phenomenon in general.
   \begin{theorem}
-    Assume $bc\ne0$.  For any $m\in\ZZ$, the cluster algebra $\cA(\bx,B)$ is equal to $\bigcap_{k\in\ZZ}\ZZ[x_k^{\pm1},x_{k+1}^{\pm1}]=\bigcap_{k=m-1}^{m+1}\ZZ[x_k^{\pm1},x_{k+1}^{\pm1}]$.
+    Assume $b,c\ne0$.  For any $m\in\ZZ$, the cluster algebra $\cA(\bx,B)$ is equal to $\bigcap_{k\in\ZZ}\ZZ[x_k^{\pm1},x_{k+1}^{\pm1}]=\bigcap_{k=m-1}^{m+1}\ZZ[x_k^{\pm1},x_{k+1}^{\pm1}]$.
   \end{theorem}
-  \begin{remark}
-    If one allows extended exchange matrices and imposes an additional coprimality assumption (see Definition~\ref{def:coprime}), then the condition $bc\ne0$ may be dropped.  The ring $\bigcap_{k=m-1}^{m+1}\ZZ[x_k^{\pm1},x_{k+1}^{\pm1}]$ is called the upper bound of $\cA(\bx,B)$ at the cluster $\{x_m.x_{m+1}\}$ and the ring $\bigcap_{k\in\ZZ}\ZZ[x_k^{\pm1},x_{k+1}^{\pm1}]$ is called the upper cluster algebra.  We will give more details below at which point this result will be a special case of Thoerems~\ref{th:lower bounds} and~\ref{th:acyclic upper bounds}.
-  \end{remark}
   The proof of this result is somewhat technical and seems unlikely to be very informative so we will omit the details.
+  \begin{remark}
+    If one allows extended exchange matrices and imposes an additional coprimality assumption (see Definition~\ref{def:coprime}), then the condition $b,c\ne0$ may be dropped.  The ring $\bigcap_{k=m-1}^{m+1}\ZZ[x_k^{\pm1},x_{k+1}^{\pm1}]$ is called the \emph{upper bound} of $\cA(\bx,B)$ at the cluster $\{x_m.x_{m+1}\}$ and the ring $\bigcap_{k\in\ZZ}\ZZ[x_k^{\pm1},x_{k+1}^{\pm1}]$ is called the \emph{upper cluster algebra}.  We will give more details below at which point this result will be a special case of Theorems~\ref{th:lower bounds} and~\ref{th:acyclic upper bounds}.
+  \end{remark}
 
-	The next result is the classification of cluster algebras of \emph{finite type}, i.e. those that have only finitely many cluster variables.  As we have seen in Sections~\ref{sub:Gr2n} and~\ref{sub:total positivity}, cluster algebras have roots in classical Lie theory.  A large number of objects in this realm are classified by Dynkin diagrams and finite type cluster algebras are no exception.  Given an extended exchange matrix $\tilde B$ with principal square submatrix $B=(b_{ij})$, write $A:=A_{\tilde B}=(a_{ij})$ for the \emph{Cartan companion} of $\tilde B$ given by 
+	The next result is the classification of cluster algebras of \emph{finite type}, i.e.\ those that have only finitely many cluster variables.  As we have seen in Sections~\ref{sub:Gr2n} and~\ref{sub:total positivity}, cluster algebras have roots in classical Lie theory.  A large number of objects in this realm are classified by Dynkin diagrams and finite type cluster algebras are no exception.  Given an extended exchange matrix $\tilde B$ with principal square submatrix $B=(b_{ij})$, write $A:=A_{\tilde B}=(a_{ij})$ for the \emph{Cartan companion} of $\tilde B$ given by 
   \[a_{ij}=\begin{cases}2 & \text{if $i=j$;}\\ -|b_{ij}| & \text{otherwise.}\end{cases}\]
   Note that the Cartan companion only depends on the principal part of $\tilde B$.
   \begin{theorem}\cite{FZ03}
     A cluster algebra $\cA(\x,\tilde B)$ is of finite type if and only if there exists an extended exchange matrix mutation equivalent to $\tilde B$ whose Cartan companion is a finite-type Cartan matrix.
   \end{theorem}
   \begin{example}
-		The irreducible finite type $2 \times 2$ Cartan matrices are
+		The irreducible finite type $2 \times 2$ Cartan matrices are (up to transposition) given by
 		\begin{align*}
 		&A_2 : \left[\begin{array}{cc} 2 & -1\\ -1 & 2\end{array}\right] \\
-		&B_2 : \left[\begin{array}{cc} 2 & -2\\ -1 & 2\end{array}\right] (\textrm{ or equivalently its transpose}) \\
-		&G_2 : \left[\begin{array}{cc} 2 & -3\\ -1 & 2\end{array}\right] (\textrm{ or equivalently its transpose})
+		&B_2 : \left[\begin{array}{cc} 2 & -2\\ -1 & 2\end{array}\right] \\
+		&G_2 : \left[\begin{array}{cc} 2 & -3\\ -1 & 2\end{array}\right]
 		\end{align*}
 		or put another way, they are the matrices $\left[\begin{array}{cc} 2 & -b\\ -c & 2\end{array}\right]$ with $bc \leq 3$.  This is precisely the Cartan counterpart $A_B$ of the exchange matrix $B=\left[\begin{array}{cc} 0 & b\\ -c & 0\end{array}\right]$.  Therefore, the rank 2 cluster algebra with this exchange matrix, or any cluster algebra obtained from it by adding coefficients, has finite type if and only if $bc \leq 3$.  This was the content of Exercise \ref{exercise:rank 2}.
 		\end{example}
 		
-		We now provide an outline to the solution of Exercise \ref{exercise:rank 2}.  Let $B=\left[\begin{array}{cc} 0 & b\\ -c & 0\end{array}\right]$ and let $x_k, k \in \mathbb{Z}$ be the cluster variables of this cluster algebra.  We need some more notation.  For $k \neq 1,2$, let $d^{(k)}=(d_1^{(k)},d_2^{(k)})$ denote the exponents of the monomial $x_1^{d^{(k)}_1}x_2^{d^{(k)}_2}$ appearing in the denominator of $x_k$ when expressed as a Laurent polynomial in $x_1, x_2$.  Let $U_m(t)$ denote the Chebyshev polynomial defined recursively by 
-    \[U_{m+1}(t)=tU_m(t)-U_{m-1}(t)\qquad U_1(t)=1\qquad U_0(t)=0\]
+		We now provide an outline to the solution of Exercise \ref{exercise:rank 2}.  Let $B=\left[\begin{array}{cc} 0 & b\\ -c & 0\end{array}\right]$ and let $x_k, k \in \mathbb{Z}$ be the cluster variables of this cluster algebra.  We need some more notation.  For $k \neq 1,2$, let $d^{(k)}=(d_1^{(k)},d_2^{(k)})$ denote the exponents of the monomial $x_1^{d^{(k)}_1}x_2^{d^{(k)}_2}$ appearing in the denominator of $x_k$ when expressed as a Laurent polynomial in $x_1, x_2$.  Let $U_\ell(t)$ denote the (normalized) Chebyshev polynomial (of the second kind) defined recursively by 
+    \[U_{\ell+1}(t)=tU_\ell(t)-U_{\ell-1}(t)\qquad U_1(t)=1\qquad U_0(t)=0\]
     and for $j\in\{1,2\}$ define 
-    \[u_{m,j}=\begin{cases}U_m(\sqrt{bc}) & \text{if $m$ is odd;}\\\sqrt{b/c}\,U_m(\sqrt{bc}) & \text{if $m$ is even and $j=1$;}\\\sqrt{c/b}\,U_m(\sqrt{bc}) & \text{if $m$ is even and $j=2$.}\\\end{cases}\]
-    Note that $U_m(t)$ is an odd (resp. even) function when $m$ is even (resp. odd), so each $u_{m,j}$ is a polynomial in $b$ and $c$.  Moreover, one may easily show that each $u_{m,j}$, $m\ge1$ is a positive integer when $bc\ge4$.  
+    \[u_{\ell,j}=\begin{cases}U_\ell(\sqrt{bc}) & \text{if $\ell$ is odd;}\\\sqrt{b/c}\,U_\ell(\sqrt{bc}) & \text{if $\ell$ is even and $j=1$;}\\\sqrt{c/b}\,U_\ell(\sqrt{bc}) & \text{if $\ell$ is even and $j=2$.}\\\end{cases}\]
+    Note that $U_\ell(t)$ is an odd (resp. even) function when $\ell$ is even (resp. odd), so each $u_{\ell,j}$ is a polynomial in $b$ and $c$.  Moreover, one may easily show that each $u_{\ell,j}$, $\ell\ge1$ is a positive integer when $bc\ge4$.  
 	
 		The rank 2 finite type classification now boils down to verifying the following:
 		\begin{itemize}
@@ -607,16 +607,16 @@
  
 %It is not hard to check that the vectors $d^{(k)}$ are exactly the positive roots in the root system associated the the Cartan matrix $A_B=\left[\begin{array}{cc} 2 & -b\\ -c & 2\end{array}\right]$, which is known to have only finitely many roots if and only if $bc\le3$.
     
-  More generally, if $\tilde{B}$ is any $(n+m) \times n$ extended exchange matrix and $|b_{ij}b_{ji}| \geq 4$ for some $i,j=1,\ldots, n$, then mutating at $i$ and $j$ alone will produce infinitely many cluster variables.  Call an extended exchange matrix $\tilde B=(b_{ij})$ \emph{2-finite} if every matrix $\tilde B'=(b'_{ij})$ mutation equivalent to $\tilde B$ satisfies the condition $|b'_{ij}b'_{ji}|\le3$ for all $i,j$.  By the above reasoning, 2-finiteness is a neccessary condition for a cluster algebra to be of finite type.  It is quite remarkable that it is sufficient as well.
+  More generally, if $\tilde{B}$ is any $m\times n$ extended exchange matrix and $|b_{ij}b_{ji}| \geq 4$ for some $i,j=1,\ldots, n$, then iteratively mutating at $i$ and $j$ alone will produce infinitely many cluster variables.  Call an extended exchange matrix $\tilde B=(b_{ij})$ \emph{2-finite} if every matrix $\tilde B'=(b'_{ij})$ mutation equivalent to $\tilde B$ satisfies the condition $|b'_{ij}b'_{ji}|\le3$ for all $i,j$.  By the above reasoning, 2-finiteness is a neccessary condition for a cluster algebra to be of finite type.  It is quite remarkable that it is sufficient as well.
   \begin{theorem}\cite{FZ03}
     A cluster algebra $\cA(\x,\tilde B)$ is of finite type if and only if $\tilde B$ is 2-finite.
   \end{theorem}
 
-  The next result gives the positivity of the initial cluster Laurent expansions of all cluster variables.
-  \begin{theorem}\cite{LS15}
+  The next result gives the positivity of the initial cluster Laurent expansions of all cluster variables.  This result remained open for more than ten years, since the inception of cluster algebras.  
+  \begin{theorem}\cite{LS15,GHKK14}
     Let $\cA(\bx,\tilde B)$ be a cluster algebra.  Any cluster variable of $\cA(\bx,\tilde B)$ is an element of $\ZZ_{\ge0}[x_1^{\pm1},\ldots,x_m^{\pm1}]$.
   \end{theorem}
-  The proof builds on a concrete combinatorial construction of cluster variables in rank 2 \cite{LS13,LLZ14}.  To describe it we need more notation.
+  The proof in skew-symmetric types builds on a concrete combinatorial construction of cluster variables in rank 2 \cite{LS13,LLZ14}.  For the more general skew-symmetrizable cluster algebras the proof was given in \cite{GHKK14} using the theory of scattering diagrams built on connections to mirror symmetry.  We describe the combinatorial approach to the skew-symmetric case here, but first we need more notation.
 
   For $k\in\ZZ\setminus\{1,2\}$, denote by $R_k$ the rectangle in $\ZZ^2$ with corner vertices $(0,0)$ and $d^{(k)}$ from Equation~\ref{eq:rank 2 denominators}.  Write $D_k$ for the maximal Dyck path in $R_k$ beginning at $(0,0)$, taking East and North steps to end at the upper right corner of $R_k$ while never passing above the main diagonal, and such that the area below $D_k$ inside $R_k$ is maximized.
   \begin{example}
@@ -741,7 +741,7 @@
   \end{definition}
 
   \begin{theorem}\cite{BFZ05}\label{th:lower bounds}
-    Let $\cA(\x,\tilde B)$ be a cluster algebra where $\tilde B$ is coprime and has acyclic principal part.  Then the cluster algebra $\cA(\x,\tilde B)$ coincides with its lower bound $\cL(\x,\tilde B)$.  Moreover, the collection of all monomials in $x_1,x'_1,\ldots,x_n,x'_n,x_{n+1},\ldots,x_m$ which do not contain both $x_k$ and $x_k'$ for any $k$ forms a basis of the cluster algebra $\cA(\bx,\tilde B)$.
+    Let $\cA(\x,\tilde B)$ be a cluster algebra where $\tilde B$ is coprime and has acyclic principal part.  Then the cluster algebra $\cA(\x,\tilde B)$ coincides with its lower bound $\cL(\x,\tilde B)$.  Moreover, the collection of all \emph{standard monomials} in $x_1,x'_1,\ldots,x_n,x'_n,x_{n+1},\ldots,x_m$, i.e. those which do not contain both $x_k$ and $x_k'$ for any $k$, forms a basis of the cluster algebra $\cA(\bx,\tilde B)$.
   \end{theorem}
 
   \begin{example}
@@ -1384,6 +1384,7 @@ For the remainder of this section, all mutations are understood to be of $Y$-pat
   \bibitem{GSV10} M. Gekhtman, M. Shapiro, and A. Vainshtein,  Cluster algebras and Poisson geometry, Mathematical Surveys and Monographs, \textbf{167}. American Mathematical Society, Providence, RI, 2010.
 	\bibitem{G11} M. Glick, The pentagram map and Y-patterns, \textsl{Adv. Math.} \textbf{227} (2011), 1019--1045.
 	\bibitem{GK13} A. Goncharov and R. Kenyon, Dimers and cluster integrable systems, \textsl{Ann. Sci. \'Ec. Norm. Sup\'er.} \textbf{46} (2013), 747--813.
+  \bibitem{GHKK14} M. Gross, P. Hacking, S. Keel, and M. Kontsevich, Canonical bases for cluster algebras, arXiv preprint:1411.1394.
 	\bibitem{H91} A. Hatcher, On triangulations of surfaces, \textsl{Topology Appl.} \textbf{40} (1991), 189--194.
 	\bibitem{H07} A. Hone, Sigma function solution of the initial value problem for Somos 5 sequences, \textsl{Trans. Amer. Math. Soc.} \textbf{359} (2007), no. 10, 5019--5034.
   \bibitem{K10} B. Keller, Categorification of acyclic cluster algebras: an introduction, arXiv preprint: 0801.3103v2.
