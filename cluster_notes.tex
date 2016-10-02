@@ -854,7 +854,7 @@
 		A \emph{quiver} is a directed graph without loops (arrows from a vertex to itself) and without oriented $2$-cycles.
 	\end{definition}
 	
-	A skew-symmetric $n\times n$ exchange matrix $B$ is often represented instead as a quiver $Q$ on vertex set $\{1,2,\ldots, n\}$.  More precisely, if $i,j$ are such that $b_{ij}>0$ then $Q$ has $b_{ij}$ arrows from $i$ to $j$ (and none from $j$ to $i$).  Matrix mutation on $B$ induces so-called quiver mutation on $Q$.
+	A skew-symmetric $n\times n$ exchange matrix $B$ is often represented instead as a quiver $Q$ on vertex set $\{1,2,\ldots, n\}$.  More precisely, if $i,j$ are such that $b_{ij}>0$ then $Q$ has $b_{ij}$ arrows from $i$ to $j$ (and none from $j$ to $i$).  Matrix mutation on $B$ induces so-called \emph{quiver mutation} on $Q$.
 	
 	\begin{definition}
 		Given some $k=1,2,\ldots, n$, the \emph{quiver mutation} $\mu_k$ gives rise to $Q' = \mu_k(Q)$ by applying the following steps to $Q$:
@@ -910,7 +910,7 @@ For the remainder of this section, all mutations are understood to be of $Y$-pat
 		\ncline{->}{v43}{v42}
 	\end{pspicture}
 	
-	Let $\mu_{\textrm{even}}$ be the compound mutation given by applying each $\mu_{i,j}$ with $i+j$ even in turn.  As no arrows connect these even vertices, it follows that these mutations commute so the order does not matter.  Define $\mu_{\textrm{odd}}$ similarly as the compound mutation at all odd vertices.
+	Let $\mu_{\textrm{even}}$ be the compound mutation given by applying each $\mu_{i,j}$ with $i+j$ even in turn.  As no arrows connect these even vertices, it follows that these mutations commute and so the order does not matter.  Define $\mu_{\textrm{odd}}$ similarly as the compound mutation at all odd vertices.
 	
 	\begin{exercise}
 		Let $Y = (Y_{i,j})_{i=1,\ldots, r; j=1,\ldots, s}$.  Then $\mu_{\textrm{even}}(Y,Q) = (Y',-Q)$ where
@@ -1152,7 +1152,7 @@ For the remainder of this section, all mutations are understood to be of $Y$-pat
 \end{theorem}
 
 \begin{remark}
-	It is natural to ask what values the $n$-tuple $(y_1(A),\ldots, y_{2n}(A))$ can take, and also, to what extent this data suffices to reconstruct $A$.  These questions are easier to answer once extending to a larger family of objects called twisted polygons.  In this setting, the $y_i$ satisfy a single relation $y_1\cdots y_{2n}=1$.  Moreover, the $y_i$ determine a twisted polygon uniquely up to projective equivalence and a one-parameter rescaling operation due to Schwartz \cite{S08}.  The $Y$-pattern dynamics described in Theorem \ref{thm:pentagram}, then, characterize the dynamics of the pentagram map on the space of twisted polygons modulo these equivalences.
+	It is natural to ask what values the $n$-tuple $(y_1(A),\ldots, y_{2n}(A))$ can take, and also to what extent this data suffices to reconstruct $A$.  These questions are easier to answer once extending to a larger family of objects called twisted polygons.  In this setting, the $y_i$ satisfy a single relation $y_1\cdots y_{2n}=1$.  Moreover, the $y_i$ determine a twisted polygon uniquely up to projective equivalence and a one-parameter rescaling operation due to Schwartz \cite{S08}.  The $Y$-pattern dynamics described in Theorem \ref{thm:pentagram}, then, characterize the dynamics of the pentagram map on the space of twisted polygons modulo these equivalences.
 \end{remark}
 	
 	We now give a somewhat informal presentation of integrability of the pentagram map from the cluster algebra perspective.  The first ingredient is a compatible Poisson structure, which can be obtained directly from the $Y$-pattern analogue of Theorem \ref{thm:Poisson}.
@@ -1314,8 +1314,8 @@ For the remainder of this section, all mutations are understood to be of $Y$-pat
 	Assign edge weights to $G$ as follows: each ``horizontal'' edge $\overline{i(i+1)}$ gets weight $1$ and each ``vertical edge'' $\overline{(i-2)(i+1)}$ gets weight $(-1)^ix_i$.  The $x_i$ represent the \emph{corner invariants} \cite{S08} of a polygon, certain coordinates related to the $y$-parameters by
 	\begin{displaymath}
 		y_i = \begin{cases}
-		-(x_ix_{i+1})^{-1} & \textrm{if $i$ is a vertex of $A$} \\
-		-x_ix_{i+1} & \textrm{if $i$ is a side of $A$} \\
+		-(x_ix_{i+1})^{-1} & \textrm{if $i$ is a vertex of $A$;} \\
+		-x_ix_{i+1} & \textrm{if $i$ is a side of $A$.} \\
 		\end{cases}
 	\end{displaymath}
 	
