@@ -162,7 +162,7 @@
 
     To describe a solution and easily identify total positivity criteria for all general linear groups $GL_n$, it will be convenient to slightly generalize the notion of total positivity.  An $n\times n$ matrix $M$ is called \emph{totally nonnegative} if the determinant of every square submatrix is a nonnegative real number.  Write $GL_n^{\ge0}\subset GL_n$ for the subset of totally nonnegative matrices.  Again one may ask: what is a minimal collection of minors needed to check that a matrix is totally nonnegative?  Unfortunately, or perhaps fortunately, the total nonnegativity criteria are not uniformly described across all of $GL_n$.  The solution to this problem naturally leads one to study certain subvarieties of $GL_n$ called \emph{double Bruhat cells}, which we now describe.
 
-    Let $B_+,B_-\subset GL_n$ denote the subgroups of upper and lower triangular matrices respectively.  Identify the symmetric group $\Sigma_n$ with the subgroup of $GL_n$ consisting of permutation matrices, i.e. matrices having precisely one nonzero entry 1 in each row and column.  For example, identify the permutation $(1,2)\in\Sigma_2$ (written in cycle notation) with the matrix $\left[\begin{array}{cc}0 & 1\\ 1 & 0\end{array}\right]$.  
+    Let $B_+,B_-\subset GL_n$ denote the subgroups of upper and lower triangular matrices respectively.  Identify the symmetric group $\Sigma_n$ with the subgroup of $GL_n$ consisting of permutation matrices, i.e. matrices having precisely one nonzero entry 1 in each row and column.  For example, identify the permutation $(1\ 2)\in\Sigma_2$ (written in cycle notation) with the matrix $\left[\begin{array}{cc}0 & 1\\ 1 & 0\end{array}\right]$.  
 
     It is well known that $GL_n$ decomposes in two ways (actually many ways) as a union of \emph{Bruhat cells}:
     \[GL_n=\bigsqcup_{w\in\Sigma_n}B_+w B_+=\bigsqcup_{w\in\Sigma_n}B_-w B_-.\]
@@ -174,12 +174,12 @@
     For $I,J\subset[1,n]$ with $|I|=|J|$, denote by $\Delta_{I,J}$ the function on $GL_n$ which returns the determinant of the submatrix on row set $I$ and column set $J$.
     \setcounter{subexample}{1}
     \begin{example}\label{example:big cell}
-      Let $w_0=(1,n)(2,n-1)\cdots(\lfloor n/2\rfloor,\lceil n/2\rceil)$ denote the longest permutation in $\Sigma_n$.  The double Bruhat cell $GL_n^{w_0,w_0}$ is given as follows:
+      Let $w_0=(1\ n)(2\ n-1)\cdots(\lfloor n/2\rfloor\ \lceil n/2\rceil)$ denote the longest permutation in $\Sigma_n$.  The double Bruhat cell $GL_n^{w_0,w_0}$ is given as follows:
       \[GL_n^{w_0,w_0}=\{M\in GL_n:\Delta_{[1,i],[n+1-i,n]}(M)\ne0,\Delta_{[n+1-i,n],[1,i]}(M)\ne0\text{ for all $i$}\}.\]
     \end{example}
 
     It turns out that each double Bruhat cell admits its own collection of total positivity criteria, i.e. for each $u,v\in\Sigma_n$ there exists a minimal collection of minors whose positivity identifies the subset $GL_n^{u,v}\cap GL_n^{\ge0}$ inside the double Bruhat cell $GL_n^{u,v}$.
-    Some of these total nonnegativity criteria in $GL_n^{u,v}$ can be conveniently described using double wiring diagrams.  Write $s_i=(i,i+1)\in\Sigma_n$ for the simple transposition interchanging $i$ and $i+1$.  A \emph{reduced word} for $w\in\Sigma_n$ is a minimal sequence $(i_1,\ldots,i_r)$ so that $w=s_{i_1}\cdots s_{i_r}$, where $\ell(w):=r$ is called the \emph{length} of $w$.  A reduced word $(i_1,\ldots,i_r)$ is naturally encoded in a \emph{wiring diagram}, i.e. a collection of $n$ strands with a crossing between the $i$-th and $(i+1)$-st strands each time $i$ appears in the reduced word, see Figure~\ref{fig:wiring diagram}.
+    Some of these total nonnegativity criteria in $GL_n^{u,v}$ can be conveniently described using double wiring diagrams.  Write $s_i=(i\ i+1)\in\Sigma_n$ for the simple transposition interchanging $i$ and $i+1$.  A \emph{reduced word} for $w\in\Sigma_n$ is a minimal sequence $(i_1,\ldots,i_r)$ so that $w=s_{i_1}\cdots s_{i_r}$, where $\ell(w):=r$ is called the \emph{length} of $w$.  A reduced word $(i_1,\ldots,i_r)$ is naturally encoded in a \emph{wiring diagram}, i.e. a collection of $n$ strands with a crossing between the $i$-th and $(i+1)$-st strands each time $i$ appears in the reduced word, see Figure~\ref{fig:wiring diagram}.
     \begin{figure}[ht]
     \begin{tikzpicture}
       \draw (0,0) -- (0.5,0) -- (1.5,1) -- (2,1) -- (3,2) -- (3.5,2) -- (4.5,3) -- (5,3) -- (6,3) -- (6.5,3) -- (7.5,3) -- (8,3) -- (9,3) -- (9.5,3);
@@ -191,7 +191,7 @@
     \label{fig:wiring diagram}
     \end{figure}
 
-    Given $(u,v)\in\Sigma_n^2$, a double reduced for $(u,v)$ is an arbitrary shuffle of a reduced word for $u$ and a reduced word for $v$, where terms in the reduced word for $v$ are taken from the set $\{-1,\ldots,-(n-1)\}$ for clarity.  For example, taking $u=(1,3,2),v=(1,3)\in\Sigma_3$, one double reduced word for $(u,v)$ is $(-1,2,-2,1,-1)$.  Given a double reduced word $(i_1,\ldots,i_r)$, build a double wiring diagram by superposing wiring diagrams associated to the reduced word for $u$ and the reduced word for $v$ with crossings ordered according to the double reduced word, see Figure~\ref{fig:double wiring diagram}.  
+    Given $(u,v)\in\Sigma_n^2$, a double reduced for $(u,v)$ is an arbitrary shuffle of a reduced word for $u$ and a reduced word for $v$, where terms in the reduced word for $v$ are taken from the set $\{-1,\ldots,-(n-1)\}$ for clarity.  For example, taking $u=(1\ 3\ 2),v=(1\ 3)\in\Sigma_3$, one double reduced word for $(u,v)$ is $(-1,2,-2,1,-1)$.  Given a double reduced word $(i_1,\ldots,i_r)$, build a double wiring diagram by superposing wiring diagrams associated to the reduced word for $u$ and the reduced word for $v$ with crossings ordered according to the double reduced word, see Figure~\ref{fig:double wiring diagram}.  
     \begin{figure}[ht]
     \begin{tikzpicture}
       %u
@@ -796,7 +796,7 @@
   \begin{example}
     A symplectic manifold $(M,\omega)$ is a smooth even-dimensional manifold $M^{2n}$ together with a 2-form $\omega\in H^2(M)$ that is non-degenerate, i.e. $\omega^n\ne0$ is a volume form.  The symplectic structure $\omega$ provides a natural association of a vector field $\xi_f$ to a function $f\in\cO(M)$ via the contraction formula $\iota_{\xi_f}\omega=-df$.  The algebra of smooth functions on the symplectic manifold $M$ is then naturally a Poisson algebra via $\{f,g\}=\omega(\xi_f,\xi_g)$ for $f,g\in\cO(M)$.
   \end{example}  
-  A smooth map $\varphi:M\to N$ between Poisson manifolds is a \emph{Poisson morphism} if it induces a Poisson morphism $\varphi^*:\cO(N)\to\cO(M)$ on their algebras of smooth functions, i.e. $\{\varphi^*(f),\varphi^*(g)\}_M=\varphi^*\big(\{f,g\}_N\big)$ for all $f,g\in \cO(N)$.  Given two Poisson manifolds $M$ and $N$, there is a natural Poisson structure on $M\times N$ given by
+  A smooth map $\varphi:M\to N$ between Poisson manifolds is a \emph{Poisson morphism} if it induces a Poisson morphism $\varphi^*:\cO(N)\to\cO(M)$ on their algebras of smooth functions, i.e. if $\{f \circ \varphi,g \circ \varphi\}_M=\{f,g\}_N\circ\varphi$ for all $f,g\in \cO(N)$.  Given two Poisson manifolds $M$ and $N$, there is a natural Poisson structure on $M\times N$ given by
   \[\{f,g\}(x,y)=\{f(\cdot,y),g(\cdot,y)\}_M(x)+\{f(x,\cdot),g(x,\cdot)\}_N(y)\]
   for $f,g\in\cO(M\times N)$.
   \begin{example}
@@ -850,11 +850,13 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Applications to Integrable Systems}\label{sec:integrable_systems}
+	We now explore connections between cluster algebras and discrete integrable systems.  In this context, it is common to represent the exchange matrix as a quiver.
+
 	\begin{definition}
 		A \emph{quiver} is a directed graph without loops (arrows from a vertex to itself) and without oriented $2$-cycles.
 	\end{definition}
 	
-	A skew-symmetric $n\times n$ exchange matrix $B$ is often represented instead as a quiver $Q$ on vertex set $\{1,2,\ldots, n\}$.  More precisely, if $i,j$ are such that $b_{ij}>0$ then $Q$ has $b_{ij}$ arrows from $i$ to $j$ (and none from $j$ to $i$).  Matrix mutation on $B$ induces so-called \emph{quiver mutation} on $Q$.
+	A skew-symmetric $n\times n$ exchange matrix $B$ can be encoded as a quiver $Q$ on vertex set $\{1,2,\ldots, n\}$.  More precisely, if $i,j$ are such that $b_{ij}>0$ then $Q$ has $b_{ij}$ arrows from $i$ to $j$ (and none from $j$ to $i$).  Matrix mutation on $B$ induces so-called \emph{quiver mutation} on $Q$.
 	
 	\begin{definition}
 		Given some $k=1,2,\ldots, n$, the \emph{quiver mutation} $\mu_k$ gives rise to $Q' = \mu_k(Q)$ by applying the following steps to $Q$:
