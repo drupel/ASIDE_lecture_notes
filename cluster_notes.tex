@@ -149,14 +149,14 @@
       The change of coordinate systems observed above can be understood more classically in terms of the Ptolemy relations for cyclic quadrilaterals.  Indeed, consider four distinct points labelled $1,2,3,4$ on a circle in cyclic order and let $x_{ij}$ denote the distance between vertices $i$ and $j$.  Prove that $x_{13}x_{24}=x_{12}x_{34}+x_{14}x_{23}$.
     \end{exercise}
 		
-		More generally, if $T$ is a triangulation of an $n$-gon and $\overline{ik} \in T$ is a diagonal (as opposed to a side), then $\overline{ik}$ is part of two triangles of $T$.  Call the third vertices of these two triangles $j$ and $l$.  It follows that $T' = (T \setminus \{\overline{ik}\}) \cup \{\overline{jl}\}$ is again a triangulation, moreover it is well-known that any two triangulations may be related by a sequence of these flips of diagonals \cite{H91}.  Performing a sequence of such quadrilateral flips and using a Pl\"ucker relation at each step makes it possible to iteratively compute all the rational expressions promised in Proposition \ref{prop:Gr2n}.
+		More generally, if $T$ is a triangulation of an $n$-gon and $\overline{ik} \in T$ is a diagonal (as opposed to a side), then $\overline{ik}$ is part of two triangles of $T$.  Call the third vertices of these two triangles $j$ and $l$.  It follows that $T' = (T \setminus \{\overline{ik}\}) \cup \{\overline{jl}\}$ is again a triangulation.  Moreover, it is well known that any two triangulations may be related by a sequence of these flips of diagonals \cite{H91}.  Performing a sequence of such quadrilateral flips and using a Pl\"ucker relation at each step makes it possible to iteratively compute all the rational expressions promised in Proposition \ref{prop:Gr2n}.
 %  \end{example}
  
 	\subsection{Double Bruhat cells} \label{sub:total positivity}
 %  \begin{example}\label{example:total positivity}
     An $n\times n$ matrix $M$ is called \emph{totally positive} if the determinant of every square submatrix is a positive real number.  In particular, every entry of $M$ is positive and $M$ must be invertible.  Write $GL_n^{>0}\subset GL_n$ for the subset of totally positive matrices.  To check that a given matrix $M\in GL_n$ is totally positive one must, a priori, check that all ${2n\choose n}-1$ minors of $M$ are positive.  A natural question is whether this verification process can be made more efficient.  More precisely, is there a smaller collection of minors one may compute and from the positivity of this subset conclude that every minor is positive, i.e. conclude that $M\in GL_n^{>0}$?  We will call such a collection a \emph{total positivity criterion} if it exists.  
 
-    For small $n$, such criteria can be easily found and easily verified.  For example, a matrix $M=\left[\begin{array}{cc} a & b\\ c & d\end{array}\right]\in GL_2$ is totally positive if and only if $a,b,c,ad-bc>0$ if and only if $b,c,d,ad-bc>0$.
+    For small $n$, such criteria can be found and verified easily.  For example, a matrix $M=\left[\begin{array}{cc} a & b\\ c & d\end{array}\right]\in GL_2$ is totally positive if and only if $a,b,c,ad-bc>0$ if and only if $b,c,d,ad-bc>0$.
     \begin{exercise}\label{exer:gl3 positivity}
       Find a minimal collection of minors whose positivity guarantees a matrix in $GL_3$ is totally positive (hint: any such total positivity criterion consists of 9 minors).
     \end{exercise}
@@ -180,7 +180,7 @@
     \end{example}
 
     It turns out that each double Bruhat cell admits its own collection of total positivity criteria, i.e. for each $u,v\in\Sigma_n$ there exists a minimal collection of minors whose positivity identifies the subset $GL_n^{u,v}\cap GL_n^{\ge0}$ inside the double Bruhat cell $GL_n^{u,v}$.
-    Some of these total nonnegativity criteria in $GL_n^{u,v}$ can be conveniently described using double wiring diagrams.  Write $s_i=(i\ i+1)\in\Sigma_n$ for the simple transposition interchanging $i$ and $i+1$.  A \emph{reduced word} for $w\in\Sigma_n$ is a minimal sequence $(i_1,\ldots,i_r)$ so that $w=s_{i_1}\cdots s_{i_r}$, where $\ell(w):=r$ is called the \emph{length} of $w$.  A reduced word $(i_1,\ldots,i_r)$ is naturally encoded in a \emph{wiring diagram}, i.e. a collection of $n$ strands with a crossing between the $i$-th and $(i+1)$-st strands each time $i$ appears in the reduced word, see Figure~\ref{fig:wiring diagram}.
+    Some of these total nonnegativity criteria in $GL_n^{u,v}$ can be conveniently described using double wiring diagrams.  Write $s_i=(i\ i+1)\in\Sigma_n$ for the simple transposition interchanging $i$ and $i+1$.  A \emph{reduced word} for $w\in\Sigma_n$ is a minimal sequence $(i_1,\ldots,i_r)$ so that $w=s_{i_1}\cdots s_{i_r}$, where $\ell(w):=r$ is called the \emph{length} of $w$.  A reduced word $(i_1,\ldots,i_r)$ is naturally encoded in a \emph{wiring diagram}, i.e. a collection of $n$ strands with a crossing between the $i$th and $(i+1)$th strands each time $i$ appears in the reduced word, see Figure~\ref{fig:wiring diagram}.
     \begin{figure}[ht]
     \begin{tikzpicture}
       \draw (0,0) -- (0.5,0) -- (1.5,1) -- (2,1) -- (3,2) -- (3.5,2) -- (4.5,3) -- (5,3) -- (6,3) -- (6.5,3) -- (7.5,3) -- (8,3) -- (9,3) -- (9.5,3);
@@ -192,7 +192,7 @@
     \label{fig:wiring diagram}
     \end{figure}
 
-    Given $(u,v)\in\Sigma_n^2$, a double reduced for $(u,v)$ is an arbitrary shuffle of a reduced word for $u$ and a reduced word for $v$, where terms in the reduced word for $v$ are taken from the set $\{-1,\ldots,-(n-1)\}$ for clarity.  For example, taking $u=(1\ 3\ 2),v=(1\ 3)\in\Sigma_3$, one double reduced word for $(u,v)$ is $(-1,2,-2,1,-1)$.  Given a double reduced word $(i_1,\ldots,i_r)$, build a double wiring diagram by superposing wiring diagrams associated to the reduced word for $u$ and the reduced word for $v$ with crossings ordered according to the double reduced word, see Figure~\ref{fig:double wiring diagram}.  
+    Given $(u,v)\in\Sigma_n^2$, a double reduced word for $(u,v)$ is an arbitrary shuffle of a reduced word for $u$ and a reduced word for $v$, where terms in the reduced word for $v$ are taken from the set $\{-1,\ldots,-(n-1)\}$ for clarity.  For example, taking $u=(1\ 3\ 2),v=(1\ 3)\in\Sigma_3$, one double reduced word for $(u,v)$ is $(-1,2,-2,1,-1)$.  Given a double reduced word $(i_1,\ldots,i_r)$, build a double wiring diagram by superposing wiring diagrams associated to the reduced word for $u$ and the reduced word for $v$ with crossings ordered according to the double reduced word (see Figure~\ref{fig:double wiring diagram}).  
     \begin{figure}[ht]
     \begin{tikzpicture}
       %u
@@ -227,7 +227,7 @@
     \label{fig:double wiring diagram}
     \end{figure}
 
-    In a double wiring diagram, we label the strands in $u$'s wiring diagram on the right by $1$ through $n$ starting from the bottom and label the strands in $v$'s wiring diagram similarly on the left.  In this way, each chamber of the double wiring diagram determines a minor with row set given by the labels of strands in $v$'s wiring diagram lying below the chamber and column set given by the labels of strands in $u$'s wiring diagram lying below the chamber, see Figure~\ref{fig:double wiring diagram}.  Now we may describe a collection of total positivity criteria for $GL_n^{u,v}$.
+    In a double wiring diagram, we label the strands in $u$'s wiring diagram on the right by $1$ through $n$ starting from the bottom and label the strands in $v$'s wiring diagram similarly on the left.  In this way, each chamber of the double wiring diagram determines a minor with row set given by the labels of strands in $v$'s wiring diagram lying below the chamber and column set given by the labels of strands in $u$'s wiring diagram lying below the chamber (see Figure~\ref{fig:double wiring diagram}).  Now we may describe a collection of total positivity criteria for $GL_n^{u,v}$.
     \setcounter{subtheorem}{3}
     \begin{theorem}\label{th:total positivity criteria}\cite{FZ99}
       Each double wiring diagram for $(u,v)$ determines a total positivity criterion for $GL_n^{u,v}$, i.e. an element of $GL_n^{u,v}$ lies in $GL_n^{\ge0}$ if and only if all $n+\ell(u)+\ell(v)$ chamber minors determined by the double wiring diagram are positive.
@@ -292,7 +292,7 @@
     \end{exercise}
 		
 		\begin{exercise}
-		Another local transformation of a double wiring diagram is given by braid moves, either within $u$ or within $v$.  As an example, suppose a doubled word for $u,v$ begins $1,2,1$ (i.e, $u$ begins $1,2,1$ and these all occur before the first letter of $v$ in the doubled word).  Consider the double wiring diagrams both for this word and the one obtained by replacing the first three letters with $2,1,2$.  Show that the two corresponding collections of chamber minors differ in one element.  Find and prove an exchange relation that describes this transformation.
+		Another local transformation of a double wiring diagram is given by braid moves, either within $u$ or within $v$.  As an example, suppose a doubled word for $u,v$ begins $1,2,1$ (i.e.\ $u$ begins $1,2,1$ and these all occur before the first letter of $v$ in the doubled word).  Consider the double wiring diagrams both for this word and the one obtained by replacing the first three letters with $2,1,2$.  Show that the two corresponding collections of chamber minors differ in one element.  Find and prove an exchange relation that describes this transformation.
 		\end{exercise}
 	  %\end{example}
 
@@ -347,7 +347,7 @@
 	\end{lemma}
 	
 	\begin{definition}
-		Fix an ambient field $\cF$ and an initial seed $(\bx, B)$.  The entries of the clusters of all seeds reachable from this one by a sequence of mutations are called the \emph{cluster variables}.  The \emph{cluster algebra} associated with the initial seed is the subalgebra $\cA:=\cA(\bx,B)$ of $F$ generated by the set of all cluster variables.
+		Fix an ambient field $\cF$ and an initial seed $(\bx, B)$.  The entries of the clusters of all seeds reachable from this one by a sequence of mutations are called the \emph{cluster variables}.  The \emph{cluster algebra} associated with the initial seed is the subalgebra $\cA:=\cA(\bx,B)$ of $\cF$ generated by the set of all cluster variables.
 	\end{definition}
 	
   \begin{example}\label{example:type A2}
@@ -379,7 +379,7 @@
     %This observation readily generalizes to cluster algebras associated to any $2\times 2$ exchange matrix. %and leads ultimately to the following important result.
   \end{example}
 	
-	In the preceding example, there were only finitely many cluster variables.  As we will see, this is typically not the case.  However, a more subtle feature does hold in general, namely that each of the cluster variables was a Laurent polynomial in the variables of the initial seed.  
+	In the preceding example, there were only finitely many cluster variables.  As we will see, this is typically not the case.  However, a more subtle feature does hold in general, namely that each of the cluster variables is a Laurent polynomial in the variables of the initial seed.  
 	\begin{theorem}\label{th:Laurent phenomenon}
 		For any initial seed $(\x,B)$ with $\x = (x_1,\ldots, x_n)$, the associated cluster algebra lies in the Laurent polynomial ring
 		\begin{displaymath}
@@ -434,15 +434,15 @@
 		\end{displaymath}
 		
 		\begin{subexercise}\label{exercise:rank 2}\mbox{}
-    \begin{enumerate}
-      \item Compute all cluster variables and coefficient variables for cluster algebras associated to $B=\left[\begin{array}{cc} 0 & b\\ -c & 0\end{array}\right]$ with $b,c\in\ZZ_{>0}$ and $bc\le 3$.
-      \item Justify why attempting such a calculation is futile for $bc\ge4$.  Hint: consider the denominator vectors of the cluster variables.
-    \end{enumerate}
-  \end{subexercise}
+            \begin{enumerate}
+                \item Compute all cluster variables and coefficient variables for cluster algebras associated to $B=\left[\begin{array}{cc} 0 & b\\ -c & 0\end{array}\right]$ with $b,c\in\ZZ_{>0}$ and $bc\le 3$.
+                \item Justify why attempting such a calculation is futile for $bc\ge4$.  Hint: consider the degrees appearing in the denominators of the cluster variables.
+    		\end{enumerate}
+  		\end{subexercise}
 	
-	\begin{subexercise}\label{exercise:rank 2 Laurent phenomenon}
-    Prove the Laurent phenomenon for rank 2 cluster algebras.  Hint: start by showing that $x_4\in\ZZ[x_0,x_1,x_2,x_3]$ by considering the monomial $x_0x_3^b$.
-  \end{subexercise}
+		\begin{subexercise}\label{exercise:rank 2 Laurent phenomenon}
+    		Prove the Laurent phenomenon for rank 2 cluster algebras.  Hint: start by showing that $x_4\in\ZZ[x_0,x_1,x_2,x_3]$ by considering the monomial $x_0x_3^b$.
+  		\end{subexercise}
 	\end{example}
 	
 	\begin{example}
@@ -467,7 +467,7 @@
 		\end{displaymath}
 		Let $\cA = \cA(\x,\tilde{B})$.  Interpreting the initial variables as the indicated Pl\"ucker coordinates on $Gr_{2,6}$ we obtain a cluster algebra in the ring of rational functions on $Gr_{2,6}$.
 		\begin{subexercise}
-      Prove the following statements about the cluster algebra $\cA$ just defined:
+            Prove the following statements about the cluster algebra $\cA$ just defined:
 			\begin{itemize}
 			\item The cluster variables of $\cA$ are precisely the Pl\"ucker coordinates $\Delta_{ij}$ with $1 \leq i < j \leq n$.
 			\item The clusters of $\cA$ are precisely the collections $\Delta_T$ (see Section \ref{sub:Gr2n}) for $T$ a triangulation of a hexagon. 
@@ -500,7 +500,7 @@
 	where the products range over $i$ from $1$ to $n$.
 	
 	\subsection{$Y$-patterns}
-	There is an alternate version of seeds and mutations, closely related to the previous, which itself arises in many applications.  
+	There is an alternate version of seeds and mutations, closely related to the previous one, which itself arises in many applications.  
 	
 	\begin{definition}
 		A \emph{$Y$-seed} is a pair $(\y,B)$ consisting of an $n$-tuple $\y=(y_1,\ldots, y_n)$ and an $n\times n$ skew-symmetric matrix $B$.  For $k=1,\ldots, n$, the \emph{$Y$-seed mutation} $\mu_k$ is defined by
@@ -550,7 +550,7 @@
 	Recalling Example~\ref{example:rank2}, consider the rank 2 cluster algebra with initial exchange matrix $B=\left[\begin{array}{cc}0 & b\\ -c & 0\end{array}\right]$  and cluster variables $x_k$, $k\in\ZZ$ which satisfy the recursion
   \[x_{k-1}x_{k+1}=\begin{cases}x_k^b+1 & \text{if $k$ is odd;}\\ x_k^c+1 & \text{if $k$ is even.}\end{cases}\]
   \begin{theorem}
-    For any $m\in\ZZ$, each $x_k$ is an element of the ring $\ZZ[x_{m-1},x_m,x_{m+1},x_{m+2}]$.
+    For any $m\in\ZZ$, each $x_k$ is an element of $\ZZ[x_{m-1},x_m,x_{m+1},x_{m+2}]$.
   \end{theorem}
   \begin{remark}
     The ring $\ZZ[x_{m-1},x_m,x_{m+1},x_{m+2}]$ is called the \emph{lower bound} of $\cA(\bx,B)$ at the cluster $\{x_m,x_{m+1}\}$.  We will give more details below and see that this result is a special case of Theorem~\ref{th:lower bounds}.
@@ -574,7 +574,7 @@
     If one allows extended exchange matrices and imposes an additional coprimality assumption (see Definition~\ref{def:coprime}), then the condition $b,c\ne0$ may be dropped.  The ring $\bigcap_{k=m-1}^{m+1}\ZZ[x_k^{\pm1},x_{k+1}^{\pm1}]$ is called the \emph{upper bound} of $\cA(\bx,B)$ at the cluster $\{x_m.x_{m+1}\}$ and the ring $\bigcap_{k\in\ZZ}\ZZ[x_k^{\pm1},x_{k+1}^{\pm1}]$ is called the \emph{upper cluster algebra}.  We will give more details below at which point this result will be a special case of Theorems~\ref{th:lower bounds} and~\ref{th:acyclic upper bounds}.
   \end{remark}
 
-	The next result is the classification of cluster algebras of \emph{finite type}, i.e.\ those that have only finitely many cluster variables.  As we have seen in Sections~\ref{sub:Gr2n} and~\ref{sub:total positivity}, cluster algebras have roots in classical Lie theory.  A large number of objects in this realm are classified by Dynkin diagrams and finite type cluster algebras are no exception.  Given an extended exchange matrix $\tilde B$ with principal square submatrix $B=(b_{ij})$, write $A:=A_{\tilde B}=(a_{ij})$ for the \emph{Cartan companion} of $\tilde B$ given by 
+	The next result is the classification of cluster algebras of \emph{finite type}, i.e.\ those that have only finitely many cluster variables.  As we have seen in Sections~\ref{sub:Gr2n} and~\ref{sub:total positivity}, cluster algebras have roots in classical Lie theory.  A large number of objects in this realm are classified by Dynkin diagrams and finite type cluster algebras are no exception.  Given an extended exchange matrix $\tilde B$ with principal square submatrix $B=(b_{ij})_{i,j=1}^n$, write $A:=A_{\tilde B}=(a_{ij})_{i,j=1}^n$ for the \emph{Cartan companion} of $\tilde B$ given by 
   \[a_{ij}=\begin{cases}2 & \text{if $i=j$;}\\ -|b_{ij}| & \text{otherwise.}\end{cases}\]
   Note that the Cartan companion only depends on the principal part of $\tilde B$.
   \begin{theorem}\cite{FZ03}
@@ -746,7 +746,7 @@
   \end{theorem}
 
   \begin{example}
-    Acyclic cluster algebras are particularly nice but should not be taken as the general case, there exist cluster algebras where anything that can go wrong seems to go wrong.  The primary example of this is the \emph{Markov cluster algebra} with exchange matrix 
+    Acyclic cluster algebras are particularly nice but should not be taken as the general case: there exist cluster algebras where anything that can go wrong seems to go wrong.  The primary example of this is the \emph{Markov cluster algebra} with exchange matrix 
     \[B=\left[\begin{array}{ccc} 0 & 2 & -2\\ -2 & 0 & 2\\ 2 & -2 & 0\end{array}\right].\]
     
     Comparing with Example~\ref{sub:Markov triples} we see that the Markov cluster algebra has infinitely many cluster variables.  In this case, the following undesirable properties all hold:
@@ -833,16 +833,16 @@
 
   A final reason to care about Poisson structures on a cluster algebra is that they provide a canonical quantization of the cluster algebra structure.  Rather than giving precise definitions, we indicate here the intuition motivating the definition and refer the reader to \cite{BZ05} for more details.
 
-  Given a cluster algebra $\cA(\bx,\tilde B)$ of full rank, any choice of compatible Poisson structure gives rise to a canonical quantization of $\cA(\bx,\tilde B)$ by the following procedure where $v$ denotes a formal variable:
+  Given a cluster algebra $\cA(\bx,\tilde B)$ of full rank, any choice of compatible Poisson structure gives rise to a canonical quantization of $\cA(\bx,\tilde B)$ by the following procedure, where $v$ denotes a formal variable:
   \begin{itemize}
-    \item Each cluster should be replaced by a collection of quasi-commuting elements $\{X_1,\ldots,X_m\}$ satisfying $X_iX_j=v^{2\Lambda(\varepsilon_j,\varepsilon_i)}X_jX_i$ for a skew-symmetric bilinear form $\Lambda:\ZZ^m\times\ZZ^m\to\ZZ$.  That is, this \emph{quantum cluster} generates a \emph{quantum torus} $\cT=\ZZ[v^{\pm1}]\langle X_1^{\pm1},\ldots,X_m^{\pm1}\rangle$ with a $\ZZ[v^{\pm1}]$-basis 
+    \item Each cluster should be replaced by a collection of quasi-commuting elements $\{X_1,\ldots,X_m\}$ satisfying $X_iX_j=v^{2\Lambda(\varepsilon_j,\varepsilon_i)}X_jX_i$ for a skew-symmetric bilinear form $\Lambda:\ZZ^m\times\ZZ^m\to\ZZ$, where $\varepsilon_i$ denotes the $i$th standard basis vector of $\ZZ^m$.  That is, this \emph{quantum cluster} generates a \emph{quantum torus} $\cT=\ZZ[v^{\pm1}]\langle X_1^{\pm1},\ldots,X_m^{\pm1}\rangle$ with a $\ZZ[v^{\pm1}]$-basis 
     \[\left\{X^\ba:=v^{\sum\limits_{i<j}a_ia_j\Lambda(\varepsilon_i,\varepsilon_j)}X_1^{a_1}\cdots X_m^{a_m}\Big|\ba=(a_1,\ldots,a_m)\in\ZZ^m\right\}.\]
     \item Each quantum cluster obtained by mutation from this one should again generate a quantum torus.  This forces a compatibility condition on the exchange matrix $\tilde B$ and the commutation matrix $\Lambda$ (by a slight abuse of notation we freely identify the bilinear form $\Lambda$ with a skew-symmetric matrix), that is 
     \begin{equation}\label{eq:quantum compatibility}
       \Lambda(\bb_k,\varepsilon_\ell)=0\quad\text{if $k\ne\ell$,}
     \end{equation}
     where $\bb_k$ denotes the $k^{th}$ column of $\tilde B$ thought of as an element of $\ZZ^m$.
-    \item The above conditions still leave a great deal of freedom.  To restrict further, notice that the quasi-commutation relation above can be rewritten as $v^{\Lambda(\varepsilon_i,\varepsilon_j)}X_iX_j=v^{\Lambda(\varepsilon_j,\varepsilon_i)}X_jX_i$, in particular this implies that $\cT$ admits an anti-automorphism $X\mapsto \overline{X}$ which fixes each $X_i$ and sends $v$ to $v^{-1}$ (recall that $\Lambda$ was assumed skew-symmetric).  Since each initial cluster variable was \emph{bar-invariant}, the same should be true of all cluster variables since a cluster algebra is independent of the choice of initial cluster.  This uniquely determines how to incorporate powers of $v$ into the exchange relations \eqref{eq:exchange relation}, more precisely the new variable obtained by mutation in direction $k$ must be
+    \item The above conditions still leave a great deal of freedom.  To restrict further, notice that the quasi-commutation relation above can be rewritten as $v^{\Lambda(\varepsilon_i,\varepsilon_j)}X_iX_j=v^{\Lambda(\varepsilon_j,\varepsilon_i)}X_jX_i$, in particular this implies that $\cT$ admits an anti-automorphism $X\mapsto \overline{X}$ which fixes each $X_i$ and sends $v$ to $v^{-1}$ (recall that $\Lambda$ was assumed skew-symmetric).  Since each initial cluster variable was \emph{bar-invariant}, the same should be true of all cluster variables since a cluster algebra is independent of the choice of initial cluster.  This uniquely determines how to incorporate powers of $v$ into the exchange relations \eqref{eq:exchange relation}; more precisely, the new variable obtained by mutation in direction $k$ must be
     \[X_k'=X^{-\varepsilon_k+\sum\limits_{b_{ik}>0}b_{ik}\varepsilon_i}+X^{-\varepsilon_k-\sum\limits_{b_{ik}<0}b_{ik}\varepsilon_i}.\]
   \end{itemize}
   \begin{exercise}
@@ -874,7 +874,7 @@
 	\end{displaymath}
 	the system amounts to iterating a fixed birational transformation.  It is natural to investigate these mappings for properties such as periodicity and integrability.  
 	
-	We focus on two (families of) quivers, one giving rise to the $Y$-system of type $A \times A$ and the other corresponding to the pentagram map. Some of the many other systems that have been investigated from a cluster algebra point of view are $Q$-systems \cite{dFK10}, $T$-systems \cite{dFK09}, Somos sequences \cite{H07}, and mutations in box products of quivers \cite{P15}. A systematic study of quivers that return to (isomorphic copies of) themselves under mutation was undertaken in \cite{FM11}.
+	We focus on two (families of) quivers, one giving rise to the $Y$-system of type $A \times A$ and the other corresponding to the pentagram map. Some of the many other systems that have been investigated from a cluster algebra point of view are $Q$-systems \cite{dFK10}, $T$-systems \cite{dFK09}, Somos sequences \cite{H07}, and mutations in box products of quivers \cite{P15}. A systematic study of quivers that return to (isomorphic copies of) themselves under mutation was undertaken in \cite{FM11}.  We also refer the reader to \cite{N11,GNR16}, where periodicities of cluster algebra mutations are used to derive dilogarithm identities.
 
 For the remainder of this section, all mutations are understood to be of $Y$-pattern type.
 
@@ -968,7 +968,7 @@ For the remainder of this section, all mutations are understood to be of $Y$-pat
 	\caption{An application of the pentagram map}
 	\end{figure}
 	
-	The pentagram map was introduced by R. Schwartz \cite{S92} and extensively studied by V. Ovsienko, Schwartz and S. Tabachnikov \cite{OST10, OST13}.  In particular, they demonstrated that the pentagram map is a complete integrable system.  Another take on integrability was provided by F. Soloviev \cite{S13}.  In the same span of time, M. Glick \cite{G11} described the pentagram map as mutations in a $Y$-pattern, building on work of Schwartz \cite{S08} who had found a lift to the octahedron recurrence.  Finally, M. Gekhtman, M. Shapiro, Tabachnikov and A. Vainshtein \cite{GSTV12} gave a uniform treatment of integrability and ``clusterness'' of the pentagram map, and generalizations thereof, in terms of weighted networks on tori.  A similar framework is provided by the cluster integrable systems of A. Goncharov and R. Kenyon \cite{GK13}, albeit without any explicit mention of the pentagram map.
+	The pentagram map was introduced by R. Schwartz \cite{S92} and extensively studied by V. Ovsienko, Schwartz and S. Tabachnikov \cite{OST10, OST13}.  In particular, they demonstrated that the pentagram map is a completely integrable system.  Another take on integrability was provided by F. Soloviev \cite{S13}.  In the same span of time, M. Glick \cite{G11} described the pentagram map as mutations in a $Y$-pattern, building on work of Schwartz \cite{S08} who had found a lift to the octahedron recurrence.  Finally, M. Gekhtman, M. Shapiro, Tabachnikov and A. Vainshtein \cite{GSTV12} gave a uniform treatment of integrability and the cluster algebra structure of the pentagram map, and generalizations thereof, in terms of weighted networks on tori.  A similar framework is provided by the cluster integrable systems of A. Goncharov and R. Kenyon \cite{GK13}, albeit without any explicit mention of the pentagram map.
 	
 	The connection between the pentagram map and $Y$-patterns comes by way of certain geometrically defined coordinates on the space of polygons.  The \emph{cross ratio} of $4$ real numbers $x_1,x_2,x_3,x_4$ is 
 	\begin{displaymath}
@@ -1082,10 +1082,10 @@ For the remainder of this section, all mutations are understood to be of $Y$-pat
 		In this equation, all indices are considered modulo $2n$.
 	\end{proposition}
 	
-	The formula \eqref{eq:T} bares a distinct resemblance to \eqref{eq:YSystemCases}, so it is plausible that it can also be described by $Y$-pattern mutations for an appropriate quiver.  The desired quiver $Q_n$ has vertex set $\{1,2,\ldots,2n\}$ and arrows $j \to (j\pm1)$ and $j \leftarrow (j \pm 3)$ for each odd $j$, with vertices considered modulo $2n$.  The quiver $Q_8$ is in Figure \ref{fig:GlickQuiver}.  Similar to before, define compound mutations
+	The formula \eqref{eq:T} bears a distinct resemblance to \eqref{eq:YSystemCases}, so it is plausible that it can also be described by $Y$-pattern mutations for an appropriate quiver.  The desired quiver $Q_n$ has vertex set $\{1,2,\ldots,2n\}$ and arrows $j \to (j\pm1)$ and $j \leftarrow (j \pm 3)$ for each odd $j$, with vertices considered modulo $2n$.  The quiver $Q_8$ is shown in Figure~\ref{fig:GlickQuiver}.  Similar to before, define compound mutations
 	\begin{align*}
-		\mu_{\textrm{odd}} &= \mu_{2n-1} \circ \cdots \circ \mu_3 \circ \mu_1 \\
-		\mu_{\textrm{even}} &= \mu_{2n} \circ \cdots \circ \mu_4 \circ \mu_2 
+		\mu_{\textrm{odd}} &= \mu_{2n-1} \circ \cdots \circ \mu_3 \circ \mu_1, \\
+		\mu_{\textrm{even}} &= \mu_{2n} \circ \cdots \circ \mu_4 \circ \mu_2. 
 	\end{align*}
 	
 	\begin{figure}
@@ -1155,7 +1155,7 @@ For the remainder of this section, all mutations are understood to be of $Y$-pat
 \end{theorem}
 
 \begin{remark}
-	It is natural to ask what values the $n$-tuple $(y_1(A),\ldots, y_{2n}(A))$ can take, and also to what extent this data suffices to reconstruct $A$.  These questions are easier to answer once extending to a larger family of objects called twisted polygons.  In this setting, the $y_i$ satisfy a single relation $y_1\cdots y_{2n}=1$.  Moreover, the $y_i$ determine a twisted polygon uniquely up to projective equivalence and a one-parameter rescaling operation due to Schwartz \cite{S08}.  The $Y$-pattern dynamics described in Theorem \ref{thm:pentagram}, then, characterize the dynamics of the pentagram map on the space of twisted polygons modulo these equivalences.
+	It is natural to ask what values the $n$-tuple $(y_1(A),\ldots, y_{2n}(A))$ can take, and also to what extent this data suffices to reconstruct $A$.  These questions are easier to answer after extending to a larger family of objects called twisted polygons.  In this setting, the $y_i$ satisfy a single relation $y_1\cdots y_{2n}=1$.  Moreover, the $y_i$ determine a twisted polygon uniquely up to projective equivalence and a one-parameter rescaling operation due to Schwartz \cite{S08}.  The $Y$-pattern dynamics described in Theorem \ref{thm:pentagram}, then, characterize the dynamics of the pentagram map on the space of twisted polygons modulo these equivalences.
 \end{remark}
 	
 	We now give a somewhat informal presentation of integrability of the pentagram map from the cluster algebra perspective.  The first ingredient is a compatible Poisson structure, which can be obtained directly from the $Y$-pattern analogue of Theorem \ref{thm:Poisson}.
@@ -1359,55 +1359,57 @@ For the remainder of this section, all mutations are understood to be of $Y$-pat
 	
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{thebibliography}{99}
-  \bibitem{ABCGPT14} N. Arkani-Hameda, J. Bourjailyb, F. Cachazoc, A. Goncharovd, A. Postnikove, and J. Trnka, Scattering amplitudes and the positive Grassmannian, arXiv preprint: 1212.5605v2.
-  \bibitem{BFZ05} A. Berenstein, S. Fomin, and A. Zelevinsky, Cluster algebras III: upper bounds and double Bruhat cells, \textsl{J. London Math. Soc.} \textbf{14} (1976), 183–-187.
-  \bibitem{BR15} A. Berenstein and D. Rupel, Quantum cluster characters of Hall algebras, \textsl{Sel. Math. New Ser.} \textbf{21} (2015), no. 4, 1121--1176.
-  \bibitem{BZ05} A. Berenstein and A. Zelevinsky, Quantum cluster algebras. \textsl{Adv. Math.} \textbf{195} (2005), no. 2, 405--455.
+  	\bibitem{ABCGPT14} N. Arkani-Hameda, J. Bourjailyb, F. Cachazoc, A. Goncharovd, A. Postnikove, and J. Trnka, Scattering amplitudes and the positive Grassmannian, arXiv preprint: 1212.5605v2.
+  	\bibitem{BFZ05} A. Berenstein, S. Fomin, and A. Zelevinsky, Cluster algebras III: upper bounds and double Bruhat cells, \textsl{J. London Math. Soc.} \textbf{14} (1976), 183–-187.
+  	\bibitem{BR15} A. Berenstein and D. Rupel, Quantum cluster characters of Hall algebras, \textsl{Sel. Math. New Ser.} \textbf{21} (2015), no. 4, 1121--1176.
+  	\bibitem{BZ05} A. Berenstein and A. Zelevinsky, Quantum cluster algebras. \textsl{Adv. Math.} \textbf{195} (2005), no. 2, 405--455.
 	\bibitem{BMRRT06} A. Buan, R. Marsh, I. Reiten, M. Reineke, and G. Todorov, Tilting theory and cluster combinatorics, \textsl{Adv. Math.} \textbf{204} (2006), no. 2, 572–-618.
-  \bibitem{CC06} P. Caldero and F. Chapoton, Cluster algebras as Hall algebras of quiver representations, \textsl{Comment. Math. Helv.} \textbf{81} (2006), no. 3, 595--616.
-  \bibitem{CK06} P. Caldero and B. Keller, From triangulated categories to cluster algebras II, \textsl{Ann. Sci. \'Ecole Norm. Sup.} (4) \textbf{39} (2006), no. 6, 983--1009.
+  	\bibitem{CC06} P. Caldero and F. Chapoton, Cluster algebras as Hall algebras of quiver representations, \textsl{Comment. Math. Helv.} \textbf{81} (2006), no. 3, 595--616.
+  	\bibitem{CK06} P. Caldero and B. Keller, From triangulated categories to cluster algebras II, \textsl{Ann. Sci. \'Ecole Norm. Sup.} (4) \textbf{39} (2006), no. 6, 983--1009.
 	\bibitem{dFK09} P. DiFrancesco and R. Kedem, Positivity of the $T$-system cluster algebra, \textsl{Electron. J. Combin.} \textbf{16} (2009), 39 pp.
 	\bibitem{dFK10} P. DiFrancesco and R. Kedem, $Q$-systems, heaps, paths and cluster positivity, \textsl{Comm. Math. Phys.} \textbf{293} (2010), 727--802.
-  \bibitem{EF12} R. Eager and S. Franco, Colored BPS pyramid partition functions, quivers and cluster transformations, \textsl{J. High Energy Phys.} (2012), no. 9, 038.
+  	\bibitem{EF12} R. Eager and S. Franco, Colored BPS pyramid partition functions, quivers and cluster transformations, \textsl{J. High Energy Phys.} (2012), no. 9, 038.
 	\bibitem{FG06} V. Fock and A. Goncharov, Moduli spaces of local systems and higher Teichm\"uller theory, \textsl{Publ. Math. Inst. Hautes \'Etudes Sci.} \textbf{103} (2006), 1--211.
 	\bibitem{FST08} S. Fomin, M. Shapiro, and D. Thurston, Cluster algebras and triangulated surfaces. I. Cluster complexes, \textsl{Acta Math.} \textbf{201} (2008), 83--146.
 	\bibitem{FZ99} S. Fomin and A. Zelevinsky, Double Bruhat celles and total positivity, \textsl{J. Amer. Math. Soc.} \textbf{12} (1999), 335--380.
 	\bibitem{FZ02} S. Fomin and A. Zelevinsky, Cluster algebras I: Foundations, \textsl{J. Amer. Math. Soc.} \textbf{15} (2002), 497--529.
 	\bibitem{FZ02b} S. Fomin and A. Zelevinsky, The Laurent phenomenon, \textsl{Adv. in Applied Math.} \textbf{28} (2002), 119-–144.
-  \bibitem{FZ03} S. Fomin and A. Zelevinsky, Cluster algebras II: Finite type classification, \textsl{Invent. Math.} \textbf{154} (2003), 63-–121.
+  	\bibitem{FZ03} S. Fomin and A. Zelevinsky, Cluster algebras II: Finite type classification, \textsl{Invent. Math.} \textbf{154} (2003), 63-–121.
 	\bibitem{FZ07} S. Fomin and A. Zelevinsky, Cluster algebras IV: Coefficients, \textsl{Compos. Math.} \textbf{143} (2007), 112--164.
 	\bibitem{FM11} A. Fordy and R. Marsh, Cluster mutation-periodic quivers and associated Laurent sequences, \textsl{J. Algebraic Combin.} \textbf{34} (2011), no. 1, 19--66.
 	\bibitem{GLS06} C. Geiss, B. Leclerc, and J. Schroer, Rigid modules over preprojective algebras, \textsl{Invent. Math} \textbf{165} (2006), 589--632.
-  \bibitem{GLS13} C. Geiss, B. Leclerc, and J. Schr\"oer, Cluster structures on quantum coordinate rings, \textsl{Selecta Math. (N.S.)} \textbf{19} (2013), no. 2, 337--397.
-  \bibitem{GLS} C. Geiss, B. Leclerc, and J. Schr\"oer, Cluster algebras in algebraic Lie theory, \textsl{Transf. Groups} \textbf{18} (2013), 149--178.
+ 	\bibitem{GLS13} C. Geiss, B. Leclerc, and J. Schr\"oer, Cluster structures on quantum coordinate rings, \textsl{Selecta Math. (N.S.)} \textbf{19} (2013), no. 2, 337--397.
+  	\bibitem{GLS} C. Geiss, B. Leclerc, and J. Schr\"oer, Cluster algebras in algebraic Lie theory, \textsl{Transf. Groups} \textbf{18} (2013), 149--178.
+  	\bibitem{GNR16} M. Gekhtman, T. Nakanishi, D. Rupel, Hamiltonian and Lagrangian formalisms of mutations in cluster algebras and application to dilogarithm identities, arXiv preprint: 1611.02813.
 	\bibitem{GSTV12} M. Gekhtman, M. Shapiro, S. Tabachnikov, and A. Vainshtein, Higher pentagram maps, weighted directed networks, and cluster dynamics, \textsl{Electron. Res. Announc. Math. Sci.} \textbf{19} (2012), 1--17.
 	\bibitem{GSV03} M. Gekhtman, M. Shapiro, and A. Vainshtein,  Cluster algebras and Poisson geometry, \textsl{Mosc. Math. J.} \textbf{3} (2003), 899--934.
-  \bibitem{GSV10} M. Gekhtman, M. Shapiro, and A. Vainshtein,  Cluster algebras and Poisson geometry, Mathematical Surveys and Monographs, \textbf{167}. American Mathematical Society, Providence, RI, 2010.
+  	\bibitem{GSV10} M. Gekhtman, M. Shapiro, and A. Vainshtein,  Cluster algebras and Poisson geometry, Mathematical Surveys and Monographs, \textbf{167}. American Mathematical Society, Providence, RI, 2010.
 	\bibitem{G11} M. Glick, The pentagram map and Y-patterns, \textsl{Adv. Math.} \textbf{227} (2011), 1019--1045.
 	\bibitem{GK13} A. Goncharov and R. Kenyon, Dimers and cluster integrable systems, \textsl{Ann. Sci. \'Ec. Norm. Sup\'er.} \textbf{46} (2013), 747--813.
-  \bibitem{GHKK14} M. Gross, P. Hacking, S. Keel, and M. Kontsevich, Canonical bases for cluster algebras, arXiv preprint:1411.1394.
+  	\bibitem{GHKK14} M. Gross, P. Hacking, S. Keel, and M. Kontsevich, Canonical bases for cluster algebras, arXiv preprint:1411.1394.
 	\bibitem{H91} A. Hatcher, On triangulations of surfaces, \textsl{Topology Appl.} \textbf{40} (1991), 189--194.
 	\bibitem{H07} A. Hone, Sigma function solution of the initial value problem for Somos 5 sequences, \textsl{Trans. Amer. Math. Soc.} \textbf{359} (2007), no. 10, 5019--5034.
-  \bibitem{K10} B. Keller, Categorification of acyclic cluster algebras: an introduction, arXiv preprint: 0801.3103v2.
-  \bibitem{K12} Y. Kimura, Quantum unipotent subgroup and dual canonical basis, \textsl{Kyoto J. Math.} \textbf{52} (2012), no. 2, 277--331.
-  \bibitem{KQ14} Y. Kimura and F. Qin, Graded quiver varieties, quantum cluster algebras and dual canonical basis, \textsl{Adv. Math.} \textbf{262} (2014), 261--312.
-  \bibitem{KZ02} M. Kogan and A. Zelevinsky, On symplectic leaves and integrable systems in standard complex semisimple Poisson-Lie groups, arXiv preprint: 0203069v1.
-  \bibitem{LLZ14} K. Lee, L. Li, and A. Zelevinsky, Greedy elements in rank 2 cluster algebras, \textsl{Sel. Math. New Ser.} \textbf{20} (2014), 57--82.
-  \bibitem{LS13} K. Lee and R. Schiffler, A Combinatorial Formula for Rank 2 Cluster Variables, \textsl{J. Alg. Comb} \textbf{37} (2013), 67--85.
-  \bibitem{LS15} K. Lee and R. Schiffler, Positivity for cluster algebras, \textsl{Ann. Math.} \textbf{182} (2015), 73--125.
+  	\bibitem{K10} B. Keller, Categorification of acyclic cluster algebras: an introduction, arXiv preprint: 0801.3103v2.
+  	\bibitem{K12} Y. Kimura, Quantum unipotent subgroup and dual canonical basis, \textsl{Kyoto J. Math.} \textbf{52} (2012), no. 2, 277--331.
+  	\bibitem{KQ14} Y. Kimura and F. Qin, Graded quiver varieties, quantum cluster algebras and dual canonical basis, \textsl{Adv. Math.} \textbf{262} (2014), 261--312.
+  	\bibitem{KZ02} M. Kogan and A. Zelevinsky, On symplectic leaves and integrable systems in standard complex semisimple Poisson-Lie groups, \textsl{Int. Math. Res. Not.} (2002), no. 32, 1685--1702.
+  	\bibitem{LLZ14} K. Lee, L. Li, and A. Zelevinsky, Greedy elements in rank 2 cluster algebras, \textsl{Sel. Math. New Ser.} \textbf{20} (2014), 57--82.
+  	\bibitem{LS13} K. Lee and R. Schiffler, A Combinatorial Formula for Rank 2 Cluster Variables, \textsl{J. Alg. Comb} \textbf{37} (2013), 67--85.
+  	\bibitem{LS15} K. Lee and R. Schiffler, Positivity for cluster algebras, \textsl{Ann. Math.} \textbf{182} (2015), 73--125.
 	\bibitem{MP07} G. Musiker and J. Propp, Combinatorial interpretations for rank-two cluster algebras of affine type, \textsl{ Electron. J. Combin.} \textbf{14} (2007), 23 pp.
 	\bibitem{MSW13} G. Muisker, R. Schiffler, and L. Williams, Bases for cluster algebras from surfaces, \textsl{Compos. Math} \textbf{149} (2013), 2891--2944.
+	\bibitem{N11} T. Nakanishi, Periodicities in cluster algebras and dilogarithm identities, in A. Skowronski \& K. Yamagata (eds.), Representations of algebras and related topics, EMS Series of Congress Reports, Eur. Math. Soc. (2011) 407--444.
 	\bibitem{OST10} V. Ovsienko, R. Schwartz, and S. Tabachnikov, The pentagram map: a discrete integrable system, \textsl{Comm. Math. Phys.} \textbf{299} (2010), 409--446.
 	\bibitem{OST13} V. Ovsienko, R. Schwartz, and S. Tabachnikov, Liouville-Arnold integrability of the pentagram map on closed polygons, \textsl{Duke Math. J.} \textbf{162} (2013), 2149--2196.
-  \bibitem{P15} P. Pylyavskyy, Zamolodchikov integrability via rings of invariants, arXiv preprint: 1506.05378v4.
+  	\bibitem{P15} P. Pylyavskyy, Zamolodchikov integrability via rings of invariants, arXiv preprint: 1506.05378v4.
 	\bibitem{Q12} F. Qin, Quantum cluster variables via Serre polynomials, \textsl{J. Reine Angew. Math.} \textbf{668} (2012), 149--190.
-  \bibitem{R11} D. Rupel, On a quantum analogue of the Caldero-Chapoton formula, \textsl{Int. Math. Res. Not.} (2011), no. 14, 3207--3236.
-  \bibitem{R15} D. Rupel, Quantum cluster characters for valued quivers, \textsl{Trans. Amer. Math. Soc.} \textbf{367} (2015), 7061--7102.
+  	\bibitem{R11} D. Rupel, On a quantum analogue of the Caldero-Chapoton formula, \textsl{Int. Math. Res. Not.} (2011), no. 14, 3207--3236.
+  	\bibitem{R15} D. Rupel, Quantum cluster characters for valued quivers, \textsl{Trans. Amer. Math. Soc.} \textbf{367} (2015), 7061--7102.
 	\bibitem{S92} R. Schwartz, The pentagram map, \textsl{Experiment. Math.} \textbf{1} (1992), 71--81.
 	\bibitem{S08} R. Schwartz, Discrete monodromy, pentagrams, and the method of condensation, \textsl{J. Fixed Point Theory Appl.} \textbf{3} (2008), 379--409.
 	\bibitem{S13} F. Soloviev, Integrability of the Pentagram Map, \textsl{Duke Math. J.} \textbf{162} (2013), 2815--2853.
 	\bibitem{V07} A. Volkov, On the periodicity conjecture for $Y$-systems, \textsl{Comm. Math. Phys.} \textbf{276} (2007), 509--517.
-  \bibitem{W13} L. Williams, Cluster algebras: an introduction, arXiv preprint: 1212.6263v3.
+  	\bibitem{W13} L. Williams, Cluster algebras: an introduction, arXiv preprint: 1212.6263v3.
 \end{thebibliography}
 
 \end{document}
