@@ -55,7 +55,7 @@
 
 \begin{document}
 \begin{abstract}
-  These are notes for a series of lectures presented at the ASIDE conference 2016.  The definition of a cluster algebra is motivated through several examples, namely Markov triples, the Grassmannians $Gr_2(\CC^n)$, and the appearance of double Bruhat cells in the theory of total positivity.  Once the definition of cluster algebras is recalled in several stages of increasing generality, proofs of fundamental results are sketched in the rank 2 case.  From these foundations we build up the notion of Poisson structures compatible with a cluster algebra structure and indicate how this leads to a quantization of cluster algebras.  Finally we give applications of these ideas to integrable systems in the form of Zamolodchikov periodicity and the pentagram map.
+  These are notes for a series of lectures presented at the ASIDE conference 2016.  The definition of a cluster algebra is motivated through several examples, namely Markov triples, the Grassmannians $Gr_2(\CC^n)$, and the appearance of double Bruhat cells in the theory of total positivity.  Once the definition of cluster algebras is introduced in several stages of increasing generality, proofs of fundamental results are sketched in the rank 2 case.  From these foundations we build up the notion of Poisson structures compatible with a cluster algebra structure and indicate how this leads to a quantization of cluster algebras.  Finally we give applications of these ideas to integrable systems in the form of Zamolodchikov periodicity and the pentagram map.
 \end{abstract}
 \maketitle
 
@@ -1160,7 +1160,7 @@ For the remainder of this section, all mutations are understood to be of $Y$-pat
 	
 	We now give a somewhat informal presentation of integrability of the pentagram map from the cluster algebra perspective.  The first ingredient is a compatible Poisson structure, which can be obtained directly from the $Y$-pattern analogue of Theorem \ref{thm:Poisson}.
 	
-	\begin{proposition}[\cite{OST10, GSTV12}]
+	\begin{proposition}[\cite{OST10, GSTV12}] \label{prop:pentagramBracket}
 		Define a Poisson bracket by $\{y_i,y_j\} = b_{ij}y_iy_j$ where $B$ is the exchange matrix associated to the pentagram quiver $Q_n$.  Then this bracket is preserved by the pentagram map, i.e.
 		\begin{displaymath}
 			\{f,g\} = \{f\circ T, g \circ T\}
@@ -1329,7 +1329,7 @@ For the remainder of this section, all mutations are understood to be of $Y$-pat
 	\end{displaymath}
 	is a perfect matching of $G_4$ and its weight is $(1)(-x_5)(x_6)(-x_7) = x_5x_6x_7$.  The conserved quantities of the pentagram map are sums of weights of perfect matchings, refined by a notion of homology class of a matching defined in \cite{GK13}.
 		
-	\begin{proposition}
+	\begin{proposition} \label{prop:pentagramIntegrals}
 		For any homology class, the sum
 		\begin{displaymath}
 			\sum_M wt(M)
@@ -1356,6 +1356,14 @@ For the remainder of this section, all mutations are understood to be of $Y$-pat
 	\caption{Conserved quantities for the pentagram map acting on twisted quadrilaterals.  The matching $M$ is such that $wt(M)$ is the first term appearing in the corresponding formula.}
 	\label{table:integrals}
 	\end{table}
+	
+	The invariant Poisson bracket from Proposition \ref{prop:pentagramBracket} and the conserved quantities from Proposition \ref{prop:pentagramIntegrals} are the main ingredients for complete integrability, but there are several more conditions that they need to satisfy.  We conclude by listing these properties, proofs for which can be found in \cite{OST10}, \cite{GSTV12} and \cite{GK13}.
+	\begin{itemize}
+	\item The conserved quantities are algebraically independent.
+	\item The conserved quantities Poisson commute, i.e., the bracket of any two of them equals zero.
+	\item The number of Casimirs plus twice the number of other conserved quantities equals the dimension of the system.
+	\end{itemize}
+	In the last item, the term \emph{Casimir} refers to a function that commutes with all other functions.  In the case summarized in Table \ref{table:integrals}, the $4$ functions $O_2,E_2,O_4,E_4$ are Casimirs while the other $2$ conserved quantities $O_1$ and $E_1$ are not.  The calculation checks out as $4+2(2)=8$ equals the dimension of the space of twisted quadrilaterals.
 	
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{thebibliography}{99}
