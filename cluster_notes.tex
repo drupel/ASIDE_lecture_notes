@@ -114,7 +114,7 @@
 			a_{21} & a_{22} & \ldots & a_{2n} \\
 			\end{array} \right].
 		\end{displaymath}
-		The Pl\"ucker coordinates are given by $\Delta_{ij} = a_{1i}a_{2j} - a_{1j}a_{2i}$ for $1 \leq i < j \leq n$.  As the matrix $A$ is not uniquely determined by a point in $Gr_2(\CC^n)$, the Pl\"ucker coordinates are not truly functions on $Gr_2(\CC^n)$, but rather they are only well-defined functions up to simultaneous rescaling.  That is, the Pl\"ucker coordinates determine a closed embedding into the projective space $\PP^{{n\choose 2}-1}$.  The following exercise shows that the image of the Plu\"cker embedding lies inside a closed subset of projective space.
+		The Pl\"ucker coordinates are given by $\Delta_{ij} = a_{1i}a_{2j} - a_{1j}a_{2i}$ for $1 \leq i < j \leq n$.  As the matrix $A$ is not uniquely determined by a point in $Gr_2(\CC^n)$, the Pl\"ucker coordinates are not truly functions on $Gr_2(\CC^n)$, but rather they are only well-defined functions up to simultaneous rescaling.  That is, the Pl\"ucker coordinates determine a closed embedding into the projective space $\PP^{{n\choose 2}-1}$.  The following exercise shows that the image of the Pl\"ucker embedding lies inside a closed subset of projective space.
 		\begin{exercise}
 			Verify that the $\Delta_{ij}$ satisfy the so-called \emph{Pl\"ucker relations}
 			\begin{equation}\label{eq:short plucker special}
@@ -123,7 +123,7 @@
 			for $1 \leq i < j < k < l \leq n$.
 		\end{exercise}
 		
-		Consider a regular $n$-gon with vertices labelled $1,2,\ldots, n$.  Let $T$ be a triangulation, i.e. a maximal collection of chords $\overline{ij}$ with $1 \leq i < j \leq n$, no two of which intersect in their interiors.  Note that $T$ always consists of $n-3$ diagonals together with the $n$ sides $\overline{12}, \overline{23}, \overline{34}, \ldots, \overline{1n}$.  Associate to $T$ the corresponding collection of Pl\"ucker coordinates
+		Consider a regular $n$-gon with vertices labeled $1,2,\ldots, n$.  Let $T$ be a triangulation, i.e. a maximal collection of chords $\overline{ij}$ with $1 \leq i < j \leq n$, no two of which intersect in their interiors.  Note that $T$ always consists of $n-3$ diagonals together with the $n$ sides $\overline{12}, \overline{23}, \overline{34}, \ldots, \overline{1n}$.  Associate to $T$ the corresponding collection of Pl\"ucker coordinates
 		\begin{displaymath}
 			\Delta_T := \{\Delta_{ij} : \overline{ij} \in T\}.
 		\end{displaymath}
@@ -146,7 +146,7 @@
 		which follows from a Pl\"ucker relation.	This formula can be thought of as a change of coordinates from $\Delta_T$ to $\Delta_{T'}$ where $T' = (T \setminus \{\overline{13}\}) \cup \{\overline{24}\}$.  
     \setcounter{subexercise}{2}
     \begin{exercise}
-      The change of coordinate systems observed above can be understood more classically in terms of the Ptolemy relations for cyclic quadrilaterals.  Indeed, consider four distinct points labelled $1,2,3,4$ on a circle in cyclic order and let $x_{ij}$ denote the distance between vertices $i$ and $j$.  Prove that $x_{13}x_{24}=x_{12}x_{34}+x_{14}x_{23}$.
+      The change of coordinate systems observed above can be understood more classically in terms of the Ptolemy relations for cyclic quadrilaterals.  Indeed, consider four distinct points labeled $1,2,3,4$ on a circle in cyclic order and let $x_{ij}$ denote the distance between vertices $i$ and $j$.  Prove that $x_{13}x_{24}=x_{12}x_{34}+x_{14}x_{23}$.
     \end{exercise}
 		
 		More generally, if $T$ is a triangulation of an $n$-gon and $\overline{ik} \in T$ is a diagonal (as opposed to a side), then $\overline{ik}$ is part of two triangles of $T$.  Call the third vertices of these two triangles $j$ and $l$.  It follows that $T' = (T \setminus \{\overline{ik}\}) \cup \{\overline{jl}\}$ is again a triangulation.  Moreover, it is well known that any two triangulations may be related by a sequence of these flips of diagonals \cite{H91}.  Performing a sequence of such quadrilateral flips and using a Pl\"ucker relation at each step makes it possible to iteratively compute all the rational expressions promised in Proposition \ref{prop:Gr2n}.
@@ -282,7 +282,7 @@
       \label{fig:wiring exchange relation}
     \end{figure}
 
-    Observe that under such an exchange we have the following exchange relation analgous to \eqref{eq:short plucker special}:
+    Observe that under such an exchange we have the following exchange relation analogous to \eqref{eq:short plucker special}:
     \begin{equation}\label{eq:short Plucker}
       \Delta_{I\cup\{i\},J\cup\{k\}}\Delta_{I\cup\{j\},J\cup\{\ell\}}=\Delta_{I,J}\Delta_{I\cup\{i,j\},J\cup\{k,\ell\}}+\Delta_{I\cup\{i\},J\cup\{\ell\}}\Delta_{I\cup\{j\},J\cup\{k\}}.
     \end{equation}
@@ -523,7 +523,7 @@
 	\item $y_k$ is inverted,
 	\item $B$ is changed in the same way as for ordinary seed mutations.
 	\end{enumerate}
-	The $Y$-dynamics also go by the name \emph{coefficient dynamics} because the coefficients in a geometric type cluster algebra evolve in this manner with respect to auxilliary addition $\oplus$ and ordinary multiplication of Laurent monomials.
+	The $Y$-dynamics also go by the name \emph{coefficient dynamics} because the coefficients in a geometric type cluster algebra evolve in this manner with respect to auxiliary addition $\oplus$ and ordinary multiplication of Laurent monomials.
 	
 	Another connection between cluster algebra and $Y$-pattern dynamics comes by way of a certain Laurent monomial change of variables.  Let $\tilde{B}$ be an $m \times n$ extended exchange matrix with $B$ its upper $n \times n$ submatrix.  Given a seed $((x_1,\ldots, x_m),\tilde{B})$, define an associated $Y$-seed $((\hat{y}_1,\ldots, \hat{y}_n),B)$ by
 	\begin{displaymath}
@@ -602,13 +602,13 @@
     \begin{equation}\label{eq:rank 2 denominators}
       d^{(k)}=\begin{cases}(u_{k-2,1},u_{k-3,2}) & \text{if $k\ge3$;}\\(u_{-k,1},u_{-k+1,2}) & \text{if $k\le0$.}\end{cases}
     \end{equation}
-    \item $U_n\big(2\cos(\theta)\big)=\frac{\sin(n\theta)}{\sin(\theta)}$ from which it follows that there are infinitely many $d^{(k)}$ if and only if $bc\ge4$.  In particular, there are infnitely many cluster variables if $bc \geq 4$.
+    \item $U_n\big(2\cos(\theta)\big)=\frac{\sin(n\theta)}{\sin(\theta)}$ from which it follows that there are infinitely many $d^{(k)}$ if and only if $bc\ge4$.  In particular, there are infinitely many cluster variables if $bc \geq 4$.
 		\item By explicit calculation, there are only finitely many cluster variables in each case where $bc \leq 3$.
     \end{itemize}
  
 %It is not hard to check that the vectors $d^{(k)}$ are exactly the positive roots in the root system associated the the Cartan matrix $A_B=\left[\begin{array}{cc} 2 & -b\\ -c & 2\end{array}\right]$, which is known to have only finitely many roots if and only if $bc\le3$.
     
-  More generally, if $\tilde{B}$ is any $m\times n$ extended exchange matrix and $|b_{ij}b_{ji}| \geq 4$ for some $i,j=1,\ldots, n$, then iteratively mutating at $i$ and $j$ alone will produce infinitely many cluster variables.  Call an extended exchange matrix $\tilde B=(b_{ij})$ \emph{2-finite} if every matrix $\tilde B'=(b'_{ij})$ mutation equivalent to $\tilde B$ satisfies the condition $|b'_{ij}b'_{ji}|\le3$ for all $i,j$.  By the above reasoning, 2-finiteness is a neccessary condition for a cluster algebra to be of finite type.  It is quite remarkable that it is sufficient as well.
+  More generally, if $\tilde{B}$ is any $m\times n$ extended exchange matrix and $|b_{ij}b_{ji}| \geq 4$ for some $i,j=1,\ldots, n$, then iteratively mutating at $i$ and $j$ alone will produce infinitely many cluster variables.  Call an extended exchange matrix $\tilde B=(b_{ij})$ \emph{2-finite} if every matrix $\tilde B'=(b'_{ij})$ mutation equivalent to $\tilde B$ satisfies the condition $|b'_{ij}b'_{ji}|\le3$ for all $i,j$.  By the above reasoning, 2-finiteness is a necessary condition for a cluster algebra to be of finite type.  It is quite remarkable that it is sufficient as well.
   \begin{theorem}\cite{FZ03}
     A cluster algebra $\cA(\x,\tilde B)$ is of finite type if and only if $\tilde B$ is 2-finite.
   \end{theorem}
@@ -1365,9 +1365,12 @@ For the remainder of this section, all mutations are understood to be of $Y$-pat
 	\end{itemize}
 	In the last item, the term \emph{Casimir} refers to a function that Poisson commutes with all other functions.  In the case summarized in Table \ref{table:integrals}, the $4$ functions $O_2,E_2,O_4,E_4$ are Casimirs while the other $2$ conserved quantities $O_1$ and $E_1$ are not.  The calculation checks out as $4+2(2)=8$ is the dimension of the space of twisted quadrilaterals.
 	
+	\medskip
+	\textbf{Acknowledgments.} These notes are based on lectures we presented during the 2016 ASIDE summer school in Montreal.  We thank the ASIDE organizers for inviting us and also for coordinating the efforts to compile the lecture notes.  We thank the anonymous referee for several helpful comments.
+	
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{thebibliography}{99}
-  	\bibitem{ABCGPT14} N. Arkani-Hameda, J. Bourjailyb, F. Cachazoc, A. Goncharovd, A. Postnikove, and J. Trnka, Scattering amplitudes and the positive Grassmannian, arXiv preprint: 1212.5605v2.
+  	\bibitem{ABCGPT14} N. Arkani-Hamed, J. Bourjaily, F. Cachazo, A. Goncharov, A. Postnikov, and J. Trnka, Scattering amplitudes and the positive Grassmannian, arXiv preprint: 1212.5605v2.
   	\bibitem{BFZ05} A. Berenstein, S. Fomin, and A. Zelevinsky, Cluster algebras III: upper bounds and double Bruhat cells, \textsl{J. London Math. Soc.} \textbf{14} (1976), 183–-187.
   	\bibitem{BR15} A. Berenstein and D. Rupel, Quantum cluster characters of Hall algebras, \textsl{Sel. Math. New Ser.} \textbf{21} (2015), no. 4, 1121--1176.
   	\bibitem{BZ05} A. Berenstein and A. Zelevinsky, Quantum cluster algebras. \textsl{Adv. Math.} \textbf{195} (2005), no. 2, 405--455.
@@ -1379,13 +1382,13 @@ For the remainder of this section, all mutations are understood to be of $Y$-pat
   	\bibitem{EF12} R. Eager and S. Franco, Colored BPS pyramid partition functions, quivers and cluster transformations, \textsl{J. High Energy Phys.} (2012), no. 9, 038.
 	\bibitem{FG06} V. Fock and A. Goncharov, Moduli spaces of local systems and higher Teichm\"uller theory, \textsl{Publ. Math. Inst. Hautes \'Etudes Sci.} \textbf{103} (2006), 1--211.
 	\bibitem{FST08} S. Fomin, M. Shapiro, and D. Thurston, Cluster algebras and triangulated surfaces. I. Cluster complexes, \textsl{Acta Math.} \textbf{201} (2008), 83--146.
-	\bibitem{FZ99} S. Fomin and A. Zelevinsky, Double Bruhat celles and total positivity, \textsl{J. Amer. Math. Soc.} \textbf{12} (1999), 335--380.
+	\bibitem{FZ99} S. Fomin and A. Zelevinsky, Double Bruhat cells and total positivity, \textsl{J. Amer. Math. Soc.} \textbf{12} (1999), 335--380.
 	\bibitem{FZ02} S. Fomin and A. Zelevinsky, Cluster algebras I: Foundations, \textsl{J. Amer. Math. Soc.} \textbf{15} (2002), 497--529.
 	\bibitem{FZ02b} S. Fomin and A. Zelevinsky, The Laurent phenomenon, \textsl{Adv. in Applied Math.} \textbf{28} (2002), 119-–144.
   	\bibitem{FZ03} S. Fomin and A. Zelevinsky, Cluster algebras II: Finite type classification, \textsl{Invent. Math.} \textbf{154} (2003), 63-–121.
 	\bibitem{FZ07} S. Fomin and A. Zelevinsky, Cluster algebras IV: Coefficients, \textsl{Compos. Math.} \textbf{143} (2007), 112--164.
 	\bibitem{FM11} A. Fordy and R. Marsh, Cluster mutation-periodic quivers and associated Laurent sequences, \textsl{J. Algebraic Combin.} \textbf{34} (2011), no. 1, 19--66.
-	\bibitem{GLS06} C. Geiss, B. Leclerc, and J. Schroer, Rigid modules over preprojective algebras, \textsl{Invent. Math} \textbf{165} (2006), 589--632.
+	\bibitem{GLS06} C. Geiss, B. Leclerc, and J. Schr\"oer, Rigid modules over preprojective algebras, \textsl{Invent. Math} \textbf{165} (2006), 589--632.
  	\bibitem{GLS13} C. Geiss, B. Leclerc, and J. Schr\"oer, Cluster structures on quantum coordinate rings, \textsl{Selecta Math. (N.S.)} \textbf{19} (2013), no. 2, 337--397.
   	\bibitem{GLS} C. Geiss, B. Leclerc, and J. Schr\"oer, Cluster algebras in algebraic Lie theory, \textsl{Transf. Groups} \textbf{18} (2013), 149--178.
   	\bibitem{GNR16} M. Gekhtman, T. Nakanishi, D. Rupel, Hamiltonian and Lagrangian formalisms of mutations in cluster algebras and application to dilogarithm identities, arXiv preprint: 1611.02813.
@@ -1405,7 +1408,7 @@ For the remainder of this section, all mutations are understood to be of $Y$-pat
   	\bibitem{LS13} K. Lee and R. Schiffler, A Combinatorial Formula for Rank 2 Cluster Variables, \textsl{J. Alg. Comb} \textbf{37} (2013), 67--85.
   	\bibitem{LS15} K. Lee and R. Schiffler, Positivity for cluster algebras, \textsl{Ann. Math.} \textbf{182} (2015), 73--125.
 	\bibitem{MP07} G. Musiker and J. Propp, Combinatorial interpretations for rank-two cluster algebras of affine type, \textsl{ Electron. J. Combin.} \textbf{14} (2007), 23 pp.
-	\bibitem{MSW13} G. Muisker, R. Schiffler, and L. Williams, Bases for cluster algebras from surfaces, \textsl{Compos. Math} \textbf{149} (2013), 2891--2944.
+	\bibitem{MSW13} G. Musiker, R. Schiffler, and L. Williams, Bases for cluster algebras from surfaces, \textsl{Compos. Math} \textbf{149} (2013), 2891--2944.
 	\bibitem{N11} T. Nakanishi, Periodicities in cluster algebras and dilogarithm identities, in A. Skowronski \& K. Yamagata (eds.), Representations of algebras and related topics, EMS Series of Congress Reports, Eur. Math. Soc. (2011) 407--444.
 	\bibitem{OST10} V. Ovsienko, R. Schwartz, and S. Tabachnikov, The pentagram map: a discrete integrable system, \textsl{Comm. Math. Phys.} \textbf{299} (2010), 409--446.
 	\bibitem{OST13} V. Ovsienko, R. Schwartz, and S. Tabachnikov, Liouville-Arnold integrability of the pentagram map on closed polygons, \textsl{Duke Math. J.} \textbf{162} (2013), 2149--2196.
