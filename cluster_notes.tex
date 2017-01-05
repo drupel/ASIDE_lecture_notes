@@ -47,6 +47,7 @@
 
 \newcommand{\erase}[1]{{}}
 
+\makeindex
 
 \title{Introduction to Cluster Algebras}
 \author{Max Glick}
@@ -85,7 +86,7 @@
 
 	\subsection{Markov Triples} \label{sub:Markov triples}
   %\begin{example}\label{example:Markov triples}
-    A \emph{Markov triple} is a triple $(a,b,c)$ of positive integers satisfying the \emph{Markov equation} $a^2+b^2+c^2=3abc$; an integer which appears as a term in a Markov triple is called a \emph{Markov number}.  The Markov equation is an example of a Diophantine equation and two classical number theoretic problems are to determine the number of solutions and to determine a method for finding all such solutions.  We will solve both of these problems for the Markov equation.
+    A \emph{Markov triple}\index{Markov triple} is a triple $(a,b,c)$ of positive integers satisfying the \emph{Markov equation} $a^2+b^2+c^2=3abc$; an integer which appears as a term in a Markov triple is called a \emph{Markov number}.  The Markov equation is an example of a Diophantine equation and two classical number theoretic problems are to determine the number of solutions and to determine a method for finding all such solutions.  We will solve both of these problems for the Markov equation.
     
     \begin{exercise}
       Prove that $(1,1,1)$ and $(1,1,2)$ are (up to reordering) the only Markov triples with repeated values.
@@ -105,7 +106,7 @@
 
 	\subsection{The Grassmannian $Gr_{2}(\CC^n)$} \label{sub:Gr2n}
   %\begin{example} \label{example:Gr2n}
-		The \emph{Grassmannian} $Gr_{k}(\CC^n)$ is the set of $k$-dimensional linear subspaces of $\CC^n$.  A point in the Grassmannian can be described, albeit non-uniquely, as the row span of a full rank matrix $A \in \CC^{k \times n}$.  The maximal minors of $A$ are called \emph{Pl\"ucker coordinates}.
+		The \emph{Grassmannian}\index{Grassmannian} $Gr_{k}(\CC^n)$ is the set of $k$-dimensional linear subspaces of $\CC^n$.  A point in the Grassmannian can be described, albeit non-uniquely, as the row span of a full rank matrix $A \in \CC^{k \times n}$.  The maximal minors of $A$ are called \emph{Pl\"ucker coordinates}\index{Pl\"ucker coordinates}.
 		
 		Now, restrict to $k=2$ and let 
 		\begin{displaymath}
@@ -123,7 +124,7 @@
 			for $1 \leq i < j < k < l \leq n$.
 		\end{exercise}
 		
-		Consider a regular $n$-gon with vertices labeled $1,2,\ldots, n$.  Let $T$ be a triangulation, i.e. a maximal collection of chords $\overline{ij}$ with $1 \leq i < j \leq n$, no two of which intersect in their interiors.  Note that $T$ always consists of $n-3$ diagonals together with the $n$ sides $\overline{12}, \overline{23}, \overline{34}, \ldots, \overline{1n}$.  Associate to $T$ the corresponding collection of Pl\"ucker coordinates
+		Consider a regular $n$-gon with vertices labeled $1,2,\ldots, n$.  Let $T$ be a triangulation\index{triangulation}, i.e. a maximal collection of chords $\overline{ij}$ with $1 \leq i < j \leq n$, no two of which intersect in their interiors.  Note that $T$ always consists of $n-3$ diagonals together with the $n$ sides $\overline{12}, \overline{23}, \overline{34}, \ldots, \overline{1n}$.  Associate to $T$ the corresponding collection of Pl\"ucker coordinates
 		\begin{displaymath}
 			\Delta_T := \{\Delta_{ij} : \overline{ij} \in T\}.
 		\end{displaymath}
@@ -154,20 +155,20 @@
  
 	\subsection{Double Bruhat cells} \label{sub:total positivity}
 %  \begin{example}\label{example:total positivity}
-    An $n\times n$ matrix $M$ is called \emph{totally positive} if the determinant of every square submatrix is a positive real number.  In particular, every entry of $M$ is positive and $M$ must be invertible.  Write $GL_n^{>0}\subset GL_n$ for the subset of totally positive matrices.  To check that a given matrix $M\in GL_n$ is totally positive one must, a priori, check that all ${2n\choose n}-1$ minors of $M$ are positive.  A natural question is whether this verification process can be made more efficient.  More precisely, is there a smaller collection of minors one may compute and from the positivity of this subset conclude that every minor is positive, i.e. conclude that $M\in GL_n^{>0}$?  We will call such a collection a \emph{total positivity criterion} if it exists.  
+    An $n\times n$ matrix $M$ is called \emph{totally positive}\index{totally positive matrix} if the determinant of every square submatrix is a positive real number.  In particular, every entry of $M$ is positive and $M$ must be invertible.  Write $GL_n^{>0}\subset GL_n$ for the subset of totally positive matrices.  To check that a given matrix $M\in GL_n$ is totally positive one must, a priori, check that all ${2n\choose n}-1$ minors of $M$ are positive.  A natural question is whether this verification process can be made more efficient.  More precisely, is there a smaller collection of minors one may compute and from the positivity of this subset conclude that every minor is positive, i.e. conclude that $M\in GL_n^{>0}$?  We will call such a collection a \emph{total positivity criterion} if it exists.  
 
     For small $n$, such criteria can be found and verified easily.  For example, a matrix $M=\left[\begin{array}{cc} a & b\\ c & d\end{array}\right]\in GL_2$ is totally positive if and only if $a,b,c,ad-bc>0$ if and only if $b,c,d,ad-bc>0$.
     \begin{exercise}\label{exer:gl3 positivity}
       Find a minimal collection of minors whose positivity guarantees a matrix in $GL_3$ is totally positive (hint: any such total positivity criterion consists of 9 minors).
     \end{exercise}
 
-    To describe a solution and easily identify total positivity criteria for all general linear groups $GL_n$, it will be convenient to slightly generalize the notion of total positivity.  An $n\times n$ matrix $M$ is called \emph{totally nonnegative} if the determinant of every square submatrix is a nonnegative real number.  Write $GL_n^{\ge0}\subset GL_n$ for the subset of totally nonnegative matrices.  Again one may ask: what is a minimal collection of minors needed to check that a matrix is totally nonnegative?  Unfortunately, or perhaps fortunately, the total nonnegativity criteria are not uniformly described across all of $GL_n$.  The solution to this problem naturally leads one to study certain subvarieties of $GL_n$ called \emph{double Bruhat cells}, which we now describe.
+    To describe a solution and easily identify total positivity criteria for all general linear groups $GL_n$, it will be convenient to slightly generalize the notion of total positivity.  An $n\times n$ matrix $M$ is called \emph{totally nonnegative}\index{totally nonnegative matrix} if the determinant of every square submatrix is a nonnegative real number.  Write $GL_n^{\ge0}\subset GL_n$ for the subset of totally nonnegative matrices.  Again one may ask: what is a minimal collection of minors needed to check that a matrix is totally nonnegative?  Unfortunately, or perhaps fortunately, the total nonnegativity criteria are not uniformly described across all of $GL_n$.  The solution to this problem naturally leads one to study certain subvarieties of $GL_n$ called \emph{double Bruhat cells}, which we now describe.
 
     Let $B_+,B_-\subset GL_n$ denote the subgroups of upper and lower triangular matrices respectively.  Identify the symmetric group $\Sigma_n$ with the subgroup of $GL_n$ consisting of permutation matrices, i.e. matrices having precisely one nonzero entry 1 in each row and column.  For example, identify the permutation $(1\ 2)\in\Sigma_2$ (written in cycle notation) with the matrix $\left[\begin{array}{cc}0 & 1\\ 1 & 0\end{array}\right]$.  
 
     It is well known that $GL_n$ decomposes in two ways (actually many ways) as a union of \emph{Bruhat cells}:
     \[GL_n=\bigsqcup_{w\in\Sigma_n}B_+w B_+=\bigsqcup_{w\in\Sigma_n}B_-w B_-.\]
-    To understand total nonnegativity criteria for $GL_n$, we will consider the \emph{double Bruhat cells} $GL_n^{u,v}=B_+uB_+\cap B_-vB_-$ for $u,v\in\Sigma_n$.  
+    To understand total nonnegativity criteria for $GL_n$, we will consider the \emph{double Bruhat cells}\index{double Bruhat cell} $GL_n^{u,v}=B_+uB_+\cap B_-vB_-$ for $u,v\in\Sigma_n$.  
     \setcounter{subexercise}{2}
     \begin{exercise}
       Find all 4 double Bruhat cells in $GL_2$ and verify that they partition the space.  If you are brave, find all double Bruhat cells in $GL_3$ and verify that they partition the space.
@@ -180,7 +181,7 @@
     \end{example}
 
     It turns out that each double Bruhat cell admits its own collection of total positivity criteria, i.e. for each $u,v\in\Sigma_n$ there exists a minimal collection of minors whose positivity identifies the subset $GL_n^{u,v}\cap GL_n^{\ge0}$ inside the double Bruhat cell $GL_n^{u,v}$.
-    Some of these total nonnegativity criteria in $GL_n^{u,v}$ can be conveniently described using double wiring diagrams.  Write $s_i=(i\ i+1)\in\Sigma_n$ for the simple transposition interchanging $i$ and $i+1$.  A \emph{reduced word} for $w\in\Sigma_n$ is a minimal sequence $(i_1,\ldots,i_r)$ so that $w=s_{i_1}\cdots s_{i_r}$, where $\ell(w):=r$ is called the \emph{length} of $w$.  A reduced word $(i_1,\ldots,i_r)$ is naturally encoded in a \emph{wiring diagram}, i.e. a collection of $n$ strands with a crossing between the $i$th and $(i+1)$th strands each time $i$ appears in the reduced word, see Figure~\ref{fig:wiring diagram}.
+    Some of these total nonnegativity criteria in $GL_n^{u,v}$ can be conveniently described using double wiring diagrams.  Write $s_i=(i\ i+1)\in\Sigma_n$ for the simple transposition interchanging $i$ and $i+1$.  A \emph{reduced word}\index{reduced word} for $w\in\Sigma_n$ is a minimal sequence $(i_1,\ldots,i_r)$ so that $w=s_{i_1}\cdots s_{i_r}$, where $\ell(w):=r$ is called the \emph{length} of $w$.  A reduced word $(i_1,\ldots,i_r)$ is naturally encoded in a \emph{wiring diagram}\index{wiring diagram}, i.e. a collection of $n$ strands with a crossing between the $i$th and $(i+1)$th strands each time $i$ appears in the reduced word, see Figure~\ref{fig:wiring diagram}.
     \begin{figure}[ht]
     \begin{tikzpicture}
       \draw (0,0) -- (0.5,0) -- (1.5,1) -- (2,1) -- (3,2) -- (3.5,2) -- (4.5,3) -- (5,3) -- (6,3) -- (6.5,3) -- (7.5,3) -- (8,3) -- (9,3) -- (9.5,3);
@@ -313,12 +314,12 @@
 	Each cluster algebra is defined recursively from some initial data called a seed.  A seed consists of a cluster, which was informally described at the beginning of Section \ref{sec:motivation}, together with some combinatorial data that encode the mutations that can be performed.
 
 	\begin{definition}
-		Let $\cF$ be a purely transcendental field extension of $\CC$.  A \emph{seed} is a pair $(\x,B)$ where $\x = (x_1,\ldots, x_n)$ is an $n$-tuple of elements forming a transcendence basis of $\cF$ over $\CC$ and $B$ is a skew-symmetric integer $n \times n$ matrix.  The collection $\x$ is called the \emph{cluster} and the matrix $B$ is called the \emph{exchange matrix}.
+		Let $\cF$ be a purely transcendental field extension of $\CC$.  A \emph{seed}\index{seed} is a pair $(\x,B)$ where $\x = (x_1,\ldots, x_n)$ is an $n$-tuple of elements forming a transcendence basis of $\cF$ over $\CC$ and $B$ is a skew-symmetric integer $n \times n$ matrix.  The collection $\x$ is called the \emph{cluster}\index{cluster} and the matrix $B$ is called the \emph{exchange matrix}\index{exhcange matrix}.
 	\end{definition}
   
 	The following employs the notation $[a]_+ = \max(a,0)$.
 	\begin{definition}
-		Given a seed ($\x,B$) and an integer $k=1,2,\ldots, n$ the \emph{seed mutation} $\mu_k$ in direction $k$ produces a new seed $\mu_k(\x,B) = (\x',B')$ where $\x' = (x_1,\ldots, x_{k-1}, x_k', x_{k+1},\ldots, x_n)$ with 
+		Given a seed ($\x,B$) and an integer $k=1,2,\ldots, n$ the \emph{seed mutation}\index{seed mutation} $\mu_k$ in direction $k$ produces a new seed $\mu_k(\x,B) = (\x',B')$ where $\x' = (x_1,\ldots, x_{k-1}, x_k', x_{k+1},\ldots, x_n)$ with 
 		\begin{equation} \label{eq:exchange relation}
 		x_k' = \frac{\prod_{b_{ik}>0} x_i^{b_{ik}} + \prod_{b_{ik}<0} x_i^{-b_{ik}}}{x_k}
 		\end{equation}
@@ -347,7 +348,7 @@
 	\end{lemma}
 	
 	\begin{definition}
-		Fix an ambient field $\cF$ and an initial seed $(\bx, B)$.  The entries of the clusters of all seeds reachable from this one by a sequence of mutations are called the \emph{cluster variables}.  The \emph{cluster algebra} associated with the initial seed is the subalgebra $\cA:=\cA(\bx,B)$ of $\cF$ generated by the set of all cluster variables.
+		Fix an ambient field $\cF$ and an initial seed $(\bx, B)$.  The entries of the clusters of all seeds reachable from this one by a sequence of mutations are called the \emph{cluster variables}\index{cluster variable}.  The \emph{cluster algebra}\index{cluster algebra} associated with the initial seed is the subalgebra $\cA:=\cA(\bx,B)$ of $\cF$ generated by the set of all cluster variables.
 	\end{definition}
 	
   \begin{example}\label{example:type A2}
@@ -387,13 +388,13 @@
 		\end{displaymath}
 		In particular, every cluster variable can be expressed as a Laurent polynomial in $x_1,\ldots, x_n$.
 	\end{theorem}
-	Section \ref{sec:basic_theorems} will go into more detail on this result, called the Laurent phenomenon, as well as several more main theorems on cluster algebras.
+	Section \ref{sec:basic_theorems} will go into more detail on this result, called the Laurent phenomenon\index{Laurent phenomenon}, as well as several more main theorems on cluster algebras.
 	
 	\subsection{Increased generality}
 	We generalize the previous definitions in two ways, first by allowing more general exchange matrices and then by allowing for certain coefficients in the exchange relations.
 	
 	\begin{definition}
-		An $n \times n$ integer matrix $B$ is \emph{skew-symmetrizable} if there is a diagonal matrix $D$ with positive integer diagonal entries such that $DB$ is skew-symmetric.
+		An $n \times n$ integer matrix $B$ is \emph{skew-symmetrizable}\index{skew-symmetrizable matrix} if there is a diagonal matrix $D$ with positive integer diagonal entries such that $DB$ is skew-symmetric.
 	\end{definition}
 	
 	As an example, a $2 \times 2$ matrix $B$ is skew-symmetrizable if and only if
@@ -407,7 +408,7 @@
 	\end{displaymath}
 	The \emph{rank} of a cluster algebra is the number $n$ of elements in each cluster, so the exchange matrices $B$ just described give rise to all possible rank $2$ cluster algebras.
 	
-	The second generalization is to allow so-called \emph{frozen variables} that never mutate, but which play a part in the exchange relations for the cluster variables. An \emph{extended cluster}, by convention, is typically written $\x = (x_1,\ldots, x_n, x_{n+1},\ldots x_m)$ where $x_1,\ldots, x_n$ are the cluster variable and $x_{n+1},\ldots, x_m$ are the frozen variables.  An \emph{extended exchange matrix} is an $m \times n$ integer matrix $\tilde{B}$ with the property that its upper $n \times n$ submatrix is skew-symmetrizable.
+	The second generalization is to allow so-called \emph{frozen variables}\index{frozen variable} that never mutate, but which play a part in the exchange relations for the cluster variables. An \emph{extended cluster}, by convention, is typically written $\x = (x_1,\ldots, x_n, x_{n+1},\ldots x_m)$ where $x_1,\ldots, x_n$ are the cluster variable and $x_{n+1},\ldots, x_m$ are the frozen variables.  An \emph{extended exchange matrix} is an $m \times n$ integer matrix $\tilde{B}$ with the property that its upper $n \times n$ submatrix is skew-symmetrizable.
 	
 	\begin{definition}
 	Fix a seed $(\x, \tilde B)$ with $\x=(x_1,\ldots, x_m)$ an extended cluster and $\tilde{B}$ an extended exchange matrix.  For an integer $k = 1,2,\ldots, n$, the \emph{seed mutation} $\mu_k$ in direction $k$ produces a new seed $\mu_k(\x,\tilde{B}) = (\x',\tilde{B}')$ with $\x' = (x_1,\ldots, x_{k-1}, x_k', x_{k+1},\ldots, x_m)$.  The formulas for $x_k'$ and the entries $\tilde{b}'_{ij}$ of $B'$ are the same as in \eqref{eq:exchange relation} and \eqref{eq:matrix mutation}, where the products in \eqref{eq:exchange relation} now range from $1$ to $m$ instead of from $1$ to $n$.
@@ -417,7 +418,7 @@
 	Lemma \ref{lem:mutate} holds in this generalized setting.  Moreover, the skew-symmetrizing matrix $D$ is unchanged by mutation.
 	\end{lemma}
 	
-	Given a seed $(\x, \tilde{B})$ as above, the corresponding cluster algebra $\cA(\x, \tilde{B})$ is defined to be the subalgebra of $\CC(x_1,\ldots, x_m)$ generated by all cluster variables reachable from this seed together with the frozen variables (which appear in every seed).  Cluster algebras at this level of generality are referred to as cluster algebras of \emph{geometric type}.  In comparison, the earlier definition given was of \emph{skew-symmetric} cluster algebras with \emph{trivial coefficients}.
+	Given a seed $(\x, \tilde{B})$ as above, the corresponding cluster algebra\index{cluster algebra} $\cA(\x, \tilde{B})$ is defined to be the subalgebra of $\CC(x_1,\ldots, x_m)$ generated by all cluster variables reachable from this seed together with the frozen variables (which appear in every seed).  Cluster algebras at this level of generality are referred to as cluster algebras of \emph{geometric type}.  In comparison, the earlier definition given was of \emph{skew-symmetric} cluster algebras with \emph{trivial coefficients}.
 	
 	\begin{example} \label{example:rank2}
 		Consider a rank $2$ cluster algebras with trivial coefficients (so $n=m=2$).  The initial exchange matrix can be taken to be
@@ -500,7 +501,7 @@
 	where the products range over $i$ from $1$ to $n$.
 	
 	\subsection{$Y$-patterns}
-	There is an alternate version of seeds and mutations, closely related to the previous one, which itself arises in many applications.  
+	There is an alternate version of seeds and mutations, closely related to the previous one, which itself arises in many applications.  The resulting structures are called \emph{$Y$-patterns}\index{Y-pattern}.
 	
 	\begin{definition}
 		A \emph{$Y$-seed} is a pair $(\y,B)$ consisting of an $n$-tuple $\y=(y_1,\ldots, y_n)$ and an $n\times n$ skew-symmetric matrix $B$.  For $k=1,\ldots, n$, the \emph{$Y$-seed mutation} $\mu_k$ is defined by
@@ -708,7 +709,7 @@
   One motivation for the discovery of the cluster algebra formalism was the desire to find a combinatorial construction of dual canonical basis elements for (quantum) algebraic groups.  The dual canonical basis of a semisimple algebraic group induces bases on the coordinate rings of any of its subvarieties.  As we saw in Example~\ref{sub:total positivity} there appears to be some kind of cluster algebra structure on the double Bruhat cells of a semisimple algebraic group, which one can hope will shed some light on the dual canonical basis.  In most cases the double Bruhat cell does not actually admit a cluster algebra structure but does admit a closely related structure.
 
   \begin{definition}
-    Let $(\x,\tilde B)$ denote an extended seed.  Define the \emph{upper cluster algebra} $\overline{\cA}(\x,\tilde B)$ as the intersection of all Laurent rings associated to extended seeds mutation equivalent to $(\x,\tilde B)$.
+    Let $(\x,\tilde B)$ denote an extended seed.  Define the \emph{upper cluster algebra}\index{upper cluster algebra} $\overline{\cA}(\x,\tilde B)$ as the intersection of all Laurent rings associated to extended seeds mutation equivalent to $(\x,\tilde B)$.
   \end{definition}
 
   \begin{remark}
@@ -763,7 +764,7 @@
 
   Many natural examples of cluster algebras carry the following additional structure. 
   \begin{definition}
-    A \emph{Poisson algebra} $(A,\{\cdot,\cdot\})$ is an associative algebra $A$ equipped with an additional skew-symmetric bilinear operation, called the Poisson bracket (written as $\{x,y\}$ for $x,y\in A$), for which the following holds:
+    A \emph{Poisson algebra} $(A,\{\cdot,\cdot\})$ is an associative algebra $A$ equipped with an additional skew-symmetric bilinear operation, called the Poisson bracket\index{Poisson bracket} (written as $\{x,y\}$ for $x,y\in A$), for which the following holds:
     \begin{itemize}
       \item given any $x\in A$, the endomorphism $\{x,\cdot\}:A\to A$, $y\mapsto\{x,y\}$ is a derivation with respect to both binary operations on $A$, i.e. for $x,y,z\in A$ we have
       \begin{align*}
@@ -795,7 +796,7 @@
 
   A smooth manifold $M$ together with a Poisson structure on its algebra $\cO(M)$ of regular functions is called a \emph{Poisson manifold}.  The best understood examples of such structures comes from the theory of symplectic geometry.
   \begin{example}
-    A symplectic manifold $(M,\omega)$ is a smooth even-dimensional manifold $M^{2n}$ together with a 2-form $\omega\in H^2(M)$ that is non-degenerate, i.e. $\omega^n\ne0$ is a volume form.  The symplectic structure $\omega$ provides a natural association of a vector field $\xi_f$ to a function $f\in\cO(M)$ via the contraction formula $\iota_{\xi_f}\omega=-df$.  The algebra of smooth functions on the symplectic manifold $M$ is then naturally a Poisson algebra via $\{f,g\}=\omega(\xi_f,\xi_g)$ for $f,g\in\cO(M)$.
+    A symplectic manifold\index{symplectic manifold} $(M,\omega)$ is a smooth even-dimensional manifold $M^{2n}$ together with a 2-form $\omega\in H^2(M)$ that is non-degenerate, i.e. $\omega^n\ne0$ is a volume form.  The symplectic structure $\omega$ provides a natural association of a vector field $\xi_f$ to a function $f\in\cO(M)$ via the contraction formula $\iota_{\xi_f}\omega=-df$.  The algebra of smooth functions on the symplectic manifold $M$ is then naturally a Poisson algebra via $\{f,g\}=\omega(\xi_f,\xi_g)$ for $f,g\in\cO(M)$.
   \end{example}  
   A smooth map $\varphi:M\to N$ between Poisson manifolds is a \emph{Poisson morphism} if it induces a Poisson morphism $\varphi^*:\cO(N)\to\cO(M)$ on their algebras of smooth functions, i.e. if $\{f \circ \varphi,g \circ \varphi\}_M=\{f,g\}_N\circ\varphi$ for all $f,g\in \cO(N)$.  Given two Poisson manifolds $M$ and $N$, there is a natural Poisson structure on $M\times N$ given by
   \[\{f,g\}(x,y)=\{f(\cdot,y),g(\cdot,y)\}_M(x)+\{f(x,\cdot),g(x,\cdot)\}_N(y)\]
@@ -818,11 +819,11 @@
   \begin{lemma}\label{le:Hamiltonian vector fields}
     Let $(M,\{\cdot,\cdot\})$ be a Poisson manifold.  For any $h\in\cO(M)$, there exists a vector field $\xi_h$ on $M$ such that for any $f\in\cO(M)$ we have $\xi_h(f)=\{f,h\}$.
   \end{lemma}
-  The vector field $\xi_h$ from Lemma~\ref{le:Hamiltonian vector fields} is simply the vector field canonically associated to the derivation $\{\cdot,h\}$ and is called a \emph{Hamiltonian vector field}.  Flowing along Hamiltonian vector fields defines an equivalence relation on a Poisson manifold as follows: 
+  The vector field $\xi_h$ from Lemma~\ref{le:Hamiltonian vector fields} is simply the vector field canonically associated to the derivation $\{\cdot,h\}$ and is called a \emph{Hamiltonian vector field}\index{Hamiltonian vector field}.  Flowing along Hamiltonian vector fields defines an equivalence relation on a Poisson manifold as follows: 
   \begin{quotation}
     $p\sim q$ if there exists a piecewise smooth curve connecting $p$ and $q$ where each smooth segment is the trajectory of a Hamiltonian vector field.
   \end{quotation}
-  The equivalence class $M_p$ containing $p\in M$ is a connected submanifold of $M$ and by definition its tangent space $T_qM_p\subset T_qM$ is spanned by Hamiltonian tangent vectors.  We may view $M_p$ as a symplectic manifold whose 2-form is given by $\omega(\xi_f,\xi_g)=\{f,g\}$ and thus $M_p$ is called the \emph{symplectic leaf} of $M$ through $p$.
+  The equivalence class $M_p$ containing $p\in M$ is a connected submanifold of $M$ and by definition its tangent space $T_qM_p\subset T_qM$ is spanned by Hamiltonian tangent vectors.  We may view $M_p$ as a symplectic manifold whose 2-form is given by $\omega(\xi_f,\xi_g)=\{f,g\}$ and thus $M_p$ is called the \emph{symplectic leaf}\index{symplectic leaf} of $M$ through $p$.
   \begin{example}
     The symplectic leaves of $GL_n$ have been explicitly computed (e.g. see \cite{KZ02} and references therein).  In particular, it is known that each double Bruhat cell in $GL_n$ is foliated by symplectic leaves of $GL_n$.  As an example (c.f. Example~\ref{example:big cell}) the following set is a symplectic leaf living in $GL_n^{w_0,w_0}$:
     \[\{M\in GL_n:\Delta_{[1,i],[n+1-i,n]}(M)=\Delta_{[i+1,n],[1,n-i]}(M)\ne0\text{ for all $i$}\}.\]
@@ -854,7 +855,7 @@
 	We now explore connections between cluster algebras and discrete integrable systems.  In this context, it is common to represent the exchange matrix as a quiver.
 
 	\begin{definition}
-		A \emph{quiver} is a directed graph without loops (arrows from a vertex to itself) and without oriented $2$-cycles.
+		A \emph{quiver}\index{quiver} is a directed graph without loops (arrows from a vertex to itself) and without oriented $2$-cycles.
 	\end{definition}
 	
 	A skew-symmetric $n\times n$ exchange matrix $B$ can be encoded as a quiver $Q$ on vertex set $\{1,2,\ldots, n\}$.  More precisely, if $i,j$ are such that $b_{ij}>0$ then $Q$ has $b_{ij}$ arrows from $i$ to $j$ (and none from $j$ to $i$).  Matrix mutation on $B$ induces so-called \emph{quiver mutation} on $Q$.
@@ -878,7 +879,7 @@
 
 For the remainder of this section, all mutations are understood to be of $Y$-pattern type.
 
-\subsection{Zamolodchikov periodicity}
+\subsection{Zamolodchikov periodicity}\index{Zamolodchikov periodicity}
 	Fix positive integers $r$ and $s$ and consider the quiver $Q$ on vertex set $\{1,\ldots, r \} \times \{1,\ldots, s\}$ as illustrated in the case $r=4$, $s=3$ by
 	
 	\begin{pspicture}(5,4)
@@ -955,7 +956,7 @@ For the remainder of this section, all mutations are understood to be of $Y$-pat
 	
 	Returning to the $Y$-pattern point of view, the initial seed $(Y_0,Q)$ consists of the $Y_{i,j,0}$ for $i+j$ even and the $Y_{i,j,-1}^{-1}$ for $i+j$ odd.  The seed $(Y_2,Q) = \mu_{\textrm{odd}}(\mu_{\textrm{even}}(Y_0,Q))$ consists of the $Y_{i,j,2}$ for $i+j$ even and the $Y_{i,j,1}^{-1}$ for $i+j$ odd.  The periodicity theorem, then, asserts that the rational map $\mu_{\textrm{odd}} \circ \mu_{\textrm{even}}$ has order $r+s+2$.
 	
-	\subsection{The pentagram map} The pentagram map is a discrete dynamical system defined on the space of polygons in the projective plane.  Figure \ref{fig:pentagram} shows a polygon $A$ and the corresponding output $B=T(A)$, with $T$ being the notation for the pentagram map.  Each vertex of $B$ lies at the intersection of two consecutive ``shortest'' diagonals of $A$.
+	\subsection{The pentagram map} The pentagram map\index{pentagram map} is a discrete dynamical system defined on the space of polygons in the projective plane.  Figure \ref{fig:pentagram} shows a polygon $A$ and the corresponding output $B=T(A)$, with $T$ being the notation for the pentagram map.  Each vertex of $B$ lies at the intersection of two consecutive ``shortest'' diagonals of $A$.
 	
 	\begin{figure} \label{fig:pentagram}
 	\begin{pspicture}(5,5)
@@ -970,7 +971,7 @@ For the remainder of this section, all mutations are understood to be of $Y$-pat
 	
 	The pentagram map was introduced by R. Schwartz \cite{S92} and extensively studied by V. Ovsienko, Schwartz and S. Tabachnikov \cite{OST10, OST13}.  In particular, they demonstrated that the pentagram map is a completely integrable system.  Another take on integrability was provided by F. Soloviev \cite{S13}.  In the same span of time, M. Glick \cite{G11} described the pentagram map as mutations in a $Y$-pattern, building on work of Schwartz \cite{S08} who had found a lift to the octahedron recurrence.  Finally, M. Gekhtman, M. Shapiro, Tabachnikov and A. Vainshtein \cite{GSTV12} gave a uniform treatment of integrability and the cluster algebra structure of the pentagram map, and generalizations thereof, in terms of weighted networks on tori.  A similar framework is provided by the cluster integrable systems of A. Goncharov and R. Kenyon \cite{GK13}, albeit without any explicit mention of the pentagram map.
 	
-	The connection between the pentagram map and $Y$-patterns comes by way of certain geometrically defined coordinates on the space of polygons.  The \emph{cross ratio} of $4$ real numbers $x_1,x_2,x_3,x_4$ is 
+	The connection between the pentagram map and $Y$-patterns comes by way of certain geometrically defined coordinates on the space of polygons.  The \emph{cross ratio}\index{cross ratio} of $4$ real numbers $x_1,x_2,x_3,x_4$ is 
 	\begin{displaymath}
 		\chi(x_1,x_2,x_3,x_4) = \frac{(x_1-x_2)(x_3-x_4)}{(x_1-x_3)(x_2-x_4)}.
 	\end{displaymath}
@@ -1363,7 +1364,7 @@ For the remainder of this section, all mutations are understood to be of $Y$-pat
 	\item The conserved quantities Poisson commute, i.e. the bracket of any two of them equals zero.
 	\item The number of Casimirs plus twice the number of other conserved quantities equals the dimension of the system.
 	\end{itemize}
-	In the last item, the term \emph{Casimir} refers to a function that Poisson commutes with all other functions.  In the case summarized in Table \ref{table:integrals}, the $4$ functions $O_2,E_2,O_4,E_4$ are Casimirs while the other $2$ conserved quantities $O_1$ and $E_1$ are not.  The calculation checks out as $4+2(2)=8$ is the dimension of the space of twisted quadrilaterals.
+	In the last item, the term \emph{Casimir}\index{Casimir} refers to a function that Poisson commutes with all other functions.  In the case summarized in Table \ref{table:integrals}, the $4$ functions $O_2,E_2,O_4,E_4$ are Casimirs while the other $2$ conserved quantities $O_1$ and $E_1$ are not.  The calculation checks out as $4+2(2)=8$ is the dimension of the space of twisted quadrilaterals.
 	
 	\medskip
 	\textbf{Acknowledgments.} These notes are based on lectures we presented during the 2016 ASIDE summer school in Montreal.  We thank the ASIDE organizers for inviting us and also for coordinating the efforts to compile the lecture notes.  We thank the anonymous referee for several helpful comments.
@@ -1422,5 +1423,7 @@ For the remainder of this section, all mutations are understood to be of $Y$-pat
 	\bibitem{V07} A. Volkov, On the periodicity conjecture for $Y$-systems, \textsl{Comm. Math. Phys.} \textbf{276} (2007), 509--517.
   	\bibitem{W13} L. Williams, Cluster algebras: an introduction, arXiv preprint: 1212.6263v3.
 \end{thebibliography}
+
+\printindex
 
 \end{document}
