@@ -3,6 +3,7 @@
 \usepackage{pstricks}
 \usepackage{pst-node}
 \usepackage{tikz}
+\usepackage{imakeidx}
 
 
 \newtheorem{theorem}{Theorem}[section]
@@ -86,7 +87,7 @@
 
 	\subsection{Markov Triples} \label{sub:Markov triples}
   %\begin{example}\label{example:Markov triples}
-    A \emph{Markov triple}\index{Markov triple} is a triple $(a,b,c)$ of positive integers satisfying the \emph{Markov equation} $a^2+b^2+c^2=3abc$; an integer which appears as a term in a Markov triple is called a \emph{Markov number}.  The Markov equation is an example of a Diophantine equation and two classical number theoretic problems are to determine the number of solutions and to determine a method for finding all such solutions.  We will solve both of these problems for the Markov equation.
+    A \emph{Markov triple}\index{Markov!1@triple} is a triple $(a,b,c)$ of positive integers satisfying the \emph{Markov equation} $a^2+b^2+c^2=3abc$; an integer which appears as a term in a Markov triple is called a \emph{Markov number}.  The Markov equation is an example of a Diophantine equation and two classical number theoretic problems are to determine the number of solutions and to determine a method for finding all such solutions.  We will solve both of these problems for the Markov equation.
     
     \begin{exercise}
       Prove that $(1,1,1)$ and $(1,1,2)$ are (up to reordering) the only Markov triples with repeated values.
@@ -106,7 +107,7 @@
 
 	\subsection{The Grassmannian $Gr_{2}(\CC^n)$} \label{sub:Gr2n}
   %\begin{example} \label{example:Gr2n}
-		The \emph{Grassmannian}\index{Grassmannian} $Gr_{k}(\CC^n)$ is the set of $k$-dimensional linear subspaces of $\CC^n$.  A point in the Grassmannian can be described, albeit non-uniquely, as the row span of a full rank matrix $A \in \CC^{k \times n}$.  The maximal minors of $A$ are called \emph{Pl\"ucker coordinates}\index{Pl\"ucker coordinates}.
+		The \emph{Grassmannian}\index{Grassmannian} $Gr_{k}(\CC^n)$ is the set of $k$-dimensional linear subspaces of $\CC^n$.  A point in the Grassmannian can be described, albeit non-uniquely, as the row span of a full rank matrix $A \in \CC^{k \times n}$.  The maximal minors of $A$ are called \emph{Pl\"ucker coordinates}\index{Pl\"ucker!coordinate}.
 		
 		Now, restrict to $k=2$ and let 
 		\begin{displaymath}
@@ -117,7 +118,7 @@
 		\end{displaymath}
 		The Pl\"ucker coordinates are given by $\Delta_{ij} = a_{1i}a_{2j} - a_{1j}a_{2i}$ for $1 \leq i < j \leq n$.  As the matrix $A$ is not uniquely determined by a point in $Gr_2(\CC^n)$, the Pl\"ucker coordinates are not truly functions on $Gr_2(\CC^n)$, but rather they are only well-defined functions up to simultaneous rescaling.  That is, the Pl\"ucker coordinates determine a closed embedding into the projective space $\PP^{{n\choose 2}-1}$.  The following exercise shows that the image of the Pl\"ucker embedding lies inside a closed subset of projective space.
 		\begin{exercise}
-			Verify that the $\Delta_{ij}$ satisfy the so-called \emph{Pl\"ucker relations}
+			Verify that the $\Delta_{ij}$ satisfy the so-called \emph{Pl\"ucker relations}\index{Pl\"ucker!relation}
 			\begin{equation}\label{eq:short plucker special}
 				\Delta_{ik}\Delta_{jl} = \Delta_{ij}\Delta_{kl} + \Delta_{il}\Delta_{jk}
 			\end{equation}
@@ -155,7 +156,7 @@
  
 	\subsection{Double Bruhat cells} \label{sub:total positivity}
 %  \begin{example}\label{example:total positivity}
-    An $n\times n$ matrix $M$ is called \emph{totally positive}\index{totally positive matrix} if the determinant of every square submatrix is a positive real number.  In particular, every entry of $M$ is positive and $M$ must be invertible.  Write $GL_n^{>0}\subset GL_n$ for the subset of totally positive matrices.  To check that a given matrix $M\in GL_n$ is totally positive one must, a priori, check that all ${2n\choose n}-1$ minors of $M$ are positive.  A natural question is whether this verification process can be made more efficient.  More precisely, is there a smaller collection of minors one may compute and from the positivity of this subset conclude that every minor is positive, i.e. conclude that $M\in GL_n^{>0}$?  We will call such a collection a \emph{total positivity criterion} if it exists.  
+    An $n\times n$ matrix $M$ is called \emph{totally positive}\index{totally positive matrix} if the determinant of every square submatrix is a positive real number.  In particular, every entry of $M$ is positive and $M$ must be invertible.  Write $GL_n^{>0}\subset GL_n$ for the subset of totally positive matrices.  To check that a given matrix $M\in GL_n$ is totally positive one must, a priori, check that all ${2n\choose n}-1$ minors of $M$ are positive.  A natural question is whether this verification process can be made more efficient.  More precisely, is there a smaller collection of minors one may compute and from the positivity of this subset conclude that every minor is positive, i.e. conclude that $M\in GL_n^{>0}$?  We will call such a collection a \emph{total positivity criterion}\index{total positivity criterion} if it exists.  
 
     For small $n$, such criteria can be found and verified easily.  For example, a matrix $M=\left[\begin{array}{cc} a & b\\ c & d\end{array}\right]\in GL_2$ is totally positive if and only if $a,b,c,ad-bc>0$ if and only if $b,c,d,ad-bc>0$.
     \begin{exercise}\label{exer:gl3 positivity}
@@ -193,7 +194,7 @@
     \label{fig:wiring diagram}
     \end{figure}
 
-    Given $(u,v)\in\Sigma_n^2$, a double reduced word for $(u,v)$ is an arbitrary shuffle of a reduced word for $u$ and a reduced word for $v$, where terms in the reduced word for $v$ are taken from the set $\{-1,\ldots,-(n-1)\}$ for clarity.  For example, taking $u=(1\ 3\ 2),v=(1\ 3)\in\Sigma_3$, one double reduced word for $(u,v)$ is $(-1,2,-2,1,-1)$.  Given a double reduced word $(i_1,\ldots,i_r)$, build a double wiring diagram by superposing wiring diagrams associated to the reduced word for $u$ and the reduced word for $v$ with crossings ordered according to the double reduced word (see Figure~\ref{fig:double wiring diagram}).  
+    Given $(u,v)\in\Sigma_n^2$, a double reduced word for $(u,v)$ is an arbitrary shuffle of a reduced word for $u$ and a reduced word for $v$, where terms in the reduced word for $v$ are taken from the set $\{-1,\ldots,-(n-1)\}$ for clarity.  For example, taking $u=(1\ 3\ 2),v=(1\ 3)\in\Sigma_3$, one double reduced word for $(u,v)$ is $(-1,2,-2,1,-1)$.  Given a double reduced word $(i_1,\ldots,i_r)$, build a double wiring diagram\index{double wiring diagram} by superposing wiring diagrams associated to the reduced word for $u$ and the reduced word for $v$ with crossings ordered according to the double reduced word (see Figure~\ref{fig:double wiring diagram}).  
     \begin{figure}[ht]
     \begin{tikzpicture}
       %u
@@ -314,12 +315,12 @@
 	Each cluster algebra is defined recursively from some initial data called a seed.  A seed consists of a cluster, which was informally described at the beginning of Section \ref{sec:motivation}, together with some combinatorial data that encode the mutations that can be performed.
 
 	\begin{definition}
-		Let $\cF$ be a purely transcendental field extension of $\CC$.  A \emph{seed}\index{seed} is a pair $(\x,B)$ where $\x = (x_1,\ldots, x_n)$ is an $n$-tuple of elements forming a transcendence basis of $\cF$ over $\CC$ and $B$ is a skew-symmetric integer $n \times n$ matrix.  The collection $\x$ is called the \emph{cluster}\index{cluster} and the matrix $B$ is called the \emph{exchange matrix}\index{exhcange matrix}.
+		Let $\cF$ be a purely transcendental field extension of $\CC$.  A \emph{seed}\index{seed} is a pair $(\x,B)$ where $\x = (x_1,\ldots, x_n)$ is an $n$-tuple of elements forming a transcendence basis of $\cF$ over $\CC$ and $B$ is a skew-symmetric integer $n \times n$ matrix.  The collection $\x$ is called the \emph{cluster}\index{cluster} and the matrix $B$ is called the \emph{exchange matrix}\index{exchange matrix}.
 	\end{definition}
   
 	The following employs the notation $[a]_+ = \max(a,0)$.
 	\begin{definition}
-		Given a seed ($\x,B$) and an integer $k=1,2,\ldots, n$ the \emph{seed mutation}\index{seed mutation} $\mu_k$ in direction $k$ produces a new seed $\mu_k(\x,B) = (\x',B')$ where $\x' = (x_1,\ldots, x_{k-1}, x_k', x_{k+1},\ldots, x_n)$ with 
+		Given a seed ($\x,B$) and an integer $k=1,2,\ldots, n$ the \emph{seed mutation}\index{seed!1@mutation} $\mu_k$ in direction $k$ produces a new seed $\mu_k(\x,B) = (\x',B')$ where $\x' = (x_1,\ldots, x_{k-1}, x_k', x_{k+1},\ldots, x_n)$ with 
 		\begin{equation} \label{eq:exchange relation}
 		x_k' = \frac{\prod_{b_{ik}>0} x_i^{b_{ik}} + \prod_{b_{ik}<0} x_i^{-b_{ik}}}{x_k}
 		\end{equation}
@@ -348,7 +349,7 @@
 	\end{lemma}
 	
 	\begin{definition}
-		Fix an ambient field $\cF$ and an initial seed $(\bx, B)$.  The entries of the clusters of all seeds reachable from this one by a sequence of mutations are called the \emph{cluster variables}\index{cluster variable}.  The \emph{cluster algebra}\index{cluster algebra} associated with the initial seed is the subalgebra $\cA:=\cA(\bx,B)$ of $\cF$ generated by the set of all cluster variables.
+		Fix an ambient field $\cF$ and an initial seed $(\bx, B)$.  The entries of the clusters of all seeds reachable from this one by a sequence of mutations are called the \emph{cluster variables}\index{cluster!1@variable}.  The \emph{cluster algebra}\index{cluster!2@algebra} associated with the initial seed is the subalgebra $\cA:=\cA(\bx,B)$ of $\cF$ generated by the set of all cluster variables.
 	\end{definition}
 	
   \begin{example}\label{example:type A2}
@@ -418,7 +419,7 @@
 	Lemma \ref{lem:mutate} holds in this generalized setting.  Moreover, the skew-symmetrizing matrix $D$ is unchanged by mutation.
 	\end{lemma}
 	
-	Given a seed $(\x, \tilde{B})$ as above, the corresponding cluster algebra\index{cluster algebra} $\cA(\x, \tilde{B})$ is defined to be the subalgebra of $\CC(x_1,\ldots, x_m)$ generated by all cluster variables reachable from this seed together with the frozen variables (which appear in every seed).  Cluster algebras at this level of generality are referred to as cluster algebras of \emph{geometric type}.  In comparison, the earlier definition given was of \emph{skew-symmetric} cluster algebras with \emph{trivial coefficients}.
+	Given a seed $(\x, \tilde{B})$ as above, the corresponding cluster algebra\index{cluster!2@algebra} $\cA(\x, \tilde{B})$ is defined to be the subalgebra of $\CC(x_1,\ldots, x_m)$ generated by all cluster variables reachable from this seed together with the frozen variables (which appear in every seed).  Cluster algebras at this level of generality are referred to as cluster algebras of \emph{geometric type}.  In comparison, the earlier definition given was of \emph{skew-symmetric} cluster algebras with \emph{trivial coefficients}.
 	
 	\begin{example} \label{example:rank2}
 		Consider a rank $2$ cluster algebras with trivial coefficients (so $n=m=2$).  The initial exchange matrix can be taken to be
@@ -524,7 +525,7 @@
 	\item $y_k$ is inverted,
 	\item $B$ is changed in the same way as for ordinary seed mutations.
 	\end{enumerate}
-	The $Y$-dynamics also go by the name \emph{coefficient dynamics} because the coefficients in a geometric type cluster algebra evolve in this manner with respect to auxiliary addition $\oplus$ and ordinary multiplication of Laurent monomials.
+	The $Y$-dynamics also go by the name \emph{coefficient dynamics}\index{coefficient dynamics} because the coefficients in a geometric type cluster algebra evolve in this manner with respect to auxiliary addition $\oplus$ and ordinary multiplication of Laurent monomials.
 	
 	Another connection between cluster algebra and $Y$-pattern dynamics comes by way of a certain Laurent monomial change of variables.  Let $\tilde{B}$ be an $m \times n$ extended exchange matrix with $B$ its upper $n \times n$ submatrix.  Given a seed $((x_1,\ldots, x_m),\tilde{B})$, define an associated $Y$-seed $((\hat{y}_1,\ldots, \hat{y}_n),B)$ by
 	\begin{displaymath}
@@ -572,10 +573,10 @@
   \end{theorem}
   The proof of this result is somewhat technical and seems unlikely to be very informative so we will omit the details.
   \begin{remark}
-    If one allows extended exchange matrices and imposes an additional coprimality assumption (see Definition~\ref{def:coprime}), then the condition $b,c\ne0$ may be dropped.  The ring $\bigcap_{k=m-1}^{m+1}\ZZ[x_k^{\pm1},x_{k+1}^{\pm1}]$ is called the \emph{upper bound} of $\cA(\bx,B)$ at the cluster $\{x_m.x_{m+1}\}$ and the ring $\bigcap_{k\in\ZZ}\ZZ[x_k^{\pm1},x_{k+1}^{\pm1}]$ is called the \emph{upper cluster algebra}.  We will give more details below at which point this result will be a special case of Theorems~\ref{th:lower bounds} and~\ref{th:acyclic upper bounds}.
+    If one allows extended exchange matrices and imposes an additional coprimality assumption (see Definition~\ref{def:coprime}), then the condition $b,c\ne0$ may be dropped.  The ring $\bigcap_{k=m-1}^{m+1}\ZZ[x_k^{\pm1},x_{k+1}^{\pm1}]$ is called the \emph{upper bound} of $\cA(\bx,B)$ at the cluster $\{x_m.x_{m+1}\}$ and the ring $\bigcap_{k\in\ZZ}\ZZ[x_k^{\pm1},x_{k+1}^{\pm1}]$ is called the \emph{upper cluster algebra}.  We will give more details below, at which point this result will be a special case of Theorems~\ref{th:lower bounds} and~\ref{th:acyclic upper bounds}.
   \end{remark}
 
-	The next result is the classification of cluster algebras of \emph{finite type}, i.e.\ those that have only finitely many cluster variables.  As we have seen in Sections~\ref{sub:Gr2n} and~\ref{sub:total positivity}, cluster algebras have roots in classical Lie theory.  A large number of objects in this realm are classified by Dynkin diagrams and finite type cluster algebras are no exception.  Given an extended exchange matrix $\tilde B$ with principal square submatrix $B=(b_{ij})_{i,j=1}^n$, write $A:=A_{\tilde B}=(a_{ij})_{i,j=1}^n$ for the \emph{Cartan companion} of $\tilde B$ given by 
+	The next result is the classification of cluster algebras of \emph{finite type}, i.e.\ those that have only finitely many cluster variables.  As we have seen in Sections~\ref{sub:Gr2n} and~\ref{sub:total positivity}, cluster algebras have roots in classical Lie theory.  A large number of objects in this realm are classified by Dynkin diagrams and finite type cluster algebras are no exception.  Given an extended exchange matrix $\tilde B$ with principal square submatrix $B=(b_{ij})_{i,j=1}^n$, write $A:=A_{\tilde B}=(a_{ij})_{i,j=1}^n$ for the \emph{Cartan companion}\index{Cartan companion} of $\tilde B$ given by 
   \[a_{ij}=\begin{cases}2 & \text{if $i=j$;}\\ -|b_{ij}| & \text{otherwise.}\end{cases}\]
   Note that the Cartan companion only depends on the principal part of $\tilde B$.
   \begin{theorem}\cite{FZ03}
@@ -591,7 +592,7 @@
 		or put another way, they are the matrices $\left[\begin{array}{cc} 2 & -b\\ -c & 2\end{array}\right]$ with $bc \leq 3$.  This is precisely the Cartan counterpart $A_B$ of the exchange matrix $B=\left[\begin{array}{cc} 0 & b\\ -c & 0\end{array}\right]$.  Therefore, the rank 2 cluster algebra with this exchange matrix, or any cluster algebra obtained from it by adding coefficients, has finite type if and only if $bc \leq 3$.  This was the content of Exercise \ref{exercise:rank 2}.
 		\end{example}
 		
-		We now provide an outline to the solution of Exercise \ref{exercise:rank 2}.  Let $B=\left[\begin{array}{cc} 0 & b\\ -c & 0\end{array}\right]$ and let $x_k, k \in \mathbb{Z}$ be the cluster variables of this cluster algebra.  We need some more notation.  For $k \neq 1,2$, let $d^{(k)}=(d_1^{(k)},d_2^{(k)})$ denote the exponents of the monomial $x_1^{d^{(k)}_1}x_2^{d^{(k)}_2}$ appearing in the denominator of $x_k$ when expressed as a Laurent polynomial in $x_1, x_2$.  Let $U_\ell(t)$ denote the (normalized) Chebyshev polynomial (of the second kind) defined recursively by 
+		We now provide an outline to the solution of Exercise \ref{exercise:rank 2}.  Let $B=\left[\begin{array}{cc} 0 & b\\ -c & 0\end{array}\right]$ and let $x_k, k \in \mathbb{Z}$ be the cluster variables of this cluster algebra.  We need some more notation.  For $k \neq 1,2$, let $d^{(k)}=(d_1^{(k)},d_2^{(k)})$ denote the exponents of the monomial $x_1^{d^{(k)}_1}x_2^{d^{(k)}_2}$ appearing in the denominator of $x_k$ when expressed as a Laurent polynomial in $x_1, x_2$.  Let $U_\ell(t)$ denote the (normalized) Chebyshev polynomial\index{Chebyshev polynomial} (of the second kind) defined recursively by 
     \[U_{\ell+1}(t)=tU_\ell(t)-U_{\ell-1}(t)\qquad U_1(t)=1\qquad U_0(t)=0\]
     and for $j\in\{1,2\}$ define 
     \[u_{\ell,j}=\begin{cases}U_\ell(\sqrt{bc}) & \text{if $\ell$ is odd;}\\\sqrt{b/c}\,U_\ell(\sqrt{bc}) & \text{if $\ell$ is even and $j=1$;}\\\sqrt{c/b}\,U_\ell(\sqrt{bc}) & \text{if $\ell$ is even and $j=2$.}\\\end{cases}\]
@@ -620,7 +621,7 @@
   \end{theorem}
   The proof in skew-symmetric types builds on a concrete combinatorial construction of cluster variables in rank 2 \cite{LS13,LLZ14}.  For the more general skew-symmetrizable cluster algebras the proof was given in \cite{GHKK14} using the theory of scattering diagrams built on connections to mirror symmetry.  We describe the combinatorial approach to the skew-symmetric case here, but first we need more notation.
 
-  For $k\in\ZZ\setminus\{1,2\}$, denote by $R_k$ the rectangle in $\ZZ^2$ with corner vertices $(0,0)$ and $d^{(k)}$ from Equation~\ref{eq:rank 2 denominators}.  Write $D_k$ for the maximal Dyck path in $R_k$ beginning at $(0,0)$, taking East and North steps to end at the upper right corner of $R_k$ while never passing above the main diagonal, and such that the area below $D_k$ inside $R_k$ is maximized.
+  For $k\in\ZZ\setminus\{1,2\}$, denote by $R_k$ the rectangle in $\ZZ^2$ with corner vertices $(0,0)$ and $d^{(k)}$ from Equation~\ref{eq:rank 2 denominators}.  Write $D_k$ for the maximal Dyck path\index{maximal Dyck path} in $R_k$ beginning at $(0,0)$, taking East and North steps to end at the upper right corner of $R_k$ while never passing above the main diagonal, and such that the area below $D_k$ inside $R_k$ is maximized.
   \begin{example}
     For $b=c=3$, the maximal Dyck path $D_5$ is
     \begin{center}
@@ -644,7 +645,7 @@
   \end{example}
   For edges $e,e'\in D_k$, write $e<e'$ if $e$ precedes $e'$ along $D_k$, in other words if $e$ is closer to $(0,0)$.  In this case write $ee'$ for the subpath of $D_k$ beginning with the edge $e$ and ending with the edge $e'$.  Write $(ee')_H$ and $(ee')_V$ for the sets of horizontal and vertical edges in the path $ee'$ respectively.  Let $H,V\subset D_k$ denote the sets of horizontal and vertical edges of $D_k$.
 
-  Call subsets $S_H\subset H$ and $S_V\subset V$ compatible if for each $h\in S_H$ and $v\in S_V$ with $h<v$, there exists $e\in hv$ so that one of the following holds:
+  Call subsets $S_H\subset H$ and $S_V\subset V$ compatible\index{compatible pair} if for each $h\in S_H$ and $v\in S_V$ with $h<v$, there exists $e\in hv$ so that one of the following holds:
   \begin{itemize}
     \item $e\ne v$ and $|(he)_V|=c|(he)_H\cap S_H|$;
     \item $e\ne h$ and $|(ev)_H|=b|(ev)_V\cap S_V|$.
@@ -722,15 +723,15 @@
 
   In some special cases, the cluster algebra coincides with its upper cluster algebra.  First we describe a necessary intermediate concept.
   \begin{definition}\label{def:coprime}
-    Let $(\bx,\tilde B)$ be an extended seed and denote by $P_k:=x_kx_k'$ the binomial on the right hand side of the exchange relation \eqref{eq:exchange relation}.  We say that $(\bx,\tilde B)$ is \emph{coprime} if the binomials $P_k$ are pairwise relatively prime.
+    Let $(\bx,\tilde B)$ be an extended seed and denote by $P_k:=x_kx_k'$ the binomial on the right hand side of the exchange relation \eqref{eq:exchange relation}.  We say that $(\bx,\tilde B)$ is \emph{coprime}\index{seed!2@coprime --} if the binomials $P_k$ are pairwise relatively prime.
   \end{definition}
-  The \emph{upper bound} $\cU(\bx',\tilde B)$ for $\cA(\bx,\tilde B)$ at a seed $(\bx',\tilde B')$ mutation equivalent to $(\bx,\tilde B)$ is the intersection of the Laurent ring generated by variables in $\bx'$ with all Laurent rings associated to seeds which can be obtained from $(\bx',\tilde B')$ by a single mutation.
+  The \emph{upper bound}\index{upper bound algebra} $\cU(\bx',\tilde B)$ for $\cA(\bx,\tilde B)$ at a seed $(\bx',\tilde B')$ mutation equivalent to $(\bx,\tilde B)$ is the intersection of the Laurent ring generated by variables in $\bx'$ with all Laurent rings associated to seeds which can be obtained from $(\bx',\tilde B')$ by a single mutation.
   \begin{theorem}\cite{BFZ05}
     If $(\bx,\tilde B)$ and $(\bx',\tilde B')$ are mutation equivalent coprime seeds, then their upper bounds $\cU(\bx,\tilde B)$ and $\cU(\bx',\tilde B)$ coincide.  In particular, if every seed mutation equivalent to an extended seed $(\bx,\tilde B)$ is coprime, then $\overline{\cA}(\bx,\tilde B)=\cU(\bx',\tilde B')$ for any seed mutation equivalent to $(\bx,\tilde B)$.
   \end{theorem}
 
   \begin{definition}
-    An exchange matrix $B=(b_{ij})$ is called \emph{acyclic} if there exists a permutation $\sigma$ so that $b_{\sigma_i\sigma_j}\le 0$ for $i<j$.
+    An exchange matrix $B=(b_{ij})$ is called \emph{acyclic}\index{exchange matrix!acyclic --} if there exists a permutation $\sigma$ so that $b_{\sigma_i\sigma_j}\le 0$ for $i<j$.
   \end{definition}
   This terminology can be easily understood in the case of a skew-symmetric exchange matrix; the matrix is acyclic exactly when its associated quiver (see Section \ref{sec:integrable_systems}) has no oriented cycles.
   \begin{theorem}\cite{BFZ05}\label{th:acyclic upper bounds}
@@ -747,7 +748,7 @@
   \end{theorem}
 
   \begin{example}
-    Acyclic cluster algebras are particularly nice but should not be taken as the general case: there exist cluster algebras where anything that can go wrong seems to go wrong.  The primary example of this is the \emph{Markov cluster algebra} with exchange matrix 
+    Acyclic cluster algebras are particularly nice but should not be taken as the general case: there exist cluster algebras where anything that can go wrong seems to go wrong.  The primary example of this is the \emph{Markov cluster algebra}\index{Markov!2@cluster algebra} with exchange matrix 
     \[B=\left[\begin{array}{ccc} 0 & 2 & -2\\ -2 & 0 & 2\\ 2 & -2 & 0\end{array}\right].\]
     
     Comparing with Example~\ref{sub:Markov triples} we see that the Markov cluster algebra has infinitely many cluster variables.  In this case, the following undesirable properties all hold:
@@ -764,7 +765,7 @@
 
   Many natural examples of cluster algebras carry the following additional structure. 
   \begin{definition}
-    A \emph{Poisson algebra} $(A,\{\cdot,\cdot\})$ is an associative algebra $A$ equipped with an additional skew-symmetric bilinear operation, called the Poisson bracket\index{Poisson bracket} (written as $\{x,y\}$ for $x,y\in A$), for which the following holds:
+    A \emph{Poisson algebra}\index{Poisson!algebra} $(A,\{\cdot,\cdot\})$ is an associative algebra $A$ equipped with an additional skew-symmetric bilinear operation, called the Poisson bracket\index{Poisson!bracket} (written as $\{x,y\}$ for $x,y\in A$), for which the following holds:
     \begin{itemize}
       \item given any $x\in A$, the endomorphism $\{x,\cdot\}:A\to A$, $y\mapsto\{x,y\}$ is a derivation with respect to both binary operations on $A$, i.e. for $x,y,z\in A$ we have
       \begin{align*}
@@ -776,7 +777,7 @@
 
   In the case of cluster algebras, the Poisson brackets take an especially simple form when applied to cluster variables.  
   \begin{definition}
-    Let $\cA$ be a cluster algebra.  A Poisson bracket $\{\cdot,\cdot\}$ on $\cA$ is compatible with the cluster algebra structure if every cluster $\bx$ of $\cA$ is \emph{log-canonical} with respect to $\{\cdot,\cdot\}$, that is there exists a skew-symmetric matrix $\Omega_\bx=(\Omega_{ij})$ so that $\{x_i,x_j\}=\Omega_{ij}x_ix_j$ for all $i,j$.
+    Let $\cA$ be a cluster algebra.  A Poisson bracket $\{\cdot,\cdot\}$ on $\cA$ is compatible with the cluster algebra structure if every cluster $\bx$ of $\cA$ is \emph{log-canonical}\index{log-canonical basis} with respect to $\{\cdot,\cdot\}$, that is there exists a skew-symmetric matrix $\Omega_\bx=(\Omega_{ij})$ so that $\{x_i,x_j\}=\Omega_{ij}x_ix_j$ for all $i,j$.
   \end{definition}
 
   The existence of a compatible Poisson structure is quite restrictive and requires a particular relationship between the matrix $\Omega_\bx$ and the exchange matrix of a seed with cluster $\bx$. 
@@ -794,9 +795,9 @@
   \end{theorem}
   The primary motivating example for compatible Poisson structures comes in the form of the double Bruhat cells of Section~\ref{sub:total positivity}.  To introduce the relevant Poisson structure and place the double Bruhat cells in the proper context we need to introduce more notation.
 
-  A smooth manifold $M$ together with a Poisson structure on its algebra $\cO(M)$ of regular functions is called a \emph{Poisson manifold}.  The best understood examples of such structures comes from the theory of symplectic geometry.
+  A smooth manifold $M$ together with a Poisson structure on its algebra $\cO(M)$ of regular functions is called a \emph{Poisson manifold}\index{Poisson!manifold}.  The best understood examples of such structures comes from the theory of symplectic geometry.
   \begin{example}
-    A symplectic manifold\index{symplectic manifold} $(M,\omega)$ is a smooth even-dimensional manifold $M^{2n}$ together with a 2-form $\omega\in H^2(M)$ that is non-degenerate, i.e. $\omega^n\ne0$ is a volume form.  The symplectic structure $\omega$ provides a natural association of a vector field $\xi_f$ to a function $f\in\cO(M)$ via the contraction formula $\iota_{\xi_f}\omega=-df$.  The algebra of smooth functions on the symplectic manifold $M$ is then naturally a Poisson algebra via $\{f,g\}=\omega(\xi_f,\xi_g)$ for $f,g\in\cO(M)$.
+    A symplectic manifold\index{symplectic!1@manifold} $(M,\omega)$ is a smooth even-dimensional manifold $M^{2n}$ together with a 2-form $\omega\in H^2(M)$ that is non-degenerate, i.e. $\omega^n\ne0$ is a volume form.  The symplectic structure $\omega$ provides a natural association of a vector field $\xi_f$ to a function $f\in\cO(M)$ via the contraction formula $\iota_{\xi_f}\omega=-df$.  The algebra of smooth functions on the symplectic manifold $M$ is then naturally a Poisson algebra via $\{f,g\}=\omega(\xi_f,\xi_g)$ for $f,g\in\cO(M)$.
   \end{example}  
   A smooth map $\varphi:M\to N$ between Poisson manifolds is a \emph{Poisson morphism} if it induces a Poisson morphism $\varphi^*:\cO(N)\to\cO(M)$ on their algebras of smooth functions, i.e. if $\{f \circ \varphi,g \circ \varphi\}_M=\{f,g\}_N\circ\varphi$ for all $f,g\in \cO(N)$.  Given two Poisson manifolds $M$ and $N$, there is a natural Poisson structure on $M\times N$ given by
   \[\{f,g\}(x,y)=\{f(\cdot,y),g(\cdot,y)\}_M(x)+\{f(x,\cdot),g(x,\cdot)\}_N(y)\]
@@ -823,7 +824,7 @@
   \begin{quotation}
     $p\sim q$ if there exists a piecewise smooth curve connecting $p$ and $q$ where each smooth segment is the trajectory of a Hamiltonian vector field.
   \end{quotation}
-  The equivalence class $M_p$ containing $p\in M$ is a connected submanifold of $M$ and by definition its tangent space $T_qM_p\subset T_qM$ is spanned by Hamiltonian tangent vectors.  We may view $M_p$ as a symplectic manifold whose 2-form is given by $\omega(\xi_f,\xi_g)=\{f,g\}$ and thus $M_p$ is called the \emph{symplectic leaf}\index{symplectic leaf} of $M$ through $p$.
+  The equivalence class $M_p$ containing $p\in M$ is a connected submanifold of $M$ and by definition its tangent space $T_qM_p\subset T_qM$ is spanned by Hamiltonian tangent vectors.  We may view $M_p$ as a symplectic manifold whose 2-form is given by $\omega(\xi_f,\xi_g)=\{f,g\}$ and thus $M_p$ is called the \emph{symplectic leaf}\index{symplectic!2@leaf} of $M$ through $p$.
   \begin{example}
     The symplectic leaves of $GL_n$ have been explicitly computed (e.g. see \cite{KZ02} and references therein).  In particular, it is known that each double Bruhat cell in $GL_n$ is foliated by symplectic leaves of $GL_n$.  As an example (c.f. Example~\ref{example:big cell}) the following set is a symplectic leaf living in $GL_n^{w_0,w_0}$:
     \[\{M\in GL_n:\Delta_{[1,i],[n+1-i,n]}(M)=\Delta_{[i+1,n],[1,n-i]}(M)\ne0\text{ for all $i$}\}.\]
