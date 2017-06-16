@@ -791,7 +791,8 @@
   
   In fact, these conditions can only hold in the following situation, in which case all possible compatible Poisson structures can be easily understood. 
   \begin{theorem}\cite{GSV03} \label{thm:Poisson}
-    A compatible Poisson structure exists if and only if the extended exchange matrix $\tilde B$ has full rank.  Moreover, the collection of all such Poisson structures is parametrized by an affine space of dimension $\rho(B)+{m\choose 2}$, where $\rho(B)$ denotes the number of connected components of the quiver associated to the principal submatrix $B$ of $\tilde B$.
+    %A compatible Poisson structure exists if and only if the extended exchange matrix $\tilde B$ has full rank.  
+		If an extended exchange matrix $\tilde B$ has full rank then a compatible Poisson structure exists for the associated cluster algebra.  Moreover, the collection of all such Poisson structures is parametrized by an affine space of dimension $\rho(B)+{m\choose 2}$, where $\rho(B)$ denotes the number of connected components of the quiver associated to the principal submatrix $B$ of $\tilde B$.
   \end{theorem}
   The primary motivating example for compatible Poisson structures comes in the form of the double Bruhat cells of Section~\ref{sub:total positivity}.  To introduce the relevant Poisson structure and place the double Bruhat cells in the proper context we need to introduce more notation.
 
@@ -1165,7 +1166,7 @@ For the remainder of this section, all mutations are understood to be of $Y$-pat
 	\begin{proposition}[\cite{OST10, GSTV12}] \label{prop:pentagramBracket}
 		Define a Poisson bracket by $\{y_i,y_j\} = b_{ij}y_iy_j$ where $B$ is the exchange matrix associated to the pentagram quiver $Q_n$.  Then this bracket is preserved by the pentagram map, i.e.
 		\begin{displaymath}
-			\{f,g\} = \{f\circ T, g \circ T\}
+			\{f,g\} \circ T = \{f\circ T, g \circ T\}
 		\end{displaymath}
 		for all functions $f$ and $g$ of the $y$-parameters.
 	\end{proposition}
@@ -1368,7 +1369,7 @@ For the remainder of this section, all mutations are understood to be of $Y$-pat
 	In the last item, the term \emph{Casimir}\index{Casimir} refers to a function that Poisson commutes with all other functions.  In the case summarized in Table \ref{table:integrals}, the $4$ functions $O_2,E_2,O_4,E_4$ are Casimirs while the other $2$ conserved quantities $O_1$ and $E_1$ are not.  The calculation checks out as $4+2(2)=8$ is the dimension of the space of twisted quadrilaterals.
 	
 	\medskip
-	\textbf{Acknowledgments.} These notes are based on lectures we presented during the 2016 ASIDE summer school in Montreal.  We thank the ASIDE organizers for inviting us and also for coordinating the efforts to compile the lecture notes.  We thank the anonymous referee for several helpful comments.
+	\textbf{Acknowledgments.} These notes are based on lectures we presented during the 2016 ASIDE summer school in Montreal.  We thank the ASIDE organizers for inviting us and also for coordinating the efforts to compile the lecture notes.  We thank Sophie Morier-Genoud and the anonymous referee for several helpful comments.
 	
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{thebibliography}{99}
